@@ -201,9 +201,9 @@
 
 .field private static final WIFI_SUPPLICANT_STATUS_DATA_ITEM_ID:I = 0x12
 
-.field private static final ZTE_FEATURE_ENABLE_DUAL_NLP:Z
+.field private static final ZTE_FEATURE_ENABLE_DUAL_NLP:Z = false
 
-.field private static final ZTE_OPERATOR_NAME:Ljava/lang/String;
+.field private static final ZTE_OPERATOR_NAME:Ljava/lang/String; = "null"
 
 
 # instance fields
@@ -376,27 +376,6 @@
     move-result v0
 
     sput-boolean v0, Lcom/qualcomm/location/osagent/OsAgent;->ERROR_LOG:Z
-
-    .line 2413
-    const-string v0, "ZTE_OPERATOR_NAME"
-
-    invoke-static {v0}, Lcom/zte/feature/Feature;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/qualcomm/location/osagent/OsAgent;->ZTE_OPERATOR_NAME:Ljava/lang/String;
-
-    .line 2414
-    const-string v0, "ZTE_FEATURE_ENABLE_DUAL_NLP"
-
-    .line 2415
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/zte/feature/Feature;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/qualcomm/location/osagent/OsAgent;->ZTE_FEATURE_ENABLE_DUAL_NLP:Z
 
     .line 2605
     invoke-static {}, Lcom/qualcomm/location/osagent/OsAgent;->native_subscription_class_init()V
