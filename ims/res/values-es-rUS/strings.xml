@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="incoming_call_failed_low_battery">Error de llamada entrante debido a batería baja.</string>
+    <string name="device_is_hd_capable">SIM %1$d está habilitada para HD</string>
+    <string name="device_is_volte_capable">SIM %1$d está habilitada para VOLTE</string>
+    <string name="call_hold_label">Llamada en espera:</string>
+    <string name="call_resume_label">Reanudación de llamada:</string>
+    <string name="error_msg_failed">Error al enviar</string>
+    <string name="error_msg_cancelled">Cancelado</string>
+    <string name="error_msg_reinvite_collision">Volver a invitar a colisión</string>
+    <string name="handover_from_wifi_to_lte">Cambiando a red LTE para mejor calidad</string>
+    <string name="wifi_calling_on">Llamada de Wi-Fi encendida</string>
+    <string name="wifi_calling_off">Llamada de Wi-Fi apagada</string>
+    <string name="wifi_calling_enable_dialog_title">¿Deseas permitir las llamada Wi-Fi?</string>
+    <string name="wifi_calling_enable_dialog_msg">Realizar y recibir llamadas a través de Wi-Fi con tu cuenta de Jio. Revisa la información de llamada de emergencia de tu proveedor para comprender los límites de las llamadas de emergencia a través de Wi-Fi. Cuando te unes a una red, la información sobre el país donde se realiza la conexión a la red puede enviarse a tu proveedor para detalles como la facturación.</string>
+    <string name="wifi_calling_enable_dialog_cancel">LISTO</string>
+    <string name="wifi_calling_enable_dialog_enable">Activar</string>
+    <string name="ims_channel_name">ims</string>
+</resources>

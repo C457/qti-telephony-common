@@ -1,0 +1,125 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+SHA-256-Digest-Manifest: BKOMq0pM9BOqqokaHAmNt46RgxwDezsprx5NgeIK1w0=
+X-Android-APK-Signed: 2, 3
+
+Name: AndroidManifest.xml
+SHA-256-Digest: G7CU4Dcedx6FAkIv82lrK3E4xCmHGV6elwyzklcdGTo=
+
+Name: assets/star.png
+SHA-256-Digest: xYHelKKeNqtq2bCybgyCVzzkUrymUXEnyJQXz7e3Kt4=
+
+Name: classes.dex
+SHA-256-Digest: acdINa8LdWjfjCpCBaeIezmZfLEsdjCACKclU2kbqZA=
+
+Name: res/drawable-hdpi-v4/checkbox_checked.png
+SHA-256-Digest: nBwBwFl19dgmhlAxp/gl0McRZ6DaumewRGYPqxiDAJA=
+
+Name: res/drawable-hdpi-v4/checkbox_default.png
+SHA-256-Digest: +Hn82JmxMsFhB29SCG7AI4zoHAetIjn69iP2VCzyQOk=
+
+Name: res/drawable-hdpi-v4/ic_menu_cancel_holo_dark.png
+SHA-256-Digest: 9hZarRxgRIRoBd+P+aHWUVyPIBrAfmI9HpTITZaXphQ=
+
+Name: res/drawable-hdpi-v4/icon.png
+SHA-256-Digest: m8VpAoCT7p/gzFIpL/8bc96K072K3tmMSkKyUCyuj7I=
+
+Name: res/drawable-hdpi-v4/nfc.png
+SHA-256-Digest: sn7NcZeyAyKqxR6z+A0vssVsK52YFcsq245R0Llfrz8=
+
+Name: res/drawable-hdpi-v4/perm_group_network.png
+SHA-256-Digest: VPYUZVrR4Ycp6Z8v7H4WUaiLn+s6B6Ejq6NboETz8FQ=
+
+Name: res/drawable-hdpi-v4/tap_again.png
+SHA-256-Digest: ALhDqQ4Nwe2+gZaJDM1Uo/hnIYYWZUeKDSzpNqZ8Pn0=
+
+Name: res/drawable-mdpi-v4/back.png
+SHA-256-Digest: 3VojIOO/RpLd9RWZDU3R000iW4WPkXjWlHMqEeRP7aA=
+
+Name: res/drawable-mdpi-v4/ic_menu_cancel_holo_dark.png
+SHA-256-Digest: SS5U3zyjcMQmyxjD9PG9MR8vWNdGp6FLI8PFSbIM40A=
+
+Name: res/drawable-mdpi-v4/icon.png
+SHA-256-Digest: Y9GHSOZpTBJNdU8oN4PW2K01wvhWjvEnM+WatrzwhYI=
+
+Name: res/drawable-mdpi-v4/perm_group_network.png
+SHA-256-Digest: yYCAHItjN8aS2tsnnntDmV0J+ccVgsdIjEe8X6PK3WQ=
+
+Name: res/drawable-mdpi-v4/tap_again.png
+SHA-256-Digest: gPNW9nBvevM4ZSj8NM6RpltdYMpdHQasFx8Kkrruz9k=
+
+Name: res/drawable-xhdpi-v4/icon.png
+SHA-256-Digest: c/eFWCihKegwo6K5y09tjO7VR9vyQtQo+iqDcZb78dA=
+
+Name: res/drawable-xhdpi-v4/perm_group_network.png
+SHA-256-Digest: 7PGt1v6It105xvleQhDKTINUuI0wftBfnwzFd5/J4+k=
+
+Name: res/drawable-xhdpi-v4/tap_again.png
+SHA-256-Digest: Iu3cJqd/q5sK+gsoPs32W/inItg33OezE+qGEiMl6Dc=
+
+Name: res/drawable-xxhdpi-v4/icon.png
+SHA-256-Digest: GeDpKsW7tDezaHFKD5xByLZ7FkAGZ+eGKgRjUYLyCcw=
+
+Name: res/drawable-xxhdpi-v4/perm_group_network.png
+SHA-256-Digest: +hQ8L2eMJKZD+7e2Ds2GOBFa68BLSQWHNnU8QNcignk=
+
+Name: res/drawable-xxhdpi-v4/tap_again.png
+SHA-256-Digest: ozZsCGp0/inj9UTVuc71bAlmrfxPahSs48CX1fTFmJg=
+
+Name: res/drawable-xxxhdpi-v4/icon.png
+SHA-256-Digest: HE1tUuo+AoZr+vPh0li0dzdBC3q1t34Dm07IDVG+JJc=
+
+Name: res/drawable-xxxhdpi-v4/perm_group_network.png
+SHA-256-Digest: yNS9PkOeIvSmygHbrBLwFJXrSBfM5fjEy0RuU3vOReo=
+
+Name: res/drawable/btn_pressed_style.xml
+SHA-256-Digest: V0EVg8OMq/I8BeR0DAKSwZebBkRSQtzYtHGYqiqE8NA=
+
+Name: res/drawable/checkbox_checked_style.xml
+SHA-256-Digest: lexWDYDgI8AZVwKNLwk/nzNdic4rHo5dRAZdtLB5Hf0=
+
+Name: res/drawable/ic_weblink_nfc.xml
+SHA-256-Digest: s2ivpzfBUOSHeqeb22R3Hh3YTTddawrtoeDOKlUymqQ=
+
+Name: res/drawable/listview_item_pressed_style.xml
+SHA-256-Digest: L9zFGuzZ4Qyu8CPebSLjl02DIGzaXq0KUApo+P0zZzs=
+
+Name: res/layout/activity_aid_table_full.xml
+SHA-256-Digest: IFBmrMCid/riClZgerBSlJ03mjkwwBCNQwu5QwkXfpA=
+
+Name: res/layout/cardemu_item.xml
+SHA-256-Digest: YcnhELwRQ7icInhD/xZHhYyEqBx3i5YsgVqDGqbzZmg=
+
+Name: res/layout/cardemu_payment_item.xml
+SHA-256-Digest: i/D79Ei2SGCM5abCDwKflPKHxsLKZId9jhe8cSS8PFs=
+
+Name: res/layout/cardemu_resolver.xml
+SHA-256-Digest: JdwotEeocgdQNCPAYKqcwlnf6GN2e+kis4q2bhQSWBs=
+
+Name: res/layout/listview_item_layout.xml
+SHA-256-Digest: jVJdvZ/j9YpN0w6s4n/ZqeVXGd+Ixd1/R1uzycnagBM=
+
+Name: res/layout/screenshot.xml
+SHA-256-Digest: ZjHPv/3A/dqyrzVVSP3ZBV6td9y1gIzB6OFu4lLgcr0=
+
+Name: res/layout/tapagain.xml
+SHA-256-Digest: h6jL9OlnlRi98gNV47BHYk2Dh0cxs8Gbt4EofBLTPT4=
+
+Name: res/layout/url_open_confirmation.xml
+SHA-256-Digest: sTaK4jbgTJhSGsCDKXV0trAArwgOOim86EqMgTYAABs=
+
+Name: res/raw/end.ogg
+SHA-256-Digest: YX14IaOBPqamhkVOGanhDqD0EDH895Hsa0LsTR2k4w8=
+
+Name: res/raw/error.ogg
+SHA-256-Digest: k373UYLhARyrGMtlQsS+zGnzimJvBz1RVo+mpiA/yAI=
+
+Name: res/raw/start.ogg
+SHA-256-Digest: xnV9mhiFxRNED8rrhjx5UCj3FdeZ7jAmxCujXo7ZtAo=
+
+Name: res/xml/file_paths.xml
+SHA-256-Digest: OeTWL5CP/OlOVWgSGYyEvR1njwuHdpaSJeCUV46f1Mk=
+
+Name: resources.arsc
+SHA-256-Digest: xPRkOWJVswYkOD9ZNYFx/Gac+vka5IOLGF8KcgK24w8=
+

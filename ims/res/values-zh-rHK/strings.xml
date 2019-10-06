@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="incoming_call_failed_low_battery">由於電池電量不足導致來電失敗。</string>
+    <string name="device_is_hd_capable">SIM 卡 %1$d 支援高清</string>
+    <string name="device_is_volte_capable">SIM 卡 %1$d 支援 VOLTE</string>
+    <string name="call_hold_label">通話保留：</string>
+    <string name="call_resume_label">恢復通話：</string>
+    <string name="error_msg_failed">失敗！</string>
+    <string name="error_msg_cancelled">已取消</string>
+    <string name="error_msg_reinvite_collision">重邀衝突</string>
+    <string name="handover_from_wifi_to_lte">切換到 LTE 網絡以獲得更好的品質</string>
+    <string name="wifi_calling_on">Wi-Fi 通話啟動</string>
+    <string name="wifi_calling_off">Wi-Fi 通話關閉</string>
+    <string name="wifi_calling_enable_dialog_title">要啟用 Wi-Fi 通話嗎？</string>
+    <string name="wifi_calling_enable_dialog_msg">使用 Wi-Fi 撥打和接聽電話 Jio 帳號。查看電訊商的緊急通話訊息，了解經由 Wi-Fi 進行緊急通話的限制。當加入某個網絡時，有關所在國家/地區網絡連線的詳細資訊如費用的信息可能會發送給您的電訊商，例如費用。</string>
+    <string name="wifi_calling_enable_dialog_cancel">取消</string>
+    <string name="wifi_calling_enable_dialog_enable">啟用</string>
+</resources>

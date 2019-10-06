@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="incoming_call_failed_low_battery">La Chiamata in Arrivo non è riuscita poiché la batteria è in esaurimento</string>
+    <string name="device_is_hd_capable">La SIM %1$d è HD</string>
+    <string name="device_is_volte_capable">La SIM %1$d è VOLTE</string>
+    <string name="call_hold_label">Chiamata in attesa:</string>
+    <string name="call_resume_label">Chiamata ripresa:</string>
+    <string name="error_msg_failed">Non riuscito</string>
+    <string name="error_msg_cancelled">Annullato</string>
+    <string name="error_msg_reinvite_collision">Reinvita Collision</string>
+    <string name="handover_from_wifi_to_lte">Passaggio alla rete LTE per una qualità migliore</string>
+    <string name="wifi_calling_on">Chiamata via Wi-Fi</string>
+    <string name="wifi_calling_off">Fine chiamata via Wi-Fi</string>
+    <string name="wifi_calling_enable_dialog_title">Attivare Chiamata Wi-Fi?</string>
+    <string name="wifi_calling_enable_dialog_msg">"Fai e ricevi chiamate via Wi-Fi con il tuo account Jio. Rivedere le informazioni sulle chiamate d'emergenza del tuo gestore telefonico per comprendere i limite della comunicazione su Wi-Fi. Quando ci si aggancia a una rete, è possibile che le informazioni sul paese in cui viene stabilita la connessione vengano inviate al gestore telefonico per i dettagli di fatturazione."</string>
+    <string name="wifi_calling_enable_dialog_cancel">Annulla</string>
+    <string name="wifi_calling_enable_dialog_enable">Attiva</string>
+    <string name="ims_channel_name">ims</string>
+</resources>

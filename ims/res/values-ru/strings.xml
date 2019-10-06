@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="incoming_call_failed_low_battery">Ошибка входящего вызова из-за низкого заряда батареи.</string>
+    <string name="device_is_hd_capable">SIM карта %1$d поддерживает HD</string>
+    <string name="device_is_volte_capable">SIM карта %1$d поддерживает VOLTE</string>
+    <string name="call_hold_label">Удержание звонка:</string>
+    <string name="call_resume_label">Возобновление звонка:</string>
+    <string name="error_msg_failed">Сбой.</string>
+    <string name="error_msg_cancelled">Отменено</string>
+    <string name="error_msg_reinvite_collision">Противоречие повторного вызова</string>
+    <string name="handover_from_wifi_to_lte">Переключение на сеть LTE для лучшего качества</string>
+    <string name="wifi_calling_on">WiFi Calling - вкл</string>
+    <string name="wifi_calling_off">WiFi Calling - выкл</string>
+    <string name="wifi_calling_enable_dialog_title">Включить вызовы Wi-Fi?</string>
+    <string name="wifi_calling_enable_dialog_msg">Совершайте и принимайте звонки по Wi-Fi с помощью Аккаунт Jio. Просмотрите информацию о совершении эсктренных вызовов, чтобы понять возможности совершения экстренных звонков по Wi-Fi. При подключении к сети, информация о стране, из которой произведено подключение, будет выслна оператору для предоставления счета.</string>
+    <string name="wifi_calling_enable_dialog_cancel">Отмена</string>
+    <string name="wifi_calling_enable_dialog_enable">Включить</string>
+</resources>

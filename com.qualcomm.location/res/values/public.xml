@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public type="bool" name="config_enableNpOverlay" id="0x7f020000" />
+    <public type="string" name="config_OSNP_PackageName" id="0x7f030000" />
+    <public type="string" name="config_regional_OSNP_Baidu_PackageName" id="0x7f030001" />
+    <public type="string" name="config_regional_OSNP_AutoNavi_PackageName" id="0x7f030002" />
+    <public type="string" name="config_regional_OSNP_AutoNavi_PackageName_1" id="0x7f030003" />
+    <public type="string" name="config_regional_OSNP_Tencent_PackageName" id="0x7f030004" />
+    <public type="string" name="desc" id="0x7f030005" />
+    <public type="string" name="label" id="0x7f030006" />
+    <public type="string" name="EmbargoedMcc" id="0x7f030007" />
+    <public type="string" name="EmbargoedSID" id="0x7f030008" />
+    <public type="string" name="RegionalNLPMcc" id="0x7f030009" />
+    <public type="string" name="RegionalNLPSID" id="0x7f03000a" />
+    <public type="array" name="config_OSNP_NpPackageNames" id="0x7f040000" />
+    <public type="array" name="config_Baidu_NpPackageNames" id="0x7f040001" />
+    <public type="array" name="config_AutoNavi_NpPackageNames" id="0x7f040002" />
+    <public type="array" name="config_AutoNavi_NpPackageNames_1" id="0x7f040003" />
+    <public type="array" name="config_Tencent_NpPackageNames" id="0x7f040004" />
+</resources>
