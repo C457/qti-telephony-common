@@ -22,7 +22,7 @@
 
 .field private static final VDBG:Z = false
 
-.field private static final ZTE_FEATURE_TWO_CTSIM_PRIMARYCARD_SWITCH:Z
+.field private static final ZTE_FEATURE_TWO_CTSIM_PRIMARYCARD_SWITCH:Z = false
 
 .field private static packageName:Ljava/lang/String;
 
@@ -60,17 +60,6 @@
     const-string v0, "com.qualcomm.qti.simsettings"
 
     sput-object v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardPriorityHandler;->packageName:Ljava/lang/String;
-
-    .line 57
-    const-string v0, "ZTE_FEATURE_TWO_CTSIM_PRIMARYCARD_SWITCH"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/zte/feature/Feature;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardPriorityHandler;->ZTE_FEATURE_TWO_CTSIM_PRIMARYCARD_SWITCH:Z
 
     return-void
 .end method

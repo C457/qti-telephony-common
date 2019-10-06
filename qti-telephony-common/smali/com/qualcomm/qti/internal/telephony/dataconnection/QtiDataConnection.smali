@@ -636,9 +636,7 @@
     :cond_7
     if-ltz v2, :cond_8
 
-    invoke-static {}, Lcom/zte/PlatformConfig;->isMxtelProject()Z
-
-    move-result v3
+    const/4 v3, 0
 
     if-eqz v3, :cond_8
 

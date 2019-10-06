@@ -202,9 +202,7 @@
 
     move-result v0
 
-    invoke-static {v0}, Lcom/zte/PlatformConfig;->isNttDocomoProductPerPhoneId(I)Z
-
-    move-result v0
+    const/4 v0, 0
 
     if-eqz v0, :cond_1
 

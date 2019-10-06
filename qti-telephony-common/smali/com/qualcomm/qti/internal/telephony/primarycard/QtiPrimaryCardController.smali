@@ -48,9 +48,9 @@
 
 .field private static final VDBG:Z = false
 
-.field private static final ZTE_FEATURE_PRIMARYCRAD_DISABLE_LTECONFIG_PROMPT:Z
+.field private static final ZTE_FEATURE_PRIMARYCRAD_DISABLE_LTECONFIG_PROMPT:Z = false
 
-.field private static final ZTE_FEATURE_PRIMARYCRAD_IGNORE_DISABLEDDS:Z
+.field private static final ZTE_FEATURE_PRIMARYCRAD_IGNORE_DISABLEDDS:Z = false
 
 .field private static final sCmccIins:[I
 
@@ -124,26 +124,6 @@
     fill-array-data v0, :array_1
 
     sput-object v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardController;->sCmccIins:[I
-
-    .line 93
-    const-string v0, "ZTE_FEATURE_PRIMARYCRAD_DISABLE_LTECONFIG_PROMPT"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/zte/feature/Feature;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardController;->ZTE_FEATURE_PRIMARYCRAD_DISABLE_LTECONFIG_PROMPT:Z
-
-    .line 94
-    const-string v0, "ZTE_FEATURE_PRIMARYCRAD_IGNORE_DISABLEDDS"
-
-    invoke-static {v0, v1}, Lcom/zte/feature/Feature;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardController;->ZTE_FEATURE_PRIMARYCRAD_IGNORE_DISABLEDDS:Z
 
     return-void
 

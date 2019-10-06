@@ -3388,15 +3388,11 @@
     invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;->syncPreferredNwModeFromDB()V
 
     .line 534
-    invoke-static {}, Lcom/zte/PlatformConfig;->isVdfProject()Z
-
-    move-result v4
+    const/4 v4, 0
 
     if-eqz v4, :cond_2
 
-    invoke-static {}, Lcom/zte/PlatformConfig;->isDsdaOrDsds()Z
-
-    move-result v4
+    const/4 v4, 1
 
     if-eqz v4, :cond_2
 

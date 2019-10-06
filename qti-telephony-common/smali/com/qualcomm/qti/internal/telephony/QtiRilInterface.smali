@@ -30,7 +30,7 @@
 
 .field private static final SHORT_SIZE:I = 0x2
 
-.field private static final ZTE_FEATURE_SIM_PB_SUPPORT_KSC5601:Z
+.field private static final ZTE_FEATURE_SIM_PB_SUPPORT_KSC5601:Z = false
 
 .field private static mIsServiceReady:Z
 
@@ -68,16 +68,6 @@
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->mIsServiceReady:Z
-
-    .line 68
-    const-string v1, "ZTE_FEATURE_SIM_PB_SUPPORT_KSC5601"
-
-    .line 69
-    invoke-static {v1, v0}, Lcom/zte/feature/Feature;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->ZTE_FEATURE_SIM_PB_SUPPORT_KSC5601:Z
 
     .line 68
     return-void
