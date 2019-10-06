@@ -718,20 +718,20 @@
     sput-boolean v0, Lcom/android/nfc/NfcService;->mNfcDefaultValueBoolean:Z
 
     .line 199
-    const-string v1, "NFC_FEATURE_DEFAULT_SWITCH_ENABLE"
+    const-string v1, "ro.feature.nfc_feature_default_switch_enable"
 
-    invoke-static {v1, v0}, Lcom/zte/feature/Feature;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v1, v0}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v1
 
     sput-boolean v1, Lcom/android/nfc/NfcService;->NFC_FEATURE_DEFAULT_SWITCH_ENABLE:Z
 
     .line 201
-    const-string v1, "ZTE_FEATURE_NFC_SIM_ALLIANCE_API"
+    const-string v1, "ro.feature.zte_nfc_sim_allicance_api"
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/zte/feature/Feature;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v1
 
@@ -802,9 +802,9 @@
     sput-boolean v0, Lcom/android/nfc/NfcService;->isSendNfcStateChangeBroadCase:Z
 
     .line 610
-    const-string v0, "ZTE_FEATURE_NFC_SIM_HOT_SWAP"
+    const-string v0, "ro.feature.zte_nfc_sim_hot_swap"
 
-    invoke-static {v0, v2}, Lcom/zte/feature/Feature;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
@@ -830,9 +830,9 @@
     sput-boolean v0, Lcom/android/nfc/NfcService;->PV_VERSION:Z
 
     .line 632
-    const-string v0, "FEATURE_FOR_MDM_CONTROL"
+    const-string v0, "ro.feature.nfc_for_mdm_control"
 
-    invoke-static {v0, v2}, Lcom/zte/feature/Feature;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
@@ -842,9 +842,9 @@
     sput-boolean v2, Lcom/android/nfc/NfcService;->mZteCellToClose:Z
 
     .line 641
-    const-string v0, "FOR_ZTE_CELL"
+    const-string v0, "ro.feature.zte_cell_system"
 
-    invoke-static {v0, v2}, Lcom/zte/feature/Feature;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
