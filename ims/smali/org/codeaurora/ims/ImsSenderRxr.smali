@@ -1850,7 +1850,7 @@
     .locals 1
 
     .line 3472
-    sget-boolean v0, Lcom/android/server/CrossContainerCommonUtils;->ZTE_FEATURE_FOR_CELL:Z
+    const/4 v0, 0
 
     return v0
 .end method

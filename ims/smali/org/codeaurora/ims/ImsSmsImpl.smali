@@ -640,7 +640,7 @@
     .line 143
     invoke-static {}, Lorg/codeaurora/ims/ImsSenderRxr;->isDualSystem()Z
 
-    move-result v1
+    const/4 v1, 0
 
     if-eqz v1, :cond_3
 

@@ -324,7 +324,7 @@
     .line 1272
     invoke-static {}, Lorg/codeaurora/ims/ImsSenderRxr;->isDualSystem()Z
 
-    move-result v4
+    const/4 v4, 0
 
     if-eqz v4, :cond_5
 
@@ -1429,7 +1429,7 @@
     .line 1340
     invoke-static {}, Lorg/codeaurora/ims/ImsSenderRxr;->isDualSystem()Z
 
-    move-result v0
+    const/4 v0, 0
 
     if-eqz v0, :cond_0
 
@@ -1494,7 +1494,7 @@
     .line 1359
     invoke-static {}, Lorg/codeaurora/ims/ImsSenderRxr;->isDualSystem()Z
 
-    move-result v2
+    const/4 v2, 0
 
     if-eqz v2, :cond_0
 

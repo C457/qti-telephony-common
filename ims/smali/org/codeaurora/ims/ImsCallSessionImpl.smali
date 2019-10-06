@@ -5964,9 +5964,7 @@
     .param p1, "dc"    # Lorg/codeaurora/ims/DriverCallIms;
 
     .line 2925
-    invoke-static {}, Lcom/zte/PlatformConfig;->isMxtelProject()Z
-
-    move-result v0
+    const/4 v0, 0
 
     if-eqz v0, :cond_2
 
