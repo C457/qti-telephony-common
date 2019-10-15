@@ -1,6 +1,6 @@
 Signature-Version: 1.0
 Created-By: 1.0 (Android SignApk)
-SHA-256-Digest-Manifest: BKOMq0pM9BOqqokaHAmNt46RgxwDezsprx5NgeIK1w0=
+SHA-256-Digest-Manifest: sTZ793x0ilnrFrOCO5dtSUxJFsuzEFAsODU7kztF4hM=
 X-Android-APK-Signed: 2, 3
 
 Name: AndroidManifest.xml
@@ -10,7 +10,7 @@ Name: assets/star.png
 SHA-256-Digest: xYHelKKeNqtq2bCybgyCVzzkUrymUXEnyJQXz7e3Kt4=
 
 Name: classes.dex
-SHA-256-Digest: acdINa8LdWjfjCpCBaeIezmZfLEsdjCACKclU2kbqZA=
+SHA-256-Digest: Vr46iZ5EOzVP6DaY5w0s2vCslgGFhokmbqNz0MBdes8=
 
 Name: res/drawable-hdpi-v4/checkbox_checked.png
 SHA-256-Digest: nBwBwFl19dgmhlAxp/gl0McRZ6DaumewRGYPqxiDAJA=

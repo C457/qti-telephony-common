@@ -21,7 +21,7 @@
 
 .field static final AID_ROUTE_QUAL_SUBSET:I = 0x20
 
-.field static final DBG:Z = true
+.field static final DBG:Z
 
 .field static final NON_PAYMENT_CHANGED:I = 0x6
 
@@ -103,6 +103,47 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    .line 64
+    sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    const-string v1, "eng"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    const-string v1, "userdebug"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    sput-boolean v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/nfc/cardemulation/AidRoutingManager;)V
     .locals 2
     .param p1, "context"    # Landroid/content/Context;
@@ -195,6 +236,10 @@
     if-eqz v0, :cond_0
 
     .line 182
+    sget-boolean v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v0, :cond_0
+
     const-string v0, "RegisteredAidCache"
 
     const-string v1, "Controller supports AID prefix routing"
@@ -208,6 +253,10 @@
     if-eqz v0, :cond_1
 
     .line 185
+    sget-boolean v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v0, :cond_1
+
     const-string v0, "RegisteredAidCache"
 
     const-string v1, "Controller supports AID subset routing"
@@ -759,6 +808,10 @@
 
     .line 601
     .local v3, "lastAidWithPrefix":Ljava/lang/String;
+    sget-boolean v4, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v4, :cond_0
+
     const-string v4, "RegisteredAidCache"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -788,6 +841,7 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 603
+    :cond_0
     iget-object v4, p0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mAidServices:Ljava/util/TreeMap;
 
     .line 604
@@ -813,7 +867,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -833,7 +887,12 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_2
+
+    .line 608
+    sget-boolean v5, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v5, :cond_1
 
     .line 609
     const-string v5, "RegisteredAidCache"
@@ -865,6 +924,7 @@
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 611
+    :cond_1
     iget-object v5, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidConflicts;->services:Ljava/util/ArrayList;
 
     invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -888,11 +948,11 @@
 
     .line 614
     .end local v4    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/ArrayList<Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;>;>;"
-    :cond_0
+    :cond_2
     goto :goto_0
 
     .line 615
-    :cond_1
+    :cond_3
     return-object v0
 .end method
 
@@ -941,6 +1001,10 @@
 
     .line 623
     .local v4, "firstAid":Ljava/lang/String;
+    sget-boolean v5, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v5, :cond_0
+
     const-string v5, "RegisteredAidCache"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -970,6 +1034,7 @@
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 625
+    :cond_0
     new-instance v5, Ljava/util/TreeMap;
 
     invoke-direct {v5}, Ljava/util/TreeMap;-><init>()V
@@ -992,7 +1057,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1018,16 +1083,16 @@
 
     move-result v9
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_1
 
     invoke-static {v7}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->isPrefix(Ljava/lang/String;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_2
 
     .line 631
-    :cond_0
+    :cond_1
     invoke-virtual {v7}, Ljava/lang/String;->length()I
 
     move-result v9
@@ -1039,12 +1104,12 @@
     move-result-object v8
 
     .line 632
-    :cond_1
+    :cond_2
     invoke-virtual {v3, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_3
 
     .line 633
     iget-object v9, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidConflicts;->conflictMap:Ljava/util/NavigableMap;
@@ -1067,11 +1132,11 @@
     .end local v6    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/ArrayList<Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;>;>;"
     .end local v7    # "aid":Ljava/lang/String;
     .end local v8    # "plainAid":Ljava/lang/String;
-    :cond_2
+    :cond_3
     goto :goto_0
 
     .line 636
-    :cond_3
+    :cond_4
     iget-object v2, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidConflicts;->conflictMap:Ljava/util/NavigableMap;
 
     invoke-interface {v2}, Ljava/util/NavigableMap;->entrySet()Ljava/util/Set;
@@ -1087,7 +1152,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_7
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1107,7 +1172,12 @@
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_6
+
+    .line 638
+    sget-boolean v6, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v6, :cond_5
 
     .line 639
     const-string v6, "RegisteredAidCache"
@@ -1139,6 +1209,7 @@
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 641
+    :cond_5
     iget-object v6, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidConflicts;->services:Ljava/util/ArrayList;
 
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -1162,11 +1233,11 @@
 
     .line 644
     .end local v5    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/ArrayList<Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;>;>;"
-    :cond_4
+    :cond_6
     goto :goto_1
 
     .line 645
-    :cond_5
+    :cond_7
     return-object v0
 .end method
 
@@ -1533,7 +1604,7 @@
 
     const/4 v5, 0x0
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_c
 
     .line 662
     new-instance v3, Ljava/util/ArrayList;
@@ -1587,6 +1658,10 @@
 
     .line 674
     :cond_0
+    sget-boolean v7, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v7, :cond_1
+
     const-string v7, "RegisteredAidCache"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1606,11 +1681,12 @@
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 676
+    :cond_1
     invoke-static {v6}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->isPrefix(Ljava/lang/String;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_9
 
     .line 681
     new-instance v7, Ljava/util/ArrayList;
@@ -1650,7 +1726,7 @@
     .line 692
     iget-object v10, v9, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_4
 
     .line 695
     iget-object v4, v8, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidConflicts;->aids:Ljava/util/HashSet;
@@ -1673,7 +1749,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_8
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1689,7 +1765,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_3
 
     .line 698
     const-string v11, "payment"
@@ -1704,7 +1780,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_1
+    if-nez v11, :cond_2
 
     iget-object v11, v9, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
@@ -1718,10 +1794,10 @@
 
     move-result v11
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_3
 
     .line 699
-    :cond_1
+    :cond_2
     iget-object v11, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mAidServices:Ljava/util/TreeMap;
 
     invoke-virtual {v11, v10}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1764,18 +1840,18 @@
     .line 705
     .end local v10    # "aid":Ljava/lang/String;
     .end local v11    # "childResolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
-    :cond_2
+    :cond_3
     goto :goto_1
 
     .line 706
-    :cond_3
+    :cond_4
     iget-object v10, v9, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
 
     invoke-interface {v10}, Ljava/util/List;->size()I
 
     move-result v10
 
-    if-lez v10, :cond_6
+    if-lez v10, :cond_8
 
     .line 710
     const/4 v10, 0x0
@@ -1797,7 +1873,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_7
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1817,7 +1893,12 @@
 
     move-result v13
 
-    if-nez v13, :cond_4
+    if-nez v13, :cond_6
+
+    .line 714
+    sget-boolean v13, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v13, :cond_5
 
     .line 715
     const-string v13, "RegisteredAidCache"
@@ -1849,6 +1930,7 @@
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 717
+    :cond_5
     nop
 
     .line 718
@@ -1899,12 +1981,12 @@
     .line 728
     .end local v12    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/ArrayList<Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;>;>;"
     .end local v13    # "childResolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
-    :cond_4
+    :cond_6
     goto :goto_2
 
     .line 731
-    :cond_5
-    if-nez v10, :cond_6
+    :cond_7
+    if-nez v10, :cond_8
 
     iget-object v11, v9, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
 
@@ -1912,7 +1994,7 @@
 
     move-result v11
 
-    if-ne v11, v4, :cond_6
+    if-ne v11, v4, :cond_8
 
     .line 732
     iget-object v4, v9, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
@@ -1930,11 +2012,15 @@
     .end local v8    # "prefixConflicts":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidConflicts;
     .end local v9    # "resolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
     .end local v10    # "foundChildService":Z
-    :cond_6
+    :cond_8
     goto :goto_3
 
     .line 742
-    :cond_7
+    :cond_9
+    sget-boolean v5, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v5, :cond_a
+
     const-string v5, "RegisteredAidCache"
 
     const-string v7, "Exact AID, resolving."
@@ -1942,6 +2028,7 @@
     invoke-static {v5, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 743
+    :cond_a
     new-instance v5, Ljava/util/ArrayList;
 
     iget-object v7, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mAidServices:Ljava/util/TreeMap;
@@ -1969,6 +2056,10 @@
     .line 750
     .end local v5    # "conflictingServiceInfos":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;>;"
     :goto_3
+    sget-boolean v4, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v4, :cond_b
+
     const-string v4, "RegisteredAidCache"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1992,6 +2083,7 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 751
+    :cond_b
     invoke-virtual {v2, v3}, Ljava/util/PriorityQueue;->removeAll(Ljava/util/Collection;)Z
 
     .line 752
@@ -2003,7 +2095,7 @@
     goto/16 :goto_0
 
     .line 754
-    :cond_8
+    :cond_c
     new-instance v3, Ljava/util/PriorityQueue;
 
     invoke-static {}, Ljava/util/Collections;->reverseOrder()Ljava/util/Comparator;
@@ -2026,7 +2118,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_13
+    if-nez v6, :cond_1d
 
     .line 757
     new-instance v6, Ljava/util/ArrayList;
@@ -2047,7 +2139,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_e
 
     .line 761
     new-instance v8, Ljava/lang/StringBuilder;
@@ -2076,6 +2168,10 @@
 
     .line 762
     .local v8, "matchingSubset":Ljava/lang/String;
+    sget-boolean v9, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v9, :cond_d
+
     const-string v9, "RegisteredAidCache"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -2095,11 +2191,12 @@
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 763
+    :cond_d
     invoke-virtual {v3, v8}, Ljava/util/PriorityQueue;->contains(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_e
 
     .line 764
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2128,14 +2225,18 @@
 
     .line 766
     .end local v8    # "matchingSubset":Ljava/lang/String;
-    :cond_9
+    :cond_e
     invoke-static {v7}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->isSubset(Ljava/lang/String;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_12
+    if-eqz v8, :cond_1a
 
     .line 767
+    sget-boolean v8, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v8, :cond_f
+
     const-string v8, "RegisteredAidCache"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2155,6 +2256,7 @@
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 768
+    :cond_f
     new-instance v8, Ljava/util/ArrayList;
 
     iget-object v9, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mAidServices:Ljava/util/TreeMap;
@@ -2194,24 +2296,29 @@
     .line 779
     iget-object v11, v10, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    if-eqz v11, :cond_b
+    if-eqz v11, :cond_12
 
     .line 782
     iget-object v11, v10, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->prefixInfo:Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;
 
-    if-eqz v11, :cond_a
+    if-eqz v11, :cond_11
 
     iget-object v11, v10, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->prefixInfo:Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;
 
     iget-object v11, v11, Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;->prefixAid:Ljava/lang/String;
 
-    if-eqz v11, :cond_a
+    if-eqz v11, :cond_11
 
     iget-object v11, v10, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->prefixInfo:Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;
 
     iget-boolean v11, v11, Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;->matchingSubset:Z
 
-    if-nez v11, :cond_a
+    if-nez v11, :cond_11
+
+    .line 783
+    sget-boolean v11, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v11, :cond_10
 
     .line 784
     const-string v11, "RegisteredAidCache"
@@ -2241,6 +2348,7 @@
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 786
+    :cond_10
     iget-object v11, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mAidServices:Ljava/util/TreeMap;
 
     iget-object v12, v10, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->prefixInfo:Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;
@@ -2271,7 +2379,7 @@
 
     .line 790
     .end local v11    # "childResolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
-    :cond_a
+    :cond_11
     iget-object v11, v9, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidConflicts;->aids:Ljava/util/HashSet;
 
     invoke-virtual {v6, v11}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
@@ -2279,14 +2387,14 @@
     goto/16 :goto_6
 
     .line 791
-    :cond_b
+    :cond_12
     iget-object v11, v10, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
 
     invoke-interface {v11}, Ljava/util/List;->size()I
 
     move-result v11
 
-    if-lez v11, :cond_10
+    if-lez v11, :cond_18
 
     .line 795
     const/4 v11, 0x0
@@ -2308,7 +2416,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_d
+    if-eqz v13, :cond_15
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2328,7 +2436,12 @@
 
     move-result v14
 
-    if-nez v14, :cond_c
+    if-nez v14, :cond_14
+
+    .line 800
+    sget-boolean v14, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v14, :cond_13
 
     .line 801
     const-string v14, "RegisteredAidCache"
@@ -2360,6 +2473,7 @@
     invoke-static {v14, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 803
+    :cond_13
     nop
 
     .line 804
@@ -2420,28 +2534,28 @@
     .line 797
     .end local v4    # "foundChildService":Z
     .restart local v11    # "foundChildService":Z
-    :cond_c
+    :cond_14
     const/4 v4, 0x1
 
     goto :goto_5
 
     .line 815
-    :cond_d
+    :cond_15
     iget-object v4, v10, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->prefixInfo:Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;
 
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_16
 
     iget-object v4, v10, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->prefixInfo:Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;
 
     iget-object v4, v4, Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;->prefixAid:Ljava/lang/String;
 
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_16
 
     iget-object v4, v10, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->prefixInfo:Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;
 
     iget-boolean v4, v4, Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;->matchingSubset:Z
 
-    if-nez v4, :cond_e
+    if-nez v4, :cond_16
 
     .line 816
     iget-object v4, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mAidServices:Ljava/util/TreeMap;
@@ -2472,6 +2586,11 @@
 
     invoke-virtual {v12, v13, v4}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 819
+    sget-boolean v12, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v12, :cond_16
+
     .line 820
     const-string v12, "RegisteredAidCache"
 
@@ -2501,8 +2620,8 @@
 
     .line 825
     .end local v4    # "childResolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
-    :cond_e
-    if-nez v11, :cond_f
+    :cond_16
+    if-nez v11, :cond_17
 
     iget-object v4, v10, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
 
@@ -2512,7 +2631,7 @@
 
     const/4 v12, 0x1
 
-    if-ne v4, v12, :cond_11
+    if-ne v4, v12, :cond_19
 
     .line 826
     iget-object v4, v10, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
@@ -2532,22 +2651,26 @@
     goto :goto_7
 
     .line 832
-    :cond_f
+    :cond_17
     const/4 v12, 0x1
 
     goto :goto_7
 
-    :cond_10
+    :cond_18
     :goto_6
     move v12, v4
 
-    :cond_11
+    :cond_19
     :goto_7
     goto :goto_8
 
     .line 836
-    :cond_12
+    :cond_1a
     move v12, v4
+
+    sget-boolean v4, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v4, :cond_1b
 
     const-string v4, "RegisteredAidCache"
 
@@ -2568,6 +2691,7 @@
     invoke-static {v4, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 837
+    :cond_1b
     iget-object v4, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mAidCache:Ljava/util/TreeMap;
 
     invoke-virtual {v1, v7}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2583,6 +2707,10 @@
 
     .line 842
     :goto_8
+    sget-boolean v4, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v4, :cond_1c
+
     const-string v4, "RegisteredAidCache"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -2606,6 +2734,7 @@
     invoke-static {v4, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 843
+    :cond_1c
     invoke-virtual {v3, v6}, Ljava/util/PriorityQueue;->removeAll(Ljava/util/Collection;)Z
 
     .line 844
@@ -2622,7 +2751,7 @@
     goto/16 :goto_4
 
     .line 849
-    :cond_13
+    :cond_1d
     invoke-virtual/range {p0 .. p1}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->updateRoutingLocked(I)V
 
     .line 852
@@ -2656,7 +2785,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_15
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2666,6 +2795,10 @@
 
     .line 445
     .local v1, "service":Landroid/nfc/cardemulation/NxpApduServiceInfo;
+    sget-boolean v2, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v2, :cond_0
+
     const-string v2, "RegisteredAidCache"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2689,6 +2822,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 446
+    :cond_0
     invoke-virtual {v1}, Landroid/nfc/cardemulation/NxpApduServiceInfo;->getPrefixAids()Ljava/util/List;
 
     move-result-object v2
@@ -2714,7 +2848,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2728,7 +2862,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1
 
     .line 451
     const-string v6, "RegisteredAidCache"
@@ -2757,20 +2891,20 @@
     goto :goto_1
 
     .line 454
-    :cond_0
+    :cond_1
     const-string v6, "*"
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
     invoke-virtual {p0}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->supportsAidPrefixRegistration()Z
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_2
 
     .line 455
     const-string v6, "RegisteredAidCache"
@@ -2799,26 +2933,26 @@
     goto :goto_1
 
     .line 457
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->supportsAidPrefixRegistration()Z
 
     move-result v6
 
     const/4 v7, 0x0
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v6
 
-    if-lez v6, :cond_5
+    if-lez v6, :cond_6
 
     invoke-static {v5}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->isExact(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     .line 459
     const/4 v6, 0x0
@@ -2834,7 +2968,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_4
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2860,7 +2994,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_3
 
     .line 463
     const-string v7, "RegisteredAidCache"
@@ -2900,36 +3034,36 @@
     .line 468
     .end local v9    # "prefixAid":Ljava/lang/String;
     .end local v10    # "prefix":Ljava/lang/String;
-    :cond_2
+    :cond_3
     goto :goto_2
 
     .line 469
-    :cond_3
+    :cond_4
     :goto_3
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     .line 470
     goto/16 :goto_1
 
     .line 472
     .end local v6    # "foundPrefix":Z
-    :cond_4
+    :cond_5
     goto/16 :goto_6
 
-    :cond_5
+    :cond_6
     const-string v6, "#"
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_7
 
     invoke-virtual {p0}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->supportsAidSubsetRegistration()Z
 
     move-result v6
 
-    if-nez v6, :cond_6
+    if-nez v6, :cond_7
 
     .line 473
     const-string v6, "RegisteredAidCache"
@@ -2958,24 +3092,24 @@
     goto/16 :goto_1
 
     .line 475
-    :cond_6
+    :cond_7
     invoke-virtual {p0}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->supportsAidSubsetRegistration()Z
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_a
 
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v6
 
-    if-lez v6, :cond_9
+    if-lez v6, :cond_a
 
     invoke-static {v5}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->isExact(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_a
 
     .line 477
     const/4 v6, 0x0
@@ -2991,7 +3125,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_9
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3017,7 +3151,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_8
 
     .line 481
     const-string v7, "RegisteredAidCache"
@@ -3057,20 +3191,20 @@
     .line 486
     .end local v9    # "subsetAid":Ljava/lang/String;
     .end local v10    # "plainSubset":Ljava/lang/String;
-    :cond_7
+    :cond_8
     goto :goto_4
 
     .line 487
-    :cond_8
+    :cond_9
     :goto_5
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_a
 
     .line 488
     goto/16 :goto_1
 
     .line 492
     .end local v6    # "foundSubset":Z
-    :cond_9
+    :cond_a
     :goto_6
     new-instance v6, Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;
 
@@ -3103,7 +3237,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_b
+    if-eqz v7, :cond_c
 
     const-string v7, "other"
 
@@ -3112,7 +3246,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_b
 
     const-string v7, "other"
 
@@ -3123,10 +3257,10 @@
 
     const/4 v8, 0x3
 
-    if-ne v7, v8, :cond_b
+    if-ne v7, v8, :cond_c
 
     .line 501
-    :cond_a
+    :cond_b
     const-string v7, "RegisteredAidCache"
 
     const-string v8, "ignoring other category aid because service category is disabled"
@@ -3137,7 +3271,7 @@
     goto/16 :goto_1
 
     .line 505
-    :cond_b
+    :cond_c
     iget-object v7, p0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mRoutingManager:Lcom/android/nfc/cardemulation/AidRoutingManager;
 
     invoke-virtual {v7}, Lcom/android/nfc/cardemulation/AidRoutingManager;->getAidMatchingPlatform()I
@@ -3146,14 +3280,14 @@
 
     const/4 v8, 0x2
 
-    if-ne v7, v8, :cond_c
+    if-ne v7, v8, :cond_d
 
     .line 506
     invoke-virtual {v1}, Landroid/nfc/cardemulation/NxpApduServiceInfo;->isOnHost()Z
 
     move-result v7
 
-    if-nez v7, :cond_c
+    if-nez v7, :cond_d
 
     const-string v7, "*"
 
@@ -3161,7 +3295,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_c
+    if-nez v7, :cond_d
 
     .line 507
     new-instance v7, Ljava/lang/StringBuilder;
@@ -3179,7 +3313,7 @@
     move-result-object v5
 
     .line 509
-    :cond_c
+    :cond_d
     invoke-virtual {v5}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object v7
@@ -3195,7 +3329,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_d
+    if-eqz v7, :cond_e
 
     .line 512
     iget-object v7, p0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mAidServices:Ljava/util/TreeMap;
@@ -3218,7 +3352,7 @@
     goto :goto_7
 
     .line 516
-    :cond_d
+    :cond_e
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
@@ -3242,7 +3376,7 @@
     goto/16 :goto_1
 
     .line 522
-    :cond_e
+    :cond_f
     invoke-virtual {v1}, Landroid/nfc/cardemulation/NxpApduServiceInfo;->getNxpAidGroups()Ljava/util/ArrayList;
 
     move-result-object v4
@@ -3251,13 +3385,13 @@
 
     move-result-object v4
 
-    :cond_f
+    :cond_10
     :goto_8
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_13
+    if-eqz v5, :cond_14
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3273,19 +3407,19 @@
 
     .line 524
     .local v6, "apduPattern":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/nfc/cardemulation/NxpAidGroup$ApduPattern;>;"
-    if-eqz v6, :cond_f
+    if-eqz v6, :cond_10
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v7
 
-    if-nez v7, :cond_10
+    if-nez v7, :cond_11
 
     .line 525
     goto :goto_8
 
     .line 526
-    :cond_10
+    :cond_11
     invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
@@ -3295,7 +3429,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_12
+    if-eqz v8, :cond_13
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3327,7 +3461,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_11
+    if-eqz v10, :cond_12
 
     .line 531
     const-string v10, "RegisteredAidCache"
@@ -3339,7 +3473,7 @@
     goto :goto_a
 
     .line 533
-    :cond_11
+    :cond_12
     iget-object v10, p0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mapduPatternList:Ljava/util/TreeMap;
 
     invoke-virtual {v8}, Landroid/nfc/cardemulation/NxpAidGroup$ApduPattern;->getreferenceData()Ljava/lang/String;
@@ -3357,18 +3491,18 @@
     .line 536
     .end local v5    # "group":Landroid/nfc/cardemulation/NxpAidGroup;
     .end local v6    # "apduPattern":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/nfc/cardemulation/NxpAidGroup$ApduPattern;>;"
-    :cond_12
+    :cond_13
     goto :goto_8
 
     .line 537
     .end local v1    # "service":Landroid/nfc/cardemulation/NxpApduServiceInfo;
     .end local v2    # "prefixAids":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     .end local v3    # "subSetAids":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :cond_13
+    :cond_14
     goto/16 :goto_0
 
     .line 538
-    :cond_14
+    :cond_15
     return-void
 .end method
 
@@ -3560,6 +3694,10 @@
     .param p1, "service"    # Landroid/content/ComponentName;
 
     .line 1018
+    sget-boolean v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v0, :cond_0
+
     const-string v0, "RegisteredAidCache"
 
     const-string v1, "Preferred foreground service changed."
@@ -3567,6 +3705,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1019
+    :cond_0
     iget-object v0, p0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -3600,6 +3739,10 @@
     .param p1, "service"    # Landroid/content/ComponentName;
 
     .line 997
+    sget-boolean v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v0, :cond_0
+
     const-string v0, "RegisteredAidCache"
 
     const-string v1, "Preferred payment service changed."
@@ -3607,6 +3750,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 998
+    :cond_0
     iget-object v0, p0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -3646,6 +3790,10 @@
     .locals 2
 
     .line 1026
+    sget-boolean v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v0, :cond_0
+
     const-string v0, "RegisteredAidCache"
 
     const-string v1, "onRoutingTableChanged"
@@ -3653,6 +3801,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1027
+    :cond_0
     iget-object v0, p0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -3692,6 +3841,10 @@
 
     .line 984
     .local p2, "services":Ljava/util/List;, "Ljava/util/List<Landroid/nfc/cardemulation/NxpApduServiceInfo;>;"
+    sget-boolean v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v0, :cond_0
+
     const-string v0, "RegisteredAidCache"
 
     const-string v1, "onServicesUpdated"
@@ -3699,6 +3852,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 985
+    :cond_0
     iget-object v0, p0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -3709,7 +3863,7 @@
 
     move-result v1
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_1
 
     .line 988
     invoke-virtual {p0, p2}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->generateServiceMapLocked(Ljava/util/List;)V
@@ -3720,7 +3874,11 @@
     goto :goto_0
 
     .line 991
-    :cond_0
+    :cond_1
+    sget-boolean v1, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v1, :cond_2
+
     const-string v1, "RegisteredAidCache"
 
     const-string v2, "Ignoring update because it\'s not for the current user."
@@ -3728,6 +3886,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 993
+    :cond_2
     :goto_0
     monitor-exit v0
 
@@ -3760,6 +3919,10 @@
 
     .line 192
     :try_start_0
+    sget-boolean v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v0, :cond_0
+
     const-string v0, "RegisteredAidCache"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -3779,13 +3942,14 @@
     invoke-static {v0, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 193
+    :cond_0
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
     const/16 v4, 0xa
 
-    if-ge v0, v4, :cond_0
+    if-ge v0, v4, :cond_1
 
     .line 194
     const-string v0, "RegisteredAidCache"
@@ -3802,7 +3966,7 @@
     return-object v0
 
     .line 197
-    :cond_0
+    :cond_1
     new-instance v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
 
     invoke-direct {v0, v1}, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;-><init>(Lcom/android/nfc/cardemulation/RegisteredAidCache;)V
@@ -3811,16 +3975,16 @@
     .local v0, "resolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
     iget-boolean v5, v1, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mSupportsPrefixes:Z
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3
 
     iget-boolean v5, v1, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mSupportsSubset:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     goto :goto_0
 
     .line 237
-    :cond_1
+    :cond_2
     iget-object v4, v1, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mAidCache:Ljava/util/TreeMap;
 
     invoke-virtual {v4, v2}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -3834,7 +3998,7 @@
     goto/16 :goto_5
 
     .line 202
-    :cond_2
+    :cond_3
     :goto_0
     const/4 v5, 0x0
 
@@ -3866,6 +4030,10 @@
 
     .line 206
     .local v6, "longestAidMatch":Ljava/lang/String;
+    sget-boolean v8, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v8, :cond_4
+
     const-string v8, "RegisteredAidCache"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -3895,6 +4063,7 @@
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 208
+    :cond_4
     iget-object v8, v1, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mAidCache:Ljava/util/TreeMap;
 
     .line 209
@@ -3922,7 +4091,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_e
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3956,14 +4125,14 @@
 
     .line 215
     .local v12, "isSubset":Z
-    if-nez v11, :cond_4
+    if-nez v11, :cond_6
 
-    if-eqz v12, :cond_3
+    if-eqz v12, :cond_5
 
     goto :goto_2
 
     .line 216
-    :cond_3
+    :cond_5
     invoke-interface {v10}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v13
@@ -3973,7 +4142,7 @@
     goto :goto_3
 
     .line 215
-    :cond_4
+    :cond_6
     :goto_2
     invoke-interface {v10}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -4009,27 +4178,31 @@
 
     move-result v14
 
-    if-nez v14, :cond_6
+    if-nez v14, :cond_8
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_7
 
     invoke-virtual {v2, v13}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v14
 
-    if-nez v14, :cond_6
+    if-nez v14, :cond_8
 
-    :cond_5
-    if-eqz v12, :cond_a
+    :cond_7
+    if-eqz v12, :cond_d
 
     invoke-virtual {v13, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v14
 
-    if-eqz v14, :cond_a
+    if-eqz v14, :cond_d
 
     .line 218
-    :cond_6
+    :cond_8
+    sget-boolean v14, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v14, :cond_9
+
     const-string v14, "RegisteredAidCache"
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -4059,6 +4232,7 @@
     invoke-static {v14, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 219
+    :cond_9
     invoke-interface {v10}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v5
@@ -4069,12 +4243,12 @@
     .local v5, "entryResolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
     iget-object v14, v5, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    if-eqz v14, :cond_8
+    if-eqz v14, :cond_b
 
     .line 221
     iget-object v14, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    if-eqz v14, :cond_7
+    if-eqz v14, :cond_a
 
     .line 224
     const-string v14, "RegisteredAidCache"
@@ -4084,7 +4258,7 @@
     invoke-static {v14, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 226
-    :cond_7
+    :cond_a
     iget-object v14, v5, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
     iput-object v14, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
@@ -4095,7 +4269,7 @@
     iput-object v14, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->category:Ljava/lang/String;
 
     .line 229
-    :cond_8
+    :cond_b
     iget-object v14, v5, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
 
     invoke-interface {v14}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -4107,7 +4281,7 @@
 
     move-result v15
 
-    if-eqz v15, :cond_a
+    if-eqz v15, :cond_d
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4123,7 +4297,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_9
+    if-nez v7, :cond_c
 
     .line 231
     iget-object v7, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
@@ -4132,7 +4306,7 @@
 
     .line 233
     .end local v15    # "serviceInfo":Landroid/nfc/cardemulation/NxpApduServiceInfo;
-    :cond_9
+    :cond_c
     nop
 
     .line 229
@@ -4146,7 +4320,7 @@
     .end local v11    # "isPrefix":Z
     .end local v12    # "isSubset":Z
     .end local v13    # "entryAid":Ljava/lang/String;
-    :cond_a
+    :cond_d
     nop
 
     .line 212
@@ -4160,11 +4334,15 @@
     .end local v4    # "shortestAidMatch":Ljava/lang/String;
     .end local v6    # "longestAidMatch":Ljava/lang/String;
     .end local v8    # "matchingAids":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<Ljava/lang/String;Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;>;"
-    :cond_b
+    :cond_e
     nop
 
     .line 239
     :goto_5
+    sget-boolean v4, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v4, :cond_f
+
     const-string v4, "RegisteredAidCache"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -4184,6 +4362,7 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 240
+    :cond_f
     monitor-exit v3
 
     return-object v0
@@ -4236,9 +4415,13 @@
 
     const/4 v4, 0x0
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     .line 383
+    sget-boolean v2, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v2, :cond_0
+
     const-string v2, "RegisteredAidCache"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -4272,6 +4455,7 @@
     invoke-static {v2, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 388
+    :cond_0
     invoke-virtual {p0, p1, v3}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->resolveAidConflictLocked(Ljava/util/Collection;Z)Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
 
     move-result-object v2
@@ -4290,7 +4474,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
     .line 391
     invoke-virtual {p1, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -4312,22 +4496,26 @@
     iput-object v3, v2, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->prefixInfo:Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;
 
     .line 394
-    :cond_0
+    :cond_1
     return-object v2
 
     .line 395
     .end local v2    # "resolveinfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
-    :cond_1
+    :cond_2
     iget-object v2, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$DefaultServiceInfo;->paymentDefault:Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_7
 
     .line 397
     iget-object v2, v1, Lcom/android/nfc/cardemulation/RegisteredAidCache$DefaultServiceInfo;->foregroundDefault:Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4
 
     .line 399
+    sget-boolean v2, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v2, :cond_3
+
     const-string v2, "RegisteredAidCache"
 
     const-string v3, "One of the conflicting AID registrations is foreground preferred, ignoring prefix."
@@ -4335,12 +4523,17 @@
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 401
+    :cond_3
     iget-object v2, p0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->EMPTY_RESOLVE_INFO:Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
 
     return-object v2
 
     .line 404
-    :cond_2
+    :cond_4
+    sget-boolean v2, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v2, :cond_5
+
     const-string v2, "RegisteredAidCache"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -4374,6 +4567,7 @@
     invoke-static {v2, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 407
+    :cond_5
     invoke-virtual {p0, p1, v3}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->resolveAidConflictLocked(Ljava/util/Collection;Z)Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
 
     move-result-object v2
@@ -4392,7 +4586,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_6
 
     .line 410
     invoke-virtual {p1, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -4414,24 +4608,28 @@
     iput-object v3, v2, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->prefixInfo:Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;
 
     .line 413
-    :cond_3
+    :cond_6
     return-object v2
 
     .line 416
     .end local v2    # "resolveinfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
-    :cond_4
+    :cond_7
     iget-object v2, v1, Lcom/android/nfc/cardemulation/RegisteredAidCache$DefaultServiceInfo;->foregroundDefault:Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_d
 
     iget-object v2, v1, Lcom/android/nfc/cardemulation/RegisteredAidCache$DefaultServiceInfo;->paymentDefault:Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_8
 
     goto :goto_2
 
     .line 424
-    :cond_5
+    :cond_8
+    sget-boolean v2, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v2, :cond_9
+
     const-string v2, "RegisteredAidCache"
 
     const-string v3, "No service has preference, adding all."
@@ -4439,6 +4637,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 425
+    :cond_9
     invoke-virtual {p2}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
@@ -4461,7 +4660,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_c
 
     .line 429
     new-instance v3, Ljava/util/ArrayList;
@@ -4479,7 +4678,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_a
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4497,7 +4696,7 @@
     goto :goto_0
 
     .line 432
-    :cond_6
+    :cond_a
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
@@ -4507,7 +4706,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_b
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4525,7 +4724,7 @@
     goto :goto_1
 
     .line 434
-    :cond_7
+    :cond_b
     invoke-virtual {p1, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v5
@@ -4542,13 +4741,17 @@
 
     .line 436
     .end local v3    # "apduServiceList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/nfc/cardemulation/NxpApduServiceInfo;>;"
-    :cond_8
+    :cond_c
     return-object v2
 
     .line 418
     .end local v2    # "resolveinfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
-    :cond_9
+    :cond_d
     :goto_2
+    sget-boolean v2, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v2, :cond_e
+
     const-string v2, "RegisteredAidCache"
 
     const-string v3, "One of the conflicting AID registrations is either payment default or foreground preferred, ignoring prefix."
@@ -4556,6 +4759,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 420
+    :cond_e
     iget-object v2, p0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->EMPTY_RESOLVE_INFO:Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
 
     return-object v2
@@ -4576,7 +4780,7 @@
 
     .line 287
     .local p1, "conflictingServices":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;>;"
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_e
 
     invoke-interface {p1}, Ljava/util/Collection;->size()I
 
@@ -4616,7 +4820,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4712,6 +4916,10 @@
     if-eqz v5, :cond_4
 
     .line 315
+    sget-boolean v6, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v6, :cond_5
+
     const-string v6, "RegisteredAidCache"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -4755,14 +4963,19 @@
     .line 322
     .end local v4    # "serviceAidInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$ServiceAidInfo;
     .end local v5    # "serviceClaimsPaymentAid":Z
+    :cond_5
     :goto_1
     goto :goto_0
 
     .line 323
-    :cond_5
-    if-eqz v1, :cond_6
+    :cond_6
+    if-eqz v1, :cond_8
 
     .line 326
+    sget-boolean v3, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v3, :cond_7
+
     const-string v3, "RegisteredAidCache"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -4782,15 +4995,20 @@
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 328
+    :cond_7
     iput-object v1, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
     goto :goto_2
 
     .line 329
-    :cond_6
-    if-eqz v2, :cond_7
+    :cond_8
+    if-eqz v2, :cond_a
 
     .line 332
+    sget-boolean v3, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v3, :cond_9
+
     const-string v3, "RegisteredAidCache"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -4810,12 +5028,13 @@
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 334
+    :cond_9
     iput-object v2, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
     goto :goto_2
 
     .line 336
-    :cond_7
+    :cond_a
     iget-object v3, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->size()I
@@ -4824,53 +5043,58 @@
 
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_8
+    if-ne v3, v4, :cond_c
 
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_c
 
     .line 337
+    sget-boolean v3, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    const/4 v4, 0x0
+
+    if-eqz v3, :cond_b
+
     const-string v3, "RegisteredAidCache"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "resolveAidLocked: DECISION: making single handling service "
+    const-string v6, "resolveAidLocked: DECISION: making single handling service "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v5, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
+    iget-object v6, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
 
     .line 338
-    const/4 v6, 0x0
+    invoke-interface {v6, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    invoke-interface {v5, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    move-result-object v6
+
+    check-cast v6, Landroid/nfc/cardemulation/NxpApduServiceInfo;
+
+    invoke-virtual {v6}, Landroid/nfc/cardemulation/NxpApduServiceInfo;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v6, " default."
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
-
-    check-cast v5, Landroid/nfc/cardemulation/NxpApduServiceInfo;
-
-    invoke-virtual {v5}, Landroid/nfc/cardemulation/NxpApduServiceInfo;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v5, " default."
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
 
     .line 337
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 339
+    :cond_b
     iget-object v3, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
 
-    invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -4881,7 +5105,11 @@
     goto :goto_2
 
     .line 342
-    :cond_8
+    :cond_c
+    sget-boolean v3, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v3, :cond_d
+
     const-string v3, "RegisteredAidCache"
 
     const-string v4, "resolveAidLocked: DECISION: routing to all matching services"
@@ -4889,6 +5117,7 @@
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 345
+    :cond_d
     :goto_2
     return-object v0
 
@@ -4896,7 +5125,7 @@
     .end local v0    # "resolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
     .end local v1    # "matchedForeground":Landroid/nfc/cardemulation/NxpApduServiceInfo;
     .end local v2    # "matchedPayment":Landroid/nfc/cardemulation/NxpApduServiceInfo;
-    :cond_9
+    :cond_e
     :goto_3
     const-string v0, "RegisteredAidCache"
 
@@ -4960,9 +5189,13 @@
     .line 860
     iget-boolean v1, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mNfcEnabled:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
     .line 861
+    sget-boolean v1, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v1, :cond_0
+
     const-string v1, "RegisteredAidCache"
 
     const-string v2, "Not updating routing table because NFC is off."
@@ -4970,10 +5203,11 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 862
+    :cond_0
     return-void
 
     .line 864
-    :cond_0
+    :cond_1
     invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
     move-result-object v1
@@ -4990,12 +5224,13 @@
 
     move-result-object v2
 
+    :cond_2
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_13
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5029,9 +5264,13 @@
     .local v11, "resolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
     iget-boolean v6, v11, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->mustRoute:Z
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_3
 
     .line 872
+    sget-boolean v6, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v6, :cond_2
+
     const-string v6, "RegisteredAidCache"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -5054,48 +5293,47 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 873
     goto :goto_0
 
     .line 875
-    :cond_1
+    :cond_3
     const-string v6, "#"
 
     invoke-virtual {v4, v6}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_4
 
     .line 876
     or-int/lit8 v5, v5, 0x20
 
     .line 878
-    :cond_2
+    :cond_4
     const-string v6, "*"
 
     invoke-virtual {v4, v6}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_6
 
     iget-object v6, v11, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->prefixInfo:Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_5
 
     iget-object v6, v11, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->prefixInfo:Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;
 
     iget-boolean v6, v6, Lcom/android/nfc/cardemulation/RegisteredAidCache$ReslovedPrefixConflictAid;->matchingSubset:Z
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_5
 
     goto :goto_2
 
     .line 881
     .end local v5    # "aidInfo":I
     .local v12, "aidInfo":I
-    :cond_3
+    :cond_5
     :goto_1
     move v12, v5
 
@@ -5104,7 +5342,7 @@
     .line 879
     .end local v12    # "aidInfo":I
     .restart local v5    # "aidInfo":I
-    :cond_4
+    :cond_6
     :goto_2
     or-int/lit8 v5, v5, 0x10
 
@@ -5120,7 +5358,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_7
 
     .line 956
     .end local v3    # "aidEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;>;"
@@ -5136,10 +5374,10 @@
     .restart local v4    # "aid":Ljava/lang/String;
     .restart local v11    # "resolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
     .restart local v12    # "aidInfo":I
-    :cond_5
+    :cond_7
     iget-object v5, v11, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_10
 
     .line 886
     iget-object v5, v11, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
@@ -5208,26 +5446,30 @@
 
     .line 896
     .local v7, "powerstate":I
-    if-nez v7, :cond_6
+    if-nez v7, :cond_8
 
     .line 898
     or-int/lit8 v7, v7, 0x1
 
     .line 899
-    if-nez v16, :cond_6
+    if-nez v16, :cond_8
 
     .line 900
     or-int/lit8 v7, v7, 0x2
 
     .line 903
-    :cond_6
+    :cond_8
     const/4 v9, 0x1
 
     .line 906
     .local v9, "weight":I
-    if-nez v16, :cond_7
+    if-nez v16, :cond_a
 
     .line 907
+    sget-boolean v8, Lcom/android/nfc/cardemulation/RegisteredAidCache;->DBG:Z
+
+    if-eqz v8, :cond_9
+
     const-string v8, "RegisteredAidCache"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -5247,10 +5489,11 @@
     invoke-static {v8, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 908
+    :cond_9
     or-int/lit8 v7, v7, 0x28
 
     .line 910
-    :cond_7
+    :cond_a
     const-string v6, "RegisteredAidCache"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -5296,7 +5539,7 @@
     .line 913
     const/4 v7, 0x0
 
-    if-nez v16, :cond_9
+    if-nez v16, :cond_c
 
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
 
@@ -5306,7 +5549,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_c
 
     .line 914
     const-string v8, ""
@@ -5319,7 +5562,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_b
 
     .line 917
     invoke-virtual {v4}, Ljava/lang/String;->length()I
@@ -5337,7 +5580,7 @@
     goto :goto_4
 
     .line 919
-    :cond_8
+    :cond_b
     move-object v8, v4
 
     .line 921
@@ -5352,7 +5595,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_c
 
     .line 922
     iget-object v10, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mRoutingManager:Lcom/android/nfc/cardemulation/AidRoutingManager;
@@ -5365,7 +5608,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_c
 
     .line 924
     and-int/lit8 v6, v6, -0x29
@@ -5433,7 +5676,7 @@
     goto :goto_5
 
     .line 936
-    :cond_9
+    :cond_c
     move-object/from16 v20, v2
 
     .end local v5    # "vzwPowerstate":I
@@ -5445,13 +5688,13 @@
 
     move v2, v6
 
-    if-eqz v16, :cond_a
+    if-eqz v16, :cond_d
 
     const/4 v8, 0x0
 
     goto :goto_6
 
-    :cond_a
+    :cond_d
     invoke-virtual {v13}, Landroid/nfc/cardemulation/NxpApduServiceInfo$ESeInfo;->getSeId()I
 
     move-result v5
@@ -5480,16 +5723,16 @@
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 938
-    if-eqz v15, :cond_b
+    if-eqz v15, :cond_e
 
     .line 939
     add-int/lit8 v9, v9, 0x4
 
     .line 941
-    :cond_b
-    if-eqz v14, :cond_c
+    :cond_e
+    if-eqz v14, :cond_f
 
-    if-eqz v17, :cond_c
+    if-eqz v17, :cond_f
 
     .line 942
     add-int/lit8 v9, v9, 0x2
@@ -5497,7 +5740,7 @@
     .line 944
     .end local v9    # "weight":I
     .local v19, "weight":I
-    :cond_c
+    :cond_f
     move/from16 v19, v9
 
     new-instance v21, Lcom/android/nfc/cardemulation/AidElement;
@@ -5531,7 +5774,7 @@
     .end local v19    # "weight":I
     goto :goto_7
 
-    :cond_d
+    :cond_10
     move-object/from16 v20, v2
 
     iget-object v2, v11, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
@@ -5542,7 +5785,7 @@
 
     const/4 v5, 0x1
 
-    if-ne v2, v5, :cond_e
+    if-ne v2, v5, :cond_11
 
     .line 949
     new-instance v2, Lcom/android/nfc/cardemulation/AidElement;
@@ -5569,7 +5812,7 @@
     .end local v2    # "aidElem":Lcom/android/nfc/cardemulation/AidElement;
     goto :goto_7
 
-    :cond_e
+    :cond_11
     iget-object v2, v11, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->services:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
@@ -5578,7 +5821,7 @@
 
     const/4 v5, 0x1
 
-    if-le v2, v5, :cond_f
+    if-le v2, v5, :cond_12
 
     .line 953
     new-instance v2, Lcom/android/nfc/cardemulation/AidElement;
@@ -5607,7 +5850,7 @@
     .end local v4    # "aid":Ljava/lang/String;
     .end local v11    # "resolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
     .end local v12    # "aidInfo":I
-    :cond_f
+    :cond_12
     :goto_7
     nop
 
@@ -5617,20 +5860,20 @@
     goto/16 :goto_0
 
     .line 957
-    :cond_10
+    :cond_13
     iget-object v2, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mapduPatternList:Ljava/util/TreeMap;
 
     invoke-virtual {v2}, Ljava/util/TreeMap;->size()I
 
     move-result v2
 
-    if-lez v2, :cond_11
+    if-lez v2, :cond_14
 
     .line 958
     invoke-virtual/range {p0 .. p0}, Lcom/android/nfc/cardemulation/RegisteredAidCache;->addApduPatternEntries()V
 
     .line 962
-    :cond_11
+    :cond_14
     iget-object v2, v0, Lcom/android/nfc/cardemulation/RegisteredAidCache;->mRoutingManager:Lcom/android/nfc/cardemulation/AidRoutingManager;
 
     move/from16 v3, p1

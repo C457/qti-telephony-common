@@ -4,6 +4,8 @@
 
 
 # static fields
+.field static final DBG:Z
+
 .field static final TAG:Ljava/lang/String; = "RegisteredNxpServicesCache"
 
 .field static final XML_INDENT_OUTPUT_FEATURE:Ljava/lang/String; = "http://xmlpull.org/v1/doc/features.html#indent-output"
@@ -44,46 +46,87 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    .line 74
+    sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    const-string v1, "eng"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    const-string v1, "userdebug"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    sput-boolean v0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->DBG:Z
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
     .param p1, "context"    # Landroid/content/Context;
 
-    .line 83
+    .line 84
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 75
+    .line 76
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mLock:Ljava/lang/Object;
 
-    .line 78
+    .line 79
     invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduServices:Ljava/util/HashMap;
 
-    .line 79
+    .line 80
     invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
-    .line 80
+    .line 81
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mDynamicApduServiceFile:Landroid/util/AtomicFile;
 
-    .line 81
+    .line 82
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->dataDir:Ljava/io/File;
 
-    .line 84
+    .line 85
     iput-object p1, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mContext:Landroid/content/Context;
 
-    .line 86
+    .line 87
     return-void
 .end method
 
@@ -92,45 +135,45 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "registeredServicesCache"    # Lcom/android/nfc/cardemulation/RegisteredServicesCache;
 
-    .line 88
+    .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 75
+    .line 76
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mLock:Ljava/lang/Object;
 
-    .line 78
+    .line 79
     invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduServices:Ljava/util/HashMap;
 
-    .line 79
+    .line 80
     invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
-    .line 80
+    .line 81
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mDynamicApduServiceFile:Landroid/util/AtomicFile;
 
-    .line 81
+    .line 82
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->dataDir:Ljava/io/File;
 
-    .line 89
+    .line 90
     iput-object p1, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mContext:Landroid/content/Context;
 
-    .line 90
+    .line 91
     iput-object p2, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mRegisteredServicesCache:Lcom/android/nfc/cardemulation/RegisteredServicesCache;
 
-    .line 92
+    .line 93
     iget-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
@@ -139,7 +182,7 @@
 
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->dataDir:Ljava/io/File;
 
-    .line 93
+    .line 94
     new-instance v0, Landroid/util/AtomicFile;
 
     new-instance v1, Ljava/io/File;
@@ -154,7 +197,7 @@
 
     iput-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mDynamicApduServiceFile:Landroid/util/AtomicFile;
 
-    .line 94
+    .line 95
     return-void
 .end method
 
@@ -162,7 +205,7 @@
     .locals 5
     .param p1, "drawablePath"    # Ljava/lang/String;
 
-    .line 129
+    .line 130
     const-string v0, "RegisteredNxpServicesCache"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -181,10 +224,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 130
+    .line 131
     const/4 v0, 0x0
 
-    .line 131
+    .line 132
     .local v0, "deleted":Z
     if-eqz p1, :cond_1
 
@@ -194,12 +237,12 @@
 
     if-nez v1, :cond_1
 
-    .line 133
+    .line 134
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 134
+    .line 135
     .local v1, "file":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -207,7 +250,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 135
+    .line 136
     const-string v2, "RegisteredNxpServicesCache"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -226,21 +269,21 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 136
+    .line 137
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
 
     move-result v0
 
-    .line 138
+    .line 139
     .end local v1    # "file":Ljava/io/File;
     :cond_0
     goto :goto_0
 
-    .line 141
+    .line 142
     :cond_1
     const/4 v0, 0x1
 
-    .line 143
+    .line 144
     :goto_0
     const-string v1, "RegisteredNxpServicesCache"
 
@@ -260,7 +303,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 144
+    .line 145
     return v0
 .end method
 
@@ -268,7 +311,7 @@
     .locals 5
     .param p1, "drawablePath"    # Ljava/lang/String;
 
-    .line 115
+    .line 116
     const-string v0, "RegisteredNxpServicesCache"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -287,25 +330,25 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 116
+    .line 117
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 118
+    .line 119
     .local v0, "filePath":Ljava/io/File;
     :try_start_0
     new-instance v1, Ljava/io/FileInputStream;
 
     invoke-direct {v1, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
-    .line 119
+    .line 120
     .local v1, "fi":Ljava/io/FileInputStream;
     invoke-static {v1}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
-    .line 120
+    .line 121
     .local v2, "bitmap":Landroid/graphics/Bitmap;
     new-instance v3, Landroid/graphics/drawable/BitmapDrawable;
 
@@ -319,18 +362,18 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 121
+    .line 122
     .local v3, "DrawableResource":Landroid/graphics/drawable/Drawable;
     return-object v3
 
-    .line 122
+    .line 123
     .end local v1    # "fi":Ljava/io/FileInputStream;
     .end local v2    # "bitmap":Landroid/graphics/Bitmap;
     .end local v3    # "DrawableResource":Landroid/graphics/drawable/Drawable;
     :catch_0
     move-exception v1
 
-    .line 123
+    .line 124
     .local v1, "e":Ljava/io/IOException;
     const-string v2, "RegisteredNxpServicesCache"
 
@@ -354,7 +397,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 124
+    .line 125
     const/4 v2, 0x0
 
     return-object v2
@@ -365,14 +408,14 @@
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p2, "path"    # Ljava/lang/String;
 
-    .line 98
+    .line 99
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->dataDir:Ljava/io/File;
 
     invoke-direct {v0, v1, p2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 99
+    .line 100
     .local v0, "file":Ljava/io/File;
     const-string v1, "RegisteredNxpServicesCache"
 
@@ -392,7 +435,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 100
+    .line 101
     move-object v1, p1
 
     check-cast v1, Landroid/graphics/drawable/BitmapDrawable;
@@ -401,7 +444,7 @@
 
     move-result-object v1
 
-    .line 101
+    .line 102
     .local v1, "bitmap":Landroid/graphics/Bitmap;
     const-string v2, "RegisteredNxpServicesCache"
 
@@ -425,13 +468,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 103
+    .line 104
     :try_start_0
     new-instance v2, Ljava/io/FileOutputStream;
 
     invoke-direct {v2, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
-    .line 104
+    .line 105
     .local v2, "outStream":Ljava/io/FileOutputStream;
     sget-object v3, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
@@ -439,13 +482,13 @@
 
     invoke-virtual {v1, v3, v4, v2}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
-    .line 105
+    .line 106
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->flush()V
 
-    .line 106
+    .line 107
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
 
-    .line 107
+    .line 108
     invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v3
@@ -454,12 +497,12 @@
 
     return-object v3
 
-    .line 108
+    .line 109
     .end local v2    # "outStream":Ljava/io/FileOutputStream;
     :catch_0
     move-exception v2
 
-    .line 109
+    .line 110
     .local v2, "e":Ljava/io/IOException;
     const-string v3, "RegisteredNxpServicesCache"
 
@@ -483,7 +526,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 110
+    .line 111
     const/4 v3, 0x0
 
     return-object v3
@@ -498,12 +541,12 @@
     .param p3, "packageName"    # Ljava/lang/String;
     .param p4, "apduService"    # Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    .line 211
+    .line 212
     iget-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 212
+    .line 213
     :try_start_0
     iget-object v1, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduServices:Ljava/util/HashMap;
 
@@ -513,10 +556,10 @@
 
     invoke-interface {v1, p4}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
 
-    .line 213
+    .line 214
     invoke-virtual {p0}, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->writeDynamicApduService()Z
 
-    .line 214
+    .line 215
     iget-object v1, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
     invoke-virtual {p4}, Landroid/nfc/cardemulation/NxpApduServiceInfo;->getComponent()Landroid/content/ComponentName;
@@ -529,7 +572,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 215
+    .line 216
     iget-object v1, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
     invoke-virtual {p4}, Landroid/nfc/cardemulation/NxpApduServiceInfo;->getComponent()Landroid/content/ComponentName;
@@ -544,7 +587,7 @@
 
     invoke-direct {p0, v1}, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->deleteBitMapfromFile(Ljava/lang/String;)Z
 
-    .line 216
+    .line 217
     iget-object v1, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
     invoke-virtual {p4}, Landroid/nfc/cardemulation/NxpApduServiceInfo;->getComponent()Landroid/content/ComponentName;
@@ -553,21 +596,21 @@
 
     invoke-virtual {v1, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 218
+    .line 219
     :cond_0
     iget-object v1, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mRegisteredServicesCache:Lcom/android/nfc/cardemulation/RegisteredServicesCache;
 
     invoke-virtual {v1, p1}, Lcom/android/nfc/cardemulation/RegisteredServicesCache;->invalidateCache(I)V
 
-    .line 219
+    .line 220
     monitor-exit v0
 
-    .line 220
+    .line 221
     const/4 v0, 0x1
 
     return v0
 
-    .line 219
+    .line 220
     :catchall_0
     move-exception v1
 
@@ -594,12 +637,12 @@
         }
     .end annotation
 
-    .line 227
+    .line 228
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 228
+    .line 229
     .local v0, "apduInfo":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/nfc/cardemulation/NxpApduServiceInfo;>;"
     iget-object v1, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduServices:Ljava/util/HashMap;
 
@@ -624,7 +667,7 @@
 
     check-cast v2, Ljava/util/Map$Entry;
 
-    .line 229
+    .line 230
     .local v2, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/content/ComponentName;Landroid/nfc/cardemulation/NxpApduServiceInfo;>;"
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -642,7 +685,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 230
+    .line 231
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
@@ -651,12 +694,12 @@
 
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 232
+    .line 233
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/content/ComponentName;Landroid/nfc/cardemulation/NxpApduServiceInfo;>;"
     :cond_0
     goto :goto_0
 
-    .line 233
+    .line 234
     :cond_1
     new-instance v1, Ljava/util/ArrayList;
 
@@ -668,7 +711,7 @@
 
     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 234
+    .line 235
     .local v1, "staticServices":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/nfc/cardemulation/NxpApduServiceInfo;>;"
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -687,7 +730,7 @@
 
     check-cast v3, Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    .line 235
+    .line 236
     .local v3, "service":Landroid/nfc/cardemulation/NxpApduServiceInfo;
     invoke-virtual {v3}, Landroid/nfc/cardemulation/NxpApduServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
@@ -703,15 +746,15 @@
 
     if-eqz v4, :cond_2
 
-    .line 236
+    .line 237
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 238
+    .line 239
     .end local v3    # "service":Landroid/nfc/cardemulation/NxpApduServiceInfo;
     :cond_2
     goto :goto_1
 
-    .line 239
+    .line 240
     :cond_3
     return-object v0
 .end method
@@ -727,12 +770,12 @@
         }
     .end annotation
 
-    .line 173
+    .line 174
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 174
+    .line 175
     .local v0, "services":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/nfc/cardemulation/NxpApduServiceInfo;>;"
     iget-object v1, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduServices:Ljava/util/HashMap;
 
@@ -757,15 +800,15 @@
 
     check-cast v2, Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    .line 175
+    .line 176
     .local v2, "value":Landroid/nfc/cardemulation/NxpApduServiceInfo;
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 176
+    .line 177
     .end local v2    # "value":Landroid/nfc/cardemulation/NxpApduServiceInfo;
     goto :goto_0
 
-    .line 177
+    .line 178
     :cond_0
     return-object v0
 .end method
@@ -782,7 +825,7 @@
         }
     .end annotation
 
-    .line 182
+    .line 183
     iget-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduServices:Ljava/util/HashMap;
 
     return-object v0
@@ -800,7 +843,7 @@
         }
     .end annotation
 
-    .line 186
+    .line 187
     iget-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mRegisteredServicesCache:Lcom/android/nfc/cardemulation/RegisteredServicesCache;
 
     invoke-virtual {v0}, Lcom/android/nfc/cardemulation/RegisteredServicesCache;->getAllStaticHashServices()Ljava/util/HashMap;
@@ -814,10 +857,10 @@
     .locals 5
     .param p1, "uninstalledpackageName"    # Ljava/lang/String;
 
-    .line 191
+    .line 192
     if-eqz p1, :cond_1
 
-    .line 192
+    .line 193
     const-string v0, "RegisteredNxpServicesCache"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -836,7 +879,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 193
+    .line 194
     iget-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduServices:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
@@ -855,14 +898,14 @@
 
     if-eqz v1, :cond_2
 
-    .line 194
+    .line 195
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 195
+    .line 196
     .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/content/ComponentName;Landroid/nfc/cardemulation/NxpApduServiceInfo;>;"
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -880,10 +923,10 @@
 
     if-eqz v2, :cond_0
 
-    .line 196
+    .line 197
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 197
+    .line 198
     const-string v2, "RegisteredNxpServicesCache"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -912,7 +955,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 198
+    .line 199
     iget-object v2, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -925,7 +968,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 199
+    .line 200
     iget-object v2, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -940,7 +983,7 @@
 
     invoke-direct {p0, v2}, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->deleteBitMapfromFile(Ljava/lang/String;)Z
 
-    .line 200
+    .line 201
     iget-object v2, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -949,12 +992,12 @@
 
     invoke-virtual {v2, v3}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 203
+    .line 204
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/content/ComponentName;Landroid/nfc/cardemulation/NxpApduServiceInfo;>;"
     :cond_0
     goto :goto_0
 
-    .line 205
+    .line 206
     .end local v0    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Landroid/content/ComponentName;Landroid/nfc/cardemulation/NxpApduServiceInfo;>;>;"
     :cond_1
     const-string v0, "RegisteredNxpServicesCache"
@@ -963,7 +1006,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 207
+    .line 208
     :cond_2
     return-void
 .end method
@@ -971,14 +1014,14 @@
 .method public readDynamicApduService()V
     .locals 49
 
-    .line 284
+    .line 285
     move-object/from16 v1, p0
 
     const/4 v0, 0x0
 
     move-object v2, v0
 
-    .line 286
+    .line 287
     .local v2, "fis":Ljava/io/FileInputStream;
     :try_start_0
     iget-object v3, v1, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mDynamicApduServiceFile:Landroid/util/AtomicFile;
@@ -993,7 +1036,7 @@
 
     if-nez v3, :cond_1
 
-    .line 287
+    .line 288
     const-string v0, "RegisteredNxpServicesCache"
 
     const-string v3, "Dynamic APDU Service file does not exist."
@@ -1003,28 +1046,28 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 399
+    .line 400
     if-eqz v2, :cond_0
 
-    .line 401
+    .line 402
     :try_start_1
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 403
+    .line 404
     goto :goto_0
 
-    .line 402
+    .line 403
     :catch_0
     move-exception v0
 
-    .line 288
+    .line 289
     :cond_0
     :goto_0
     return-void
 
-    .line 290
+    .line 291
     :cond_1
     :try_start_2
     iget-object v3, v1, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mDynamicApduServiceFile:Landroid/util/AtomicFile;
@@ -1035,21 +1078,21 @@
 
     move-object v2, v3
 
-    .line 291
+    .line 292
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v3
 
-    .line 292
+    .line 293
     .local v3, "parser":Lorg/xmlpull/v1/XmlPullParser;
     invoke-interface {v3, v2, v0}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    .line 293
+    .line 294
     invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v4
 
-    .line 295
+    .line 296
     .local v4, "eventType":I
     :goto_1
     const/4 v5, 0x1
@@ -1060,7 +1103,7 @@
 
     if-eq v4, v5, :cond_2
 
-    .line 297
+    .line 298
     invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v5
@@ -1069,65 +1112,65 @@
 
     goto :goto_1
 
-    .line 299
+    .line 300
     :cond_2
     const/4 v7, 0x0
 
-    .line 300
+    .line 301
     .local v7, "inService":Z
     const/4 v8, 0x0
 
-    .line 301
+    .line 302
     .local v8, "currentComponent":Landroid/content/ComponentName;
     const/4 v9, 0x0
 
-    .line 302
+    .line 303
     .local v9, "drawbalePath":Ljava/lang/String;
     const/4 v10, 0x0
 
-    .line 303
+    .line 304
     .local v10, "description":Ljava/lang/String;
     const/4 v11, 0x0
 
-    .line 304
+    .line 305
     .local v11, "modifiable":Z
     const/4 v12, 0x0
 
-    .line 305
+    .line 306
     .local v12, "seId":I
     const/4 v13, 0x0
 
-    .line 306
+    .line 307
     .local v13, "userId":I
     const/4 v14, 0x0
 
-    .line 307
+    .line 308
     .local v14, "bannerId":I
     const/4 v15, 0x0
 
-    .line 308
+    .line 309
     .local v15, "nxpAidGroup":Landroid/nfc/cardemulation/NxpAidGroup;
     const/16 v16, 0x0
 
-    .line 309
+    .line 310
     .local v16, "DrawableResource":Landroid/graphics/drawable/Drawable;
     const/16 v17, 0x0
 
-    .line 310
+    .line 311
     .local v17, "apduService":Landroid/nfc/cardemulation/NxpApduServiceInfo;
     const/16 v18, 0x0
 
-    .line 311
+    .line 312
     .local v18, "bitmap":Landroid/graphics/Bitmap;
     const/16 v19, 0x0
 
-    .line 312
+    .line 313
     .local v19, "byteArrayBanner":[B
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 314
+    .line 315
     .local v0, "dynamicNxpAidGroup":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/nfc/cardemulation/NxpAidGroup;>;"
     invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
@@ -1135,7 +1178,7 @@
 
     move-object/from16 v35, v21
 
-    .line 315
+    .line 316
     .local v35, "tagName":Ljava/lang/String;
     const-string v6, "apduservices"
 
@@ -1149,25 +1192,25 @@
     .local v5, "tagName":Ljava/lang/String;
     if-eqz v6, :cond_c
 
-    .line 316
+    .line 317
     :goto_2
     const/4 v6, 0x1
 
     if-eq v4, v6, :cond_c
 
-    .line 317
+    .line 318
     invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v21
 
     move-object/from16 v5, v21
 
-    .line 318
+    .line 319
     const/4 v6, 0x2
 
     if-ne v4, v6, :cond_a
 
-    .line 319
+    .line 320
     const-string v6, "service"
 
     invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1186,7 +1229,7 @@
 
     if-ne v6, v7, :cond_6
 
-    .line 320
+    .line 321
     .end local v7    # "inService":Z
     .local v36, "inService":Z
     const-string v6, "component"
@@ -1197,7 +1240,7 @@
 
     move-result-object v6
 
-    .line 321
+    .line 322
     .local v6, "compString":Ljava/lang/String;
     const-string v7, "uid"
 
@@ -1217,14 +1260,14 @@
 
     move v13, v7
 
-    .line 322
+    .line 323
     invoke-static {v6}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v7
 
     move-object v8, v7
 
-    .line 323
+    .line 324
     const-string v7, "description"
 
     const/4 v9, 0x0
@@ -1235,7 +1278,7 @@
 
     move-object v10, v7
 
-    .line 324
+    .line 325
     const-string v7, "bannerId"
 
     invoke-interface {v3, v9, v7}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -1248,14 +1291,14 @@
 
     move v14, v7
 
-    .line 325
+    .line 326
     const-string v7, "modifiable"
 
     invoke-interface {v3, v9, v7}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    .line 326
+    .line 327
     .local v7, "isModifiable":Ljava/lang/String;
     const-string v9, "drawableResourcepath"
 
@@ -1267,7 +1310,7 @@
 
     move-result-object v9
 
-    .line 327
+    .line 328
     .end local v6    # "compString":Ljava/lang/String;
     .end local v37    # "drawbalePath":Ljava/lang/String;
     .restart local v9    # "drawbalePath":Ljava/lang/String;
@@ -1280,10 +1323,10 @@
 
     if-eqz v6, :cond_3
 
-    .line 328
+    .line 329
     const/4 v6, 0x1
 
-    .line 333
+    .line 334
     .end local v11    # "modifiable":Z
     .local v6, "modifiable":Z
     :goto_3
@@ -1291,7 +1334,7 @@
 
     goto :goto_4
 
-    .line 330
+    .line 331
     .end local v6    # "modifiable":Z
     .restart local v11    # "modifiable":Z
     :cond_3
@@ -1299,7 +1342,7 @@
 
     goto :goto_3
 
-    .line 333
+    .line 334
     :goto_4
     const-string v6, "seId"
 
@@ -1311,7 +1354,7 @@
 
     move-result-object v6
 
-    .line 334
+    .line 335
     .end local v7    # "isModifiable":Ljava/lang/String;
     .local v6, "seIdString":Ljava/lang/String;
     .local v39, "isModifiable":Ljava/lang/String;
@@ -1321,10 +1364,10 @@
 
     move/from16 v12, v20
 
-    .line 335
+    .line 336
     const/16 v20, 0x1
 
-    .line 336
+    .line 337
     .end local v36    # "inService":Z
     .local v20, "inService":Z
     const-string v7, "RegisteredNxpServicesCache"
@@ -1353,23 +1396,23 @@
 
     invoke-static {v7, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 337
+    .line 338
     if-gtz v14, :cond_5
 
-    .line 338
+    .line 339
     const/4 v14, -0x1
 
-    .line 339
+    .line 340
     if-eqz v9, :cond_5
 
-    .line 341
+    .line 342
     invoke-direct {v1, v9}, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->readDrawableFromBitMap(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
 
     move-object/from16 v16, v6
 
-    .line 342
+    .line 343
     move-object/from16 v6, v16
 
     check-cast v6, Landroid/graphics/drawable/BitmapDrawable;
@@ -1378,14 +1421,14 @@
 
     move-result-object v6
 
-    .line 343
+    .line 344
     .end local v18    # "bitmap":Landroid/graphics/Bitmap;
     .local v6, "bitmap":Landroid/graphics/Bitmap;
     new-instance v7, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v7}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 344
+    .line 345
     .local v7, "stream":Ljava/io/ByteArrayOutputStream;
     sget-object v10, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
@@ -1397,14 +1440,14 @@
     .local v42, "modifiable":Z
     invoke-virtual {v6, v10, v11, v7}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
-    .line 345
+    .line 346
     invoke-virtual {v7}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v10
 
     move-object/from16 v19, v10
 
-    .line 346
+    .line 347
     iget-object v10, v1, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
     invoke-virtual {v10, v8}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
@@ -1413,12 +1456,12 @@
 
     if-nez v10, :cond_4
 
-    .line 347
+    .line 348
     iget-object v10, v1, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
     invoke-virtual {v10, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 353
+    .line 354
     .end local v7    # "stream":Ljava/io/ByteArrayOutputStream;
     .end local v38    # "compString":Ljava/lang/String;
     .end local v39    # "isModifiable":Ljava/lang/String;
@@ -1501,21 +1544,21 @@
 
     if-eqz v20, :cond_9
 
-    .line 354
+    .line 355
     invoke-static {v3}, Landroid/nfc/cardemulation/NxpAidGroup;->createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/nfc/cardemulation/NxpAidGroup;
 
     move-result-object v6
 
-    .line 355
+    .line 356
     .local v6, "group":Landroid/nfc/cardemulation/NxpAidGroup;
     if-eqz v6, :cond_8
 
-    .line 356
+    .line 357
     invoke-virtual {v0, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_7
 
-    .line 358
+    .line 359
     :cond_8
     const-string v7, "RegisteredNxpServicesCache"
 
@@ -1523,12 +1566,12 @@
 
     invoke-static {v7, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 360
+    .line 361
     .end local v6    # "group":Landroid/nfc/cardemulation/NxpAidGroup;
     :goto_7
     nop
 
-    .line 392
+    .line 393
     :cond_9
     move/from16 v43, v4
 
@@ -1542,7 +1585,7 @@
 
     goto/16 :goto_8
 
-    .line 362
+    .line 363
     .end local v20    # "inService":Z
     .end local v41    # "description":Ljava/lang/String;
     .end local v42    # "modifiable":Z
@@ -1562,7 +1605,7 @@
 
     if-ne v4, v6, :cond_b
 
-    .line 363
+    .line 364
     const-string v6, "service"
 
     invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1571,18 +1614,18 @@
 
     if-eqz v6, :cond_b
 
-    .line 364
+    .line 365
     const/4 v6, -0x1
 
-    .line 365
+    .line 366
     .local v6, "powerstate":I
     const/4 v7, 0x0
 
-    .line 366
+    .line 367
     .local v7, "onHost":Z
     const/4 v9, 0x0
 
-    .line 368
+    .line 369
     .local v9, "requiresUnlock":Z
     move/from16 v43, v4
 
@@ -1592,7 +1635,7 @@
     .local v43, "eventType":I
     invoke-direct {v4}, Landroid/content/pm/ResolveInfo;-><init>()V
 
-    .line 369
+    .line 370
     .local v4, "resolveInfo":Landroid/content/pm/ResolveInfo;
     move-object/from16 v44, v5
 
@@ -1604,7 +1647,7 @@
 
     iput-object v5, v4, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    .line 370
+    .line 371
     iget-object v5, v4, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     move-object/from16 v45, v15
@@ -1617,7 +1660,7 @@
 
     iput-object v15, v5, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    .line 371
+    .line 372
     iget-object v5, v4, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     invoke-virtual {v8}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -1626,7 +1669,7 @@
 
     iput-object v15, v5, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
-    .line 372
+    .line 373
     iget-object v5, v4, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     invoke-virtual {v8}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
@@ -1635,18 +1678,18 @@
 
     iput-object v15, v5, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
 
-    .line 373
+    .line 374
     new-instance v5, Landroid/nfc/cardemulation/NxpApduServiceInfo$ESeInfo;
 
     invoke-direct {v5, v12, v6}, Landroid/nfc/cardemulation/NxpApduServiceInfo$ESeInfo;-><init>(II)V
 
     move-object/from16 v31, v5
 
-    .line 374
+    .line 375
     .local v31, "mEseInfo":Landroid/nfc/cardemulation/NxpApduServiceInfo$ESeInfo;
     const/4 v5, 0x0
 
-    .line 375
+    .line 376
     .local v5, "staticNxpAidGroups":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/nfc/cardemulation/NxpAidGroup;>;"
     new-instance v15, Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
@@ -1678,7 +1721,7 @@
 
     invoke-direct/range {v21 .. v34}, Landroid/nfc/cardemulation/NxpApduServiceInfo;-><init>(Landroid/content/pm/ResolveInfo;ZLjava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;ZIILjava/lang/String;Landroid/nfc/cardemulation/NxpApduServiceInfo$ESeInfo;Ljava/util/ArrayList;[BZ)V
 
-    .line 377
+    .line 378
     .end local v17    # "apduService":Landroid/nfc/cardemulation/NxpApduServiceInfo;
     .local v15, "apduService":Landroid/nfc/cardemulation/NxpApduServiceInfo;
     move-object/from16 v46, v4
@@ -1689,7 +1732,7 @@
     .local v46, "resolveInfo":Landroid/content/pm/ResolveInfo;
     invoke-virtual {v4, v8, v15}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 378
+    .line 379
     const-string v4, "RegisteredNxpServicesCache"
 
     move-object/from16 v47, v5
@@ -1722,56 +1765,56 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 379
+    .line 380
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 380
+    .line 381
     const/4 v4, 0x0
 
-    .line 381
+    .line 382
     .end local v36    # "inService":Z
     .local v4, "inService":Z
     const/4 v5, 0x0
 
-    .line 382
+    .line 383
     .end local v8    # "currentComponent":Landroid/content/ComponentName;
     .local v5, "currentComponent":Landroid/content/ComponentName;
     const/4 v6, 0x0
 
-    .line 383
+    .line 384
     .end local v37    # "drawbalePath":Ljava/lang/String;
     .local v6, "drawbalePath":Ljava/lang/String;
     const/4 v8, 0x0
 
-    .line 384
+    .line 385
     .end local v10    # "description":Ljava/lang/String;
     .local v8, "description":Ljava/lang/String;
     const/4 v10, 0x0
 
-    .line 385
+    .line 386
     .end local v11    # "modifiable":Z
     .local v10, "modifiable":Z
     const/4 v11, 0x0
 
-    .line 386
+    .line 387
     .end local v12    # "seId":I
     .local v11, "seId":I
     const/4 v12, 0x0
 
-    .line 387
+    .line 388
     .end local v13    # "userId":I
     .local v12, "userId":I
     const/4 v13, 0x0
 
-    .line 388
+    .line 389
     .end local v45    # "nxpAidGroup":Landroid/nfc/cardemulation/NxpAidGroup;
     .local v13, "nxpAidGroup":Landroid/nfc/cardemulation/NxpAidGroup;
     const/16 v16, 0x0
 
-    .line 389
+    .line 390
     const/4 v7, 0x0
 
-    .line 392
+    .line 393
     .end local v9    # "requiresUnlock":Z
     .end local v15    # "apduService":Landroid/nfc/cardemulation/NxpApduServiceInfo;
     .end local v31    # "mEseInfo":Landroid/nfc/cardemulation/NxpApduServiceInfo$ESeInfo;
@@ -1847,14 +1890,14 @@
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 316
+    .line 317
     .end local v43    # "eventType":I
     .restart local v4    # "eventType":I
     move-object/from16 v5, v44
 
     goto/16 :goto_2
 
-    .line 399
+    .line 400
     .end local v0    # "dynamicNxpAidGroup":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/nfc/cardemulation/NxpAidGroup;>;"
     .end local v3    # "parser":Lorg/xmlpull/v1/XmlPullParser;
     .end local v4    # "eventType":I
@@ -1875,23 +1918,23 @@
     :cond_c
     if-eqz v2, :cond_d
 
-    .line 401
+    .line 402
     :try_start_3
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
 
-    .line 403
+    .line 404
     :goto_9
     goto :goto_a
 
-    .line 402
+    .line 403
     :catch_1
     move-exception v0
 
     goto :goto_9
 
-    .line 399
+    .line 400
     :catchall_0
     move-exception v0
 
@@ -1901,11 +1944,11 @@
 
     goto :goto_b
 
-    .line 395
+    .line 396
     :catch_2
     move-exception v0
 
-    .line 396
+    .line 397
     .local v0, "e":Ljava/lang/Exception;
     :try_start_4
     const-string v3, "RegisteredNxpServicesCache"
@@ -1914,18 +1957,18 @@
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 397
+    .line 398
     iget-object v3, v1, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mDynamicApduServiceFile:Landroid/util/AtomicFile;
 
     invoke-virtual {v3}, Landroid/util/AtomicFile;->delete()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 399
+    .line 400
     .end local v0    # "e":Ljava/lang/Exception;
     if-eqz v2, :cond_d
 
-    .line 401
+    .line 402
     :try_start_5
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_5
@@ -1933,7 +1976,7 @@
 
     goto :goto_9
 
-    .line 406
+    .line 407
     :cond_d
     :goto_a
     const-string v0, "RegisteredNxpServicesCache"
@@ -1960,29 +2003,29 @@
 
     invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 407
+    .line 408
     return-void
 
-    .line 399
+    .line 400
     .end local v2    # "fis":Ljava/io/FileInputStream;
     .local v3, "fis":Ljava/io/FileInputStream;
     :goto_b
     if-eqz v3, :cond_e
 
-    .line 401
+    .line 402
     :try_start_6
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
 
-    .line 403
+    .line 404
     goto :goto_c
 
-    .line 402
+    .line 403
     :catch_3
     move-exception v0
 
-    .line 403
+    .line 404
     :cond_e
     :goto_c
     throw v2
@@ -1996,13 +2039,17 @@
     .param p4, "serviceName"    # Ljava/lang/String;
     .param p5, "apduService"    # Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    .line 148
+    .line 149
     new-instance v0, Landroid/content/ComponentName;
 
     invoke-direct {v0, p3, p4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 149
+    .line 150
     .local v0, "componentName":Landroid/content/ComponentName;
+    sget-boolean v1, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->DBG:Z
+
+    if-eqz v1, :cond_0
+
     const-string v1, "RegisteredNxpServicesCache"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2025,7 +2072,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 150
+    .line 151
+    :cond_0
     iget-object v1, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduServices:Ljava/util/HashMap;
 
     invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2034,11 +2082,15 @@
 
     check-cast v1, Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    .line 151
-    .local v1, "cur":Landroid/nfc/cardemulation/NxpApduServiceInfo;
-    if-eqz v1, :cond_0
-
     .line 152
+    .local v1, "cur":Landroid/nfc/cardemulation/NxpApduServiceInfo;
+    if-eqz v1, :cond_1
+
+    .line 153
+    sget-boolean v2, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->DBG:Z
+
+    if-eqz v2, :cond_1
+
     const-string v2, "RegisteredNxpServicesCache"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2061,13 +2113,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 154
-    :cond_0
+    .line 155
+    :cond_1
     iget-object v2, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduServices:Ljava/util/HashMap;
 
     invoke-virtual {v2, v0, p5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 156
+    .line 157
     iget-object v2, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduServices:Ljava/util/HashMap;
 
     invoke-virtual {v2, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2078,10 +2130,14 @@
 
     check-cast v1, Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    .line 157
-    if-eqz v1, :cond_1
-
     .line 158
+    if-eqz v1, :cond_2
+
+    .line 159
+    sget-boolean v2, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->DBG:Z
+
+    if-eqz v2, :cond_2
+
     const-string v2, "RegisteredNxpServicesCache"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2104,35 +2160,35 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 161
-    :cond_1
+    .line 162
+    :cond_2
     invoke-virtual {p0}, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->writeDynamicApduService()Z
 
     move-result v2
 
-    .line 162
-    .local v2, "status":Z
-    if-eqz v2, :cond_2
-
     .line 163
+    .local v2, "status":Z
+    if-eqz v2, :cond_3
+
+    .line 164
     iget-object v3, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mRegisteredServicesCache:Lcom/android/nfc/cardemulation/RegisteredServicesCache;
 
     invoke-virtual {v3, p1}, Lcom/android/nfc/cardemulation/RegisteredServicesCache;->invalidateCache(I)V
 
-    .line 164
+    .line 165
     const/4 v3, 0x1
 
     return v3
 
-    .line 166
-    :cond_2
+    .line 167
+    :cond_3
     const-string v3, "RegisteredNxpServicesCache"
 
     const-string v4, "Commit Failed due to writing failed to write in to the file"
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 167
+    .line 168
     const/4 v3, 0x0
 
     return v3
@@ -2141,12 +2197,12 @@
 .method public writeDynamicApduService()Z
     .locals 9
 
-    .line 243
+    .line 244
     const/4 v0, 0x0
 
     move-object v1, v0
 
-    .line 245
+    .line 246
     .local v1, "fos":Ljava/io/FileOutputStream;
     :try_start_0
     iget-object v2, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mDynamicApduServiceFile:Landroid/util/AtomicFile;
@@ -2157,18 +2213,18 @@
 
     move-object v1, v2
 
-    .line 246
+    .line 247
     new-instance v2, Lcom/android/internal/util/FastXmlSerializer;
 
     invoke-direct {v2}, Lcom/android/internal/util/FastXmlSerializer;-><init>()V
 
-    .line 247
+    .line 248
     .local v2, "out":Lorg/xmlpull/v1/XmlSerializer;
     const-string v3, "utf-8"
 
     invoke-interface {v2, v1, v3}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
-    .line 248
+    .line 249
     const/4 v3, 0x1
 
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -2177,17 +2233,17 @@
 
     invoke-interface {v2, v0, v4}, Lorg/xmlpull/v1/XmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    .line 249
+    .line 250
     const-string v4, "http://xmlpull.org/v1/doc/features.html#indent-output"
 
     invoke-interface {v2, v4, v3}, Lorg/xmlpull/v1/XmlSerializer;->setFeature(Ljava/lang/String;Z)V
 
-    .line 250
+    .line 251
     const-string v4, "apduservices"
 
     invoke-interface {v2, v0, v4}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 252
+    .line 253
     iget-object v4, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduServices:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
@@ -2206,23 +2262,23 @@
 
     if-eqz v5, :cond_3
 
-    .line 253
+    .line 254
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Ljava/util/Map$Entry;
 
-    .line 254
+    .line 255
     .local v5, "service":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/content/ComponentName;Landroid/nfc/cardemulation/NxpApduServiceInfo;>;"
     if-eqz v5, :cond_2
 
-    .line 255
+    .line 256
     const-string v6, "service"
 
     invoke-interface {v2, v0, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 256
+    .line 257
     const-string v6, "component"
 
     invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -2237,7 +2293,7 @@
 
     invoke-interface {v2, v0, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 257
+    .line 258
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v6
@@ -2262,7 +2318,7 @@
 
     if-eqz v6, :cond_1
 
-    .line 258
+    .line 259
     const-string v6, "RegisteredNxpServicesCache"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -2291,7 +2347,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 259
+    .line 260
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -2332,7 +2388,7 @@
 
     move-result-object v6
 
-    .line 260
+    .line 261
     .local v6, "path":Ljava/lang/String;
     new-instance v7, Landroid/graphics/drawable/BitmapDrawable;
 
@@ -2354,7 +2410,7 @@
 
     move-object v6, v7
 
-    .line 261
+    .line 262
     iget-object v7, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
     invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -2367,7 +2423,7 @@
 
     if-nez v7, :cond_0
 
-    .line 262
+    .line 263
     iget-object v7, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mApduBanner:Ljava/util/HashMap;
 
     invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -2378,13 +2434,13 @@
 
     invoke-virtual {v7, v8, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 264
+    .line 265
     :cond_0
     const-string v7, "drawableResourcepath"
 
     invoke-interface {v2, v0, v7, v6}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 266
+    .line 267
     .end local v6    # "path":Ljava/lang/String;
     :cond_1
     invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -2395,42 +2451,42 @@
 
     invoke-virtual {v6, v2}, Landroid/nfc/cardemulation/NxpApduServiceInfo;->writeToXml(Lorg/xmlpull/v1/XmlSerializer;)V
 
-    .line 267
+    .line 268
     const-string v6, "service"
 
     invoke-interface {v2, v0, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 269
+    .line 270
     .end local v5    # "service":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Landroid/content/ComponentName;Landroid/nfc/cardemulation/NxpApduServiceInfo;>;"
     :cond_2
     goto/16 :goto_0
 
-    .line 270
+    .line 271
     .end local v4    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<Landroid/content/ComponentName;Landroid/nfc/cardemulation/NxpApduServiceInfo;>;>;"
     :cond_3
     const-string v4, "apduservices"
 
     invoke-interface {v2, v0, v4}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 271
+    .line 272
     invoke-interface {v2}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
 
-    .line 272
+    .line 273
     iget-object v0, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mDynamicApduServiceFile:Landroid/util/AtomicFile;
 
     invoke-virtual {v0, v1}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 273
+    .line 274
     return v3
 
-    .line 274
+    .line 275
     .end local v2    # "out":Lorg/xmlpull/v1/XmlSerializer;
     :catch_0
     move-exception v0
 
-    .line 275
+    .line 276
     .local v0, "e":Ljava/lang/Exception;
     const-string v2, "RegisteredNxpServicesCache"
 
@@ -2438,15 +2494,15 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 276
+    .line 277
     if-eqz v1, :cond_4
 
-    .line 277
+    .line 278
     iget-object v2, p0, Lcom/gsma/nfc/internal/RegisteredNxpServicesCache;->mDynamicApduServiceFile:Landroid/util/AtomicFile;
 
     invoke-virtual {v2, v1}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
-    .line 279
+    .line 280
     :cond_4
     const/4 v2, 0x0
 

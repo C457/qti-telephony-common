@@ -25,7 +25,7 @@
 
 .field static final AID_MATCHING_PREFIX_ONLY:I = 0x2
 
-.field static final DBG:Z = true
+.field static final DBG:Z
 
 .field static final ROUTE_HOST:I = 0x0
 
@@ -90,6 +90,47 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    .line 61
+    sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    const-string v1, "eng"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    const-string v1, "userdebug"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    sput-boolean v0, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 3
 
@@ -137,6 +178,10 @@
     iput-boolean v0, p0, Lcom/android/nfc/cardemulation/AidRoutingManager;->mRoutingTableChanged:Z
 
     .line 132
+    sget-boolean v0, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v0, :cond_0
+
     const-string v0, "AidRoutingManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -162,6 +207,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 133
+    :cond_0
     invoke-direct {p0}, Lcom/android/nfc/cardemulation/AidRoutingManager;->doGetDefaultOffHostRouteDestination()I
 
     move-result v0
@@ -169,6 +215,10 @@
     iput v0, p0, Lcom/android/nfc/cardemulation/AidRoutingManager;->mDefaultOffHostRoute:I
 
     .line 134
+    sget-boolean v0, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v0, :cond_1
+
     const-string v0, "AidRoutingManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -194,6 +244,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 135
+    :cond_1
     invoke-direct {p0}, Lcom/android/nfc/cardemulation/AidRoutingManager;->doGetAidMatchingMode()I
 
     move-result v0
@@ -201,6 +252,10 @@
     iput v0, p0, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidMatchingSupport:I
 
     .line 136
+    sget-boolean v0, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v0, :cond_2
+
     const-string v0, "AidRoutingManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -226,6 +281,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 137
+    :cond_2
     invoke-direct {p0}, Lcom/android/nfc/cardemulation/AidRoutingManager;->doGetAidMatchingPlatform()I
 
     move-result v0
@@ -233,6 +289,10 @@
     iput v0, p0, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidMatchingPlatform:I
 
     .line 138
+    sget-boolean v0, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v0, :cond_3
+
     const-string v0, "AidRoutingManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -258,6 +318,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 139
+    :cond_3
     new-instance v0, Lcom/android/nfc/cardemulation/VzwRoutingCache;
 
     invoke-direct {v0}, Lcom/android/nfc/cardemulation/VzwRoutingCache;-><init>()V
@@ -314,7 +375,7 @@
 
     .line 442
     .local p1, "routeCache":Ljava/util/Hashtable;, "Ljava/util/Hashtable<Ljava/lang/String;Lcom/android/nfc/cardemulation/AidElement;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     .line 443
     invoke-virtual {p1}, Ljava/util/Hashtable;->elements()Ljava/util/Enumeration;
@@ -348,7 +409,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     .line 448
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -359,6 +420,10 @@
 
     .line 449
     .local v2, "element":Lcom/android/nfc/cardemulation/AidElement;
+    sget-boolean v3, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v3, :cond_0
+
     const-string v3, "AidRoutingManager"
 
     invoke-virtual {v2}, Lcom/android/nfc/cardemulation/AidElement;->toString()Ljava/lang/String;
@@ -368,6 +433,7 @@
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 450
+    :cond_0
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
 
     move-result-object v3
@@ -402,7 +468,7 @@
     .line 458
     .end local v0    # "list":Ljava/util/List;, "Ljava/util/List<Lcom/android/nfc/cardemulation/AidElement;>;"
     .end local v1    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/nfc/cardemulation/AidElement;>;"
-    :cond_0
+    :cond_1
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
 
     move-result-object v0
@@ -713,6 +779,10 @@
 
     .line 225
     .local v4, "aidRouteResolved":Z
+    sget-boolean v5, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v5, :cond_0
+
     const-string v5, "AidRoutingManager"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -738,6 +808,7 @@
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 226
+    :cond_0
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
 
     move-result-object v5
@@ -753,6 +824,10 @@
 
     .line 230
     .local v5, "lastRouteCacheSize":I
+    sget-boolean v6, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v6, :cond_1
+
     const-string v6, "AidRoutingManager"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -778,6 +853,7 @@
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 231
+    :cond_1
     new-instance v6, Ljava/util/Hashtable;
 
     const/16 v7, 0x32
@@ -845,7 +921,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_1
+    if-eqz v13, :cond_4
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -888,7 +964,7 @@
 
     const/4 v12, -0x1
 
-    if-ne v15, v12, :cond_0
+    if-ne v15, v12, :cond_2
 
     .line 245
     iget v15, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mDefaultOffHostRoute:I
@@ -897,7 +973,7 @@
     invoke-virtual {v14, v15}, Lcom/android/nfc/cardemulation/AidElement;->setRouteLocation(I)V
 
     .line 248
-    :cond_0
+    :cond_2
     invoke-interface {v13}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v12
@@ -953,6 +1029,10 @@
     invoke-virtual {v10, v12, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 255
+    sget-boolean v13, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v13, :cond_3
+
     const-string v13, "AidRoutingManager"
 
     move/from16 v20, v4
@@ -997,7 +1077,6 @@
     .line 255
     invoke-static {v13, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 257
     .end local v0    # "power":I
     .end local v12    # "aid":Ljava/lang/String;
     .end local v14    # "elem":Lcom/android/nfc/cardemulation/AidElement;
@@ -1005,9 +1084,18 @@
     .end local v18    # "aidEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/nfc/cardemulation/AidElement;>;"
     .end local v19    # "entries":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     .end local v20    # "aidType":I
-    nop
+    goto :goto_1
+
+    .line 257
+    .end local v21    # "infoForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
+    .restart local v10    # "infoForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
+    :cond_3
+    move-object/from16 v21, v10
 
     .line 239
+    .end local v10    # "infoForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
+    .restart local v21    # "infoForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
+    :goto_1
     move/from16 v4, v16
 
     move-object/from16 v12, v17
@@ -1023,7 +1111,7 @@
     .end local v21    # "infoForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .local v4, "aidRouteResolved":Z
     .restart local v10    # "infoForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
-    :cond_1
+    :cond_4
     move/from16 v16, v4
 
     move-object/from16 v21, v10
@@ -1050,10 +1138,14 @@
 
     const/4 v12, 0x1
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_c
 
     .line 261
     :try_start_1
+    sget-boolean v0, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v0, :cond_5
+
     const-string v0, "AidRoutingManager"
 
     const-string v13, "Routing table unchanged"
@@ -1061,12 +1153,13 @@
     invoke-static {v0, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 263
+    :cond_5
     iget-boolean v0, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mLastCommitStatus:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_7
 
     .line 264
-    if-ne v10, v3, :cond_2
+    if-ne v10, v3, :cond_6
 
     .line 265
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
@@ -1076,7 +1169,7 @@
     invoke-virtual {v0, v12}, Lcom/android/nfc/NfcService;->setChangedFlag(Z)V
 
     .line 267
-    :cond_2
+    :cond_6
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
 
     move-result-object v0
@@ -1092,10 +1185,10 @@
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->notifyRoutingTableFull()V
 
-    goto :goto_1
+    goto :goto_2
 
     .line 273
-    :cond_3
+    :cond_7
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
 
     move-result-object v0
@@ -1103,12 +1196,12 @@
     invoke-virtual {v0, v12}, Lcom/android/nfc/NfcService;->updateStatusOfServices(Z)V
 
     .line 275
-    :goto_1
+    :goto_2
     invoke-direct/range {p0 .. p0}, Lcom/android/nfc/cardemulation/AidRoutingManager;->isProcessingTapAgain()Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_9
 
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
 
@@ -1116,23 +1209,31 @@
 
     iget-boolean v0, v0, Lcom/android/nfc/NfcService;->mIsRoutingTableDirty:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_8
 
-    goto :goto_2
+    goto :goto_3
 
     .line 279
-    :cond_4
+    :cond_8
+    sget-boolean v0, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v0, :cond_b
+
     const-string v0, "AidRoutingManager"
 
     const-string v10, "Routing table unchanged, not updating"
 
     invoke-static {v0, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_3
+    goto :goto_4
 
     .line 276
-    :cond_5
-    :goto_2
+    :cond_9
+    :goto_3
+    sget-boolean v0, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v0, :cond_a
+
     const-string v0, "AidRoutingManager"
 
     const-string v10, "Routing table unchanged, but commit the routing"
@@ -1140,6 +1241,7 @@
     invoke-static {v0, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 277
+    :cond_a
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
 
     move-result-object v0
@@ -1147,7 +1249,8 @@
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->commitRouting()V
 
     .line 281
-    :goto_3
+    :cond_b
+    :goto_4
     monitor-exit v4
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -1166,10 +1269,10 @@
 
     move-object/from16 v28, v9
 
-    goto/16 :goto_14
+    goto/16 :goto_16
 
     .line 285
-    :cond_6
+    :cond_c
     :try_start_2
     invoke-virtual/range {p0 .. p0}, Lcom/android/nfc/cardemulation/AidRoutingManager;->clearNfcRoutingTableLocked()V
 
@@ -1186,10 +1289,10 @@
     const/4 v0, 0x0
 
     .local v0, "routeIndex":I
-    :goto_4
+    :goto_5
     const/4 v13, 0x3
 
-    if-ge v0, v13, :cond_19
+    if-ge v0, v13, :cond_24
 
     .line 290
     invoke-virtual {v6}, Ljava/util/Hashtable;->clear()V
@@ -1201,30 +1304,30 @@
 
     const/4 v15, 0x2
 
-    if-eq v14, v15, :cond_8
+    if-eq v14, v15, :cond_e
 
     :try_start_3
     iget v14, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidMatchingPlatform:I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-ne v14, v15, :cond_7
+    if-ne v14, v15, :cond_d
 
-    goto :goto_5
+    goto :goto_6
 
     .line 330
-    :cond_7
+    :cond_d
     move-object/from16 v25, v7
 
     move-object/from16 v26, v8
 
     move-object/from16 v28, v9
 
-    goto/16 :goto_9
+    goto/16 :goto_b
 
     .line 307
-    :cond_8
-    :goto_5
+    :cond_e
+    :goto_6
     :try_start_4
     iget-object v14, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidRoutingTable:Landroid/util/SparseArray;
 
@@ -1238,19 +1341,19 @@
 
     .line 308
     .local v10, "defaultRouteAids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_12
 
     .line 309
     invoke-interface {v10}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v14
 
-    :goto_6
+    :goto_7
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_b
+    if-eqz v17, :cond_12
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1272,12 +1375,12 @@
 
     move-result-object v13
 
-    :goto_7
+    :goto_8
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_a
+    if-eqz v17, :cond_11
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1338,7 +1441,7 @@
     .local v8, "aid":Ljava/lang/String;
     .local v25, "aidRoutingTable":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Ljava/util/Set<Ljava/lang/String;>;>;"
     .local v26, "routeForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
-    if-eqz v17, :cond_9
+    if-eqz v17, :cond_10
 
     move-object/from16 v27, v8
 
@@ -1346,9 +1449,13 @@
 
     .end local v8    # "aid":Ljava/lang/String;
     .local v27, "aid":Ljava/lang/String;
-    if-eq v15, v8, :cond_9
+    if-eq v15, v8, :cond_10
 
     .line 316
+    sget-boolean v8, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v8, :cond_f
+
     const-string v8, "AidRoutingManager"
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
@@ -1382,7 +1489,23 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    goto :goto_9
+
     .line 319
+    .end local v28    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
+    .end local v29    # "defaultRouteAids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .restart local v9    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
+    .restart local v10    # "defaultRouteAids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    :cond_f
+    move-object/from16 v28, v9
+
+    move-object/from16 v29, v10
+
+    .end local v9    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
+    .end local v10    # "defaultRouteAids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .restart local v28    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
+    .restart local v29    # "defaultRouteAids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    :goto_9
     invoke-virtual {v2, v7}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v8
@@ -1402,14 +1525,14 @@
     .end local v12    # "aidEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;"
     .end local v15    # "route":I
     .end local v27    # "aid":Ljava/lang/String;
-    goto :goto_8
+    goto :goto_a
 
     .line 324
     .end local v28    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .end local v29    # "defaultRouteAids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     .restart local v9    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .restart local v10    # "defaultRouteAids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    :cond_9
+    :cond_10
     move-object/from16 v28, v9
 
     move-object/from16 v29, v10
@@ -1419,7 +1542,7 @@
     .end local v10    # "defaultRouteAids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     .restart local v28    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .restart local v29    # "defaultRouteAids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    :goto_8
+    :goto_a
     move-object/from16 v22, v7
 
     move-object/from16 v7, v25
@@ -1434,7 +1557,7 @@
 
     const/4 v15, 0x2
 
-    goto :goto_7
+    goto :goto_8
 
     .line 399
     .end local v0    # "routeIndex":I
@@ -1449,7 +1572,7 @@
 
     .end local v9    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .restart local v28    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
-    goto/16 :goto_14
+    goto/16 :goto_16
 
     .line 325
     .end local v25    # "aidRoutingTable":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Ljava/util/Set<Ljava/lang/String;>;>;"
@@ -1460,7 +1583,7 @@
     .local v8, "routeForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .restart local v9    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .restart local v10    # "defaultRouteAids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    :cond_a
+    :cond_11
     move-object/from16 v25, v7
 
     move-object/from16 v26, v8
@@ -1484,7 +1607,7 @@
 
     const/4 v15, 0x2
 
-    goto/16 :goto_6
+    goto/16 :goto_7
 
     .line 330
     .end local v25    # "aidRoutingTable":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Ljava/util/Set<Ljava/lang/String;>;>;"
@@ -1494,7 +1617,7 @@
     .restart local v7    # "aidRoutingTable":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Ljava/util/Set<Ljava/lang/String;>;>;"
     .restart local v8    # "routeForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .restart local v9    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
-    :cond_b
+    :cond_12
     move-object/from16 v25, v7
 
     move-object/from16 v26, v8
@@ -1507,18 +1630,18 @@
     .restart local v25    # "aidRoutingTable":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Ljava/util/Set<Ljava/lang/String;>;>;"
     .restart local v26    # "routeForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .restart local v28    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
-    :goto_9
+    :goto_b
     const/4 v7, 0x0
 
     .local v7, "i":I
-    :goto_a
+    :goto_c
     iget-object v8, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidRoutingTable:Landroid/util/SparseArray;
 
     invoke-virtual {v8}, Landroid/util/SparseArray;->size()I
 
     move-result v8
 
-    if-ge v7, v8, :cond_16
+    if-ge v7, v8, :cond_21
 
     .line 331
     iget-object v8, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidRoutingTable:Landroid/util/SparseArray;
@@ -1531,7 +1654,7 @@
     .local v8, "route":I
     iget v9, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mDefaultRoute:I
 
-    if-eq v8, v9, :cond_15
+    if-eq v8, v9, :cond_20
 
     .line 333
     iget-object v9, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidRoutingTable:Landroid/util/SparseArray;
@@ -1548,12 +1671,12 @@
 
     move-result-object v10
 
-    :goto_b
+    :goto_d
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v12
 
-    if-eqz v12, :cond_15
+    if-eqz v12, :cond_20
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1569,12 +1692,12 @@
 
     move-result v13
 
-    if-eqz v13, :cond_f
+    if-eqz v13, :cond_18
 
     .line 336
     iget v13, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidMatchingSupport:I
 
-    if-nez v13, :cond_c
+    if-nez v13, :cond_13
 
     .line 337
     const-string v13, "AidRoutingManager"
@@ -1583,17 +1706,21 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_d
+    goto/16 :goto_f
 
     .line 338
-    :cond_c
+    :cond_13
     iget v13, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidMatchingSupport:I
 
     const/4 v14, 0x2
 
-    if-ne v13, v14, :cond_d
+    if-ne v13, v14, :cond_15
 
     .line 339
+    sget-boolean v13, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v13, :cond_14
+
     const-string v13, "AidRoutingManager"
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -1625,6 +1752,7 @@
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 342
+    :cond_14
     invoke-virtual {v2, v12}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v13
@@ -1654,23 +1782,23 @@
 
     .line 347
     .end local v13    # "elem":Lcom/android/nfc/cardemulation/AidElement;
-    goto/16 :goto_d
+    goto/16 :goto_f
 
-    :cond_d
+    :cond_15
     iget v13, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidMatchingSupport:I
 
     const/4 v14, 0x1
 
-    if-eq v13, v14, :cond_e
+    if-eq v13, v14, :cond_16
 
     iget v13, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidMatchingSupport:I
 
     const/4 v14, 0x3
 
-    if-ne v13, v14, :cond_14
+    if-ne v13, v14, :cond_1f
 
     .line 349
-    :cond_e
+    :cond_16
     const-string v13, "AidRoutingManager"
 
     const-string v14, "Routing AID in AID_MATCHING_EXACT_OR_PREFIX"
@@ -1678,6 +1806,10 @@
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 350
+    sget-boolean v13, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v13, :cond_17
+
     const-string v13, "AidRoutingManager"
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -1709,6 +1841,7 @@
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 352
+    :cond_17
     invoke-virtual {v2, v12}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v13
@@ -1721,22 +1854,22 @@
 
     .line 355
     .end local v13    # "elem":Lcom/android/nfc/cardemulation/AidElement;
-    goto/16 :goto_d
+    goto/16 :goto_f
 
     .line 356
-    :cond_f
+    :cond_18
     const-string v13, "#"
 
     invoke-virtual {v12, v13}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_13
+    if-eqz v13, :cond_1d
 
     .line 357
     iget v13, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidMatchingSupport:I
 
-    if-nez v13, :cond_10
+    if-nez v13, :cond_19
 
     .line 358
     const-string v13, "AidRoutingManager"
@@ -1761,33 +1894,37 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_d
+    goto/16 :goto_f
 
     .line 360
-    :cond_10
+    :cond_19
     iget v13, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidMatchingSupport:I
 
     const/4 v14, 0x2
 
-    if-eq v13, v14, :cond_12
+    if-eq v13, v14, :cond_1c
 
     iget v13, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidMatchingSupport:I
 
     const/4 v15, 0x1
 
-    if-ne v13, v15, :cond_11
+    if-ne v13, v15, :cond_1a
 
-    goto :goto_c
+    goto :goto_e
 
     .line 364
-    :cond_11
+    :cond_1a
     iget v13, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidMatchingSupport:I
 
     const/4 v15, 0x3
 
-    if-ne v13, v15, :cond_14
+    if-ne v13, v15, :cond_1f
 
     .line 365
+    sget-boolean v13, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v13, :cond_1b
+
     const-string v13, "AidRoutingManager"
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -1819,6 +1956,7 @@
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 367
+    :cond_1b
     invoke-virtual {v2, v12}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v13
@@ -1831,11 +1969,11 @@
 
     .line 370
     .end local v13    # "elem":Lcom/android/nfc/cardemulation/AidElement;
-    goto :goto_d
+    goto :goto_f
 
     .line 362
-    :cond_12
-    :goto_c
+    :cond_1c
+    :goto_e
     const-string v13, "AidRoutingManager"
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -1858,10 +1996,14 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_d
+    goto :goto_f
 
     .line 372
-    :cond_13
+    :cond_1d
+    sget-boolean v13, Lcom/android/nfc/cardemulation/AidRoutingManager;->DBG:Z
+
+    if-eqz v13, :cond_1e
+
     const-string v13, "AidRoutingManager"
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -1893,6 +2035,7 @@
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 374
+    :cond_1e
     invoke-virtual {v2, v12}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v13
@@ -1906,21 +2049,21 @@
     .line 378
     .end local v12    # "aid":Ljava/lang/String;
     .end local v13    # "elem":Lcom/android/nfc/cardemulation/AidElement;
-    :cond_14
-    :goto_d
-    goto/16 :goto_b
+    :cond_1f
+    :goto_f
+    goto/16 :goto_d
 
     .line 330
     .end local v8    # "route":I
     .end local v9    # "aidsForRoute":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    :cond_15
+    :cond_20
     add-int/lit8 v7, v7, 0x1
 
-    goto/16 :goto_a
+    goto/16 :goto_c
 
     .line 383
     .end local v7    # "i":I
-    :cond_16
+    :cond_21
     invoke-virtual {v11, v6}, Lcom/android/nfc/cardemulation/AidRoutingManager$DefaultAidRouteResolveCache;->calculateAidRouteSize(Ljava/util/Hashtable;)I
 
     move-result v7
@@ -1928,13 +2071,13 @@
     iput v7, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mRouteCacheSize:I
 
     .line 385
-    if-nez v0, :cond_17
+    if-nez v0, :cond_22
 
     iget v7, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mRouteCacheSize:I
 
     iget v8, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidRoutingTableSize:I
 
-    if-gt v7, v8, :cond_17
+    if-gt v7, v8, :cond_22
 
     .line 387
     const/4 v7, 0x1
@@ -1947,12 +2090,12 @@
     .line 399
     move/from16 v16, v7
 
-    goto :goto_e
+    goto :goto_10
 
     .line 390
     .end local v7    # "aidRouteResolved":Z
     .restart local v16    # "aidRouteResolved":Z
-    :cond_17
+    :cond_22
     iget v7, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mDefaultRoute:I
 
     invoke-virtual {v11, v6, v7}, Lcom/android/nfc/cardemulation/AidRoutingManager$DefaultAidRouteResolveCache;->updateDefaultAidRouteCache(Ljava/util/Hashtable;I)I
@@ -1969,13 +2112,13 @@
 
     const/16 v8, 0xff
 
-    if-ne v7, v8, :cond_18
+    if-ne v7, v8, :cond_23
 
     .line 394
-    goto :goto_e
+    goto :goto_10
 
     .line 289
-    :cond_18
+    :cond_23
     add-int/lit8 v0, v0, 0x1
 
     move-object/from16 v7, v25
@@ -1988,7 +2131,7 @@
 
     const/4 v12, 0x1
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     .line 399
     .end local v0    # "routeIndex":I
@@ -1998,7 +2141,7 @@
     .local v7, "aidRoutingTable":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Ljava/util/Set<Ljava/lang/String;>;>;"
     .local v8, "routeForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .local v9, "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
-    :cond_19
+    :cond_24
     move-object/from16 v25, v7
 
     move-object/from16 v26, v8
@@ -2011,13 +2154,13 @@
     .restart local v25    # "aidRoutingTable":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Ljava/util/Set<Ljava/lang/String;>;>;"
     .restart local v26    # "routeForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .restart local v28    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
-    :goto_e
+    :goto_10
     monitor-exit v4
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_3
 
     .line 400
-    if-nez v16, :cond_1d
+    if-nez v16, :cond_28
 
     .line 401
     iget-object v0, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mAidRoutingTable:Landroid/util/SparseArray;
@@ -2026,7 +2169,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_25
 
     .line 402
     const/16 v16, 0x1
@@ -2039,24 +2182,24 @@
     .line 425
     .end local v16    # "aidRouteResolved":Z
     .local v0, "aidRouteResolved":Z
-    :goto_f
+    :goto_11
     move/from16 v0, v16
 
     const/4 v4, 0x1
 
-    goto :goto_12
+    goto :goto_14
 
     .line 407
     .end local v0    # "aidRouteResolved":Z
     .restart local v16    # "aidRouteResolved":Z
-    :cond_1a
+    :cond_25
     invoke-virtual {v11}, Lcom/android/nfc/cardemulation/AidRoutingManager$DefaultAidRouteResolveCache;->resolveDefaultAidRoute()Z
 
     move-result v0
 
     const/4 v4, 0x1
 
-    if-ne v0, v4, :cond_1b
+    if-ne v0, v4, :cond_26
 
     .line 408
     const/16 v16, 0x1
@@ -2084,16 +2227,16 @@
 
     invoke-virtual {v0, v4}, Lcom/android/nfc/NfcService;->setDefaultAidRouteLoc(I)V
 
-    goto :goto_f
+    goto :goto_11
 
     .line 416
-    :cond_1b
+    :cond_26
     iput v5, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mRouteCacheSize:I
 
     .line 417
     const/4 v0, 0x5
 
-    if-ne v0, v3, :cond_1c
+    if-ne v0, v3, :cond_27
 
     .line 418
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
@@ -2104,32 +2247,32 @@
 
     invoke-virtual {v0, v4}, Lcom/android/nfc/NfcService;->setChangedFlag(Z)V
 
-    goto :goto_10
+    goto :goto_12
 
     .line 421
-    :cond_1c
+    :cond_27
     const/4 v4, 0x1
 
-    :goto_10
+    :goto_12
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->notifyRoutingTableFull()V
 
-    goto :goto_11
+    goto :goto_13
 
     .line 425
-    :cond_1d
+    :cond_28
     const/4 v4, 0x1
 
-    :goto_11
+    :goto_13
     move/from16 v0, v16
 
     .end local v16    # "aidRouteResolved":Z
     .restart local v0    # "aidRouteResolved":Z
-    :goto_12
-    if-ne v0, v4, :cond_1e
+    :goto_14
+    if-ne v0, v4, :cond_29
 
     .line 426
     iput-boolean v4, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mRoutingTableChanged:Z
@@ -2147,10 +2290,10 @@
     .line 429
     iput-boolean v4, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mLastCommitStatus:Z
 
-    goto :goto_13
+    goto :goto_15
 
     .line 432
-    :cond_1e
+    :cond_29
     invoke-static {}, Lcom/android/nfc/NfcService;->getInstance()Lcom/android/nfc/NfcService;
 
     move-result-object v7
@@ -2163,7 +2306,7 @@
     iput-boolean v8, v1, Lcom/android/nfc/cardemulation/AidRoutingManager;->mLastCommitStatus:Z
 
     .line 437
-    :goto_13
+    :goto_15
     return v4
 
     .line 399
@@ -2190,7 +2333,7 @@
     .restart local v25    # "aidRoutingTable":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Ljava/util/Set<Ljava/lang/String;>;>;"
     .restart local v26    # "routeForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .restart local v28    # "powerForAid":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
-    :goto_14
+    :goto_16
     :try_start_7
     monitor-exit v4
     :try_end_7
@@ -2201,7 +2344,7 @@
     :catchall_3
     move-exception v0
 
-    goto :goto_14
+    goto :goto_16
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V

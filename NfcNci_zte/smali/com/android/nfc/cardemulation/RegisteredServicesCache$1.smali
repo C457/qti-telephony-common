@@ -55,6 +55,10 @@
 
     .line 141
     .local v2, "action":Ljava/lang/String;
+    sget-boolean v3, Lcom/android/nfc/cardemulation/RegisteredServicesCache;->DEBUG:Z
+
+    if-eqz v3, :cond_0
+
     const-string v3, "RegisteredServicesCache"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -74,7 +78,8 @@
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 142
-    if-eq v0, v1, :cond_5
+    :cond_0
+    if-eq v0, v1, :cond_6
 
     .line 143
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
@@ -87,7 +92,7 @@
 
     move-result v3
 
-    if-ne v1, v3, :cond_5
+    if-ne v1, v3, :cond_6
 
     .line 145
     const-string v3, "android.intent.action.PACKAGE_REMOVED"
@@ -96,7 +101,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     .line 146
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
@@ -105,7 +110,7 @@
 
     .line 147
     .local v3, "uri":Landroid/net/Uri;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     invoke-virtual {v3}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
@@ -113,7 +118,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     const/4 v4, 0x0
 
     .line 148
@@ -139,7 +144,7 @@
     .line 151
     .end local v3    # "uri":Landroid/net/Uri;
     .end local v4    # "pkg":Ljava/lang/String;
-    :cond_1
+    :cond_2
     const-string v3, "android.intent.extra.REPLACING"
 
     const/4 v4, 0x0
@@ -148,7 +153,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     const-string v3, "android.intent.action.PACKAGE_ADDED"
 
@@ -157,7 +162,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3
 
     const-string v3, "android.intent.action.PACKAGE_REMOVED"
 
@@ -166,19 +171,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
-    :cond_2
+    :cond_3
     const/4 v4, 0x1
 
     nop
 
-    :cond_3
+    :cond_4
     move v3, v4
 
     .line 154
     .local v3, "replaced":Z
-    if-nez v3, :cond_4
+    if-nez v3, :cond_5
 
     .line 155
     iget-object v4, p0, Lcom/android/nfc/cardemulation/RegisteredServicesCache$1;->this$0:Lcom/android/nfc/cardemulation/RegisteredServicesCache;
@@ -192,7 +197,11 @@
     goto :goto_1
 
     .line 157
-    :cond_4
+    :cond_5
+    sget-boolean v4, Lcom/android/nfc/cardemulation/RegisteredServicesCache;->DEBUG:Z
+
+    if-eqz v4, :cond_6
+
     const-string v4, "RegisteredServicesCache"
 
     const-string v5, "Ignoring package intent due to package being replaced."
@@ -202,7 +211,7 @@
     .line 163
     .end local v1    # "currentUser":I
     .end local v3    # "replaced":Z
-    :cond_5
+    :cond_6
     :goto_1
     return-void
 .end method
