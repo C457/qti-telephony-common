@@ -34,7 +34,7 @@
         </receiver>
         <service android:exported="false" android:name=".LBSSystemMonitorService"/>
         <service android:exported="false" android:name=".LocationService"/>
-        <activity android:excludeFromRecents="true" android:name=".NetInitiatedActivity" android:process="system" android:theme="@android:style/Theme.Holo.Dialog.Alert"/>
+        <activity android:excludeFromRecents="true" android:name=".NetInitiatedActivity" android:process="system" android:theme="@android:style/Theme.Leanback.Settings.Dialog"/>
         <service android:exported="false" android:name=".izatprovider.NetworkLocationService">
             <intent-filter>
                 <action android:name="com.android.location.service.v2.NetworkLocationProvider"/>
