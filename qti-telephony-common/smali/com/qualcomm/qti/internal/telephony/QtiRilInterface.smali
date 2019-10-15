@@ -97,7 +97,7 @@
 
     iput-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->mQcrilHookCb:Lcom/qualcomm/qcrilhook/QcRilHookCallback;
 
-    .line 616
+    .line 621
     new-instance v0, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface$2;
 
     invoke-direct {v0, p0}, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface$2;-><init>(Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;)V
@@ -365,12 +365,12 @@
     .locals 1
     .param p1, "string"    # Ljava/lang/String;
 
-    .line 634
+    .line 639
     const-string v0, "QtiRilInterface"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 635
+    .line 640
     return-void
 .end method
 
@@ -378,12 +378,12 @@
     .locals 1
     .param p1, "string"    # Ljava/lang/String;
 
-    .line 642
+    .line 647
     const-string v0, "QtiRilInterface"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 643
+    .line 648
     return-void
 .end method
 
@@ -391,12 +391,12 @@
     .locals 1
     .param p1, "string"    # Ljava/lang/String;
 
-    .line 638
+    .line 643
     const-string v0, "QtiRilInterface"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 639
+    .line 644
     return-void
 .end method
 
@@ -523,7 +523,7 @@
 
     .end local v0    # "i":I
     .local v6, "i":I
-    if-ge v6, v3, :cond_e
+    if-ge v6, v3, :cond_f
 
     .line 491
     new-instance v0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;
@@ -548,7 +548,7 @@
 
     .line 496
     .local v7, "nameLength":I
-    if-lez v7, :cond_8
+    if-lez v7, :cond_9
 
     .line 497
     new-array v8, v7, [B
@@ -561,12 +561,12 @@
     :try_start_0
     sget-boolean v0, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->ZTE_FEATURE_SIM_PB_SUPPORT_KSC5601:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     .line 504
     const/4 v0, 0x2
 
-    if-lt v7, v0, :cond_6
+    if-lt v7, v0, :cond_7
 
     aget-byte v9, v8, v5
 
@@ -576,7 +576,7 @@
 
     const/16 v11, 0xee
 
-    if-ne v9, v11, :cond_6
+    if-ne v9, v11, :cond_7
 
     const/4 v9, 0x1
 
@@ -584,7 +584,7 @@
 
     and-int/2addr v12, v10
 
-    if-ne v12, v11, :cond_6
+    if-ne v12, v11, :cond_7
 
     .line 507
     new-instance v11, Ljava/lang/StringBuilder;
@@ -649,7 +649,7 @@
 
     .local v0, "j":I
     :goto_1
-    if-ge v0, v7, :cond_1
+    if-ge v0, v7, :cond_2
 
     .line 512
     aget-byte v12, v8, v0
@@ -657,41 +657,82 @@
     and-int/2addr v12, v10
 
     .line 513
-    .local v12, "c":I
-    if-ne v12, v10, :cond_0
+    .local v12, "c1":I
+    add-int/lit8 v13, v0, 0x1
+
+    aget-byte v13, v8, v13
+
+    and-int/2addr v13, v10
 
     .line 514
-    goto :goto_2
+    .local v13, "c2":I
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v15, "encode: c1 = "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v15, ",c2 = "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-direct {v1, v14}, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->logd(Ljava/lang/String;)V
+
+    .line 515
+    if-ne v12, v10, :cond_0
+
+    if-ne v13, v10, :cond_0
 
     .line 516
-    :cond_0
-    add-int/lit8 v13, v0, -0x2
-
-    add-int/lit8 v14, v0, 0x1
-
-    aget-byte v14, v8, v14
-
-    aput-byte v14, v11, v13
-
-    .line 517
-    add-int/lit8 v13, v0, -0x1
-
-    aget-byte v14, v8, v0
-
-    aput-byte v14, v11, v13
+    goto :goto_2
 
     .line 518
+    :cond_0
+    add-int/lit8 v14, v0, -0x2
+
+    add-int/lit8 v15, v0, 0x1
+
+    aget-byte v15, v8, v15
+
+    aput-byte v15, v11, v14
+
+    .line 519
+    add-int/lit8 v14, v0, -0x1
+
+    aget-byte v15, v8, v0
+
+    aput-byte v15, v11, v14
+
+    .line 520
     add-int/lit8 v9, v9, 0x2
 
+    .line 521
+    if-ne v12, v10, :cond_1
+
+    .line 522
+    add-int/lit8 v9, v9, -0x1
+
     .line 511
-    .end local v12    # "c":I
+    .end local v12    # "c1":I
+    .end local v13    # "c2":I
+    :cond_1
     add-int/lit8 v0, v0, 0x2
 
     goto :goto_1
 
-    .line 520
+    .line 525
     .end local v0    # "j":I
-    :cond_1
+    :cond_2
     :goto_2
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -709,34 +750,34 @@
 
     invoke-direct {v1, v0}, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->logd(Ljava/lang/String;)V
 
-    .line 522
+    .line 527
     new-instance v0, Ljava/lang/String;
 
     const-string v10, "KSC5601"
 
     invoke-direct {v0, v11, v5, v9, v10}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
 
-    .line 523
+    .line 528
     .local v0, "retKSC":Ljava/lang/String;
     const/4 v10, 0x0
 
-    .line 525
+    .line 530
     .local v10, "validRetKSC":Ljava/lang/String;
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v12
 
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_5
 
-    .line 527
+    .line 532
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v12
 
-    .line 528
+    .line 533
     .local v12, "ksclen":I
     :goto_3
-    if-lez v12, :cond_2
+    if-lez v12, :cond_3
 
     add-int/lit8 v13, v12, -0x1
 
@@ -746,31 +787,31 @@
 
     const v14, 0xffff
 
-    if-ne v13, v14, :cond_2
+    if-ne v13, v14, :cond_3
 
-    .line 529
+    .line 534
     add-int/lit8 v12, v12, -0x1
 
     goto :goto_3
 
-    .line 532
-    :cond_2
+    .line 537
+    :cond_3
     invoke-virtual {v0, v5, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v13
 
     move-object v10, v13
 
-    .line 535
+    .line 540
     invoke-virtual {v10}, Ljava/lang/String;->length()I
 
     move-result v13
 
     move v12, v13
 
-    .line 536
+    .line 541
     :goto_4
-    if-lez v12, :cond_3
+    if-lez v12, :cond_4
 
     add-int/lit8 v13, v12, -0x1
 
@@ -780,50 +821,50 @@
 
     const/16 v14, 0x20
 
-    if-ne v13, v14, :cond_3
+    if-ne v13, v14, :cond_4
 
-    .line 537
+    .line 542
     add-int/lit8 v12, v12, -0x1
 
     goto :goto_4
 
-    .line 539
-    :cond_3
+    .line 544
+    :cond_4
     invoke-virtual {v10, v5, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v13
 
     move-object v10, v13
 
-    .line 542
+    .line 547
     .end local v12    # "ksclen":I
-    :cond_4
+    :cond_5
     invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v12
 
-    if-nez v12, :cond_5
+    if-nez v12, :cond_6
 
-    .line 543
+    .line 548
     const-string v12, "valid KSC5601 name"
 
     invoke-direct {v1, v12}, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->logd(Ljava/lang/String;)V
 
-    .line 545
-    :cond_5
+    .line 550
+    :cond_6
     aget-object v12, v4, v6
 
     iput-object v10, v12, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mAlphaTag:Ljava/lang/String;
 
-    .line 546
+    .line 551
     .end local v0    # "retKSC":Ljava/lang/String;
     .end local v9    # "encodeLen":I
     .end local v10    # "validRetKSC":Ljava/lang/String;
     .end local v11    # "alphaTagKsc5601":[B
     goto :goto_5
 
-    .line 547
-    :cond_6
+    .line 552
+    :cond_7
     aget-object v0, v4, v6
 
     new-instance v9, Ljava/lang/String;
@@ -836,8 +877,8 @@
 
     goto :goto_5
 
-    .line 550
-    :cond_7
+    .line 555
+    :cond_8
     aget-object v0, v4, v6
 
     new-instance v9, Ljava/lang/String;
@@ -850,44 +891,44 @@
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 556
+    .line 561
     :goto_5
     goto :goto_6
 
-    .line 553
+    .line 558
     :catch_0
     move-exception v0
 
-    .line 554
+    .line 559
     .local v0, "e":Ljava/io/UnsupportedEncodingException;
     const-string v5, "Unsupport UTF-8 to parse name"
 
     invoke-direct {v1, v5}, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->loge(Ljava/lang/String;)V
 
-    .line 555
+    .line 560
     goto/16 :goto_e
 
-    .line 559
+    .line 564
     .end local v0    # "e":Ljava/io/UnsupportedEncodingException;
     .end local v8    # "alphaTag":[B
-    :cond_8
+    :cond_9
     :goto_6
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->getShort()S
 
     move-result v8
 
-    .line 560
+    .line 565
     .local v8, "numberLength":I
-    if-lez v8, :cond_9
+    if-lez v8, :cond_a
 
-    .line 561
+    .line 566
     new-array v9, v8, [B
 
-    .line 562
+    .line 567
     .local v9, "number":[B
     invoke-virtual {v2, v9}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
-    .line 564
+    .line 569
     :try_start_1
     aget-object v0, v4, v6
 
@@ -897,7 +938,7 @@
 
     invoke-direct {v10, v9, v11}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
 
-    .line 565
+    .line 570
     invoke-static {v10}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->ConvertToPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v10
@@ -906,48 +947,48 @@
     :try_end_1
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 569
+    .line 574
     goto :goto_7
 
-    .line 566
+    .line 571
     :catch_1
     move-exception v0
 
-    .line 567
+    .line 572
     .restart local v0    # "e":Ljava/io/UnsupportedEncodingException;
     const-string v5, "Unsupport UTF-8 to parse number"
 
     invoke-direct {v1, v5}, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->loge(Ljava/lang/String;)V
 
-    .line 568
+    .line 573
     goto/16 :goto_e
 
-    .line 572
+    .line 577
     .end local v0    # "e":Ljava/io/UnsupportedEncodingException;
     .end local v9    # "number":[B
-    :cond_9
+    :cond_a
     :goto_7
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->getShort()S
 
     move-result v9
 
-    .line 573
+    .line 578
     .local v9, "numEmails":I
-    if-lez v9, :cond_b
+    if-lez v9, :cond_c
 
-    .line 574
+    .line 579
     aget-object v0, v4, v6
 
     iput v9, v0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mEmailCount:I
 
-    .line 575
+    .line 580
     aget-object v0, v4, v6
 
     new-array v10, v9, [Ljava/lang/String;
 
     iput-object v10, v0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mEmails:[Ljava/lang/String;
 
-    .line 576
+    .line 581
     move v0, v5
 
     .local v0, "j":I
@@ -956,25 +997,25 @@
 
     .end local v0    # "j":I
     .local v10, "j":I
-    if-ge v10, v9, :cond_b
+    if-ge v10, v9, :cond_c
 
-    .line 577
+    .line 582
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->getShort()S
 
     move-result v11
 
-    .line 578
+    .line 583
     .local v11, "emailLength":I
-    if-lez v11, :cond_a
+    if-lez v11, :cond_b
 
-    .line 579
+    .line 584
     new-array v12, v11, [B
 
-    .line 580
+    .line 585
     .local v12, "email":[B
     invoke-virtual {v2, v12}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
-    .line 582
+    .line 587
     :try_start_2
     aget-object v0, v4, v6
 
@@ -990,27 +1031,27 @@
     :try_end_2
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 586
+    .line 591
     goto :goto_9
 
-    .line 583
+    .line 588
     :catch_2
     move-exception v0
 
-    .line 584
+    .line 589
     .local v0, "e":Ljava/io/UnsupportedEncodingException;
     const-string v13, "Unsupport UTF-8 to parse email"
 
     invoke-direct {v1, v13}, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->loge(Ljava/lang/String;)V
 
-    .line 585
+    .line 590
     goto :goto_a
 
-    .line 576
+    .line 581
     .end local v0    # "e":Ljava/io/UnsupportedEncodingException;
     .end local v11    # "emailLength":I
     .end local v12    # "email":[B
-    :cond_a
+    :cond_b
     :goto_9
     add-int/lit8 v0, v10, 0x1
 
@@ -1018,31 +1059,31 @@
     .local v0, "j":I
     goto :goto_8
 
-    .line 591
+    .line 596
     .end local v0    # "j":I
-    :cond_b
+    :cond_c
     :goto_a
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->getShort()S
 
     move-result v10
 
-    .line 592
+    .line 597
     .local v10, "numAnrs":I
-    if-lez v10, :cond_d
+    if-lez v10, :cond_e
 
-    .line 593
+    .line 598
     aget-object v0, v4, v6
 
     iput v10, v0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mAdNumCount:I
 
-    .line 594
+    .line 599
     aget-object v0, v4, v6
 
     new-array v11, v10, [Ljava/lang/String;
 
     iput-object v11, v0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mAdNumbers:[Ljava/lang/String;
 
-    .line 595
+    .line 600
     move v0, v5
 
     .local v0, "k":I
@@ -1051,25 +1092,25 @@
 
     .end local v0    # "k":I
     .local v11, "k":I
-    if-ge v11, v10, :cond_d
+    if-ge v11, v10, :cond_e
 
-    .line 596
+    .line 601
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->getShort()S
 
     move-result v12
 
-    .line 597
+    .line 602
     .local v12, "anrLength":I
-    if-lez v12, :cond_c
+    if-lez v12, :cond_d
 
-    .line 598
+    .line 603
     new-array v13, v12, [B
 
-    .line 599
+    .line 604
     .local v13, "anr":[B
     invoke-virtual {v2, v13}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
-    .line 601
+    .line 606
     :try_start_3
     aget-object v0, v4, v6
 
@@ -1081,7 +1122,7 @@
 
     invoke-direct {v14, v13, v15}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
 
-    .line 602
+    .line 607
     invoke-static {v14}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->ConvertToPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v14
@@ -1090,27 +1131,27 @@
     :try_end_3
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_3 .. :try_end_3} :catch_3
 
-    .line 606
+    .line 611
     goto :goto_c
 
-    .line 603
+    .line 608
     :catch_3
     move-exception v0
 
-    .line 604
+    .line 609
     .local v0, "e":Ljava/io/UnsupportedEncodingException;
     const-string v14, "Unsupport UTF-8 to parse anr"
 
     invoke-direct {v1, v14}, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->loge(Ljava/lang/String;)V
 
-    .line 605
+    .line 610
     goto :goto_d
 
-    .line 595
+    .line 600
     .end local v0    # "e":Ljava/io/UnsupportedEncodingException;
     .end local v12    # "anrLength":I
     .end local v13    # "anr":[B
-    :cond_c
+    :cond_d
     :goto_c
     add-int/lit8 v0, v11, 0x1
 
@@ -1124,7 +1165,7 @@
     .end local v8    # "numberLength":I
     .end local v9    # "numEmails":I
     .end local v10    # "numAnrs":I
-    :cond_d
+    :cond_e
     :goto_d
     add-int/lit8 v0, v6, 0x1
 
@@ -1132,9 +1173,9 @@
     .local v0, "i":I
     goto/16 :goto_0
 
-    .line 611
+    .line 616
     .end local v0    # "i":I
-    :cond_e
+    :cond_f
     :goto_e
     invoke-static {v4}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1142,7 +1183,7 @@
 
     invoke-direct {v1, v0}, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->logd(Ljava/lang/String;)V
 
-    .line 613
+    .line 618
     return-object v4
 .end method
 
