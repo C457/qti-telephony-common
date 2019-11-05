@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">DTS:X Ultra haqqında</string>
+    <string name="about_facebook_button"><b>Facebook</b>-da bəyənin</string>
+    <string name="about_text_copyright">© 2017, Xperi. Bütün hüquqlar qorunur.</string>
+    <string name="about_text_main1">"DTS olaraq, biz səsin mühüm olduğuna inanırıq. İstər musiqi dinləyin, istər film izləyin, istərsə də oyun oynayın sizi həqiqətən əhatə edən səs sizi təcrübənin mərkəzinə aparır.
+
+DTS sizə musiqini ifaçının onu yazdığı şəkildə təqdim etməyə çalışır. DTS:X Ultra™ bu keyfiyyətli təcrübəni təmin edir, lakin həmçinin səsi qulaqlarınız və qulaqlığınız üçün fərdiləşdirir."</string>
+    <string name="about_twitter_button">Bizi <b>Twitter</b>-də izləyin</string>
+    <string name="about_website_button"><b>Veb saytımıza</b> baş çəkin</string>
+    <string name="cd_about_facebook">DTS Facebook Səhifəsi</string>
+    <string name="cd_about_website">DTS:X Ultra Vebsayt Keçidi</string>
+    <string name="general_dts_subtitle">Panoramik dairəvi səs</string>
+    <string name="general_headphone_title">Simli qulaqlıqlar</string>
+    <string name="general_preference_title">Stereo üstünlük</string>
+    <string name="headphone_actionbar_title">Simli qulaqlıqlar</string>
+    <string name="headphone_title">Optimallaşdırılmış audio seçimi</string>
+    <string name="loading">Yüklənir</string>
+    <string name="msg_dts_disabled">DTS:X Ultra qeyri-aktiv edilib. Bu funksiyanı istifadə etmək üçün DTS:X Ultra-ı aktiv edin.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">Stereo üstünlük</string>
+    <string name="preference_infront_subtitle">Səsi başınızın önündə iki səsucaldan kimi çölə və önə yayır</string>
+    <string name="preference_infront_title">Öndə</string>
+    <string name="preference_title">Stereo məzmun üçün seçilmiş səs</string>
+    <string name="preference_traditional_subtitle">Daha ənənəvi qulaqlıq təcrübəsi üçün səsi başınıza doğru yayır</string>
+    <string name="preference_traditional_title">Ənənəvi</string>
+    <string name="preference_wide_subtitle">Orijinal stereo yazmanın genişliyini artırır</string>
+    <string name="preference_wide_title">Geniş</string>
+    <string name="reset">Yenidən qur</string>
+</resources>

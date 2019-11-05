@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">Přejít na plochu</string>
+    <string name="abc_action_bar_up_description">Přejít nahoru</string>
+    <string name="abc_action_menu_overflow_description">Více možností</string>
+    <string name="abc_action_mode_done">Hotovo</string>
+    <string name="abc_activity_chooser_view_see_all">Zobrazit vše</string>
+    <string name="abc_activitychooserview_choose_application">Vybrat aplikaci</string>
+    <string name="abc_capital_off">VYPNUTO</string>
+    <string name="abc_capital_on">ZAPNUTO</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Fn+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">mezerník</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">Vyhledat…</string>
+    <string name="abc_searchview_description_clear">Smazat dotaz</string>
+    <string name="abc_searchview_description_query">Vyhledávací dotaz</string>
+    <string name="abc_searchview_description_search">Hledat</string>
+    <string name="abc_searchview_description_submit">Odeslat dotaz</string>
+    <string name="abc_searchview_description_voice">Hlasové vyhledávání</string>
+    <string name="abc_shareactionprovider_share_with">Sdílet pomocí</string>
+    <string name="abc_shareactionprovider_share_with_application">Sdílet s aplikací %s</string>
+    <string name="abc_toolbar_collapse_description">Sbalit</string>
+    <string name="about_dts">O DTS:X Ultra</string>
+    <string name="about_facebook_button">To se mi líbí na <b>Facebook</b></string>
+    <string name="about_text_copyright">© 2017, Xperi. Všechna práva vyhrazena.</string>
+    <string name="about_text_main1">"V DTS věříme, že na zvuku záleží. Díky zvuku, který vás obklopuje, se můžete dostat do středu dění, ať už posloucháte hudbu, sledujete film nebo hrajete hru.
+
+Technologie DTS je určena pro přinášení zvuku ve stejné kvalitě, v jaké ho umělci zaznamenali. Režim DTS:X Ultra™ poskytuje tento kvalitní zážitek, ale také přizpůsobuje zvuk pro uši a sluchátka."</string>
+    <string name="about_twitter_button">Sledujte nás na <b>Twitter</b></string>
+    <string name="about_website_button">Navštivte naši <b>internetovou stránku</b></string>
+    <string name="cd_about_facebook">DTS Facebook stránka</string>
+    <string name="cd_about_website">Odkaz na internetové stránky DTS:X Ultra</string>
+    <string name="general_dts_subtitle">Panoramatický prostorový zvuk</string>
+    <string name="general_headphone_title">Kabelová sluchátka</string>
+    <string name="general_preference_title">Upřednostněné stereo</string>
+    <string name="headphone_actionbar_title">Kabelová sluchátka</string>
+    <string name="headphone_title">Optimalizovaný výběr zvuku</string>
+    <string name="loading">Načítání</string>
+    <string name="msg_dts_disabled">Režim DTS:X Ultra je zakázaný. Povolte prosím režim DTS:X Ultra pro využívání této funkce.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">Upřednostněné stereo</string>
+    <string name="preference_infront_subtitle">Přináší zvuk ven a vpřed, stejně jako dva reproduktory před vaší hlavou</string>
+    <string name="preference_infront_title">Vpřed</string>
+    <string name="preference_title">Upřednostňovaný zvuk pro stereo obsah</string>
+    <string name="preference_traditional_subtitle">Přináší zvuk blízko k vaší hlavě pro tradičnější zážitek ze sluchátek</string>
+    <string name="preference_traditional_title">Tradiční</string>
+    <string name="preference_wide_subtitle">Zvýrazňuje prostorovost původního stereo záznamu</string>
+    <string name="preference_wide_title">Rozsáhlý</string>
+    <string name="reset">Obnovit</string>
+    <string name="search_menu_title">Hledat</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

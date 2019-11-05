@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.design.widget.TabLayout android:id="@id/brandedheadphone_tabLayout" android:layout_width="fill_parent" android:layout_height="@dimen/branded_headphone_tab_height" style="@style/CustomTabLayout" />
+    <ProgressBar android:id="@id/brandedheadphone_progressBar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/list_progressbar_top_margin" android:indeterminate="true" android:layout_below="@id/brandedheadphone_tabLayout" android:layout_centerHorizontal="true" />
+    <ListView android:layout_gravity="center_horizontal" android:id="@id/brandedheadphone_listView" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/brandedheadphone_tabLayout" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/grey_light" android:gravity="center" android:layout_gravity="center" android:id="@id/brandedheadphone_emptyText" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/none" />
+</RelativeLayout>

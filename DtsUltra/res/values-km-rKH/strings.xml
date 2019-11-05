@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">អំពី DTS:X Ultra</string>
+    <string name="about_facebook_button">ចូលចិត្តពួកយើងតាម <b>Facebook</b></string>
+    <string name="about_text_copyright">© 2017, Xperi។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</string>
+    <string name="about_text_main1">"នៅ DTS យើងជឿថា​សំឡេងនោះ​គឺជាបញ្ហា។ ទោះជាអ្នកកំពុង​ស្ដាប់តន្ត្រី មើល​ភាពយន្ដ ឬកំពុងលេង​ហ្គេម​ក៏ដោយ​ សំឡេង​ដែល​ជះជុំវិញអ្នក​នាំយក​រូបអ្នកមកនៅចំចំណុចកណ្ដាលនៃបទ​ពិសោធន៍​។
+
+DTS ប្ដេជ្ញានាំយក​សំឡេងមក​ជូនលោកអ្នក​តាមរបៀប​ដែល​វិចិត្រករ​បានថតវា។ DTS:X Ultra™ ផ្ដល់ជូន​នូវបទពិសោធន៍​គុណភាព​ ប៉ុន្តែក៏​កំណត់​សំឡេង​តម្រូវទៅតាម​ត្រចៀក និងកាសទាំងពីររបស់អ្នក​ផងដែរ។"</string>
+    <string name="about_twitter_button">តាមដានពួកយើងតាម <b>Twitter</b></string>
+    <string name="about_website_button">ចូលមើល <b>គេហទំព័រ</b> របស់យើង</string>
+    <string name="cd_about_facebook">ទំព័រ DTS Facebook</string>
+    <string name="cd_about_website">DTS:X Ultra តំណភ្ជាប់គេហទំព័រ</string>
+    <string name="general_dts_subtitle">សំឡេងជះជុំវិញសព្វទស្សន៍</string>
+    <string name="general_headphone_title">កាសមានខ្សែ</string>
+    <string name="general_preference_title">ចំណូលចិត្តសំឡេងស្ដេរ៉េអូ</string>
+    <string name="headphone_actionbar_title">កាសមានខ្សែ</string>
+    <string name="headphone_title">ការជ្រើសរើសសំឡេងដែលបានបង្កើនប្រសិទ្ធភាព</string>
+    <string name="loading">ការផ្ទុក</string>
+    <string name="msg_dts_disabled">DTS:X Ultra គឺបានបិទ។ សូមបើកដំណើរការ DTS:X Ultra ដើម្បីប្រើលក្ខណៈពិសេសនេះ។</string>
+    <string name="ok">យល់ព្រម</string>
+    <string name="preference_actionbar_title">ចំណូលចិត្តសំឡេងស្ដេរ៉េអូ</string>
+    <string name="preference_infront_subtitle">នាំយកសំឡេងចេញ និងទៅខាងមុខដូចឧបាល័រពីរនៅខាងមុខក្បាលរបស់អ្នក</string>
+    <string name="preference_infront_title">ខាងមុខ</string>
+    <string name="preference_title">សំឡេងដែលពេញចិត្តសម្រាប់មាតិកាសំឡេងស្ដេរ៉េអូ</string>
+    <string name="preference_traditional_subtitle">នាំយក​សំឡេង​មកជិតក្បាល​របស់អ្នក​សម្រាប់​បទពិសោធន៍​កាស​កាន់តែបែប​ប្រពៃណី</string>
+    <string name="preference_traditional_title">បែបប្រពៃណី</string>
+    <string name="preference_wide_subtitle">ធ្វើឲ្យកម្រិតសំឡេងថត​ដើម​ប្រសើរឡើង</string>
+    <string name="preference_wide_title">ធំទូលាយ</string>
+    <string name="reset">កំណត់ឡើងវិញ</string>
+</resources>

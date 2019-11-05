@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dts.dtsxultra.views.CheckableRelativeLayout android:id="@id/list_layout_tuning" android:padding="@dimen/list_margin" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/list_tuning_icon" android:layout_width="@dimen/list_headphone_icon_size" android:layout_height="@dimen/list_headphone_icon_size" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true">
+        <TextView android:id="@id/list_tuning_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/list_title_margin" android:layout_marginRight="@dimen/list_title_margin" android:text="New Text" style="@style/text_standard" />
+        <TextView android:id="@id/list_tuning_subtitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/list_title_margin" android:layout_marginRight="@dimen/list_title_margin" android:text="New Text" android:layout_below="@id/list_headphone_title" style="@style/text_subtext" />
+    </LinearLayout>
+    <RadioButton android:id="@id/list_tuning_radio" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+</com.dts.dtsxultra.views.CheckableRelativeLayout>

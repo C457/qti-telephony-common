@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">瀏覽主頁</string>
+    <string name="abc_action_bar_up_description">向上瀏覽</string>
+    <string name="abc_action_menu_overflow_description">更多選項</string>
+    <string name="abc_action_mode_done">完成</string>
+    <string name="abc_activity_chooser_view_see_all">顯示全部</string>
+    <string name="abc_activitychooserview_choose_application">選擇應用程式</string>
+    <string name="abc_capital_off">關閉</string>
+    <string name="abc_capital_on">開啟</string>
+    <string name="abc_menu_alt_shortcut_label">Alt +</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl +</string>
+    <string name="abc_menu_delete_shortcut_label">刪除</string>
+    <string name="abc_menu_enter_shortcut_label">Enter 鍵</string>
+    <string name="abc_menu_function_shortcut_label">Fn +</string>
+    <string name="abc_menu_meta_shortcut_label">Meta +</string>
+    <string name="abc_menu_shift_shortcut_label">Shift +</string>
+    <string name="abc_menu_space_shortcut_label">空白鍵</string>
+    <string name="abc_menu_sym_shortcut_label">Sym +</string>
+    <string name="abc_prepend_shortcut_label">Menu +</string>
+    <string name="abc_search_hint">搜尋…</string>
+    <string name="abc_searchview_description_clear">清除查詢</string>
+    <string name="abc_searchview_description_query">搜尋查詢</string>
+    <string name="abc_searchview_description_search">搜尋</string>
+    <string name="abc_searchview_description_submit">提交查詢</string>
+    <string name="abc_searchview_description_voice">語音搜尋</string>
+    <string name="abc_shareactionprovider_share_with">分享對象</string>
+    <string name="abc_shareactionprovider_share_with_application">使用「%s」分享</string>
+    <string name="abc_toolbar_collapse_description">收合</string>
+    <string name="about_dts">關於 DTS:X Ultra</string>
+    <string name="about_facebook_button">在 <b>Facebook</b> 讚好我們</string>
+    <string name="about_text_copyright">© 2017, Xperi. 版權所有。</string>
+    <string name="about_text_main1">"在 DTS，我們以聲效為首。無論您正在收聽音樂、看電影或玩遊戲，真正圍繞您的音響，會帶您進入扣人心弦的體驗。
+
+DTS 致力保存歌手原聲效果。DTS:X Ultra™ 除了帶來這種音質體驗，同時會將聲效個人化，輸送進您耳朵和耳機。"</string>
+    <string name="about_twitter_button">在 <b>Twitter</b> 關注我們</string>
+    <string name="about_website_button">瀏覽我們的 <b>網站</b></string>
+    <string name="cd_about_facebook">DTS Facebook 專頁</string>
+    <string name="cd_about_website">DTS:X Ultra 網站連結</string>
+    <string name="general_dts_subtitle">全景環迴立體聲</string>
+    <string name="general_headphone_title">有線耳機</string>
+    <string name="general_preference_title">立體聲偏好設定</string>
+    <string name="headphone_actionbar_title">有線耳機</string>
+    <string name="headphone_title">優化音訊選擇</string>
+    <string name="loading">載入中</string>
+    <string name="msg_dts_disabled">DTS:X Ultra 已停用，請啟動 DTS:X Ultra 即可使用此功能。</string>
+    <string name="ok">確定</string>
+    <string name="preference_actionbar_title">立體聲偏好設定</string>
+    <string name="preference_infront_subtitle">將聲效輸出前置，如擺放兩個揚聲器在前額一樣</string>
+    <string name="preference_infront_title">前置</string>
+    <string name="preference_title">立體聲優選音效</string>
+    <string name="preference_traditional_subtitle">將音響輸近您頭部，讓您感受更傳統耳機體驗</string>
+    <string name="preference_traditional_title">傳統</string>
+    <string name="preference_wide_subtitle">增強原聲錄音廣度</string>
+    <string name="preference_wide_title">寬</string>
+    <string name="reset">重設</string>
+    <string name="search_menu_title">搜尋</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

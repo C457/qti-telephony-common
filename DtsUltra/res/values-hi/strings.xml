@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">होम पेज पर जाएं</string>
+    <string name="abc_action_bar_up_description">ऊपर जाएं</string>
+    <string name="abc_action_menu_overflow_description">ज़्यादा विकल्प</string>
+    <string name="abc_action_mode_done">हो गया</string>
+    <string name="abc_activity_chooser_view_see_all">सभी देखें</string>
+    <string name="abc_activitychooserview_choose_application">कोई एप्‍लिकेशन चुनें</string>
+    <string name="abc_capital_off">बंद</string>
+    <string name="abc_capital_on">चालू</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">खोजा जा रहा है…</string>
+    <string name="abc_searchview_description_clear">क्‍वेरी साफ़ करें</string>
+    <string name="abc_searchview_description_query">सर्च क्वेरी</string>
+    <string name="abc_searchview_description_search">सर्च करें</string>
+    <string name="abc_searchview_description_submit">क्वेरी सबमिट करें</string>
+    <string name="abc_searchview_description_voice">आवाज़ सर्च</string>
+    <string name="abc_shareactionprovider_share_with">इसके साथ शेयर करें</string>
+    <string name="abc_shareactionprovider_share_with_application">%s के साथ शेयर करें</string>
+    <string name="abc_toolbar_collapse_description">छोटा करें</string>
+    <string name="about_dts">DTS:X Ultra के बारे में</string>
+    <string name="about_facebook_button">हमें <b>Facebook</b> पर पसंद करें</string>
+    <string name="about_text_copyright">© 2017, Xperi. सर्वाधिकार सुरक्षित।</string>
+    <string name="about_text_main1">"DTS में, हमारा यह मानना है कि ध्वनि मायने रखती है। भले ही आप संगीत सुन रहे हों, मूवी देख रहे हों या कोई गेम खेल रहे हों, ध्वनि जो आपके चारों ओर आती है वह आपको केन्द्रीभूत करती है।
+
+जिस ध्वनि में कलाकार ने रिकॉर्ड किया था आपको वही ध्वनि प्रदान करने के लिए DTS समर्पित है। DTS:X Ultra™ आपको न केवल यह गुणवत्ता अनुभव प्रदान करता है बल्कि यह आपके कान और हेडफ़ोन दोनों के लिए ध्वनि को वैयक्तिकृत भी करता है।"</string>
+    <string name="about_twitter_button"><b>Twitter</b> पर हमारा अनुसरण करें</string>
+    <string name="about_website_button">हमारी <b>वेबसाइट</b> देखें</string>
+    <string name="cd_about_facebook">DTS Facebook पृष्ठ</string>
+    <string name="cd_about_website">DTS:X Ultra वेबसाइट लिंक</string>
+    <string name="general_dts_subtitle">पैनोरमिक सराउंड ध्वनि</string>
+    <string name="general_headphone_title">वायर्ड हेडफ़ोंस</string>
+    <string name="general_preference_title">स्टीरियो प्राथमिकता</string>
+    <string name="headphone_actionbar_title">वायर्ड हेडफ़ोंस</string>
+    <string name="headphone_title">अनुकूलित ऑडियो चयन</string>
+    <string name="loading">लोड हो रहा है</string>
+    <string name="msg_dts_disabled">"DTS:X Ultra अक्षम है। इस सुविधा का उपयोग करने के लिए कृपया DTS:X Ultra सक्षम करें। "</string>
+    <string name="ok">ठीक</string>
+    <string name="preference_actionbar_title">स्टीरियो प्राथमिकता</string>
+    <string name="preference_infront_subtitle">ध्वनि को बाहर और सामने लाता है, जैसे कि आपके सिर के सामने दो स्पीकर्स</string>
+    <string name="preference_infront_title">सामने</string>
+    <string name="preference_title">स्टीरियो सामग्री के लिए पसंदीदा ध्वनि</string>
+    <string name="preference_traditional_subtitle">अधिक पारंपरिक हेडफ़ोन अनुभव के लिए ध्वनि को आपके सिर के पास लाता है</string>
+    <string name="preference_traditional_title">पारंपरिक</string>
+    <string name="preference_wide_subtitle">मूल स्टीरियो रिकॉर्डिंग की विशालता को एन्हांस करता है</string>
+    <string name="preference_wide_title">चौड़ा</string>
+    <string name="reset">रीसेट करें</string>
+    <string name="search_menu_title">सर्च</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

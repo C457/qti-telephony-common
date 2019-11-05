@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">Điều hướng về trang chủ</string>
+    <string name="abc_action_bar_up_description">Điều hướng lên trên</string>
+    <string name="abc_action_menu_overflow_description">Tùy chọn khác</string>
+    <string name="abc_action_mode_done">Xong</string>
+    <string name="abc_activity_chooser_view_see_all">Xem tất cả</string>
+    <string name="abc_activitychooserview_choose_application">Chọn một ứng dụng</string>
+    <string name="abc_capital_off">TẮT</string>
+    <string name="abc_capital_on">BẬT</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">phím cách</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">Tìm kiếm…</string>
+    <string name="abc_searchview_description_clear">Xóa truy vấn</string>
+    <string name="abc_searchview_description_query">Tìm kiếm truy vấn</string>
+    <string name="abc_searchview_description_search">Tìm kiếm</string>
+    <string name="abc_searchview_description_submit">Gửi truy vấn</string>
+    <string name="abc_searchview_description_voice">Tìm kiếm bằng giọng nói</string>
+    <string name="abc_shareactionprovider_share_with">Chia sẻ với</string>
+    <string name="abc_shareactionprovider_share_with_application">Chia sẻ với %s</string>
+    <string name="abc_toolbar_collapse_description">Thu gọn</string>
+    <string name="about_dts">Giới thiệu về DTS:X Ultra</string>
+    <string name="about_facebook_button">Thích chúng tôi trên <b>Facebook</b></string>
+    <string name="about_text_copyright">© 2017, Xperi. Bảo lưu mọi quyền.</string>
+    <string name="about_text_main1">"Tại DTS, chúng tôi tin rằng âm thanh có ý nghĩa quan trọng. Cho dù bạn đang nghe nhạc, xem phim hay chơi trò chơi, âm thanh thực vây quanh bạn sẽ đặt mình vào vị trí trung tâm của trải nghiệm.
+
+DTS nỗ lực mang lại âm thanh cho bạn theo cách nghệ sĩ ghi lại. DTS:X Ultra™ mang lại trải nghiệm có chất lượng này nhưng cũng cá nhân hóa âm thanh cho cả tai của bạn lẫn tai nghe."</string>
+    <string name="about_twitter_button">Theo dõi chúng tôi trên <b>Twitter</b></string>
+    <string name="about_website_button">Truy cập <b>trang web</b> của chúng tôi</string>
+    <string name="cd_about_facebook">Trang Facebook DTS</string>
+    <string name="cd_about_website">Liên kết Trang web của DTS:X Ultra</string>
+    <string name="general_dts_subtitle">Âm thanh vòm toàn cảnh</string>
+    <string name="general_headphone_title">Tai nghe nối dây</string>
+    <string name="general_preference_title">Tùy chọn stereo</string>
+    <string name="headphone_actionbar_title">Tai nghe nối dây</string>
+    <string name="headphone_title">Lựa chọn âm thanh tối ưu</string>
+    <string name="loading">Đang tải</string>
+    <string name="msg_dts_disabled">DTS:X Ultra đã tắt. Vui lòng bật DTS:X Ultra để sử dụng tính năng này.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">Tùy chọn stereo</string>
+    <string name="preference_infront_subtitle">Phát âm thanh ra ngoài và hướng về phía trước, giống như hai loa phía trước đầu của bạn</string>
+    <string name="preference_infront_title">Phía trước</string>
+    <string name="preference_title">Âm thanh ưu tiên của nội dung stereo</string>
+    <string name="preference_traditional_subtitle">Phát âm thanh gần với đầu của bạn để có trải nghiệm tai nghe truyền thống hơn</string>
+    <string name="preference_traditional_title">Truyền thống</string>
+    <string name="preference_wide_subtitle">Cải thiện không gian của bản ghi âm stereo gốc</string>
+    <string name="preference_wide_title">Rộng</string>
+    <string name="reset">Đặt lại</string>
+    <string name="search_menu_title">Tìm kiếm</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

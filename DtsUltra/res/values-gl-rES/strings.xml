@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">Acerca de DTS:X Ultra</string>
+    <string name="about_facebook_button">Dalle a \"Gústame\" no <b>Facebook</b></string>
+    <string name="about_text_copyright">© 2017, Xperi. Todos os dereitos reservados.</string>
+    <string name="about_text_main1">"En DTS, cremos que o son importa. Tanto se está a escoitar música, ver unha película ou xogar, o son que ten ó redor é o que de verdade sitúalle no centro da experiencia.
+
+DTS adícase a levarlle o son do xeito que o intérprete o gravou. DTS:X Ultra™ fornece esta experiencia de calidade pero tamén personaliza o son en oídos e auriculares."</string>
+    <string name="about_twitter_button">Síguenos no <b>Twitter</b></string>
+    <string name="about_website_button">Visite o noso <b>sitio web</b></string>
+    <string name="cd_about_facebook">Páxina de Facebook de DTS</string>
+    <string name="cd_about_website">Ligazón ao sitio web de DTS:X Ultra</string>
+    <string name="general_dts_subtitle">Son surround panorámico</string>
+    <string name="general_headphone_title">Auriculares con micrófono e cable</string>
+    <string name="general_preference_title">Preferencia estéreo</string>
+    <string name="headphone_actionbar_title">Auriculares con micrófono e cable</string>
+    <string name="headphone_title">Selección optimizada de audio</string>
+    <string name="loading">Cargando</string>
+    <string name="msg_dts_disabled">DTS:X Ultra está desactivado. Active DTS:X Ultra para usar esta función.</string>
+    <string name="ok">Aceptar</string>
+    <string name="preference_actionbar_title">Preferencia estéreo</string>
+    <string name="preference_infront_subtitle">Leva o son fóra e ata a fronte, como os dous altofalantes fronte á súa cabeza</string>
+    <string name="preference_infront_title">Fronte a</string>
+    <string name="preference_title">Son preferido para contido estéreo</string>
+    <string name="preference_traditional_subtitle">Leva o son preto da súa cabeza para obter unha experiencia auriculares máis tradicional</string>
+    <string name="preference_traditional_title">Tradicional</string>
+    <string name="preference_wide_subtitle">Mellora a amplitude da gravación estéreo orixinal</string>
+    <string name="preference_wide_title">Ancho</string>
+    <string name="reset">Restablecer</string>
+</resources>

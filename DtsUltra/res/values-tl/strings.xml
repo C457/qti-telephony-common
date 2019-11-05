@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">Mag-navigate patungo sa home</string>
+    <string name="abc_action_bar_up_description">Mag-navigate pataas</string>
+    <string name="abc_action_menu_overflow_description">Higit pang mga opsyon</string>
+    <string name="abc_action_mode_done">Tapos na</string>
+    <string name="abc_activity_chooser_view_see_all">Tingnan lahat</string>
+    <string name="abc_activitychooserview_choose_application">Pumili ng isang app</string>
+    <string name="abc_capital_off">I-OFF</string>
+    <string name="abc_capital_on">I-ON</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">Maghanap…</string>
+    <string name="abc_searchview_description_clear">I-clear ang query</string>
+    <string name="abc_searchview_description_query">Query sa paghahanap</string>
+    <string name="abc_searchview_description_search">Maghanap</string>
+    <string name="abc_searchview_description_submit">Isumite ang query</string>
+    <string name="abc_searchview_description_voice">Paghahanap gamit ang boses</string>
+    <string name="abc_shareactionprovider_share_with">Ibahagi sa/kay</string>
+    <string name="abc_shareactionprovider_share_with_application">Ibahagi gamit ang %s</string>
+    <string name="abc_toolbar_collapse_description">I-collapse</string>
+    <string name="about_dts">Tungkol sa DTS:X Ultra</string>
+    <string name="about_text_main1">"Sa DTS, mahalaga ang tunog. Nakikinig ka man, nanonood o naglalaro, pinapaganda ng nakapaligid na tunog ang karanasan mo.
+
+Nakatuon ang DTS sa paghatid sa iyo ng tunog na tulad sa recording ng artist. Hindi lang magandang karanasan ang hatid ng DTS:X Ultra™, inaakma din nito ang tunog sa tainga at headphones mo."</string>
+    <string name="cd_about_facebook">Facebook Page ng DTS</string>
+    <string name="cd_about_website">Link sa Website ng DTS:X Ultra</string>
+    <string name="general_dts_subtitle">Panoramic surround sound</string>
+    <string name="general_headphone_title">May wire na headphones</string>
+    <string name="general_preference_title">Kagustuhan sa stereo</string>
+    <string name="headphone_actionbar_title">May wire na headphones</string>
+    <string name="headphone_title">Naka-optimize na pagpipilian sa audio</string>
+    <string name="loading">Naglo-load</string>
+    <string name="msg_dts_disabled">Naka-disable: DTS:X Ultra. I-enable: DTS:X Ultra para magamit ang feature.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">Kagustuhan sa stereo</string>
+    <string name="preference_infront_subtitle">Tunog na parang dalawang speaker sa harap</string>
+    <string name="preference_infront_title">Nasa Harap</string>
+    <string name="preference_title">Gustong tunog para sa content ng stereo</string>
+    <string name="preference_traditional_subtitle">Malapit sa iyo para mas maganda makinig</string>
+    <string name="preference_traditional_title">Tradisyonal</string>
+    <string name="preference_wide_subtitle">Inaayos sakop ng tunog ng orig. stereo rcdg</string>
+    <string name="preference_wide_title">Nakatodo</string>
+    <string name="reset">I-reset</string>
+    <string name="search_menu_title">Maghanap</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

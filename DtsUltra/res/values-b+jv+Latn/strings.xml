@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">Babagan DTS:X Ultra</string>
+    <string name="about_text_main1">"Ing DTS, kita percaya yen swara kuwi penting. Arep ngrungokake musik, nonton film, utawa dolanan game, nganggoa swara sing nyata suroun sing dadi pusat pangalaman.
+
+DTS khusus nggo nggawa swara kaya nalika artis ngrekam kuwi. DTS:X Ultra™ menehi pangalaman kualitas lan uga gawe pribadi swara ing kuping lan headphone."</string>
+    <string name="cd_about_facebook">DTS Kaca Facebook</string>
+    <string name="cd_about_website">DTS:X Ultra Tautan Situs Web</string>
+    <string name="general_dts_subtitle">Swara sakubengan panoramik</string>
+    <string name="general_headphone_title">Headphone nganggo kabel</string>
+    <string name="general_preference_title">Preferensi stereo</string>
+    <string name="headphone_actionbar_title">Headphone nganggo kabel</string>
+    <string name="headphone_title">Pilihan audio optimasi</string>
+    <string name="loading">Ngamot</string>
+    <string name="msg_dts_disabled">DTS:X Ultra nonaktif. Aktifke DTS:X Ultra nggo nggunakke fitur iki.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">Preferensi stereo</string>
+    <string name="preference_infront_subtitle">Nggawa swara metu &amp; ing ngarep, kaya speaker loro ing ngarep sirah</string>
+    <string name="preference_infront_title">Ing ngarep</string>
+    <string name="preference_title">Swara disenengi kanggo konten stereo</string>
+    <string name="preference_traditional_subtitle">Nggawa swara cedhak sirah nggo pangalaman headphone lwh tradisional</string>
+    <string name="preference_traditional_title">Tradisional</string>
+    <string name="preference_wide_subtitle">Nggedhekake ambane rekaman stereo asli</string>
+    <string name="preference_wide_title">Amba</string>
+    <string name="reset">Reset</string>
+</resources>

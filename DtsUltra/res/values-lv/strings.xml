@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">Pārvietoties uz sākuma ekrānu</string>
+    <string name="abc_action_bar_up_description">Pārvietoties augšup</string>
+    <string name="abc_action_menu_overflow_description">Vairāk opciju</string>
+    <string name="abc_action_mode_done">Gatavs</string>
+    <string name="abc_activity_chooser_view_see_all">Skatīt visu</string>
+    <string name="abc_activitychooserview_choose_application">Izvēlieties lietotni</string>
+    <string name="abc_capital_off">IZSLĒGTS</string>
+    <string name="abc_capital_on">IESLĒGTS</string>
+    <string name="abc_menu_alt_shortcut_label">Alternēšanas taustiņš +</string>
+    <string name="abc_menu_ctrl_shortcut_label">Vadīšanas taustiņš +</string>
+    <string name="abc_menu_delete_shortcut_label">dzēšanas taustiņš</string>
+    <string name="abc_menu_enter_shortcut_label">ievadīšanas taustiņš</string>
+    <string name="abc_menu_function_shortcut_label">Funkcijas taustiņš +</string>
+    <string name="abc_menu_meta_shortcut_label">Meta taustiņš +</string>
+    <string name="abc_menu_shift_shortcut_label">Pārslēgšanas taustiņš +</string>
+    <string name="abc_menu_space_shortcut_label">atstarpes taustiņš</string>
+    <string name="abc_menu_sym_shortcut_label">Simbolu taustiņš +</string>
+    <string name="abc_prepend_shortcut_label">Poga Izvēlne +</string>
+    <string name="abc_search_hint">Meklējiet…</string>
+    <string name="abc_searchview_description_clear">Notīrīt vaicājumu</string>
+    <string name="abc_searchview_description_query">Meklēšanas vaicājums</string>
+    <string name="abc_searchview_description_search">Meklēt</string>
+    <string name="abc_searchview_description_submit">Iesniegt vaicājumu</string>
+    <string name="abc_searchview_description_voice">Meklēšana ar balsi</string>
+    <string name="abc_shareactionprovider_share_with">Kopīgot ar:</string>
+    <string name="abc_shareactionprovider_share_with_application">Kopīgot ar lietojumprogrammu %s</string>
+    <string name="abc_toolbar_collapse_description">Sakļaut</string>
+    <string name="about_dts">Par DTS:X Ultra</string>
+    <string name="about_facebook_button">Atzīmējiet mūs ar Patīk pakalpojumā <b>Facebook</b></string>
+    <string name="about_text_copyright">© 2017, Xperi. Visas tiesības paturētas.</string>
+    <string name="about_text_main1">"Uzņēmumā DTS skaņa ir būtiska. Kad klausāties mūziku, skatāties filmu vai spēlējat spēli, skaņa, kas jūs patiesi ieskauj, palīdz justies kā šīs pieredzes centrā.
+
+Uzņēmumam DTS ir svarīgi, lai jūs skaņu dzirdētu tieši tā, kā izpildītājs ir to ierakstījis. DTS:X Ultra™ nodrošina šo pieredzi, bet arī personalizē skaņu jūsu ausīm un austiņām."</string>
+    <string name="about_twitter_button">Sekojiet mums pakalpojumā <b>Twitter</b></string>
+    <string name="about_website_button">Apmeklējiet mūsu <b>vietni</b></string>
+    <string name="cd_about_facebook">DTS Facebook lapa</string>
+    <string name="cd_about_website">DTS:X Ultra vietnes saite</string>
+    <string name="general_dts_subtitle">Panorāmas ieskaujošā skaņa</string>
+    <string name="general_headphone_title">Austiņas ar vadu</string>
+    <string name="general_preference_title">Stereo preference</string>
+    <string name="headphone_actionbar_title">Austiņas ar vadu</string>
+    <string name="headphone_title">Optimizēta audio atlase</string>
+    <string name="loading">Notiek ielāde</string>
+    <string name="msg_dts_disabled">DTS:X Ultra ir atspējots. Lai lietotu šo funkciju, iespējojiet DTS:X Ultra.</string>
+    <string name="ok">Labi</string>
+    <string name="preference_actionbar_title">Stereo preference</string>
+    <string name="preference_infront_subtitle">Pārvieto skaņu uz priekšu — līdzīgi kā divi skaļruņi jums priekšā</string>
+    <string name="preference_infront_title">Priekšēja</string>
+    <string name="preference_title">Vēlamā skaņa stereo saturam</string>
+    <string name="preference_traditional_subtitle">Pārvieto skaņu tuvu galvai, lai sniegtu tradicionālāku austiņu lietošanas pieredzi</string>
+    <string name="preference_traditional_title">Tradicionāla</string>
+    <string name="preference_wide_subtitle">Papildina sākotnējā stereo ieraksta telpiskumu</string>
+    <string name="preference_wide_title">Plaša</string>
+    <string name="reset">Atiestatīt</string>
+    <string name="search_menu_title">Meklēt</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

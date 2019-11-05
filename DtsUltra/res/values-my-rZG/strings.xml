@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">DTS:X Ultra အေၾကာင္း</string>
+    <string name="about_facebook_button">ကၽြႏ္ုပ္တို႔ကို <b>Facebook</b> တြင္ လိုက္ခ့္လုပ္ေပးပါ</string>
+    <string name="about_text_copyright">© 2017, Xperi. မူပိုင္ခြင့္မ်ားအားလုံး ရရွိျပီး။</string>
+    <string name="about_text_main1">"DTS တြင္ အသံသည္ အမ်ားထက္ ထူးျခားမည္ျဖစ္ေၾကာင္း ယုံၾကည္ပါသည္။ သင္သည္ ေတးဂီတ နားဆင္ျခင္း၊ ဇာတ္လမ္းၾကည့္ျခင္း သို႔မဟုတ္ ဂိမ္းကစားျခင္း တစ္ခုခု လုပ္ေနပါက အသံသည္ သင့္အား အေတြ႔အၾကံဳေကာင္းမ်ား အလယ္သို႔ အမွန္တကယ္ ပို႔ေဆာင္ေပးပါသည္။
+
+DTS ကို အႏုပညာရွင္မ်ား အသံသြင္းသကဲ့သို႔ေသာ အသံမ်ားအတိုင္း သင့္ဆီ ယူေဆာင္ေပးႏိုင္ရန္ အထူးျပဳလုပ္ေပးထားပါသည္။ DTS:X Ultra™ သည္ ဤအရည္အေသြး အေတြ႔အၾကံဳမ်ားကို ေပးစြမ္းႏိုင္သည့္အျပင္ သင့္နားႏွစ္ဖက္လုံးအတြက္ အသံႏွင့္ နားၾကပ္မ်ားကို စိတ္ၾကိဳက္လုပ္ေဆာင္ႏိုင္ပါေသးသည္။"</string>
+    <string name="about_twitter_button">ကၽြႏ္ုပ္တို႔ကို <b>Twitter</b>တြင္ လိုက္ခ့္လုပ္ေပးပါ</string>
+    <string name="about_website_button">ကၽြႏ္ုပ္တို႔၏ <b>ဝက္ဘ္ဆိုဒ္</b>ကို ဝင္ေရာက္ေလ့လာၾကည့္ပါ</string>
+    <string name="cd_about_facebook">DTS Facebook စာမ်က္ႏွာ</string>
+    <string name="cd_about_website">DTS:X Ultra ဝက္ဘ္ဆိုဒ္ လင့္ခ္</string>
+    <string name="general_dts_subtitle">ဝန္းက်င္ပတ္လည္အသံ</string>
+    <string name="general_headphone_title">ဝါယာၾကိဳးတပ္ နားၾကပ္</string>
+    <string name="general_preference_title">စတီရီယို ႀကိဳက္ႏွစ္သက္မႈ</string>
+    <string name="headphone_actionbar_title">ဝါယာၾကိဳးတပ္ နားၾကပ္</string>
+    <string name="headphone_title">အေကာင္းဆုံး အသုံးျပဳႏိုင္ေသာ အသံေအာ္ဒီယို ေရြးခ်ယ္မႈ</string>
+    <string name="loading">ဆြဲတင္ေနသည္</string>
+    <string name="msg_dts_disabled">DTS:X Ultra ကို ပိတ္ထားသည္။ ေက်းဇူးျပဳ၍ ဤလုပ္ေဆာင္ခ်က္ကို အသုံးျပဳရန္ DTS:X Ultra ကို ဖြင့္ပါ။</string>
+    <string name="ok">အိုေက</string>
+    <string name="preference_actionbar_title">စတီရီယို ႀကိဳက္ႏွစ္သက္မႈ</string>
+    <string name="preference_infront_subtitle">သင့္ဦးေခါင္းေရွ႕ရွိ စပီကာႏွစ္လုံးကဲ့သို႔ပင္ ေရွ႕ဘက္သို႔ အသံကို ေဆာင္ယူထုတ္ေပးသည္</string>
+    <string name="preference_infront_title">ေရွ႕</string>
+    <string name="preference_title">စတီရီယို အေၾကာင္းအရာအတြက္ ၾကိဳက္ႏွစ္သက္ေသာ အသံ</string>
+    <string name="preference_traditional_subtitle">ပိုမို၍ သမားရိုးက်လွသည့္ နားၾကပ္ အေတြ႔အၾကံဳအတြက္ အသံကို သင့္ဦးေခါင္းနားကပ္၍ ထုတ္ေပးပါသည္</string>
+    <string name="preference_traditional_title">သမားရိုးက်</string>
+    <string name="preference_wide_subtitle">မူရင္း စတီရီယို အသံမွတ္တမ္း၏ အသံက်ယ္မႈကို ျမွင့္တင္သည္</string>
+    <string name="preference_wide_title">က်ယ္ျပန္႔ေသာ</string>
+    <string name="reset">ျပန္လည္ျပင္ဆင္သတ္မွတ္သည္</string>
+</resources>

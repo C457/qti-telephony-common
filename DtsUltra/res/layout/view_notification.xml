@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/imgNotification" android:layout_width="60.0dip" android:layout_height="60.0dip" android:layout_marginRight="8.0dip" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="16.0dip" android:textStyle="bold" android:textColor="@android:color/black" android:id="@id/audioTitle" android:paddingBottom="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <RelativeLayout android:id="@id/layoutSubTitle" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="14.0dip" android:textColor="@android:color/black" android:id="@id/audioSubtitle" android:paddingBottom="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notification_title" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/layoutExpand" android:background="@color/off_white" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/layoutWide" android:paddingLeft="12.0dip" android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <ImageView android:id="@id/imgWide" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:src="@drawable/dts_stereo_pref_wide_small" android:tint="@color/theme_red" />
+                <TextView android:textColor="@android:color/black" android:id="@id/tvWide" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/preference_wide_title" android:layout_below="@id/imgWide" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/layoutFront" android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <ImageView android:id="@id/imgFront" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dts_stereo_pref_infront_small" android:tint="@color/theme_red" android:layout_centerHorizontal="true" />
+                <TextView android:textColor="@android:color/black" android:id="@id/tvFront" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/preference_infront_title" android:layout_below="@id/imgFront" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+            <RelativeLayout android:gravity="right" android:id="@id/layoutTraditional" android:paddingTop="4.0dip" android:paddingRight="12.0dip" android:paddingBottom="4.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <ImageView android:id="@id/imgTraditional" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:src="@drawable/dts_stereo_pref_traditional_small" android:tint="@color/theme_red" android:layout_alignParentRight="true" />
+                <TextView android:textColor="@android:color/black" android:id="@id/tvTraditional" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/preference_traditional_title" android:layout_below="@id/imgTraditional" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout android:id="@id/layoutCollapseSound" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/layoutHeadphoneChange" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <ImageView android:id="@id/imgChangeHeadphone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_headset_black_24dp" android:layout_centerVertical="true" />
+                <TextView android:textColor="@android:color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/change" android:layout_centerVertical="true" android:layout_toEndOf="@id/imgChangeHeadphone" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/layoutSoundChange" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_toRightOf="@id/layoutHeadphoneChange">
+                <ImageView android:id="@id/imgSound" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dts_stereo_pref_wide_small" android:tint="@color/theme_red" android:layout_centerVertical="true" />
+                <TextView android:textColor="@android:color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/sound" android:layout_toRightOf="@id/imgSound" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout android:id="@id/layoutContentMode" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/layoutSpeakerChange" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:textColor="@android:color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/change" android:layout_toRightOf="@id/imgChangeSpeakerMode" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/imgChangeSpeakerMode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_speaker_phone_black_24dp" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/layoutSpeakerClose" android:background="@color/off_white" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_alignParentTop="true" android:layout_alignParentEnd="true">
+                <TextView android:textColor="@android:color/black" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/close" android:layout_toRightOf="@id/imgClose" android:layout_centerVertical="true" />
+                <ImageView android:gravity="center" android:id="@id/imgClose" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:src="@drawable/ic_close_black_24dp" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+            <TextView android:textSize="16.0sp" android:textColor="@android:color/black" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/general_dts_title" android:layout_alignBottom="@id/imgToggle" android:layout_alignParentBottom="false" />
+            <ImageButton android:layout_gravity="right" android:id="@id/imgToggle" android:background="@color/transparent_white" android:layout_width="42.0dip" android:layout_height="28.0dip" android:layout_marginRight="10.0dip" android:src="@drawable/dts_switch_off" android:scaleType="fitXY" android:layout_alignParentRight="true" android:layout_alignParentEnd="false" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

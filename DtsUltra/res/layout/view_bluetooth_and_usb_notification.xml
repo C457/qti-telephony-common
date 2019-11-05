@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/imgNotification" android:layout_width="60.0dip" android:layout_height="60.0dip" android:layout_marginRight="8.0dip" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="16.0dip" android:textStyle="bold" android:textColor="@android:color/black" android:id="@id/audioTitle" android:paddingBottom="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="14.0dip" android:textColor="@android:color/black" android:id="@id/audioSubtitle" android:paddingBottom="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notification_bluetooth_subtitle" />
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/layoutMenuOk" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:textSize="12.0sp" android:textColor="@android:color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/ok" android:layout_toRightOf="@id/imgOk" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/imgOk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_done_black_24dp" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/layoutMenuSearch" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:textSize="12.0sp" android:textColor="@android:color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/search" android:layout_toRightOf="@id/imgSearch" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/imgSearch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_search_black_24dp" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/layoutMenuClose" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_alignParentTop="true" android:layout_alignParentEnd="true">
+                <TextView android:textSize="12.0sp" android:textColor="@android:color/black" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/dismiss" android:layout_toRightOf="@id/imgClose" android:layout_centerVertical="true" />
+                <ImageView android:gravity="center" android:id="@id/imgClose" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:src="@drawable/ic_close_black_24dp" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

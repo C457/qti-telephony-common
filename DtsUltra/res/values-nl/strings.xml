@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">Navigeren naar startpositie</string>
+    <string name="abc_action_bar_up_description">Omhoog navigeren</string>
+    <string name="abc_action_menu_overflow_description">Meer opties</string>
+    <string name="abc_action_mode_done">Gereed</string>
+    <string name="abc_activity_chooser_view_see_all">Alles weergeven</string>
+    <string name="abc_activitychooserview_choose_application">Een app selecteren</string>
+    <string name="abc_capital_off">UIT</string>
+    <string name="abc_capital_on">AAN</string>
+    <string name="abc_menu_alt_shortcut_label">Alt +</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl +</string>
+    <string name="abc_menu_delete_shortcut_label">verwijderen</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Functie +</string>
+    <string name="abc_menu_meta_shortcut_label">Meta +</string>
+    <string name="abc_menu_shift_shortcut_label">Shift +</string>
+    <string name="abc_menu_space_shortcut_label">spatie</string>
+    <string name="abc_menu_sym_shortcut_label">Sym +</string>
+    <string name="abc_prepend_shortcut_label">Menu +</string>
+    <string name="abc_search_hint">Zoeken…</string>
+    <string name="abc_searchview_description_clear">Zoekopdracht wissen</string>
+    <string name="abc_searchview_description_query">Zoekopdracht</string>
+    <string name="abc_searchview_description_search">Zoeken</string>
+    <string name="abc_searchview_description_submit">Zoekopdracht verzenden</string>
+    <string name="abc_searchview_description_voice">Gesproken zoekopdracht</string>
+    <string name="abc_shareactionprovider_share_with">Delen met</string>
+    <string name="abc_shareactionprovider_share_with_application">Delen met %s</string>
+    <string name="abc_toolbar_collapse_description">Samenvouwen</string>
+    <string name="about_dts">Over de DTS:X Ultra hoofdtelefoon</string>
+    <string name="about_facebook_button">Like ons op <b>Facebook</b></string>
+    <string name="about_text_copyright">© 2017, Xperi. Alle rechten voorbehouden.</string>
+    <string name="about_text_main1">"Bij DTS vinden we geluid belangrijk. Geluid dat u echt omringt plaatst uw ervaring centraal, of u nu luistert naar muziek, een film kijkt, of een spelletje speelt.
+
+DTS zet zich in om u geluid zo te laten horen, als de artiest het heeft opgenomen. De DTS:X Ultra™ hoofdtelefoon levert deze kwaliteitservaring, maar personaliseert het geluid ook voor zowel uw oren als hoofdtelefoon."</string>
+    <string name="about_twitter_button">Volg ons op <b>Twitter</b></string>
+    <string name="about_website_button">Bezoek onze <b>web site</b></string>
+    <string name="cd_about_facebook">DTS-Facebookpagina</string>
+    <string name="cd_about_website">Website-link DTS:X Ultra</string>
+    <string name="general_dts_subtitle">Panoramisch omgevingsgeluid</string>
+    <string name="general_headphone_title">Bedrade hoofdtelefoon</string>
+    <string name="general_preference_title">Stereo-voorkeur</string>
+    <string name="headphone_actionbar_title">Bedrade hoofdtelefoon</string>
+    <string name="headphone_title">Geoptimaliseerde audioselectie</string>
+    <string name="loading">Bezig met laden</string>
+    <string name="msg_dts_disabled">DTS:X Ultra is uitgeschakeld. Schakel DTS:X Ultra in om deze functie te kunnen gebruiken.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">Stereo-voorkeur</string>
+    <string name="preference_infront_subtitle">Het geluid komt van voren, alsof er zich twee speakers voor uw hoofd bevinden</string>
+    <string name="preference_infront_title">Voorzijde</string>
+    <string name="preference_title">Voorkeursgeluid voor stereo-inhoud</string>
+    <string name="preference_traditional_subtitle">Zorgt ervoor dat het geluid dicht bij uw hoofd blijft, zoals bij een meer traditionele hoofdtelefoon-ervaring</string>
+    <string name="preference_traditional_title">Traditioneel</string>
+    <string name="preference_wide_subtitle">Maakt de oorspronkelijke stereo-opname meer ruimtelijk</string>
+    <string name="preference_wide_title">Breed</string>
+    <string name="reset">Reset</string>
+    <string name="search_menu_title">Zoeken</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

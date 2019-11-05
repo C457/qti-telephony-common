@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">پیمایش به صفحه اصلی</string>
+    <string name="abc_action_bar_up_description">پیمایش به بالا</string>
+    <string name="abc_action_menu_overflow_description">گزینه‌های بیشتر</string>
+    <string name="abc_action_mode_done">تمام</string>
+    <string name="abc_activity_chooser_view_see_all">مشاهده همه</string>
+    <string name="abc_activitychooserview_choose_application">انتخاب برنامه</string>
+    <string name="abc_capital_off">خاموش</string>
+    <string name="abc_capital_on">روشن</string>
+    <string name="abc_menu_alt_shortcut_label">‎Alt+‎</string>
+    <string name="abc_menu_ctrl_shortcut_label">‎Ctrl+‎</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">‎Function+‎</string>
+    <string name="abc_menu_meta_shortcut_label">‎Meta+‎</string>
+    <string name="abc_menu_shift_shortcut_label">‎Shift+‎</string>
+    <string name="abc_menu_space_shortcut_label">کلید فاصله</string>
+    <string name="abc_menu_sym_shortcut_label">‎Sym+‎</string>
+    <string name="abc_prepend_shortcut_label">منو+</string>
+    <string name="abc_search_hint">جستجو…</string>
+    <string name="abc_searchview_description_clear">پاک کردن عبارت جستجو</string>
+    <string name="abc_searchview_description_query">عبارت جستجو</string>
+    <string name="abc_searchview_description_search">جستجو</string>
+    <string name="abc_searchview_description_submit">ارسال عبارت جستجو</string>
+    <string name="abc_searchview_description_voice">جستجوی گفتاری</string>
+    <string name="abc_shareactionprovider_share_with">اشتراک‌گذاری با</string>
+    <string name="abc_shareactionprovider_share_with_application">اشتراک‌گذاری با %s</string>
+    <string name="abc_toolbar_collapse_description">کوچک کردن</string>
+    <string name="about_dts">درباره DTS:X Ultra</string>
+    <string name="about_facebook_button">ما را در <b>Facebook</b> پسند کنید</string>
+    <string name="about_text_copyright">© 2017, Xperi. همه حقوق محفوظ است.</string>
+    <string name="about_text_main1">"ما در DTS صدا را مهم می‌دانیم. برای گوش کردن به موسیقی، دیدن فیلم یا بازی کردن، صدای فراگیر شما را در مرکز تجربه قرار می‌دهد.‪‎
+
+‬DTS صدا را با همان کیفیتی که هنرمند ضبط کرده است به شما می‌رساند. DTS:X Ultra™ این کیفیت را عرضه می‌کند و صدا را هم برای گوش و هم برای هدفون شما سفارشی می‌کند."</string>
+    <string name="about_twitter_button">ما را در <b>Twitter</b> دنبال کنید</string>
+    <string name="about_website_button">از <b>وب‌سایت</b> ما بازدید کنید</string>
+    <string name="cd_about_facebook">صفحه فیسبوک DTS</string>
+    <string name="cd_about_website">پیوند وب‌سایت DTS:X Ultra</string>
+    <string name="general_dts_subtitle">صدای فراگیر پانوراما</string>
+    <string name="general_headphone_title">هدفون‌های سیمی</string>
+    <string name="general_preference_title">اولویت استریو</string>
+    <string name="headphone_actionbar_title">هدفون‌های سیمی</string>
+    <string name="headphone_title">انتخاب صدای بهینه</string>
+    <string name="loading">در حال بارگذاری</string>
+    <string name="msg_dts_disabled">DTS:X Ultra غیرفعال است. برای استفاده از این ویژگی DTS:X Ultra را فعال کنید.</string>
+    <string name="ok">تأييد</string>
+    <string name="preference_actionbar_title">اولویت استریو</string>
+    <string name="preference_infront_subtitle">صدا را از جلو خارج می‌کند، مانند دو بلندگو در جلو سر شما</string>
+    <string name="preference_infront_title">ورودی-جلو</string>
+    <string name="preference_title">صدای ترجیحی برای محتوای استریو</string>
+    <string name="preference_traditional_subtitle">صدا را برای ایجاد تجریه هدفون سنتی به سر شما نزدیک می‌کند</string>
+    <string name="preference_traditional_title">سنتی</string>
+    <string name="preference_wide_subtitle">گستردگی ضبط استریو اصلی را افزایش می‌دهد</string>
+    <string name="preference_wide_title">عریض</string>
+    <string name="reset">بازنشاني</string>
+    <string name="search_menu_title">جستجو</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

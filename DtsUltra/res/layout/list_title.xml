@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/list_text_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="24.0dip" android:text="New Text" style="@style/text_standard" />
+    <View android:background="@color/off_white" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_alignParentBottom="true" android:layout_alignParentEnd="false" />
+</RelativeLayout>

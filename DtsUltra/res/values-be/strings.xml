@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">Перайсці на галоўную старонку</string>
+    <string name="abc_action_bar_up_description">Перайсці ўверх</string>
+    <string name="abc_action_menu_overflow_description">Дадатковыя параметры</string>
+    <string name="abc_action_mode_done">Гатова</string>
+    <string name="abc_activity_chooser_view_see_all">Прагледзець усё</string>
+    <string name="abc_activitychooserview_choose_application">Выбраць праграму</string>
+    <string name="abc_capital_off">ВЫКЛ.</string>
+    <string name="abc_capital_on">УКЛ.</string>
+    <string name="abc_menu_alt_shortcut_label">Alt +</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl +</string>
+    <string name="abc_menu_delete_shortcut_label">Delete</string>
+    <string name="abc_menu_enter_shortcut_label">Enter</string>
+    <string name="abc_menu_function_shortcut_label">Fn +</string>
+    <string name="abc_menu_meta_shortcut_label">Meta +</string>
+    <string name="abc_menu_shift_shortcut_label">Shift +</string>
+    <string name="abc_menu_space_shortcut_label">Прабел</string>
+    <string name="abc_menu_sym_shortcut_label">Sym +</string>
+    <string name="abc_prepend_shortcut_label">Меню +</string>
+    <string name="abc_search_hint">Пошук...</string>
+    <string name="abc_searchview_description_clear">Выдалiць запыт</string>
+    <string name="abc_searchview_description_query">Запыт на пошук</string>
+    <string name="abc_searchview_description_search">Пошук</string>
+    <string name="abc_searchview_description_submit">Адправіць запыт</string>
+    <string name="abc_searchview_description_voice">Галасавы пошук</string>
+    <string name="abc_shareactionprovider_share_with">Абагуліць з</string>
+    <string name="abc_shareactionprovider_share_with_application">Абагуліць праз праграму %s</string>
+    <string name="abc_toolbar_collapse_description">Згарнуць</string>
+    <string name="about_dts">Аб DTS:X Ultra</string>
+    <string name="about_text_main1">"У DTS мы верым, што гук мае значэнне. Не важна ці вы слухаеце музыку, глядзіце фільм або гуляеце ў гульню, менавіта гук, што сапраўды акружае вас, вызначае вашы ўяўленні і ўражанні.
+
+DTS прысвечаны для таго, каб дазволіць вам адчуць гук так, як запісаў яго выканаўца. DTS:X Ultra™ не толькі забяспечвае гэтыя якасныя ўражанні, але і персаналізуе гук спецыяльна як для вашых вушэй, так і для навушнікаў."</string>
+    <string name="cd_about_facebook">Старонка DTS ў Facebook</string>
+    <string name="cd_about_website">Спасылка на вэб-сайт DTS:X Ultra</string>
+    <string name="general_dts_subtitle">"Панарамны аб'ёмны гук"</string>
+    <string name="general_headphone_title">Правадныя навушнікі</string>
+    <string name="general_preference_title">Налады стэрэа</string>
+    <string name="headphone_actionbar_title">Правадныя навушнікі</string>
+    <string name="headphone_title">Аптымізаваны выбар аўдыя</string>
+    <string name="loading">Загрузка</string>
+    <string name="msg_dts_disabled">DTS:X Ultra выключаны. Калі ласка, уключыце DTS:X Ultra, каб выкарыстоўваць гэтую функцыю.</string>
+    <string name="ok">ОК</string>
+    <string name="preference_actionbar_title">Налады стэрэа</string>
+    <string name="preference_infront_subtitle">Забяспечвае пярэдні гук, нібыта насупраць вас стаяць два дынамікі</string>
+    <string name="preference_infront_title">Пярэдні</string>
+    <string name="preference_title">Пажаданы гук для стэрэа кантэнту</string>
+    <string name="preference_traditional_subtitle">Забяспечвае адчуванне блізасці гука да галавы для больш традыцыйнага вопыту ўжывання навушнікаў</string>
+    <string name="preference_traditional_title">Звычайны</string>
+    <string name="preference_wide_subtitle">Узмацняе змяшчальнасць арыгінальнага стэрэа запісу</string>
+    <string name="preference_wide_title">Шырокі</string>
+    <string name="reset">Скід</string>
+    <string name="search_menu_title">Пошук</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

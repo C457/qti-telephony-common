@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">ہوم پر نیویگیٹ کریں</string>
+    <string name="abc_action_bar_up_description">اوپر نیویگیٹ کریں</string>
+    <string name="abc_action_menu_overflow_description">مزید اختیارات</string>
+    <string name="abc_action_mode_done">ہو گیا</string>
+    <string name="abc_activity_chooser_view_see_all">سبھی دیکھیں</string>
+    <string name="abc_activitychooserview_choose_application">ایک ایپ منتخب کریں</string>
+    <string name="abc_capital_off">آف</string>
+    <string name="abc_capital_on">آن</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+‎</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+‎</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+‎</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+‎</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+‎</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+‎</string>
+    <string name="abc_prepend_shortcut_label">Menu+‎</string>
+    <string name="abc_search_hint">تلاش کریں…</string>
+    <string name="abc_searchview_description_clear">استفسار صاف کریں</string>
+    <string name="abc_searchview_description_query">استفسار تلاش کریں</string>
+    <string name="abc_searchview_description_search">تلاش کریں</string>
+    <string name="abc_searchview_description_submit">استفسار جمع کرائیں</string>
+    <string name="abc_searchview_description_voice">صوتی تلاش</string>
+    <string name="abc_shareactionprovider_share_with">اشتراک کریں مع</string>
+    <string name="abc_shareactionprovider_share_with_application">%s کے ساتھ اشتراک کریں</string>
+    <string name="abc_toolbar_collapse_description">سکیڑیں</string>
+    <string name="about_dts">DTS:X Ultra کے متعلق</string>
+    <string name="about_facebook_button"><b>Facebook</b> پر ہمیں لائک کریں</string>
+    <string name="about_text_copyright">© 2017, Xperi۔ جملہ حقائق محفوظ ہیں۔</string>
+    <string name="about_text_main1">"DTS میں، ہمارا یقین ہے کہ آواز معنیٰ رکھتی ہے۔ چاہے آپ موسیقی سن رہے ہوں، فلم دیکھ رہے ہو یا گیم کھیل رہے ہوں، آواز جو آپ کو گھیر لیتی ہے وہ آپ کو اس تجربے کے مرکز میں ڈال دیتی ہے۔ 
+
+DTS آواز کو جیسے فنکار ریکارڈ کرتا ہے ویسے آپ تک لانے کے لیے کوششاں ہے۔ DTS:X Ultra™ آپ کو معیاری تجربہ فراہم کرتا ہے لیکن ساتھ ساتھ آپ کے کانوں اور ہیڈفونز دونوں کے لیے آواز کو آپ کے مطابق ذاتی بناتا ہے۔"</string>
+    <string name="about_twitter_button"><b>Twitter</b> پر ہمیں فالو کریں</string>
+    <string name="about_website_button">ہماری <b>ویب سائٹ</b> ملاحظہ کریں</string>
+    <string name="cd_about_facebook">DTS فیس بُک پیج</string>
+    <string name="cd_about_website">DTS:X Ultra کا ویب سائٹ لنک</string>
+    <string name="general_dts_subtitle">پینارومک اردگرد کی آواز</string>
+    <string name="general_headphone_title">تار والے ہیڈ فونز</string>
+    <string name="general_preference_title">سٹیرئیو کی ترجیح</string>
+    <string name="headphone_actionbar_title">تار والے ہیڈ فونز</string>
+    <string name="headphone_title">احسن کردہ آڈیو انتخاب</string>
+    <string name="loading">لوڈ کررہا ہے</string>
+    <string name="msg_dts_disabled">DTS:X Ultra غیرفعال ہے۔ براہِ کرم یہ خصوصیت استعمال کرنے کے لیے DTS:X Ultra فعال کریں۔</string>
+    <string name="ok">اوکے</string>
+    <string name="preference_actionbar_title">سٹیرئیو کی ترجیح</string>
+    <string name="preference_infront_subtitle">پسِ منظر کی آواز کو سامنے لاتا ہے، جیسا کہ آپ کے سامنے دو بولنے والے</string>
+    <string name="preference_infront_title">سامنے</string>
+    <string name="preference_title">سٹیرئیو مواد کے لیے ترجیح کردہ آواز</string>
+    <string name="preference_traditional_subtitle">زیادہ روایتی ہیڈفون تجربے کے لیے آواز کو آپ کے سر کے قریب لاتا ہے</string>
+    <string name="preference_traditional_title">روایتی</string>
+    <string name="preference_wide_subtitle">اصلی سٹیرئیو ریکارڈنگ کی کشادگی کو بڑھاتا ہے</string>
+    <string name="preference_wide_title">وائڈ</string>
+    <string name="reset">دوبارہ مرتب کریں</string>
+    <string name="search_menu_title">تلاش</string>
+    <string name="status_bar_notification_info_overflow">+999</string>
+</resources>

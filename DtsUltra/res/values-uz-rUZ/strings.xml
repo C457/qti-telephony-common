@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">DTS:X Ultra haqida</string>
+    <string name="about_facebook_button"><b>Facebook</b> orqali kuzatib boring</string>
+    <string name="about_text_copyright">© 2017, Xperi. Barcha huquqlar himoyalangan.</string>
+    <string name="about_text_main1">"DTS kompaniyasi ovoz ahamiyatga egaligini yaxshi biladi. Musiqa tinglayotganingizda, video tomosha qilayotganingizda yoki o‘yin o‘ynayotganingizda atrofingizni qamrab oluvchi ovoz sizni hamma narsaning markaziga olib chiqadi.
+
+DTS ovozni xuddi studiyada yozilgandek taqdim etishga bel bog‘lagan. DTS:X Ultra™ sifatli ovozni yetkazib berish bilan birga uni ham quloq, ham quloqliklaringizga moslashtiradi."</string>
+    <string name="about_twitter_button"><b>Twitter</b> orqali kuzatib boring</string>
+    <string name="about_website_button"><b>Veb-saytimizga</b> tashrif buyuring</string>
+    <string name="cd_about_facebook">DTS Facebook sahifasi</string>
+    <string name="cd_about_website">DTS:X Ultra veb-sayti</string>
+    <string name="general_dts_subtitle">Panoramali qamrovli ovoz</string>
+    <string name="general_headphone_title">Simli quloqliklar</string>
+    <string name="general_preference_title">Stereo tanlovi</string>
+    <string name="headphone_actionbar_title">Simli quloqliklar</string>
+    <string name="headphone_title">Optimal audio tanlovi</string>
+    <string name="loading">Yuklanmoqda</string>
+    <string name="msg_dts_disabled">DTS:X Ultra ta’minoti o‘chiq. Bu funksiyadan foydalanish uchun DTS:X Ultra ta’minotini yoqing.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">Stereo tanlovi</string>
+    <string name="preference_infront_subtitle">Ovozni tashqariga va oldinga chiqaradi, xuddi boshingiz oldida ikkita karnay turgandek</string>
+    <string name="preference_infront_title">Old tomon</string>
+    <string name="preference_title">Stereo kontent uchun eng mos ovoz</string>
+    <string name="preference_traditional_subtitle">Quloqlikdan odatiy uslubda foydalanish uchun ovozni boshingizga yaqinlashtiradi</string>
+    <string name="preference_traditional_title">Odatiy</string>
+    <string name="preference_wide_subtitle">Original stereo yozuvlar qamrovini kangaytiradi</string>
+    <string name="preference_wide_title">Keng</string>
+    <string name="reset">Asliga qaytarish</string>
+</resources>

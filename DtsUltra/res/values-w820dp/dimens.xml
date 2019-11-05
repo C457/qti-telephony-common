@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="rotrary_thumb_bottom_margin">495.0dip</dimen>
+    <dimen name="rotrary_thumb_bottom_margin_landscape">315.0dip</dimen>
+    <dimen name="text_size_large">18.0sp</dimen>
+    <dimen name="rotary_thumb_height">100.0dip</dimen>
+    <dimen name="rotary_thumb_width">100.0dip</dimen>
+</resources>

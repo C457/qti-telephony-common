@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">ກ່ຽວ​ກັບ DTS:X Ultra</string>
+    <string name="about_text_main1">"ຢູ່​ທີ່ DTS, ພວກ​ເຮົາ​ເຊື່ອ​ວ່າ​ ສຽງ​ມີ​ຄວາມ​ສຳ​ຄັນ. ບໍ່​ວ່າ​ທ່ານ​ຈະ​ຟັງ​ເພັງ, ເບິ່ງ​ຮູບ​ເງົາ ຫຼື ຫຼິ້ນ​ເກມ​ຢູ່, ສຽງ​ທີ່​ຢູ່​ອ້ອມ​ຮອບ​ຕົວ​ທ່ານ​ແທ້ນັ້ນ​ເອົາ​ທ່ານ​ໃສ່​ເຂົ້າ​ໃນ​ໃຈ​ກາງ​ຂອງ​ປະ​ສົບ​ການ.
+
+DTS ມຸ່ງ​ໝັ້ນທີ່​ຈະ​ນຳ​ສຽງ​ມາ​ໃຫ້​ທ່ານ​ຕາມ​ວິ​ທີ​ທີ່​ນັກສິ​ລະ​ປິນບັນ​ທຶກ​ມັນ​ໄວ້. DTS:X Ultra™ ໃຫ້​ປະ​ສົບ​ການ​ຕາມ​ຄຸນ​ນະ​ພາບ​ນີ້ ແຕ່​ຍັງ​ເຮັດ​ສຽງ​ໃຫ້​ເປັນ​ສ່ວນ​ຕົວ​ແກ່​ທັງ​ຫູ ແລະ ຊຸດ​ຟັງ​ຫູ​ຂອງ​ທ່ານ."</string>
+    <string name="cd_about_facebook">DTS ໜ້າ Facebook</string>
+    <string name="cd_about_website">DTS:X Ultra ລິ້ງ​ເວັບ​ໄຊ​ທ໌</string>
+    <string name="general_dts_subtitle">ສຽງເຊີຣາວພາ​ໂນ​ຣາ​ມະ</string>
+    <string name="general_headphone_title">ຊຸດ​ຟັງ​ຫູ​ໃຊ້​ສາຍ</string>
+    <string name="general_preference_title">ຄວາມ​ມັກ​ສະ​ເຕີ​ເຣ​ໂອ</string>
+    <string name="headphone_actionbar_title">ຊຸດ​ຟັງ​ຫູ​ໃຊ້​ສາຍ</string>
+    <string name="headphone_title">ປັບ​ການ​ເລືອກ​ສຽງ​ໃຫ້​ພໍ​ດີ​ແລ້ວ</string>
+    <string name="loading">ກຳ​ລັງ​ໂຫຼດ</string>
+    <string name="msg_dts_disabled">DTS:X Ultra ຖືກ​ປິດ​ໃຊ້​ງານ​ແລ້ວ. ກະ​ລຸ​ນາ​ເປີດ​ໃຊ້​ງານ DTS:X Ultra ເພື່ອ​ໃຊ້​ຟີ​ເຈີ​ນີ້.</string>
+    <string name="ok">ຕົກ​ລົງ</string>
+    <string name="preference_actionbar_title">ຄວາມ​ມັກ​ສະ​ເຕີ​ເຣ​ໂອ</string>
+    <string name="preference_infront_subtitle">ນຳ​ເອົາ​ສຽງ​ອອກ​ມາ​ສູ່​ດ້ານ​ໜ້າ, ຄື​ກັບ​ລຳ​ໂພງ​ສອງ​ໜ່ວຍ​ດ້ານ​ໜ້າ​ຫົວ​ຂອງ​ທ່ານ</string>
+    <string name="preference_infront_title">ດ້ານ​ໜ້າ</string>
+    <string name="preference_title">ສຽງ​ທີ່​ມັກ​ສຳ​ລັບ​ເນື້ອ​ໃນ​ສະ​ເຕີ​ເຣ​ໂອ</string>
+    <string name="preference_traditional_subtitle">ນຳ​ເອົາ​ສຽງ​ເຂົ້າ​ມາ​ໃກ້​ຫູ​ຂອງ​ທ່ານ ເພື່ອ​ໃຫ້​ໄດ້​ປະ​ສົບ​ການ​ຊຸດ​ຟັງ​ຫູ​ດັ້ງ​ເດີມ​ເພີ່ມ​ຂຶ້ນ</string>
+    <string name="preference_traditional_title">ດັ້ງ​ເດີມ</string>
+    <string name="preference_wide_subtitle">ເພີ່ມ​ຄວາມກວ້າງ​ໃຫຍ່​ຂອງ​ການ​ບັນ​ທຶກ​ສຽງ​ສະ​ເຕີ​ເຣ​ໂອ​ດັ້ງ​ເດີມ</string>
+    <string name="preference_wide_title">ກວ້າງ</string>
+    <string name="reset">ຕັ້ງຄ່າຄືນ</string>
+</resources>

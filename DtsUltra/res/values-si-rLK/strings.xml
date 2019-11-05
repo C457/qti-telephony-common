@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">DTS:X Ultra ගැන</string>
+    <string name="about_facebook_button"><b>ෆේස්බුක්</b> හි අපට කැමැත්ත පළ කරන්න</string>
+    <string name="about_text_copyright">© 2017, Xperi. සියලුම හිමිකම් ඇවිරිණි.</string>
+    <string name="about_text_main1">"DTS හි අපි ශබ්දය වැදගත් වන බව විශ්වාස කරමු. ඔබ සංගීතයට සවන්දෙනවා හෝ චිත්‍රපටයක් නැරඹනවා හෝ ක්‍රීඩාවක් සෙල්ලම් කරනවා හෝ වේවා, ඔබව අත්දැකීමේ මධ්‍යස්ථ ස්ථානයක තබන්නේ ඔබ වටේට ඇති ශබ්දයන් ය.
+
+DTS කලාකරුවා පටිගක කළ ආකාරයටම ශබ්දය ඔබට ගෙන දෙයි. DTS:X Ultra™ ගුණාත්මක භාවයෙන් යුත් මෙම අත්දැකීම ලබා දෙන අතර ඔබේ කණ්වලට සහ හෙඩ්ෆෝන්වලට ගැලපෙන ආකාරයට ශබ්දය පුද්ගලිකකරණය කරයි."</string>
+    <string name="about_twitter_button"><b>Twitter</b> හි අපව අනුගමනය කරන්න</string>
+    <string name="about_website_button">අපගේ <b>web site</b> වෙත පිවිසෙන්න</string>
+    <string name="cd_about_facebook">DTS ෆේස්බුක් පිටුව</string>
+    <string name="cd_about_website">DTS:X Ultra වෙබ් අඩවි සබැඳිය</string>
+    <string name="general_dts_subtitle">පරිදර්ශන හාත්පස ශබ්දය</string>
+    <string name="general_headphone_title">වයර් සහිත හෙඩ්ෆෝන්</string>
+    <string name="general_preference_title">ස්ටීරියෝ අභිරුවිය</string>
+    <string name="headphone_actionbar_title">වයර් සහිත හෙඩ්ෆෝන්</string>
+    <string name="headphone_title">ප්‍රශස්ත කරන ලද ඕඩියෝ තේරීම</string>
+    <string name="loading">පූරණය කරමින්</string>
+    <string name="msg_dts_disabled">DTS:X Ultra අක්‍රිය කරන ලදී. මෙම විශේෂාංගය භාවිතා කිරීමට කරුණාකර DTS:X Ultra සක්‍රීය කරන්න.</string>
+    <string name="ok">හරි</string>
+    <string name="preference_actionbar_title">ස්ටීරියෝ අභිරුවිය</string>
+    <string name="preference_infront_subtitle">ඔබේ හිස ඉදිරියේ ස්පීකර දෙකක් තිබෙනවා මෙන් ශබ්දය පිටතට සහ ඉදිරියට ගෙන එයි</string>
+    <string name="preference_infront_title">ඉදිරිපස</string>
+    <string name="preference_title">ස්ටීරීයෝ අන්තර්ගතය සඳහා කැමති ශබ්දය</string>
+    <string name="preference_traditional_subtitle">වඩාත් සාම්ප්‍රදායික හෙඩ්ෆෝන් අත්දැකීමක් ලබා දීමට සඳහා ශබ්දය ඔබේ හිසට සමීපව ගෙන එයි</string>
+    <string name="preference_traditional_title">සාම්ප්‍රදායික</string>
+    <string name="preference_wide_subtitle">මූලික පටිගත කිරීමෙහි ඉඩකඩ ප්‍රමාණය වැඩි දියුනු කරයි</string>
+    <string name="preference_wide_title">පුළුල්</string>
+    <string name="reset">නැවත සකසන්න</string>
+</resources>

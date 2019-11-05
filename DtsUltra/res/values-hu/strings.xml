@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">Ugrás a főoldalra</string>
+    <string name="abc_action_bar_up_description">Felfelé mozgatás</string>
+    <string name="abc_action_menu_overflow_description">További lehetőségek</string>
+    <string name="abc_action_mode_done">Kész</string>
+    <string name="abc_activity_chooser_view_see_all">Összes megtekintése</string>
+    <string name="abc_activitychooserview_choose_application">Válasszon ki egy alkalmazást</string>
+    <string name="abc_capital_off">KI</string>
+    <string name="abc_capital_on">BE</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">Delete</string>
+    <string name="abc_menu_enter_shortcut_label">Enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">Szóköz</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">Keresés…</string>
+    <string name="abc_searchview_description_clear">Lekérdezés törlése</string>
+    <string name="abc_searchview_description_query">Keresési lekérdezés</string>
+    <string name="abc_searchview_description_search">Keresés</string>
+    <string name="abc_searchview_description_submit">Lekérdezés küldése</string>
+    <string name="abc_searchview_description_voice">Hangalapú keresés</string>
+    <string name="abc_shareactionprovider_share_with">Megosztás a következővel:</string>
+    <string name="abc_shareactionprovider_share_with_application">Megosztás a következő alkalmazással: %s</string>
+    <string name="abc_toolbar_collapse_description">Összecsukás</string>
+    <string name="about_dts">DTS:X Ultra névjegy</string>
+    <string name="about_facebook_button">Kövessen minket a <b>Facebook</b>-on</string>
+    <string name="about_text_copyright">© 2017, Xperi. Minden jog fenntartva.</string>
+    <string name="about_text_main1">"A DTS-nél úgy gondoljuk, a hangminőség fontos. Akár zenét hallgat, filmet néz vagy játszik, körülveszi a hang, és az élmény középpontjába helyezi.
+
+A DTS elkötelezett abban, hogy a hangot úgy közvetítse Önnek, ahogy az előadó rögzítette azt. DTS:X Ultra™ ezt az élményt adja, de személyre szabja a hangot a füle és a fejh. számára is."</string>
+    <string name="about_twitter_button">Kövessen minket a <b>Twitter</b>-en</string>
+    <string name="about_website_button">Látogasson el a <b>webhelyünkre</b></string>
+    <string name="cd_about_facebook">DTS Facebook oldal</string>
+    <string name="cd_about_website">DTS:X Ultra webhely hivatkozás</string>
+    <string name="general_dts_subtitle">Panoráma térhatású hang</string>
+    <string name="general_headphone_title">Vezetékes fejhallgató</string>
+    <string name="general_preference_title">Sztereó beállítás</string>
+    <string name="headphone_actionbar_title">Vezetékes fejhallgató</string>
+    <string name="headphone_title">Optimalizált hangválasztás</string>
+    <string name="loading">Betöltés</string>
+    <string name="msg_dts_disabled">DTS:X Ultra le van tiltva. Enged: DTS:X Ultra.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">Sztereó beállítás</string>
+    <string name="preference_infront_subtitle">Előh a hangot mintha két hangsz. lenne szemb</string>
+    <string name="preference_infront_title">Előre</string>
+    <string name="preference_title">Sztereó tartalom előnyben részesített hangja</string>
+    <string name="preference_traditional_subtitle">Közel hozza a hangot, mint a hagyom fejh-nál</string>
+    <string name="preference_traditional_title">Hagyományos</string>
+    <string name="preference_wide_subtitle">Az eredeti sztereó felv. térhatását fokozza</string>
+    <string name="preference_wide_title">Széles</string>
+    <string name="reset">Visszaállítás</string>
+    <string name="search_menu_title">Keresés</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

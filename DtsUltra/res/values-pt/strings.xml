@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">Navegar para a página inicial</string>
+    <string name="abc_action_bar_up_description">Navegar para cima</string>
+    <string name="abc_action_menu_overflow_description">Mais opções</string>
+    <string name="abc_action_mode_done">Concluído</string>
+    <string name="abc_activity_chooser_view_see_all">Ver tudo</string>
+    <string name="abc_activitychooserview_choose_application">Selecione um app</string>
+    <string name="abc_capital_off">DESATIVAR</string>
+    <string name="abc_capital_on">ATIVAR</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">espaço</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">Pesquisar...</string>
+    <string name="abc_searchview_description_clear">Limpar consulta</string>
+    <string name="abc_searchview_description_query">Consulta de pesquisa</string>
+    <string name="abc_searchview_description_search">Pesquisar</string>
+    <string name="abc_searchview_description_submit">Enviar consulta</string>
+    <string name="abc_searchview_description_voice">Pesquisa por voz</string>
+    <string name="abc_shareactionprovider_share_with">Compartilhar com</string>
+    <string name="abc_shareactionprovider_share_with_application">Compartilhar com %s</string>
+    <string name="abc_toolbar_collapse_description">Recolher</string>
+    <string name="about_dts">Sobre o DTS:X Ultra</string>
+    <string name="about_facebook_button">Curta-nos no <b>Facebook</b></string>
+    <string name="about_text_copyright">© 2017, Xperi. Todos os direitos reserv.</string>
+    <string name="about_text_main1">"Na DTS, acreditamos que o som importa. Esteja você ouvindo música, assistindo a um filme ou jogando um jogo, o som que realmente o rodeia coloca você no centro da experiência.
+
+A DTS se dedica a reproduzir o som da forma como gravado pelo artista. O DTS:X Ultra™ oferece essa experiência de qualidade e personaliza o som para seus ouvidos e fones de ouvido."</string>
+    <string name="about_twitter_button">Siga-nos no <b>Twitter</b></string>
+    <string name="about_website_button">Visite nosso <b>site</b></string>
+    <string name="cd_about_facebook">Página da DTS no Facebook</string>
+    <string name="cd_about_website">Link para o site DTS:X Ultra</string>
+    <string name="general_dts_subtitle">Sistema surround panorâmico</string>
+    <string name="general_headphone_title">Fones de ouvido com fio</string>
+    <string name="general_preference_title">Preferência de estéreo</string>
+    <string name="headphone_actionbar_title">Fones de ouvido com fio</string>
+    <string name="headphone_title">Seleção de áudio otimizada</string>
+    <string name="loading">Carregando</string>
+    <string name="msg_dts_disabled">DTS:X Ultra desativado. Ative o DTS:X Ultra para usar este recurso.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">Preferência de estéreo</string>
+    <string name="preference_infront_subtitle">Realça o som e o traz para frente, como dois alto-falantes em frente à cabeça</string>
+    <string name="preference_infront_title">Na frente</string>
+    <string name="preference_title">Som preferencial para conteúdo em estéreo</string>
+    <string name="preference_traditional_subtitle">Traz o som para perto da cabeça, p/ uma exper. de alto-falante mais tradicional</string>
+    <string name="preference_traditional_title">Tradicional</string>
+    <string name="preference_wide_subtitle">Melhora a amplitude da gravação original em estéreo</string>
+    <string name="preference_wide_title">Amplo</string>
+    <string name="reset">Restaurar</string>
+    <string name="search_menu_title">Pesquisar</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

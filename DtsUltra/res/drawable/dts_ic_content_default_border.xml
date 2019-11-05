@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list android:layout_width="1.0dip" android:layout_height="1.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/dts_ic_content_default" android:start="@dimen/layout_margin" android:end="@dimen/layout_margin" />
+</layer-list>

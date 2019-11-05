@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">DTS:X Ultra туралы ақпарат</string>
+    <string name="about_text_main1">"DTS компаниясы дыбыстың мәні барына сенеді. Музыка тыңдағанда, фильм қарағанда не ойын ойнағанда, айналаңыздағы дыбыс оқиға ортасында болу әсерін береді.
+
+DTS дыбысты орындаушы жазған күйде жеткізуге тырысады. DTS:X Ultra™ осындай сапаны қамтамасыз ете отырып, дыбысты құлақ пен құлаққаптарға даралайды."</string>
+    <string name="cd_about_facebook">DTS Facebook беті</string>
+    <string name="cd_about_website">DTS:X Ultra веб-торап сілтемесі</string>
+    <string name="general_dts_subtitle">Панорамалық көлемді дыбыс</string>
+    <string name="general_headphone_title">Сымды құлаққап</string>
+    <string name="general_preference_title">Стерео қалаулысы</string>
+    <string name="headphone_actionbar_title">Сымды құлаққап</string>
+    <string name="headphone_title">Оңтайлы аудио таңдау</string>
+    <string name="loading">Жүктеу</string>
+    <string name="msg_dts_disabled">DTS:X Ultra өшірулі. Бұл мүмк.пайд.үшін DTS:X Ultra қосыңыз.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">Стерео қалаулысы</string>
+    <string name="preference_infront_subtitle">Дыб.бастың алд.екі үндеткіш сияқты алд.шығарады</string>
+    <string name="preference_infront_title">Алдыға</string>
+    <string name="preference_title">Стерео мазмұнның қалаулы дыбысы</string>
+    <string name="preference_traditional_subtitle">Әдет.құлаққап қолд.үшін дыбыс.басқа жақын шығ-ды</string>
+    <string name="preference_traditional_title">Әдеттегі</string>
+    <string name="preference_wide_subtitle">Баст.стерео жазб. сыйымдылығын арттырады</string>
+    <string name="preference_wide_title">Кең</string>
+    <string name="reset">Ысыру</string>
+</resources>

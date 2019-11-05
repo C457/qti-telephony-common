@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">נווט לדף הבית</string>
+    <string name="abc_action_bar_up_description">נווט למעלה</string>
+    <string name="abc_action_menu_overflow_description">עוד אפשרויות</string>
+    <string name="abc_action_mode_done">בוצע</string>
+    <string name="abc_activity_chooser_view_see_all">ראה הכל</string>
+    <string name="abc_activitychooserview_choose_application">בחר אפליקציה</string>
+    <string name="abc_capital_off">כבוי</string>
+    <string name="abc_capital_on">פועל</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+‎</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">Enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">מקש רווח</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">תפריט+</string>
+    <string name="abc_search_hint">חיפוש…</string>
+    <string name="abc_searchview_description_clear">מחק שאילתה</string>
+    <string name="abc_searchview_description_query">שאילתת חיפוש</string>
+    <string name="abc_searchview_description_search">חיפוש</string>
+    <string name="abc_searchview_description_submit">שלח שאילתה</string>
+    <string name="abc_searchview_description_voice">חיפוש קולי</string>
+    <string name="abc_shareactionprovider_share_with">שתף עם</string>
+    <string name="abc_shareactionprovider_share_with_application">שתף עם %s</string>
+    <string name="abc_toolbar_collapse_description">כווץ</string>
+    <string name="about_dts">אודות DTS:X Ultra</string>
+    <string name="about_facebook_button">אהוב אותנו ב-<b>‫‏Facebook‬</b></string>
+    <string name="about_text_copyright">© 2017, Xperi. כל הזכויות שמורות.</string>
+    <string name="about_text_main1">"אנו ב-DTS מאמינים שהצליל חשוב. בין אם אתה מאזין למוזיקה, צופה בסרט או משחק במשחק, צליל היקפי אמיתי מכניס אותך למרכז החוויה.‪‎
+‬‪‎
+‬DTS עושה הכל כדי להשמיע לך את הצלילים באופן שהאמן הקליט אותם. מערכת הראש DTS Headphone:‪‎X™‬ מספקת חוויה איכותית אך גם מתאימה אישית את הצליל הן לאוזניים שלך והן לאוזניות."</string>
+    <string name="about_twitter_button">עקוב אחרינו ב-<b>‫‏Twitter‬</b></string>
+    <string name="about_website_button">בקר ב<b>אתר</b> שלנו</string>
+    <string name="cd_about_facebook">דף DTS ב-Facebook</string>
+    <string name="cd_about_website">DTS:X Ultra קישור לאתר</string>
+    <string name="general_dts_subtitle">צליל היקפי פנורמי</string>
+    <string name="general_headphone_title">אוזניות עם חוט</string>
+    <string name="general_preference_title">העדפת סטריאו</string>
+    <string name="headphone_actionbar_title">אוזניות עם חוט</string>
+    <string name="headphone_title">אופטימיזציה של בחירת שמע</string>
+    <string name="loading">טוען</string>
+    <string name="msg_dts_disabled">DTS:X Ultra מושבת. הפעל את DTS:X Ultra כדי להשתמש בתכונה זו.</string>
+    <string name="ok">אישור</string>
+    <string name="preference_actionbar_title">העדפת סטריאו</string>
+    <string name="preference_infront_subtitle">מביא את הצליל קדימה, כמו שני רמקולים מול הראש</string>
+    <string name="preference_infront_title">לפנים</string>
+    <string name="preference_title">צליל מועדף לתוכן סטריאו</string>
+    <string name="preference_traditional_subtitle">מביא את הצליל קרוב לראש לחוויית אוזניות מסורתית יותר</string>
+    <string name="preference_traditional_title">מסורתי</string>
+    <string name="preference_wide_subtitle">משפר את המרחביות של הקלטת הסטריאו המקורית</string>
+    <string name="preference_wide_title">רחב</string>
+    <string name="reset">אפס</string>
+    <string name="search_menu_title">חיפוש</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

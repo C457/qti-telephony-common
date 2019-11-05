@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">DTS:X Ultra produktuari buruz</string>
+    <string name="about_facebook_button">Atsegin gaitzazu <b>Facebook</b> aplikazioan</string>
+    <string name="about_text_copyright">© 2017, Xperi. Eskubide guztiak erreserbatuta.</string>
+    <string name="about_text_main1">"DTSn, soinua garrantzitsua dela uste dugu. Berdin dio musika entzuten ari zaren, bideo bat ikusten edo joko batera jolasten, inguratzen zaituen soinuak esperientziaren erdigunean jartzen zaitu.
+
+DTSren lana soinu hori artistak grabatutako moduan ekartzea da. DTS:X Ultra™ aurikularrak kalitatezko esperientzia hori ematen dizu, baina belarrietako eta aurikularretako soinua ere pertsonalizatzen du."</string>
+    <string name="about_twitter_button">Atsegin gaitzazu <b>Twitter</b> aplikazioan</string>
+    <string name="about_website_button">Zoaz gure <b>webgunera</b></string>
+    <string name="cd_about_facebook">DTSren Facebook orria</string>
+    <string name="cd_about_website">DTS:X Ultra webgunerako esteka</string>
+    <string name="general_dts_subtitle">Soinu inguratzaile panoramikoa</string>
+    <string name="general_headphone_title">Aurikular kableduna</string>
+    <string name="general_preference_title">Estereo hobespena</string>
+    <string name="headphone_actionbar_title">Aurikular kableduna</string>
+    <string name="headphone_title">Audio-hautapen optimizatua</string>
+    <string name="loading">Kargatzen</string>
+    <string name="msg_dts_disabled">DTS:X Ultra desgaituta dago. Eginbidea erabiltzeko, gaitu DTS:X Ultra.</string>
+    <string name="ok">Ados</string>
+    <string name="preference_actionbar_title">Estereo hobespena</string>
+    <string name="preference_infront_subtitle">Soinua kanpora eta aurrera ekartzen du, buruaren aurrealdean bi bozgorailu bazenitu bezala</string>
+    <string name="preference_infront_title">Aurrean</string>
+    <string name="preference_title">Eduki estereorako soinu hobetsia</string>
+    <string name="preference_traditional_subtitle">Soinua burura hurbilarazten du, aurikular-esperientzia tradizionalagoa izateko</string>
+    <string name="preference_traditional_title">Tradizionala</string>
+    <string name="preference_wide_subtitle">Jatorrizko grabaketa estereoaren zabaltasuna hobetzen du</string>
+    <string name="preference_wide_title">Zabala</string>
+    <string name="reset">Berrezarri</string>
+</resources>

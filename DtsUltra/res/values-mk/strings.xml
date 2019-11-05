@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">Движи се кон дома</string>
+    <string name="abc_action_bar_up_description">Движи се нагоре</string>
+    <string name="abc_action_menu_overflow_description">Повеќе опции</string>
+    <string name="abc_action_mode_done">Готово</string>
+    <string name="abc_activity_chooser_view_see_all">Види ги сите</string>
+    <string name="abc_activitychooserview_choose_application">Избери апликација</string>
+    <string name="abc_capital_off">ИСКЛУЧЕНО</string>
+    <string name="abc_capital_on">ВКЛУЧЕНО</string>
+    <string name="abc_menu_alt_shortcut_label">копче Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">копче Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">избриши</string>
+    <string name="abc_menu_enter_shortcut_label">копче enter</string>
+    <string name="abc_menu_function_shortcut_label">копче Function+</string>
+    <string name="abc_menu_meta_shortcut_label">копче Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">копче Shift+</string>
+    <string name="abc_menu_space_shortcut_label">вселена</string>
+    <string name="abc_menu_sym_shortcut_label">копче Sym+</string>
+    <string name="abc_prepend_shortcut_label">Мени+</string>
+    <string name="abc_search_hint">Пребарување…</string>
+    <string name="abc_searchview_description_clear">Исчисти барање</string>
+    <string name="abc_searchview_description_query">Пребарај барање</string>
+    <string name="abc_searchview_description_search">Пребарај</string>
+    <string name="abc_searchview_description_submit">Поднеси барање</string>
+    <string name="abc_searchview_description_voice">Гласовно пребарување</string>
+    <string name="abc_shareactionprovider_share_with">Сподели со</string>
+    <string name="abc_shareactionprovider_share_with_application">Сподели со %s</string>
+    <string name="abc_toolbar_collapse_description">Собери</string>
+    <string name="about_dts">За DTS:X Ultra</string>
+    <string name="about_facebook_button">Притисни „Ми се допаѓа“ на <b>Facebook</b></string>
+    <string name="about_text_copyright">© 2017, Xperi. Сите права се задржани.</string>
+    <string name="about_text_main1">"За нас во DTS звукот е важен. А слушате музика, гледате филм или играте игра, звукот што вистински ве обиколува ве става во центарот на доживувањето.
+
+Во DTS сме посветени на прикаж. звук онака како што го снимиле изведувачите. DTS:X Ultra™ го дава ова квалитетно доживување и го персонализира звукот и во ушите и во слушалките."</string>
+    <string name="about_twitter_button">Следете нѐ на <b>Twitter</b></string>
+    <string name="about_website_button">Посетете ја нашата <b>веб-локација</b></string>
+    <string name="cd_about_facebook">Страница на DTS на Facebook</string>
+    <string name="cd_about_website">Врска до веб-стр. на DTS:X Ultra</string>
+    <string name="general_dts_subtitle">Панорамски обиколен звук</string>
+    <string name="general_headphone_title">Слушалки со жица</string>
+    <string name="general_preference_title">Претпочитани вредности за стерео</string>
+    <string name="headphone_actionbar_title">Слушалки со жица</string>
+    <string name="headphone_title">Оптимизиран избор на аудио</string>
+    <string name="loading">Се вчитува</string>
+    <string name="msg_dts_disabled">DTS:X Ultra е оневоз. Овоз. го за оваа функц.</string>
+    <string name="ok">ОК</string>
+    <string name="preference_actionbar_title">Претпочитани вредности за стерео</string>
+    <string name="preference_infront_subtitle">Звукот е напред како со два звуч. пред глава</string>
+    <string name="preference_infront_title">Напред</string>
+    <string name="preference_title">Претпочитан звук за стерео содржини</string>
+    <string name="preference_traditional_subtitle">Звукот е до главата за потрадиц. дожув.</string>
+    <string name="preference_traditional_title">Традиционално</string>
+    <string name="preference_wide_subtitle">Ја прошир. пространоста на ориг. снимка</string>
+    <string name="preference_wide_title">Широко</string>
+    <string name="reset">Ресетирај</string>
+    <string name="search_menu_title">Пребарај</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

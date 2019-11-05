@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">ინფო DTS:X Ultra-ის შესახებ</string>
+    <string name="about_facebook_button">მოგვიწონეთ <b>Facebook</b>-ზე</string>
+    <string name="about_text_copyright">© 2017, Xperi. ყველა უფლ. დაცულია.</string>
+    <string name="about_text_main1">"ჩვენ, DTS-ში, გვჯერა, რომ ხმა მნიშვნელოვანია. მუსიკას უსმენთ, ვიდეოს უყურებთ თუ თამაშობთ, თქვენი გარემომცველი ხმის მეშვეობით გამოცდილების შუაგულში აღმოჩნდებით.
+
+DTS შექმნილია იმისათვის, რომ გადმოგცეთ ისეთი ხმა, როგორიც შემსრულებელმა ჩაწერა. DTS:X Ultra™ უზრუნველყოფს ამ ხარისხს, მაგრამ ასევე ახდენს ხმის პერსონალიზებას თქვენი ყურებისა და ყურსასმენებისთვის."</string>
+    <string name="about_twitter_button">თვალი გვადევნეთ <b>Twitter</b>-ზე</string>
+    <string name="about_website_button">ეწვიეთ ჩვენს <b>ვებსაიტს</b></string>
+    <string name="cd_about_facebook">DTS-ის Facebook-ის გვერდი</string>
+    <string name="cd_about_website">DTS:X Ultra-ის ვებსაიტის ბმული</string>
+    <string name="general_dts_subtitle">პანორამული მოცულობითი ხმა</string>
+    <string name="general_headphone_title">სადენიანი ყურსასმენები</string>
+    <string name="general_preference_title">სტერეო პარამეტრი</string>
+    <string name="headphone_actionbar_title">სადენიანი ყურსასმენები</string>
+    <string name="headphone_title">ოპტიმიზირებული აუდიო არჩევანი</string>
+    <string name="loading">მიმდინარეობს ჩატვირთვა</string>
+    <string name="msg_dts_disabled">DTS:X Ultra გამორთულია. ამ ფუნქ.გამოსაყ. ჩართეთ DTS:X Ultra.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">სტერეო პარამეტრი</string>
+    <string name="preference_infront_subtitle">გამოსცემს ხმას წინა მიმართულებით</string>
+    <string name="preference_infront_title">წინ მიმართული</string>
+    <string name="preference_title">სასურველი ხმა სტერეო შიგთავსისთვის</string>
+    <string name="preference_traditional_subtitle">გამოსცემს ხმას თქვენს თავთან ახლოს</string>
+    <string name="preference_traditional_title">ტრადიციული</string>
+    <string name="preference_wide_subtitle">აუმჯობეს.ორიგ.სტერ.ჩანაწ.სივრცულობას</string>
+    <string name="preference_wide_title">განიერი</string>
+    <string name="reset">საწყისი პარამეტრების აღდგენა</string>
+</resources>

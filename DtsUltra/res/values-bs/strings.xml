@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="abc_action_bar_home_description">Vrati se na početnu stranicu</string>
+    <string name="abc_action_bar_up_description">Navigiraj prema gore</string>
+    <string name="abc_action_menu_overflow_description">Više opcija</string>
+    <string name="abc_action_mode_done">Gotovo</string>
+    <string name="abc_activity_chooser_view_see_all">Prikaži sve</string>
+    <string name="abc_activitychooserview_choose_application">Odaberite aplikaciju</string>
+    <string name="abc_capital_off">ISKLJUČI</string>
+    <string name="abc_capital_on">UKLJUČI</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">razmaknica</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">Pretraži...</string>
+    <string name="abc_searchview_description_clear">Obriši upit</string>
+    <string name="abc_searchview_description_query">Pretraži upit</string>
+    <string name="abc_searchview_description_search">Traži</string>
+    <string name="abc_searchview_description_submit">Pošalji upit</string>
+    <string name="abc_searchview_description_voice">Glasovno pretraživanje</string>
+    <string name="abc_shareactionprovider_share_with">Dijeli sa</string>
+    <string name="abc_shareactionprovider_share_with_application">Dijeli koristeći aplikaciju %s</string>
+    <string name="abc_toolbar_collapse_description">Skupi</string>
+    <string name="about_dts">O DTS:X Ultra tehnologiji</string>
+    <string name="about_facebook_button">Lajkujte nas na <b>Facebooku</b></string>
+    <string name="about_text_copyright">© 2017, Xperi. Sva prava zadržana.</string>
+    <string name="about_text_main1">"Za nas u DTS-u zvuk je veoma bitan. Bilo da slušate muziku, gledate film ili igrate igricu, zvuk koji vas okružuje pruža vam osjećaj da ste u centru zbivanja.
+
+Kompanija DTS je posvećena cilju da vam pruži zvuk u obliku u kojem ga je autor snimio. DTS:X Ultra™ pruža iskustvo vrhunskog kvaliteta no ujedno i personalizira zvuk za vaše uši i slušalice."</string>
+    <string name="about_twitter_button">Slijedite nas na <b>Twitteru</b></string>
+    <string name="about_website_button">Posjetite našu <b>web lokaciju</b></string>
+    <string name="cd_about_facebook">Facebook stranica kompanije DTS</string>
+    <string name="cd_about_website">Veza za web lokaciju DTS:X Ultra</string>
+    <string name="general_dts_subtitle">Panoramski surround zvuk</string>
+    <string name="general_headphone_title">Žičane slušalice</string>
+    <string name="general_preference_title">Stereo preferencije</string>
+    <string name="headphone_actionbar_title">Žičane slušalice</string>
+    <string name="headphone_title">Optimizirani zvučni odabir</string>
+    <string name="loading">Učitavanje</string>
+    <string name="msg_dts_disabled">DTS:X Ultra je onemog. Omog. DTS:X Ultra da biste korist. ovu funkc.</string>
+    <string name="ok">OK</string>
+    <string name="preference_actionbar_title">Stereo preferencije</string>
+    <string name="preference_infront_subtitle">Pomjera zvuk prema naprijed, poput dvaju zvučnika ispred vaše glave</string>
+    <string name="preference_infront_title">Sprijeda</string>
+    <string name="preference_title">Preferirani zvuk za stereo sadržaj</string>
+    <string name="preference_traditional_subtitle">Pomjera zvuk bliže vašoj glavi za tradicionalnije iskustvo korištenja slušalica</string>
+    <string name="preference_traditional_title">Tradicionalno</string>
+    <string name="preference_wide_subtitle">Naglašava prostornost original. stereo zapisa</string>
+    <string name="preference_wide_title">Široki</string>
+    <string name="reset">Ponovno postavi</string>
+    <string name="search_menu_title">Pretraži</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

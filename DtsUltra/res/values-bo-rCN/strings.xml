@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dts">DTS:X Ultra སྐོར།</string>
+    <string name="about_facebook_button">ང་ཚོར་ <b>Facebook</b> སྟེང་དགའ་རྟགས་བསྐྱོན་རོགས།</string>
+    <string name="about_text_copyright">© ༢༠༡༦, Xperi བདག་དབང་ཆ་ཚང་ཟུར་བཅད་ཟིན།</string>
+    <string name="about_text_main1">"DTS རུ། ང་ཚོས་སྒྲ་ཡིས་གནད་དོན་བཟོ་ཡི་ཡོད་པ་ཡིད་ཆེས་བྱེད་ཀྱི་ཡོད། གང་ལྟར་ཁྱེད་ཉིད་རོལ་དབྱངས་ཉན་གྱི་ཡོད་རུང་། གློག་བརྙན་བལྟ་ཡི་ཡོད་རུང་། ཡང་ན། རོལ་རྩེད་རྩེད་ཀྱི་ཡོད་རུང་། ཁྱེད་ཀྱི་མཐའ་འཁོར་དུ་སྐོར་བའི་སྒྲ་ཡིས་ཁྱེད་ཉིད་ཉམས་མྱོང་གི་དབུས་སུ་འཇོག་པ་ཡིན།
+
+DTS ཡིས་ཁྱེད་ཉིད་ལ་སྒྱུ་རྩལ་བས་སྒྲ་ཇི་ལྟར་བསྡུ་འཇུག་བྱས་པ་དེ་ལྟར་ཁྱེད་ཀྱི་མདུན་འབུལ་བ་ཡིན། DTS:X Ultra™ ཡིས་སྤུས་ཚད་ཉམས་མྱོང་འདི་སྤྲོད་པ་ཡིན། ཡིན་ནའང་། ཁྱེད་ཀྱི་རྣ་མཆོག་དང་ཉན་ཆས་གཉིས་པོ་ལ་སྒྲའི་རྣམ་པ་ཡང་སྒྱུར་བ་ཡིན།"</string>
+    <string name="about_twitter_button"><b>Twitter</b> སྟེང་ང་ཚོ་རྗེས་འབྲང་བྱ།</string>
+    <string name="about_website_button">ང་ཚོའི་ <b>web site</b> རུ་བསྐྱོད།</string>
+    <string name="cd_about_facebook">DTS ངོ་དེབ་ཤོག་ལྷེ།</string>
+    <string name="cd_about_website">DTS:X Ultra དྲ་ཚིགས་མཐུད་ཁ།</string>
+    <string name="general_dts_subtitle">ལྗོངས་བཀོད་མཐའ་སྐོར་སྒྲ</string>
+    <string name="general_headphone_title">གློག་སྐུད་ཉན་ཆས།</string>
+    <string name="general_preference_title">ཟུང་ཐོས་སྒྲ་དགའ་འདེམས།</string>
+    <string name="headphone_actionbar_title">གློག་སྐུད་ཉན་ཆས།</string>
+    <string name="headphone_title">ལེགས་བཅོས་ཟིན་པའི་སྒྲ་སྐད་འདེམས་སྒྲུག</string>
+    <string name="loading">འདོན་འཇུག་བཞིན་པ།</string>
+    <string name="msg_dts_disabled">DTS:X Ultra དེ་ནུས་མེད་བཟོ་ཟིན་འདུག ཁྱད་ཆོས་འདི་བེད་སྤྱོད་བྱེད་པར། DTS:X Ultra བེད་སྤྱོད་གནང་རོགས།</string>
+    <string name="ok">ཆོག</string>
+    <string name="preference_actionbar_title">ཟུང་ཐོས་སྒྲ་དགའ་འདེམས།</string>
+    <string name="preference_infront_subtitle">ཁྱེད་ཀྱི་མགོའི་མདུན་དུ་རྒྱང་གྲགས་གཉིས་ཡོད་པའི་ཚུལ་ལྟར། སྒྲ་དེ་ཕྱི་དང་མདུན་དུ་འདོན་པ་ཡིན།</string>
+    <string name="preference_infront_title">མདུན་ངོས།</string>
+    <string name="preference_title">ཟུང་ཐོས་སྒྲ་གདངས་ནང་དོན་ཆེད་དགའ་འདེམས་ཟིན་པའི་སྒྲ</string>
+    <string name="preference_traditional_subtitle">སྲོལ་རྒྱུན་ཉན་ཆས་ཀྱི་ཉམས་མྱོང་མང་བ་འབྱིན་ཆེད། སྒྲ་དེ་ཁྱེད་ཀྱི་མགོའི་ཉེ་འཁྲིས་སུ་འཁྱེར་ཡོང་བ་ཡིན།</string>
+    <string name="preference_traditional_title">སྲོལ་རྒྱུན།</string>
+    <string name="preference_wide_subtitle">ཟུང་ཐོས་སྒྲ་གདངས་བསྡུ་འཇུག་ངོ་མ་ཡི་སྟོང་ཆ་འཕེལ་རྒྱས་གཏོང་བ།</string>
+    <string name="preference_wide_title">ཁ་ཞེང་།</string>
+    <string name="reset">བསྐྱར་སྒྲིག</string>
+</resources>
