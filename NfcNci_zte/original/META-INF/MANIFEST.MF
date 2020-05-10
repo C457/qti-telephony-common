@@ -8,7 +8,7 @@ Name: assets/star.png
 SHA-256-Digest: SrWP3PPMkjK4XEtX/IzEv+ZXAiiTKNPTZWWHzfMPf48=
 
 Name: classes.dex
-SHA-256-Digest: lDPBJu1vriZSh8dlyBLOj6A0B4SD+vkPg9qwnMfBgt8=
+SHA-256-Digest: q+/YnBeTC6VVJJ/zo4TvNdy9y4EOlhEs009z0F/EjWw=
 
 Name: res/drawable-hdpi-v4/checkbox_checked.png
 SHA-256-Digest: C+CaHDwMWLPnY+tp+RK9s5XiM9FI3Rh2DiTKmQxLnkE=

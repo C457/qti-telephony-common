@@ -193,34 +193,34 @@
 .method computePreferredForegroundService()V
     .locals 4
 
-    .line 184
+    .line 182
     const/4 v0, 0x0
 
-    .line 185
+    .line 183
     .local v0, "preferredService":Landroid/content/ComponentName;
     const/4 v1, 0x0
 
-    .line 186
+    .line 184
     .local v1, "changed":Z
     iget-object v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 188
+    .line 186
     :try_start_0
     iget-object v3, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mNextTapDefault:Landroid/content/ComponentName;
 
     move-object v0, v3
 
-    .line 189
+    .line 187
     if-nez v0, :cond_0
 
-    .line 191
+    .line 189
     iget-object v3, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundRequested:Landroid/content/ComponentName;
 
     move-object v0, v3
 
-    .line 193
+    .line 191
     :cond_0
     if-eqz v0, :cond_1
 
@@ -232,15 +232,15 @@
 
     if-nez v3, :cond_1
 
-    .line 194
+    .line 192
     iput-object v0, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundCurrent:Landroid/content/ComponentName;
 
-    .line 195
+    .line 193
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 196
+    .line 194
     :cond_1
     if-nez v0, :cond_2
 
@@ -248,32 +248,32 @@
 
     if-eqz v3, :cond_2
 
-    .line 197
+    .line 195
     iput-object v0, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundCurrent:Landroid/content/ComponentName;
 
-    .line 198
+    .line 196
     const/4 v1, 0x1
 
-    .line 200
+    .line 198
     :cond_2
     :goto_0
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 202
+    .line 200
     if-eqz v1, :cond_3
 
-    .line 203
+    .line 201
     iget-object v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mCallback:Lcom/android/nfc/cardemulation/PreferredServices$Callback;
 
     invoke-interface {v2, v0}, Lcom/android/nfc/cardemulation/PreferredServices$Callback;->onPreferredForegroundServiceChanged(Landroid/content/ComponentName;)V
 
-    .line 205
+    .line 203
     :cond_3
     return-void
 
-    .line 200
+    .line 198
     :catchall_0
     move-exception v3
 
@@ -291,12 +291,12 @@
     .param p2, "pw"    # Ljava/io/PrintWriter;
     .param p3, "args"    # [Ljava/lang/String;
 
-    .line 394
+    .line 392
     const-string v0, "Preferred services (in order of importance): "
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 395
+    .line 393
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -315,7 +315,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 396
+    .line 394
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -336,7 +336,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 397
+    .line 395
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -355,7 +355,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 398
+    .line 396
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -382,7 +382,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 400
+    .line 398
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -403,7 +403,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 401
+    .line 399
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -424,12 +424,12 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 402
+    .line 400
     const-string v0, ""
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 403
+    .line 401
     return-void
 .end method
 
@@ -437,7 +437,7 @@
     .locals 10
     .param p1, "service"    # Landroid/content/ComponentName;
 
-    .line 242
+    .line 240
     iget-object v0, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mPaymentDefaults:Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;
 
     iget-object v0, v0, Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;->currentPreferred:Landroid/content/ComponentName;
@@ -450,10 +450,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 245
+    .line 243
     return v1
 
-    .line 247
+    .line 245
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mServiceCache:Lcom/android/nfc/cardemulation/RegisteredServicesCache;
 
@@ -465,23 +465,23 @@
 
     move-result-object v0
 
-    .line 249
+    .line 247
     .local v0, "serviceInfo":Landroid/nfc/cardemulation/ApduServiceInfo;
     const/4 v2, 0x0
 
     if-nez v0, :cond_1
 
-    .line 250
+    .line 248
     const-string v1, "PreferredCardEmulationServices"
 
     const-string v3, "Requested foreground service unexpectedly removed"
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 251
+    .line 249
     return v2
 
-    .line 254
+    .line 252
     :cond_1
     iget-object v3, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mPaymentDefaults:Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;
 
@@ -489,7 +489,7 @@
 
     if-nez v3, :cond_6
 
-    .line 257
+    .line 255
     const-string v3, "payment"
 
     invoke-virtual {v0, v3}, Landroid/nfc/cardemulation/ApduServiceInfo;->hasCategory(Ljava/lang/String;)Z
@@ -498,27 +498,27 @@
 
     if-eqz v3, :cond_2
 
-    .line 258
+    .line 256
     const-string v1, "PreferredCardEmulationServices"
 
     const-string v3, "User doesn\'t allow payment services to be overridden."
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 259
+    .line 257
     return v2
 
-    .line 267
+    .line 265
     :cond_2
     invoke-virtual {v0}, Landroid/nfc/cardemulation/ApduServiceInfo;->getAids()Ljava/util/List;
 
     move-result-object v3
 
-    .line 268
+    .line 266
     .local v3, "otherAids":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget-object v4, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mServiceCache:Lcom/android/nfc/cardemulation/RegisteredServicesCache;
 
-    .line 269
+    .line 267
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v5
@@ -527,12 +527,12 @@
 
     iget-object v6, v6, Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;->currentPreferred:Landroid/content/ComponentName;
 
-    .line 268
+    .line 266
     invoke-virtual {v4, v5, v6}, Lcom/android/nfc/cardemulation/RegisteredServicesCache;->getService(ILandroid/content/ComponentName;)Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
     move-result-object v4
 
-    .line 270
+    .line 268
     .local v4, "paymentServiceInfo":Landroid/nfc/cardemulation/ApduServiceInfo;
     if-eqz v4, :cond_5
 
@@ -544,7 +544,7 @@
 
     if-lez v5, :cond_5
 
-    .line 271
+    .line 269
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
@@ -562,7 +562,7 @@
 
     check-cast v6, Ljava/lang/String;
 
-    .line 272
+    .line 270
     .local v6, "aid":Ljava/lang/String;
     iget-object v7, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mAidCache:Lcom/android/nfc/cardemulation/RegisteredAidCache;
 
@@ -570,7 +570,7 @@
 
     move-result-object v7
 
-    .line 273
+    .line 271
     .local v7, "resolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
     const-string v8, "payment"
 
@@ -584,14 +584,14 @@
 
     iget-object v8, v7, Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;->defaultService:Landroid/nfc/cardemulation/NxpApduServiceInfo;
 
-    .line 274
+    .line 272
     invoke-virtual {v4, v8}, Landroid/nfc/cardemulation/ApduServiceInfo;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
     if-eqz v8, :cond_3
 
-    .line 275
+    .line 273
     const-string v1, "PreferredCardEmulationServices"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -614,24 +614,24 @@
 
     invoke-static {v1, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 277
+    .line 275
     return v2
 
-    .line 279
+    .line 277
     .end local v6    # "aid":Ljava/lang/String;
     .end local v7    # "resolveInfo":Lcom/android/nfc/cardemulation/RegisteredAidCache$AidResolveInfo;
     :cond_3
     goto :goto_0
 
-    .line 280
+    .line 278
     :cond_4
     return v1
 
-    .line 284
+    .line 282
     :cond_5
     return v1
 
-    .line 288
+    .line 286
     .end local v3    # "otherAids":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     .end local v4    # "paymentServiceInfo":Landroid/nfc/cardemulation/ApduServiceInfo;
     :cond_6
@@ -776,14 +776,19 @@
     .line 154
     const/4 v0, 0x1
 
-    .line 156
+    .line 155
+    iget-object v5, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mPaymentDefaults:Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;
+
+    iput-object v4, v5, Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;->currentPreferred:Landroid/content/ComponentName;
+
+    .line 157
     iget-object v5, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mPaymentDefaults:Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;
 
     iget-object v5, v5, Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;->currentPreferred:Landroid/content/ComponentName;
 
     invoke-virtual {v2, v5}, Lcom/android/nfc/NfcService;->setLastPerferredService(Landroid/content/ComponentName;)V
 
-    .line 157
+    .line 158
     const-string v5, "PreferredCardEmulationServices"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -822,14 +827,9 @@
 
     invoke-static {v5, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 160
-    iget-object v5, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mPaymentDefaults:Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;
-
-    iput-object v4, v5, Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;->currentPreferred:Landroid/content/ComponentName;
-
     goto :goto_3
 
-    .line 162
+    .line 161
     :cond_3
     if-nez v4, :cond_4
 
@@ -839,8 +839,13 @@
 
     if-eqz v5, :cond_4
 
-    .line 163
+    .line 162
     const/4 v0, 0x1
+
+    .line 163
+    iget-object v5, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mPaymentDefaults:Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;
+
+    iput-object v4, v5, Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;->currentPreferred:Landroid/content/ComponentName;
 
     .line 165
     iget-object v5, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mPaymentDefaults:Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;
@@ -888,38 +893,33 @@
 
     invoke-static {v5, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 169
-    iget-object v5, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mPaymentDefaults:Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;
-
-    iput-object v4, v5, Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;->currentPreferred:Landroid/content/ComponentName;
-
-    .line 173
+    .line 171
     :cond_4
     :goto_3
     monitor-exit v8
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 175
+    .line 173
     if-eqz v0, :cond_5
 
-    .line 176
+    .line 174
     iget-object v5, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mCallback:Lcom/android/nfc/cardemulation/PreferredServices$Callback;
 
     invoke-interface {v5, v4}, Lcom/android/nfc/cardemulation/PreferredServices$Callback;->onPreferredPaymentServiceChanged(Landroid/content/ComponentName;)V
 
-    .line 178
+    .line 176
     :cond_5
     if-eqz v1, :cond_6
 
-    .line 179
+    .line 177
     invoke-virtual {p0}, Lcom/android/nfc/cardemulation/PreferredServices;->computePreferredForegroundService()V
 
-    .line 181
+    .line 179
     :cond_6
     return-void
 
-    .line 173
+    .line 171
     :catchall_0
     move-exception v5
 
@@ -934,12 +934,12 @@
 .method public onHostEmulationActivated()V
     .locals 2
 
-    .line 345
+    .line 343
     iget-object v0, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 346
+    .line 344
     :try_start_0
     iget-object v1, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mNextTapDefault:Landroid/content/ComponentName;
 
@@ -955,13 +955,13 @@
     :goto_0
     iput-boolean v1, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mClearNextTapDefault:Z
 
-    .line 347
+    .line 345
     monitor-exit v0
 
-    .line 348
+    .line 346
     return-void
 
-    .line 347
+    .line 345
     :catchall_0
     move-exception v1
 
@@ -975,57 +975,57 @@
 .method public onHostEmulationDeactivated()V
     .locals 3
 
-    .line 352
+    .line 350
     const/4 v0, 0x0
 
-    .line 353
+    .line 351
     .local v0, "changed":Z
     iget-object v1, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 354
+    .line 352
     :try_start_0
     iget-boolean v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mClearNextTapDefault:Z
 
     if-eqz v2, :cond_1
 
-    .line 363
+    .line 361
     iget-object v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mNextTapDefault:Landroid/content/ComponentName;
 
     if-eqz v2, :cond_0
 
-    .line 364
+    .line 362
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mNextTapDefault:Landroid/content/ComponentName;
 
-    .line 365
+    .line 363
     const/4 v0, 0x1
 
-    .line 367
+    .line 365
     :cond_0
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mClearNextTapDefault:Z
 
-    .line 369
+    .line 367
     :cond_1
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 370
+    .line 368
     if-eqz v0, :cond_2
 
-    .line 371
+    .line 369
     invoke-virtual {p0}, Lcom/android/nfc/cardemulation/PreferredServices;->computePreferredForegroundService()V
 
-    .line 373
+    .line 371
     :cond_2
     return-void
 
-    .line 369
+    .line 367
     :catchall_0
     move-exception v2
 
@@ -1040,22 +1040,22 @@
 .method public onServicesUpdated()V
     .locals 4
 
-    .line 219
+    .line 217
     const/4 v0, 0x0
 
-    .line 220
+    .line 218
     .local v0, "changed":Z
     iget-object v1, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 224
+    .line 222
     :try_start_0
     iget-object v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundCurrent:Landroid/content/ComponentName;
 
     if-eqz v2, :cond_0
 
-    .line 225
+    .line 223
     iget-object v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundCurrent:Landroid/content/ComponentName;
 
     invoke-virtual {p0, v2}, Lcom/android/nfc/cardemulation/PreferredServices;->isForegroundAllowedLocked(Landroid/content/ComponentName;)Z
@@ -1064,43 +1064,43 @@
 
     if-nez v2, :cond_0
 
-    .line 226
+    .line 224
     const-string v2, "PreferredCardEmulationServices"
 
     const-string v3, "Removing foreground preferred service."
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 227
+    .line 225
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundRequested:Landroid/content/ComponentName;
 
-    .line 228
+    .line 226
     const/4 v2, -0x1
 
     iput v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundUid:I
 
-    .line 229
+    .line 227
     const/4 v0, 0x1
 
-    .line 234
+    .line 232
     :cond_0
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 235
+    .line 233
     if-eqz v0, :cond_1
 
-    .line 236
+    .line 234
     invoke-virtual {p0}, Lcom/android/nfc/cardemulation/PreferredServices;->computePreferredForegroundService()V
 
-    .line 238
+    .line 236
     :cond_1
     return-void
 
-    .line 234
+    .line 232
     :catchall_0
     move-exception v2
 
@@ -1116,10 +1116,10 @@
     .locals 0
     .param p1, "uid"    # I
 
-    .line 341
+    .line 339
     invoke-virtual {p0, p1}, Lcom/android/nfc/cardemulation/PreferredServices;->unregisterForegroundService(I)Z
 
-    .line 342
+    .line 340
     return-void
 .end method
 
@@ -1127,10 +1127,10 @@
     .locals 0
     .param p1, "userId"    # I
 
-    .line 376
+    .line 374
     invoke-virtual {p0, p1}, Lcom/android/nfc/cardemulation/PreferredServices;->loadDefaultsFromSettings(I)V
 
-    .line 377
+    .line 375
     return-void
 .end method
 
@@ -1138,14 +1138,14 @@
     .locals 3
     .param p1, "packageName"    # Ljava/lang/String;
 
-    .line 380
+    .line 378
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
 
     return v0
 
-    .line 382
+    .line 380
     :cond_0
     iget-object v1, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mPaymentDefaults:Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;
 
@@ -1159,7 +1159,7 @@
 
     iget-object v1, v1, Lcom/android/nfc/cardemulation/PreferredServices$PaymentDefaults;->currentPreferred:Landroid/content/ComponentName;
 
-    .line 383
+    .line 381
     invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
@@ -1170,10 +1170,10 @@
 
     if-eqz v1, :cond_1
 
-    .line 384
+    .line 382
     return v2
 
-    .line 385
+    .line 383
     :cond_1
     iget-object v1, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundCurrent:Landroid/content/ComponentName;
 
@@ -1181,7 +1181,7 @@
 
     iget-object v1, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundCurrent:Landroid/content/ComponentName;
 
-    .line 386
+    .line 384
     invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
@@ -1192,10 +1192,10 @@
 
     if-eqz v1, :cond_2
 
-    .line 387
+    .line 385
     return v2
 
-    .line 389
+    .line 387
     :cond_2
     return v0
 .end method
@@ -1205,16 +1205,16 @@
     .param p1, "service"    # Landroid/content/ComponentName;
     .param p2, "callingUid"    # I
 
-    .line 293
+    .line 291
     const/4 v0, 0x0
 
-    .line 294
+    .line 292
     .local v0, "success":Z
     iget-object v1, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 295
+    .line 293
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/android/nfc/cardemulation/PreferredServices;->isForegroundAllowedLocked(Landroid/content/ComponentName;)Z
 
@@ -1222,7 +1222,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 296
+    .line 294
     iget-object v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundUtils:Lcom/android/nfc/ForegroundUtils;
 
     invoke-virtual {v2, p0, p2}, Lcom/android/nfc/ForegroundUtils;->registerUidToBackgroundCallback(Lcom/android/nfc/ForegroundUtils$Callback;I)Z
@@ -1231,18 +1231,18 @@
 
     if-eqz v2, :cond_0
 
-    .line 297
+    .line 295
     iput-object p1, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundRequested:Landroid/content/ComponentName;
 
-    .line 298
+    .line 296
     iput p2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundUid:I
 
-    .line 299
+    .line 297
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 301
+    .line 299
     :cond_0
     const-string v2, "PreferredCardEmulationServices"
 
@@ -1250,12 +1250,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 302
+    .line 300
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 305
+    .line 303
     :cond_1
     const-string v2, "PreferredCardEmulationServices"
 
@@ -1263,23 +1263,23 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 307
+    .line 305
     :goto_0
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 308
+    .line 306
     if-eqz v0, :cond_2
 
-    .line 309
+    .line 307
     invoke-virtual {p0}, Lcom/android/nfc/cardemulation/PreferredServices;->computePreferredForegroundService()V
 
-    .line 311
+    .line 309
     :cond_2
     return v0
 
-    .line 307
+    .line 305
     :catchall_0
     move-exception v2
 
@@ -1295,29 +1295,29 @@
     .locals 2
     .param p1, "service"    # Landroid/content/ComponentName;
 
-    .line 209
+    .line 207
     iget-object v0, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 210
+    .line 208
     :try_start_0
     iput-object p1, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mNextTapDefault:Landroid/content/ComponentName;
 
-    .line 211
+    .line 209
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 212
+    .line 210
     invoke-virtual {p0}, Lcom/android/nfc/cardemulation/PreferredServices;->computePreferredForegroundService()V
 
-    .line 213
+    .line 211
     const/4 v0, 0x1
 
     return v0
 
-    .line 211
+    .line 209
     :catchall_0
     move-exception v1
 
@@ -1333,51 +1333,51 @@
     .locals 3
     .param p1, "uid"    # I
 
-    .line 315
+    .line 313
     const/4 v0, 0x0
 
-    .line 316
+    .line 314
     .local v0, "success":Z
     iget-object v1, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 317
+    .line 315
     :try_start_0
     iget v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundUid:I
 
     if-ne v2, p1, :cond_0
 
-    .line 318
+    .line 316
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundRequested:Landroid/content/ComponentName;
 
-    .line 319
+    .line 317
     const/4 v2, -0x1
 
     iput v2, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundUid:I
 
-    .line 320
+    .line 318
     const/4 v0, 0x1
 
-    .line 322
+    .line 320
     :cond_0
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 323
+    .line 321
     if-eqz v0, :cond_1
 
-    .line 324
+    .line 322
     invoke-virtual {p0}, Lcom/android/nfc/cardemulation/PreferredServices;->computePreferredForegroundService()V
 
-    .line 326
+    .line 324
     :cond_1
     return v0
 
-    .line 322
+    .line 320
     :catchall_0
     move-exception v2
 
@@ -1393,7 +1393,7 @@
     .locals 2
     .param p1, "callingUid"    # I
 
-    .line 331
+    .line 329
     iget-object v0, p0, Lcom/android/nfc/cardemulation/PreferredServices;->mForegroundUtils:Lcom/android/nfc/ForegroundUtils;
 
     invoke-virtual {v0, p1}, Lcom/android/nfc/ForegroundUtils;->isInForeground(I)Z
@@ -1402,14 +1402,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 332
+    .line 330
     invoke-virtual {p0, p1}, Lcom/android/nfc/cardemulation/PreferredServices;->unregisterForegroundService(I)Z
 
     move-result v0
 
     return v0
 
-    .line 334
+    .line 332
     :cond_0
     const-string v0, "PreferredCardEmulationServices"
 
@@ -1417,7 +1417,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 335
+    .line 333
     const/4 v0, 0x0
 
     return v0

@@ -2,7 +2,7 @@
 apkFileName: NfcNci_zte.apk
 compressionType: false
 doNotCompress:
-- arsc
+- resources.arsc
 - png
 - ogg
 isFrameworkApk: false
@@ -19,7 +19,7 @@ usesFramework:
   ids:
   - 1
   tag: null
-version: 2.4.0
+version: 2.4.1
 versionInfo:
   versionCode: '28'
   versionName: '9'
