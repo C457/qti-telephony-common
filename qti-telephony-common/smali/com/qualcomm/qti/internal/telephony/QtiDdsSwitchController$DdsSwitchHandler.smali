@@ -23,13 +23,13 @@
     .locals 0
     .param p2, "looper"    # Landroid/os/Looper;
 
-    .line 256
+    .line 289
     iput-object p1, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
 
-    .line 257
+    .line 290
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 258
+    .line 291
     return-void
 .end method
 
@@ -39,12 +39,12 @@
     .locals 6
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 262
+    .line 295
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 263
+    .line 296
     .local v0, "ar":Landroid/os/AsyncResult;
     iget-object v1, v0, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
@@ -54,30 +54,34 @@
 
     move-result v1
 
-    .line 264
+    .line 297
     .local v1, "phoneId":I
     iget v2, p1, Landroid/os/Message;->what:I
 
-    packed-switch v2, :pswitch_data_0
+    const/16 v3, 0x65
+
+    if-eq v2, v3, :cond_0
+
+    const/16 v3, 0x66
+
+    if-eq v2, v3, :cond_0
 
     goto/16 :goto_1
 
-    .line 268
-    :pswitch_0
+    .line 301
+    :cond_0
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
 
     invoke-static {v2}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->access$000(Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
-    .line 269
+    .line 302
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
 
-    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
-
-    invoke-static {v3}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->access$200(Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;)Lcom/android/internal/telephony/SubscriptionController;
+    invoke-static {v2}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->access$200(Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;)Lcom/android/internal/telephony/SubscriptionController;
 
     move-result-object v3
 
@@ -87,7 +91,7 @@
 
     invoke-static {v2, v3}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->access$102(Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;I)I
 
-    .line 273
+    .line 306
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
 
     invoke-static {v2}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->access$300(Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;)[Lcom/android/internal/telephony/Phone;
@@ -100,58 +104,56 @@
 
     move-result-object v2
 
-    .line 274
+    .line 307
     invoke-virtual {v2}, Landroid/telephony/ServiceState;->getRilVoiceRadioTechnology()I
 
     move-result v2
 
-    .line 275
+    .line 308
     .local v2, "voiceRat":I
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
 
-    iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
-
-    invoke-static {v4}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->access$400(Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;)Z
+    invoke-static {v3}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->access$400(Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
 
-    .line 276
+    .line 309
     invoke-static {v4, v1}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->access$500(Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     const/4 v4, 0x6
 
-    if-eq v2, v4, :cond_0
+    if-eq v2, v4, :cond_1
 
     const/4 v4, 0x4
 
-    if-eq v2, v4, :cond_0
+    if-eq v2, v4, :cond_1
 
     const/4 v4, 0x5
 
-    if-eq v2, v4, :cond_0
+    if-eq v2, v4, :cond_1
 
     const/4 v4, 0x1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     const/4 v4, 0x0
 
-    .line 275
+    .line 308
     :goto_0
     invoke-static {v3, v4}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->access$002(Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;Z)Z
 
-    .line 281
+    .line 314
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -182,37 +184,31 @@
 
     invoke-virtual {v3, v4}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->log(Ljava/lang/String;)V
 
-    .line 284
+    .line 317
     .end local v2    # "voiceRat":I
-    :cond_1
+    :cond_2
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
 
     invoke-static {v2}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->access$000(Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
-    .line 285
+    .line 318
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
 
     const-string v3, "EVENT_PRECISE_CALL_STATE_CHANGED"
 
     invoke-virtual {v2, v3}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->log(Ljava/lang/String;)V
 
-    .line 286
+    .line 319
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController$DdsSwitchHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;
 
     invoke-static {v2, v1}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->access$600(Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;I)V
 
-    .line 291
-    :cond_2
+    .line 327
+    :cond_3
     :goto_1
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x65
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
 .end method

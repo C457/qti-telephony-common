@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
 
-    .line 46
+    .line 57
     iput-object p1, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -34,11 +34,17 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 5
+    .locals 6
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 49
+    .line 60
     iget v0, p1, Landroid/os/Message;->what:I
+
+    const v1, 0x42006
+
+    const/4 v2, 0x0
+
+    if-eq v0, v1, :cond_2
 
     const v1, 0x42029
 
@@ -46,47 +52,30 @@
 
     goto :goto_0
 
-    .line 51
+    .line 62
     :cond_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 52
+    .line 63
     .local v0, "ar":Landroid/os/AsyncResult;
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, Landroid/util/Pair;
 
-    .line 53
+    .line 64
     .local v1, "result":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
-    .line 54
-    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
+    .line 65
+    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
 
-    invoke-static {v2}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$000(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;)I
+    invoke-static {v3}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$000(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;)I
 
-    move-result v2
+    move-result v3
 
-    if-lez v2, :cond_1
-
-    iget-object v2, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    if-lez v2, :cond_1
-
-    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
-
-    .line 55
-    invoke-static {v2}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$000(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;)I
-
-    move-result v2
+    if-lez v3, :cond_1
 
     iget-object v3, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
@@ -96,47 +85,66 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_1
+    if-lez v3, :cond_1
 
-    .line 56
-    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
+    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    .line 66
+    invoke-static {v3}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$000(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;)I
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "RAT CHANGED, "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
-
-    invoke-static {v4}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$000(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;)I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v4, "->"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v3
 
     iget-object v4, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    check-cast v4, Ljava/lang/Integer;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
-    move-result-object v3
+    move-result v4
 
-    invoke-static {v2, v3}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$100(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;Ljava/lang/String;)V
+    if-eq v3, v4, :cond_1
 
-    .line 58
-    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
+    .line 67
+    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
 
-    invoke-static {v2}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$200(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;)V
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    .line 60
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "RAT CHANGED, "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v5, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
+
+    invoke-static {v5}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$000(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;)I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, "->"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v5, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$100(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;Ljava/lang/String;)V
+
+    .line 69
+    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
+
+    const-string v4, "DATA_RAT_CHANGED"
+
+    invoke-static {v3, v4, v2}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$200(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;Ljava/lang/String;Z)V
+
+    .line 71
     :cond_1
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
 
@@ -150,10 +158,27 @@
 
     invoke-static {v2, v3}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$002(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;I)I
 
-    .line 64
+    goto :goto_0
+
+    .line 76
     .end local v0    # "ar":Landroid/os/AsyncResult;
     .end local v1    # "result":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     :cond_2
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
+
+    const-string v1, "EVENT_RADIO_OFF_OR_NOT_AVAILABLE"
+
+    invoke-static {v0, v1}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$100(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;Ljava/lang/String;)V
+
+    .line 77
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
+
+    const-string v1, "RADIO_OFF_OR_NOT_AVAILABLE"
+
+    invoke-static {v0, v1, v2}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->access$200(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;Ljava/lang/String;Z)V
+
+    .line 81
+    :cond_3
     :goto_0
     return-void
 .end method

@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
-    .line 596
+    .line 534
     iput-object p1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -37,7 +37,7 @@
     .locals 3
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 599
+    .line 537
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/16 v1, 0x65
@@ -46,7 +46,7 @@
 
     goto :goto_0
 
-    .line 601
+    .line 539
     :cond_0
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
@@ -54,12 +54,10 @@
 
     invoke-static {v0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$000(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;Ljava/lang/String;)V
 
-    .line 603
+    .line 541
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
-    iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
-
-    invoke-static {v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$100(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)I
+    invoke-static {v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$100(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)I
 
     move-result v1
 
@@ -71,20 +69,18 @@
 
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
-    iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
-
-    .line 604
-    invoke-static {v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$100(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)I
+    .line 542
+    invoke-static {v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$100(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+    invoke-static {v0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$200(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;I)Z
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    .line 605
+    .line 543
     :cond_1
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
@@ -92,16 +88,16 @@
 
     invoke-static {v0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$000(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;Ljava/lang/String;)V
 
-    .line 606
+    .line 544
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
-    invoke-static {}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$200()I
+    invoke-static {}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$300()I
 
     move-result v1
 
     invoke-static {v0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$102(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;I)I
 
-    .line 608
+    .line 546
     :cond_2
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
@@ -127,33 +123,31 @@
 
     invoke-static {v0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$000(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;Ljava/lang/String;)V
 
-    .line 609
+    .line 547
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
-    iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
-
-    invoke-static {v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$100(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)I
+    invoke-static {v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$100(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultDataSubId(I)V
 
-    .line 610
+    .line 548
     invoke-static {}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->getInstance()Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
-    .line 611
-    invoke-static {v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$300(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)Landroid/os/Handler;
+    .line 549
+    invoke-static {v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->access$400(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)Landroid/os/Handler;
 
     move-result-object v1
 
-    .line 610
+    .line 548
     invoke-virtual {v0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->unregisterForCallEnd(Landroid/os/Handler;)V
 
-    .line 615
+    .line 553
     :goto_0
     return-void
 .end method

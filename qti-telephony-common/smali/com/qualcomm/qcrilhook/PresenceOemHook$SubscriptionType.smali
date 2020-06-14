@@ -39,31 +39,31 @@
     .line 63
     new-instance v0, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
 
-    const-string v1, "NONE"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "NONE"
 
-    invoke-direct {v0, v1, v2}, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v2, v1}, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;->NONE:Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
 
     new-instance v0, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
 
-    const-string v1, "SIMPLE"
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    const-string v3, "SIMPLE"
 
-    invoke-direct {v0, v1, v3}, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v3, v2}, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;->SIMPLE:Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
 
     new-instance v0, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
 
-    const-string v1, "POLLING"
+    const/4 v3, 0x2
 
-    const/4 v4, 0x2
+    const-string v4, "POLLING"
 
-    invoke-direct {v0, v1, v4}, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v4, v3}, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;->POLLING:Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
 
@@ -72,17 +72,17 @@
 
     new-array v0, v0, [Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
 
-    sget-object v1, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;->NONE:Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
+    sget-object v4, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;->NONE:Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
 
-    aput-object v1, v0, v2
+    aput-object v4, v0, v1
 
     sget-object v1, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;->SIMPLE:Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     sget-object v1, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;->POLLING:Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v3
 
     sput-object v0, Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;->$VALUES:[Lcom/qualcomm/qcrilhook/PresenceOemHook$SubscriptionType;
 

@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;
 
-    .line 267
+    .line 277
     iput-object p1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache$1;->this$0:Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .line 270
+    .line 280
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -51,16 +51,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 271
-    const-string v0, "phone"
+    .line 281
+    const/4 v0, -0x1
 
-    const/4 v1, -0x1
+    const-string v1, "phone"
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 273
+    .line 283
     .local v0, "phoneId":I
     const-string v1, "ss"
 
@@ -68,7 +68,7 @@
 
     move-result-object v1
 
-    .line 274
+    .line 284
     .local v1, "simStatus":Ljava/lang/String;
     const-string v2, "ABSENT"
 
@@ -84,7 +84,7 @@
 
     if-ne v2, v0, :cond_0
 
-    .line 276
+    .line 286
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache$1;->this$0:Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -109,12 +109,12 @@
 
     invoke-static {v2, v3}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->access$000(Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;Ljava/lang/String;)V
 
-    .line 278
+    .line 288
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache$1;->this$0:Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;
 
     invoke-virtual {v2}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->invalidateAdnCache()V
 
-    .line 281
+    .line 291
     .end local v0    # "phoneId":I
     .end local v1    # "simStatus":Ljava/lang/String;
     :cond_0

@@ -51,7 +51,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3
 
     .line 1120
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->get()B
@@ -74,7 +74,17 @@
 
     .line 1123
     .local v1, "length":I
-    packed-switch v0, :pswitch_data_0
+    const/4 v2, 0x1
+
+    if-eq v0, v2, :cond_2
+
+    const/4 v2, 0x2
+
+    if-eq v0, v2, :cond_1
+
+    const/4 v2, 0x3
+
+    if-eq v0, v2, :cond_0
 
     .line 1138
     invoke-static {}, Lcom/qualcomm/qcrilhook/EmbmsOemHook;->access$000()Ljava/lang/String;
@@ -97,14 +107,10 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .end local v0    # "type":I
-    .end local v1    # "length":I
     goto :goto_1
 
     .line 1129
-    .restart local v0    # "type":I
-    .restart local v1    # "length":I
-    :pswitch_0
+    :cond_0
     invoke-static {p1, p2}, Lcom/qualcomm/qcrilhook/EmbmsOemHook;->access$100(Lcom/qualcomm/qcrilhook/EmbmsOemHook;Ljava/nio/ByteBuffer;)[B
 
     move-result-object v2
@@ -142,7 +148,7 @@
     goto :goto_1
 
     .line 1125
-    :pswitch_1
+    :cond_1
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v2
@@ -176,7 +182,7 @@
     goto :goto_1
 
     .line 1134
-    :pswitch_2
+    :cond_2
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v2
@@ -216,15 +222,6 @@
     goto/16 :goto_0
 
     .line 1142
-    :cond_0
+    :cond_3
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

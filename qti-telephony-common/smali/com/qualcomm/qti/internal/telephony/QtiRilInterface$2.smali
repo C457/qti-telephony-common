@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;
 
-    .line 616
+    .line 560
     iput-object p1, p0, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface$2;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .line 619
+    .line 563
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface$2;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -61,14 +61,14 @@
 
     invoke-static {v0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->access$100(Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;Ljava/lang/String;)V
 
-    .line 620
-    const-string v0, "qualcomm.intent.action.ACTION_ADN_INIT_DONE"
-
+    .line 564
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v1, "qualcomm.intent.action.ACTION_ADN_INIT_DONE"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -76,12 +76,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 621
+    .line 565
     new-instance v0, Landroid/os/AsyncResult;
 
     invoke-direct {v0, v1, v1, v1}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
 
-    .line 622
+    .line 566
     .local v0, "ar":Landroid/os/AsyncResult;
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface$2;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;
 
@@ -91,31 +91,31 @@
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
-    .line 624
     .end local v0    # "ar":Landroid/os/AsyncResult;
     goto :goto_0
 
+    .line 568
     :cond_0
-    const-string v0, "qualcomm.intent.action.ACTION_ADN_RECORDS_IND"
-
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v2, "qualcomm.intent.action.ACTION_ADN_RECORDS_IND"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 625
+    .line 569
     const-string v0, "adn_records"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getByteArrayExtra(Ljava/lang/String;)[B
 
     move-result-object v0
 
-    .line 627
+    .line 571
     .local v0, "data":[B
     new-instance v2, Landroid/os/AsyncResult;
 
@@ -129,7 +129,7 @@
 
     move-object v1, v2
 
-    .line 628
+    .line 572
     .local v1, "ar":Landroid/os/AsyncResult;
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface$2;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;
 
@@ -139,10 +139,16 @@
 
     invoke-virtual {v2, v1}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
-    .line 630
+    goto :goto_1
+
+    .line 568
     .end local v0    # "data":[B
     .end local v1    # "ar":Landroid/os/AsyncResult;
     :cond_1
     :goto_0
+    nop
+
+    .line 574
+    :goto_1
     return-void
 .end method

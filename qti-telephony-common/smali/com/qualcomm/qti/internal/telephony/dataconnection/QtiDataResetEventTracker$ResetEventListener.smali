@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onResetEvent()V
+.method public abstract onResetEvent(Z)V
 .end method

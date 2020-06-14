@@ -37,18 +37,18 @@
 .method constructor <init>()V
     .locals 1
 
-    .line 122
+    .line 121
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 123
+    .line 122
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner$UiccProvisionStatus;->userPreference:I
 
-    .line 124
+    .line 123
     iput v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner$UiccProvisionStatus;->currentState:I
 
-    .line 125
+    .line 124
     return-void
 .end method
 
@@ -58,10 +58,10 @@
     .locals 3
     .param p1, "provisionStatus"    # Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner$UiccProvisionStatus;
 
-    .line 128
+    .line 127
     const/4 v0, 0x1
 
-    .line 130
+    .line 129
     .local v0, "result":Z
     invoke-virtual {p1}, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner$UiccProvisionStatus;->getUserPreference()I
 
@@ -73,7 +73,7 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 131
+    .line 130
     invoke-virtual {p1}, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner$UiccProvisionStatus;->getCurrentState()I
 
     move-result v1
@@ -84,11 +84,11 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 132
+    .line 131
     :cond_0
     const/4 v0, 0x0
 
-    .line 134
+    .line 133
     :cond_1
     return v0
 .end method
@@ -96,7 +96,7 @@
 .method getCurrentState()I
     .locals 1
 
-    .line 146
+    .line 145
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner$UiccProvisionStatus;->currentState:I
 
     return v0
@@ -105,7 +105,7 @@
 .method getUserPreference()I
     .locals 1
 
-    .line 138
+    .line 137
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner$UiccProvisionStatus;->userPreference:I
 
     return v0
@@ -115,10 +115,10 @@
     .locals 0
     .param p1, "state"    # I
 
-    .line 150
+    .line 149
     iput p1, p0, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner$UiccProvisionStatus;->currentState:I
 
-    .line 151
+    .line 150
     return-void
 .end method
 
@@ -126,17 +126,17 @@
     .locals 0
     .param p1, "pref"    # I
 
-    .line 142
+    .line 141
     iput p1, p0, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner$UiccProvisionStatus;->userPreference:I
 
-    .line 143
+    .line 142
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .line 155
+    .line 154
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

@@ -52,7 +52,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     .line 1313
     :try_start_0
@@ -76,11 +76,17 @@
 
     .line 1316
     .local v1, "length":I
-    const/16 v2, 0x10
+    const/4 v2, 0x1
+
+    if-eq v0, v2, :cond_2
+
+    const/4 v2, 0x2
 
     if-eq v0, v2, :cond_0
 
-    packed-switch v0, :pswitch_data_0
+    const/16 v2, 0x10
+
+    if-eq v0, v2, :cond_1
 
     .line 1336
     invoke-static {}, Lcom/qualcomm/qcrilhook/EmbmsOemHook;->access$000()Ljava/lang/String;
@@ -103,17 +109,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .end local v0    # "type":I
-    .end local v1    # "length":I
     goto :goto_1
 
     .line 1321
-    .restart local v0    # "type":I
-    .restart local v1    # "length":I
-    :pswitch_0
+    :cond_0
     const/16 v2, 0x8
 
-    if-ne p3, v2, :cond_0
+    if-ne p3, v2, :cond_1
 
     .line 1322
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->getInt()I
@@ -148,42 +150,8 @@
     .line 1324
     goto :goto_1
 
-    .line 1332
-    :pswitch_1
-    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->getInt()I
-
-    move-result v2
-
-    iput v2, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$CoverageState;->traceId:I
-
-    .line 1333
-    invoke-static {}, Lcom/qualcomm/qcrilhook/EmbmsOemHook;->access$000()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "traceId = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v4, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$CoverageState;->traceId:I
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1334
-    goto :goto_1
-
     .line 1328
-    :cond_0
+    :cond_1
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v2
@@ -212,10 +180,44 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1330
+    goto :goto_1
+
+    .line 1332
+    :cond_2
+    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->getInt()I
+
+    move-result v2
+
+    iput v2, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$CoverageState;->traceId:I
+
+    .line 1333
+    invoke-static {}, Lcom/qualcomm/qcrilhook/EmbmsOemHook;->access$000()Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "traceId = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v4, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$CoverageState;->traceId:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1330
+    .line 1334
     goto :goto_1
 
     .line 1339
@@ -240,12 +242,6 @@
     goto/16 :goto_0
 
     .line 1343
-    :cond_1
+    :cond_3
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

@@ -22,7 +22,7 @@
 .method private constructor <init>(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;)V
     .locals 0
 
-    .line 158
+    .line 164
     iput-object p1, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -35,7 +35,7 @@
     .param p1, "x0"    # Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
     .param p2, "x1"    # Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$1;
 
-    .line 158
+    .line 164
     invoke-direct {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;-><init>(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;)V
 
     return-void
@@ -47,12 +47,12 @@
     .locals 6
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 161
+    .line 167
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 162
+    .line 168
     .local v0, "ar":Landroid/os/AsyncResult;
     iget-object v1, v0, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
@@ -62,16 +62,22 @@
 
     move-result v1
 
-    .line 163
+    .line 169
     .local v1, "phoneId":I
     iget v2, p1, Landroid/os/Message;->what:I
 
-    packed-switch v2, :pswitch_data_0
+    const/16 v3, 0x65
+
+    if-eq v2, v3, :cond_0
+
+    const/16 v3, 0x66
+
+    if-eq v2, v3, :cond_0
 
     goto/16 :goto_0
 
-    .line 166
-    :pswitch_0
+    .line 172
+    :cond_0
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     invoke-static {v2}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->access$100(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;)Z
@@ -80,7 +86,7 @@
 
     const/4 v3, 0x1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
@@ -88,9 +94,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
-    .line 168
+    .line 174
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -109,24 +115,24 @@
 
     invoke-virtual {v2, v4}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->log(Ljava/lang/String;)V
 
-    .line 169
+    .line 175
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     invoke-static {v2, v3}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->access$102(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;Z)Z
 
     goto :goto_0
 
-    .line 170
-    :cond_0
+    .line 176
+    :cond_1
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     invoke-static {v2, v1}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->access$300(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
-    .line 172
+    .line 178
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -145,19 +151,19 @@
 
     invoke-virtual {v2, v3}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->log(Ljava/lang/String;)V
 
-    .line 173
+    .line 179
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     const/4 v3, 0x0
 
     invoke-static {v2, v3}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->access$102(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;Z)Z
 
-    .line 174
+    .line 180
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     invoke-static {v2, v3}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->access$402(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;Z)Z
 
-    .line 175
+    .line 181
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     invoke-static {v2}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->access$500(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;)Landroid/os/RegistrantList;
@@ -168,17 +174,17 @@
 
     goto :goto_0
 
-    .line 177
-    :cond_1
+    .line 183
+    :cond_2
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     invoke-static {v2}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->access$400(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;)Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_3
 
-    .line 178
+    .line 184
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -197,21 +203,13 @@
 
     invoke-virtual {v2, v4}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->log(Ljava/lang/String;)V
 
-    .line 179
+    .line 185
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     invoke-static {v2, v3}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->access$402(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;Z)Z
 
-    .line 186
-    :cond_2
+    .line 192
+    :cond_3
     :goto_0
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x65
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
 .end method

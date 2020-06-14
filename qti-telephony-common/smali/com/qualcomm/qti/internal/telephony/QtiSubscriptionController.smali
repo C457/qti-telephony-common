@@ -10,7 +10,7 @@
 
 .field private static final CARRIER_MODE_CT_CLASS_A:Ljava/lang/String; = "ct_class_a"
 
-.field private static final DUMMY_SUB_ID_BASE:I = 0x7ffffffb
+.field private static final DEFAULT_PHONE_INDEX:I = 0x0
 
 .field private static final EVENT_CALL_ENDED:I = 0x65
 
@@ -21,6 +21,10 @@
 .field private static final PROVISIONED:I = 0x1
 
 .field private static final SETTING_USER_PREF_DATA_SUB:Ljava/lang/String; = "user_preferred_data_sub"
+
+.field private static final UNICOM_IIN:Ljava/lang/String; = "898601,898609"
+
+.field private static final ZTE_FEATURE_DEFAULT_DDS_UNICOM:Z
 
 .field protected static sCi:[Lcom/android/internal/telephony/CommandsInterface;
 
@@ -38,38 +42,53 @@
 
 .field private mSubscriptionHandler:Landroid/os/Handler;
 
-.field private mTelecomManager:Landroid/telecom/TelecomManager;
+.field protected mTelecomManager:Landroid/telecom/TelecomManager;
 
 .field private mTelephonyManager:Landroid/telephony/TelephonyManager;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
 
-    .line 69
+    .line 77
     const/4 v0, 0x0
 
     sput-object v0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sCi:[Lcom/android/internal/telephony/CommandsInterface;
 
+    .line 110
+    nop
+
+    .line 111
+    const-string v0, "ro.feature.zte_default_dds_unicom"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->ZTE_FEATURE_DEFAULT_DDS_UNICOM:Z
+
+    .line 110
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;)V
+.method protected constructor <init>(Landroid/content/Context;)V
     .locals 2
     .param p1, "c"    # Landroid/content/Context;
 
-    .line 126
+    .line 135
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/SubscriptionController;-><init>(Landroid/content/Context;)V
 
-    .line 84
+    .line 88
     new-instance v0, Landroid/os/RegistrantList;
 
     invoke-direct {v0}, Landroid/os/RegistrantList;-><init>()V
 
     iput-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mAddSubscriptionRecordRegistrants:Landroid/os/RegistrantList;
 
-    .line 96
+    .line 100
     const-string v0, "persist.vendor.radio.carrier_mode"
 
     const-string v1, "default"
@@ -80,7 +99,7 @@
 
     iput-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mCarrierMode:Ljava/lang/String;
 
-    .line 98
+    .line 102
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mCarrierMode:Ljava/lang/String;
 
     const-string v1, "ct_class_a"
@@ -91,50 +110,61 @@
 
     iput-boolean v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mIsCTClassA:Z
 
-    .line 100
-    const v0, 0x7ffffffb
+    .line 104
+    const v0, 0x7fffffff
 
     iput v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mCurrentDdsSubId:I
 
-    .line 596
-    new-instance v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;
+    .line 534
+    new-instance v0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;
 
-    invoke-direct {v1, p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;-><init>(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)V
+    invoke-direct {v0, p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController$1;-><init>(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)V
 
-    iput-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mSubscriptionHandler:Landroid/os/Handler;
+    iput-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mSubscriptionHandler:Landroid/os/Handler;
 
-    .line 127
-    const-string v1, " init by Context"
+    .line 136
+    const-string v0, " init by Context"
 
-    invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
 
-    .line 129
-    const/4 v1, 0x0
-
-    sput v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mDefaultPhoneId:I
-
-    .line 130
-    sput v0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mDefaultFallbackSubId:I
-
-    .line 131
+    .line 138
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Landroid/telecom/TelecomManager;->from(Landroid/content/Context;)Landroid/telecom/TelecomManager;
+    const-string v1, "telecom"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Landroid/telecom/TelecomManager;
 
     iput-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelecomManager:Landroid/telecom/TelecomManager;
 
-    .line 132
+    .line 139
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Landroid/telephony/TelephonyManager;->from(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
+    const-string v1, "phone"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Landroid/telephony/TelephonyManager;
+
     iput-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    .line 133
+    .line 140
+    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
+
+    move-result v0
+
+    sput v0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sNumPhones:I
+
+    .line 141
     return-void
 .end method
 
@@ -143,7 +173,7 @@
     .param p0, "x0"    # Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
     .param p1, "x1"    # Ljava/lang/String;
 
-    .line 66
+    .line 74
     invoke-direct {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
 
     return-void
@@ -153,7 +183,7 @@
     .locals 1
     .param p0, "x0"    # Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
-    .line 66
+    .line 74
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mCurrentDdsSubId:I
 
     return v0
@@ -164,107 +194,60 @@
     .param p0, "x0"    # Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
     .param p1, "x1"    # I
 
-    .line 66
+    .line 74
     iput p1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mCurrentDdsSubId:I
 
     return p1
 .end method
 
-.method static synthetic access$200()I
+.method static synthetic access$200(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;I)Z
+    .locals 1
+    .param p0, "x0"    # Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
+    .param p1, "x1"    # I
+
+    .line 74
+    invoke-direct {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$300()I
     .locals 1
 
-    .line 66
+    .line 74
     sget v0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mDefaultFallbackSubId:I
 
     return v0
 .end method
 
-.method static synthetic access$300(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)Landroid/os/Handler;
+.method static synthetic access$400(Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;)Landroid/os/Handler;
     .locals 1
     .param p0, "x0"    # Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
-    .line 66
+    .line 74
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mSubscriptionHandler:Landroid/os/Handler;
 
     return-object v0
 .end method
 
-.method private clearVoiceSubId()V
-    .locals 3
-
-    .line 136
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
-
-    .line 137
-    invoke-virtual {v0}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 136
-    invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getActiveSubscriptionInfoList(Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v0
-
-    .line 138
-    .local v0, "records":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/SubscriptionInfo;>;"
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "[clearVoiceSubId] records: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
-
-    .line 139
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultVoiceSubId()I
-
-    move-result v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->shouldDefaultBeCleared(Ljava/util/List;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 140
-    const-string v1, "[clearVoiceSubId] clear voice sub id"
-
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
-
-    .line 141
-    const v1, 0x7ffffffb
-
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultVoiceSubId(I)V
-
-    .line 143
-    :cond_0
-    return-void
-.end method
-
 .method public static getInstance()Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
     .locals 2
 
-    .line 118
+    .line 127
     sget-object v0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sInstance:Lcom/android/internal/telephony/SubscriptionController;
 
     if-nez v0, :cond_0
 
-    .line 119
+    .line 128
     const-string v0, "QtiSubscriptionController"
 
     const-string v1, "getInstance null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 122
+    .line 131
     :cond_0
     sget-object v0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sInstance:Lcom/android/internal/telephony/SubscriptionController;
 
@@ -273,38 +256,74 @@
     return-object v0
 .end method
 
-.method private getPhoneIdFromDummySubId(I)I
-    .locals 1
-    .param p1, "subId"    # I
+.method private getUiccProvisionStatus(I)I
+    .locals 2
+    .param p1, "slotId"    # I
 
-    .line 191
-    const v0, 0x7ffffffb
+    .line 441
+    invoke-static {}, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner;->getInstance()Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner;
 
-    sub-int v0, p1, v0
+    move-result-object v0
+
+    .line 442
+    .local v0, "uiccCardProvisioner":Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner;
+    if-eqz v0, :cond_0
+
+    .line 443
+    invoke-virtual {v0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner;->getCurrentUiccCardProvisioningStatus(I)I
+
+    move-result v1
+
+    return v1
+
+    .line 445
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method private getUserPrefDataSubIdFromDB()I
+    .locals 3
+
+    .line 527
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "user_preferred_data_sub"
+
+    const/4 v2, -0x1
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
 
     return v0
 .end method
 
 .method private handleDataPreference(I)V
-    .locals 7
+    .locals 10
     .param p1, "nextActiveSubId"    # I
 
-    .line 466
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getUserPrefDataSubIdFromDB()I
+    .line 382
+    invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getUserPrefDataSubIdFromDB()I
 
     move-result v0
 
-    .line 467
+    .line 383
     .local v0, "userPrefDataSubId":I
     invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultDataSubId()I
 
     move-result v1
 
-    .line 469
+    .line 385
     .local v1, "currentDataSubId":I
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
 
-    .line 470
+    .line 386
     invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
 
     move-result-object v2
@@ -313,18 +332,18 @@
 
     move-result-object v2
 
-    .line 471
+    .line 387
     .local v2, "subInfoList":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/SubscriptionInfo;>;"
     if-nez v2, :cond_0
 
-    .line 472
+    .line 388
     return-void
 
-    .line 474
+    .line 390
     :cond_0
     const/4 v3, 0x0
 
-    .line 475
+    .line 391
     .local v3, "userPrefSubValid":Z
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -343,7 +362,7 @@
 
     check-cast v5, Landroid/telephony/SubscriptionInfo;
 
-    .line 476
+    .line 392
     .local v5, "subInfo":Landroid/telephony/SubscriptionInfo;
     invoke-virtual {v5}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
 
@@ -351,15 +370,15 @@
 
     if-ne v6, v0, :cond_1
 
-    .line 477
+    .line 393
     const/4 v3, 0x1
 
-    .line 479
+    .line 395
     .end local v5    # "subInfo":Landroid/telephony/SubscriptionInfo;
     :cond_1
     goto :goto_0
 
-    .line 480
+    .line 396
     :cond_2
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -395,81 +414,202 @@
 
     invoke-direct {p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
 
-    .line 486
-    iget-boolean v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mIsCTClassA:Z
+    .line 401
+    const/4 v4, -0x1
 
+    .line 402
+    .local v4, "unicomSubId":I
     const/4 v5, 0x0
 
-    if-eqz v4, :cond_3
+    .line 403
+    .local v5, "unicomFlag":Z
+    sget-boolean v6, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->ZTE_FEATURE_DEFAULT_DDS_UNICOM:Z
 
-    invoke-virtual {p0, v5}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getSubId(I)[I
+    if-eqz v6, :cond_4
 
-    move-result-object v4
+    .line 404
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    aget v4, v4, v5
+    move-result-object v6
 
-    invoke-virtual {p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+    :goto_1
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/telephony/SubscriptionInfo;
+
+    .line 405
+    .local v7, "subInfo":Landroid/telephony/SubscriptionInfo;
+    invoke-virtual {v7}, Landroid/telephony/SubscriptionInfo;->getIccId()Ljava/lang/String;
+
+    move-result-object v8
+
+    .line 406
+    .local v8, "iccid":Ljava/lang/String;
+    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_3
+
+    invoke-direct {p0, v8}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isUnicomCard(Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_3
+
+    .line 407
+    invoke-virtual {v7}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    .line 408
+    const/4 v5, 0x1
 
-    .line 487
-    const-string v4, "set dds to slot0 for ct classA mode"
+    .line 409
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 488
-    invoke-virtual {p0, v5}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getSubId(I)[I
+    const-string v9, " unicomSubId is "
 
-    move-result-object v4
+    invoke-virtual {v6, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aget v4, v4, v5
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultDataSubId(I)V
+    const-string v9, " unicomFlag is "
 
+    invoke-virtual {v6, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-direct {p0, v6}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
+
+    .line 410
+    goto :goto_2
+
+    .line 412
+    .end local v7    # "subInfo":Landroid/telephony/SubscriptionInfo;
+    .end local v8    # "iccid":Ljava/lang/String;
+    :cond_3
     goto :goto_1
 
-    .line 489
-    :cond_3
-    if-eqz v3, :cond_4
+    .line 418
+    :cond_4
+    :goto_2
+    iget-boolean v6, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mIsCTClassA:Z
 
-    invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+    const/4 v7, 0x0
 
-    move-result v4
+    if-eqz v6, :cond_5
 
-    if-eqz v4, :cond_4
+    invoke-virtual {p0, v7}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getSubId(I)[I
 
-    if-eq v1, v0, :cond_4
+    move-result-object v6
 
-    .line 491
+    aget v6, v6, v7
+
+    invoke-direct {p0, v6}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    .line 419
+    const-string v6, "set dds to slot0 for ct classA mode"
+
+    invoke-direct {p0, v6}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
+
+    .line 420
+    invoke-virtual {p0, v7}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getSubId(I)[I
+
+    move-result-object v6
+
+    aget v6, v6, v7
+
+    invoke-virtual {p0, v6}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultDataSubId(I)V
+
+    goto :goto_3
+
+    .line 421
+    :cond_5
+    if-eqz v3, :cond_6
+
+    invoke-direct {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    if-eq v1, v0, :cond_6
+
+    .line 423
     invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultDataSubId(I)V
 
-    goto :goto_1
+    goto :goto_3
 
-    .line 492
-    :cond_4
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+    .line 425
+    :cond_6
+    sget-boolean v6, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->ZTE_FEATURE_DEFAULT_DDS_UNICOM:Z
 
-    move-result v4
+    if-eqz v6, :cond_7
 
-    if-nez v4, :cond_5
+    if-nez v3, :cond_7
 
-    .line 493
+    if-eqz v5, :cond_7
+
+    invoke-direct {p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_7
+
+    if-eq v1, v4, :cond_7
+
+    .line 427
+    const-string v6, "unicomFlag && isSubProvisioned(unicomSubId)"
+
+    invoke-direct {p0, v6}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
+
+    .line 428
+    invoke-virtual {p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultDataSubId(I)V
+
+    goto :goto_3
+
+    .line 430
+    :cond_7
+    invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+
+    move-result v6
+
+    if-nez v6, :cond_8
+
+    .line 431
     invoke-virtual {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultDataSubId(I)V
 
-    .line 498
-    :cond_5
-    :goto_1
+    .line 436
+    :cond_8
+    :goto_3
     invoke-static {}, Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;->getInstance()Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;
 
-    move-result-object v4
+    move-result-object v6
 
-    .line 499
-    .local v4, "radioCapController":Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;
-    invoke-virtual {v4, v5}, Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;->setDdsIfRequired(Z)V
+    .line 437
+    .local v6, "radioCapController":Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;
+    invoke-virtual {v6, v7}, Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;->setDdsIfRequired(Z)V
 
-    .line 500
+    .line 438
     return-void
 .end method
 
@@ -478,41 +618,30 @@
     .param p0, "c"    # Landroid/content/Context;
     .param p1, "ci"    # [Lcom/android/internal/telephony/CommandsInterface;
 
-    .line 105
+    .line 115
     const-class v0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
     monitor-enter v0
 
-    .line 106
+    .line 116
     :try_start_0
     sget-object v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sInstance:Lcom/android/internal/telephony/SubscriptionController;
 
     if-nez v1, :cond_0
 
-    .line 107
+    .line 117
     new-instance v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
 
     invoke-direct {v1, p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;-><init>(Landroid/content/Context;)V
 
     sput-object v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sInstance:Lcom/android/internal/telephony/SubscriptionController;
 
-    .line 108
+    .line 118
     sput-object p1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sCi:[Lcom/android/internal/telephony/CommandsInterface;
-
-    .line 109
-    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
-
-    move-result v1
-
-    sput v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sNumPhones:I
 
     goto :goto_0
 
-    .line 111
+    .line 120
     :cond_0
     const-string v1, "QtiSubscriptionController"
 
@@ -534,7 +663,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 113
+    .line 122
     :goto_0
     sget-object v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sInstance:Lcom/android/internal/telephony/SubscriptionController;
 
@@ -544,7 +673,7 @@
 
     return-object v1
 
-    .line 114
+    .line 123
     :catchall_0
     move-exception v1
 
@@ -558,10 +687,10 @@
 .method private isNonSimAccountFound()Z
     .locals 5
 
-    .line 557
+    .line 495
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelecomManager:Landroid/telecom/TelecomManager;
 
-    .line 558
+    .line 496
     invoke-virtual {v0}, Landroid/telecom/TelecomManager;->getCallCapablePhoneAccounts()Ljava/util/List;
 
     move-result-object v0
@@ -570,7 +699,7 @@
 
     move-result-object v0
 
-    .line 560
+    .line 498
     .local v0, "phoneAccounts":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/telecom/PhoneAccountHandle;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -579,14 +708,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 561
+    .line 499
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/telecom/PhoneAccountHandle;
 
-    .line 562
+    .line 500
     .local v1, "phoneAccountHandle":Landroid/telecom/PhoneAccountHandle;
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelecomManager:Landroid/telecom/TelecomManager;
 
@@ -594,7 +723,7 @@
 
     move-result-object v2
 
-    .line 563
+    .line 501
     .local v2, "phoneAccount":Landroid/telecom/PhoneAccount;
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -606,29 +735,29 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 565
+    .line 503
     const-string v3, "Other than SIM account found. "
 
     invoke-direct {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logi(Ljava/lang/String;)V
 
-    .line 566
+    .line 504
     const/4 v3, 0x1
 
     return v3
 
-    .line 568
+    .line 506
     .end local v1    # "phoneAccountHandle":Landroid/telecom/PhoneAccountHandle;
     .end local v2    # "phoneAccount":Landroid/telecom/PhoneAccount;
     :cond_0
     goto :goto_0
 
-    .line 569
+    .line 507
     :cond_1
     const-string v1, "Other than SIM account not found "
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logi(Ljava/lang/String;)V
 
-    .line 570
+    .line 508
     const/4 v1, 0x0
 
     return v1
@@ -637,46 +766,43 @@
 .method private isRadioAvailableOnAllSubs()Z
     .locals 3
 
-    .line 344
+    .line 256
     const/4 v0, 0x0
 
-    move v1, v0
-
-    .local v1, "i":I
+    .local v0, "i":I
     :goto_0
-    sget v2, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sNumPhones:I
+    sget v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sNumPhones:I
 
-    if-ge v1, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
-    .line 345
-    sget-object v2, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sCi:[Lcom/android/internal/telephony/CommandsInterface;
+    .line 257
+    sget-object v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sCi:[Lcom/android/internal/telephony/CommandsInterface;
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    sget-object v2, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sCi:[Lcom/android/internal/telephony/CommandsInterface;
+    aget-object v1, v1, v0
 
-    aget-object v2, v2, v1
+    invoke-interface {v1}, Lcom/android/internal/telephony/CommandsInterface;->getRadioState()I
 
-    invoke-interface {v2}, Lcom/android/internal/telephony/CommandsInterface;->getRadioState()Lcom/android/internal/telephony/CommandsInterface$RadioState;
+    move-result v1
 
-    move-result-object v2
+    const/4 v2, 0x2
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->isAvailable()Z
+    if-ne v1, v2, :cond_0
 
-    move-result v2
+    .line 258
+    const/4 v1, 0x0
 
-    if-nez v2, :cond_0
+    return v1
 
-    return v0
-
-    .line 344
+    .line 256
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 347
-    .end local v1    # "i":I
+    .line 261
+    .end local v0    # "i":I
     :cond_1
     const/4 v0, 0x1
 
@@ -684,841 +810,109 @@
 .end method
 
 .method private isShuttingDown()Z
-    .locals 3
+    .locals 2
 
-    .line 351
+    .line 265
     const/4 v0, 0x0
 
-    move v1, v0
-
-    .local v1, "i":I
+    .local v0, "i":I
     :goto_0
-    sget v2, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sNumPhones:I
+    sget v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sNumPhones:I
 
-    if-ge v1, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
-    .line 352
-    sget-object v2, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sPhones:[Lcom/android/internal/telephony/Phone;
+    .line 266
+    sget-object v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sPhones:[Lcom/android/internal/telephony/Phone;
 
-    aget-object v2, v2, v1
+    aget-object v1, v1, v0
 
-    if-eqz v2, :cond_0
-
-    sget-object v2, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sPhones:[Lcom/android/internal/telephony/Phone;
-
-    aget-object v2, v2, v1
-
-    invoke-virtual {v2}, Lcom/android/internal/telephony/Phone;->isShuttingDown()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const/4 v0, 0x1
-
-    return v0
-
-    .line 351
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    .line 354
-    .end local v1    # "i":I
-    :cond_1
-    return v0
-.end method
-
-.method private logd(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "string"    # Ljava/lang/String;
-
-    .line 619
-    const-string v0, "QtiSubscriptionController"
-
-    invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 620
-    return-void
-.end method
-
-.method private loge(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "string"    # Ljava/lang/String;
-
-    .line 627
-    const-string v0, "QtiSubscriptionController"
-
-    invoke-static {v0, p1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 628
-    return-void
-.end method
-
-.method private logi(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "string"    # Ljava/lang/String;
-
-    .line 623
-    const-string v0, "QtiSubscriptionController"
-
-    invoke-static {v0, p1}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 624
-    return-void
-.end method
-
-.method private subscriptionIdToPhoneAccountHandle(I)Landroid/telecom/PhoneAccountHandle;
-    .locals 4
-    .param p1, "subId"    # I
-
-    .line 574
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelecomManager:Landroid/telecom/TelecomManager;
-
-    .line 575
-    invoke-virtual {v0}, Landroid/telecom/TelecomManager;->getCallCapablePhoneAccounts()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->listIterator()Ljava/util/ListIterator;
-
-    move-result-object v0
-
-    .line 577
-    .local v0, "phoneAccounts":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/telecom/PhoneAccountHandle;>;"
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 578
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/telecom/PhoneAccountHandle;
-
-    .line 579
-    .local v1, "phoneAccountHandle":Landroid/telecom/PhoneAccountHandle;
-    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelecomManager:Landroid/telecom/TelecomManager;
-
-    invoke-virtual {v2, v1}, Landroid/telecom/TelecomManager;->getPhoneAccount(Landroid/telecom/PhoneAccountHandle;)Landroid/telecom/PhoneAccount;
-
-    move-result-object v2
-
-    .line 580
-    .local v2, "phoneAccount":Landroid/telecom/PhoneAccount;
-    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
-
-    invoke-virtual {v3, v2}, Landroid/telephony/TelephonyManager;->getSubIdForPhoneAccount(Landroid/telecom/PhoneAccount;)I
-
-    move-result v3
-
-    if-ne p1, v3, :cond_0
-
-    .line 581
-    return-object v1
-
-    .line 583
-    .end local v1    # "phoneAccountHandle":Landroid/telecom/PhoneAccountHandle;
-    .end local v2    # "phoneAccount":Landroid/telecom/PhoneAccount;
-    :cond_0
-    goto :goto_0
-
-    .line 585
-    :cond_1
-    const/4 v1, 0x0
-
-    return-object v1
-.end method
-
-
-# virtual methods
-.method public addSubInfoRecord(Ljava/lang/String;I)I
-    .locals 7
-    .param p1, "iccId"    # Ljava/lang/String;
-    .param p2, "slotId"    # I
-
-    .line 234
-    invoke-super {p0, p1, p2}, Lcom/android/internal/telephony/SubscriptionController;->addSubInfoRecord(Ljava/lang/String;I)I
-
-    move-result v0
-
-    .line 236
-    .local v0, "retVal":I
-    invoke-virtual {p0, p2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getSubId(I)[I
-
-    move-result-object v1
-
-    .line 237
-    .local v1, "subId":[I
     if-eqz v1, :cond_0
 
-    array-length v2, v1
+    sget-object v1, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->sPhones:[Lcom/android/internal/telephony/Phone;
 
-    if-lez v2, :cond_0
+    aget-object v1, v1, v0
 
-    .line 239
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "addSubInfoRecord: broadcast intent subId["
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v3, "] = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/4 v3, 0x0
-
-    aget v4, v1, v3
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
-
-    .line 240
-    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mAddSubscriptionRecordRegistrants:Landroid/os/RegistrantList;
-
-    new-instance v4, Landroid/os/AsyncResult;
-
-    .line 241
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    const/4 v6, 0x0
-
-    invoke-direct {v4, v6, v5, v6}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
-
-    .line 240
-    invoke-virtual {v2, v4}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
-
-    .line 242
-    new-instance v2, Landroid/content/Intent;
-
-    const-string v4, "org.codeaurora.intent.action.SUBSCRIPTION_INFO_RECORD_ADDED"
-
-    invoke-direct {v2, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 243
-    .local v2, "intent":Landroid/content/Intent;
-    aget v3, v1, v3
-
-    invoke-static {v2, p2, v3}, Landroid/telephony/SubscriptionManager;->putPhoneIdAndSubIdExtra(Landroid/content/Intent;II)V
-
-    .line 244
-    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 246
-    .end local v2    # "intent":Landroid/content/Intent;
-    :cond_0
-    return v0
-.end method
-
-.method public clearDefaultsForInactiveSubIds()V
-    .locals 5
-
-    .line 289
-    const-string v0, "clearDefaultsForInactiveSubIds"
-
-    invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->enforceModifyPhoneState(Ljava/lang/String;)V
-
-    .line 292
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    .line 294
-    .local v0, "identity":J
-    :try_start_0
-    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
-
-    .line 295
-    invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 294
-    invoke-virtual {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getActiveSubscriptionInfoList(Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v2
-
-    .line 296
-    .local v2, "records":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/SubscriptionInfo;>;"
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "[clearDefaultsForInactiveSubIds] records: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
-
-    .line 297
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultDataSubId()I
-
-    move-result v3
-
-    invoke-virtual {p0, v2, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->shouldDefaultBeCleared(Ljava/util/List;I)Z
-
-    move-result v3
-
-    const/4 v4, -0x1
-
-    if-eqz v3, :cond_0
-
-    .line 298
-    const-string v3, "[clearDefaultsForInactiveSubIds] clearing default data sub id"
-
-    invoke-direct {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
-
-    .line 299
-    invoke-virtual {p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultDataSubId(I)V
-
-    .line 301
-    :cond_0
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultSmsSubId()I
-
-    move-result v3
-
-    invoke-virtual {p0, v2, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->shouldDefaultBeCleared(Ljava/util/List;I)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    .line 302
-    const-string v3, "[clearDefaultsForInactiveSubIds] clearing default sms sub id"
-
-    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
-
-    .line 303
-    invoke-virtual {p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultSmsSubId(I)V
-
-    .line 305
-    :cond_1
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultVoiceSubId()I
-
-    move-result v3
-
-    invoke-virtual {p0, v2, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->shouldDefaultBeCleared(Ljava/util/List;I)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    .line 306
-    const-string v3, "[clearDefaultsForInactiveSubIds] clearing default voice sub id"
-
-    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
-
-    .line 307
-    const v3, 0x7ffffffb
-
-    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultVoiceSubId(I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 310
-    .end local v2    # "records":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/SubscriptionInfo;>;"
-    :cond_2
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    .line 311
-    nop
-
-    .line 312
-    return-void
-
-    .line 310
-    :catchall_0
-    move-exception v2
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v2
-.end method
-
-.method protected getDummySubIds(I)[I
-    .locals 4
-    .param p1, "slotIdx"    # I
-
-    .line 197
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getActiveSubInfoCountMax()I
-
-    move-result v0
-
-    .line 198
-    .local v0, "numSubs":I
-    if-lez v0, :cond_1
-
-    .line 199
-    new-array v1, v0, [I
-
-    .line 200
-    .local v1, "dummyValues":[I
-    const/4 v2, 0x0
-
-    .local v2, "i":I
-    :goto_0
-    if-ge v2, v0, :cond_0
-
-    .line 201
-    const v3, 0x7ffffffb
-
-    add-int/2addr v3, p1
-
-    aput v3, v1, v2
-
-    .line 200
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    .line 207
-    .end local v2    # "i":I
-    :cond_0
-    return-object v1
-
-    .line 209
-    .end local v1    # "dummyValues":[I
-    :cond_1
-    const/4 v1, 0x0
-
-    return-object v1
-.end method
-
-.method public getPhoneId(I)I
-    .locals 2
-    .param p1, "subId"    # I
-
-    .line 169
-    const v0, 0x7fffffff
-
-    if-ne p1, v0, :cond_0
-
-    .line 170
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultSubId()I
-
-    move-result p1
-
-    .line 171
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "[getPhoneId] asked for default subId="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
-
-    .line 174
-    :cond_0
-    invoke-static {p1}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 176
-    const-string v0, "[getPhoneId]- invalid subId return=-1"
-
-    invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
-
-    .line 179
-    const/4 v0, -0x1
-
-    return v0
-
-    .line 182
-    :cond_1
-    const v0, 0x7ffffffb
-
-    if-lt p1, v0, :cond_2
-
-    .line 183
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "getPhoneId, received dummy subId "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
-
-    .line 184
-    invoke-direct {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getPhoneIdFromDummySubId(I)I
-
-    move-result v0
-
-    return v0
-
-    .line 187
-    :cond_2
-    invoke-super {p0, p1}, Lcom/android/internal/telephony/SubscriptionController;->getPhoneId(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getSlotIndex(I)I
-    .locals 2
-    .param p1, "subId"    # I
-
-    .line 149
-    const v0, 0x7fffffff
-
-    if-ne p1, v0, :cond_0
-
-    .line 150
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultSubId()I
-
-    move-result p1
-
-    .line 152
-    :cond_0
-    invoke-static {p1}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 153
-    const-string v0, "[getSlotIndex]- subId invalid"
-
-    invoke-direct {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
-
-    .line 154
-    const/4 v0, -0x1
-
-    return v0
-
-    .line 157
-    :cond_1
-    const v0, 0x7ffffffb
-
-    if-lt p1, v0, :cond_2
-
-    .line 158
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "getPhoneId, received dummy subId "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
-
-    .line 159
-    invoke-direct {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getPhoneIdFromDummySubId(I)I
-
-    move-result v0
-
-    return v0
-
-    .line 161
-    :cond_2
-    invoke-super {p0, p1}, Lcom/android/internal/telephony/SubscriptionController;->getSlotIndex(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected getUiccProvisionStatus(I)I
-    .locals 2
-    .param p1, "slotId"    # I
-
-    .line 503
-    invoke-static {}, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner;->getInstance()Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner;
-
-    move-result-object v0
-
-    .line 504
-    .local v0, "uiccCardProvisioner":Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner;
-    if-eqz v0, :cond_0
-
-    .line 505
-    invoke-virtual {v0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiUiccCardProvisioner;->getCurrentUiccCardProvisioningStatus(I)I
+    invoke-virtual {v1}, Lcom/android/internal/telephony/Phone;->isShuttingDown()Z
 
     move-result v1
 
-    return v1
+    if-eqz v1, :cond_0
 
-    .line 507
-    :cond_0
-    const/4 v1, 0x0
-
-    return v1
-.end method
-
-.method protected getUserPrefDataSubIdFromDB()I
-    .locals 3
-
-    .line 589
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "user_preferred_data_sub"
-
-    const/4 v2, -0x1
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isRadioInValidState()Z
-    .locals 5
-
-    .line 358
-    const-string v0, "persist.vendor.radio.apm_sim_not_pwdn"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
-    const/4 v2, 0x1
-
-    if-ne v0, v2, :cond_0
-
-    move v0, v2
-
-    goto :goto_0
-
-    :cond_0
-    move v0, v1
-
-    .line 359
-    .local v0, "isApmSimNotPwrDown":Z
-    :goto_0
-    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string v4, "airplane_mode_on"
-
-    invoke-static {v3, v4, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v3
-
-    .line 363
-    .local v3, "isAPMOn":I
-    if-ne v3, v2, :cond_1
-
-    if-nez v0, :cond_1
-
-    .line 364
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "isRadioInValidState, isApmSimNotPwrDown = "
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v4, ", isAPMOn:"
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
-
-    .line 366
-    return v1
-
-    .line 370
-    :cond_1
-    invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isRadioAvailableOnAllSubs()Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    .line 371
-    const-string v2, " isRadioInValidState, radio not available"
-
-    invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
-
-    .line 372
-    return v1
-
-    .line 376
-    :cond_2
-    invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isShuttingDown()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    .line 377
-    const-string v2, " isRadioInValidState: device shutdown in progress "
-
-    invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
-
-    .line 378
-    return v1
-
-    .line 380
-    :cond_3
-    return v2
-.end method
-
-.method public isSMSPromptEnabled()Z
-    .locals 5
-
-    .line 533
-    const/4 v0, 0x0
-
-    .line 534
-    .local v0, "prompt":Z
-    const/4 v1, 0x0
-
-    move v2, v1
-
-    .line 536
-    .local v2, "value":I
-    :try_start_0
-    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string v4, "multi_sim_sms_prompt"
-
-    invoke-static {v3, v4}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-
-    move-result v3
-    :try_end_0
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move v2, v3
-
-    .line 540
-    goto :goto_0
-
-    .line 538
-    :catch_0
-    move-exception v3
-
-    .line 539
-    .local v3, "snfe":Landroid/provider/Settings$SettingNotFoundException;
-    const-string v4, "Settings Exception Reading Dual Sim SMS Prompt Values"
-
-    invoke-direct {p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->loge(Ljava/lang/String;)V
-
-    .line 541
-    .end local v3    # "snfe":Landroid/provider/Settings$SettingNotFoundException;
-    :goto_0
-    if-nez v2, :cond_0
-
-    goto :goto_1
-
-    :cond_0
     const/4 v1, 0x1
 
-    :goto_1
-    move v0, v1
+    return v1
 
-    .line 544
+    .line 265
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 268
+    .end local v0    # "i":I
+    :cond_1
+    const/4 v0, 0x0
+
     return v0
 .end method
 
-.method protected isSubProvisioned(I)Z
+.method private isSubProvisioned(I)Z
     .locals 4
     .param p1, "subId"    # I
 
-    .line 514
+    .line 452
     invoke-static {p1}, Landroid/telephony/SubscriptionManager;->isUsableSubIdValue(I)Z
 
     move-result v0
 
-    .line 516
+    .line 454
     .local v0, "isSubIdUsable":Z
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
-    .line 517
+    .line 455
     invoke-virtual {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getSlotIndex(I)I
 
     move-result v1
 
-    .line 518
+    .line 456
     .local v1, "slotId":I
     invoke-static {v1}, Landroid/telephony/SubscriptionManager;->isValidSlotIndex(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-nez v2, :cond_0
 
-    const v2, 0x7ffffffb
+    .line 457
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-lt p1, v2, :cond_0
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, " Invalid slotId "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, " or subId = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->loge(Ljava/lang/String;)V
+
+    .line 458
+    const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 522
+    .line 460
     :cond_0
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getUiccProvisionStatus(I)I
+    invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getUiccProvisionStatus(I)I
 
     move-result v2
 
@@ -1526,10 +920,10 @@
 
     if-eq v2, v3, :cond_1
 
-    .line 523
+    .line 461
     const/4 v0, 0x0
 
-    .line 525
+    .line 463
     :cond_1
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1553,42 +947,535 @@
 
     invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->loge(Ljava/lang/String;)V
 
+    .line 466
     .end local v1    # "slotId":I
-    goto :goto_1
-
-    .line 519
-    .restart local v1    # "slotId":I
     :cond_2
     :goto_0
+    return v0
+.end method
+
+.method private isUnicomCard(Ljava/lang/String;)Z
+    .locals 6
+    .param p1, "iccId"    # Ljava/lang/String;
+
+    .line 569
+    const-string v0, "898601,898609"
+
+    const-string v1, ","
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    array-length v1, v0
+
+    const/4 v2, 0x0
+
+    move v3, v2
+
+    :goto_0
+    if-ge v3, v1, :cond_1
+
+    aget-object v4, v0, v3
+
+    .line 570
+    .local v4, "iin":Ljava/lang/String;
+    invoke-virtual {p1, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    .line 571
+    const/4 v0, 0x1
+
+    return v0
+
+    .line 569
+    .end local v4    # "iin":Ljava/lang/String;
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    .line 574
+    :cond_1
+    return v2
+.end method
+
+.method private logd(Ljava/lang/String;)V
+    .locals 1
+    .param p1, "string"    # Ljava/lang/String;
+
+    .line 557
+    const-string v0, "QtiSubscriptionController"
+
+    invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 558
+    return-void
+.end method
+
+.method private loge(Ljava/lang/String;)V
+    .locals 1
+    .param p1, "string"    # Ljava/lang/String;
+
+    .line 565
+    const-string v0, "QtiSubscriptionController"
+
+    invoke-static {v0, p1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 566
+    return-void
+.end method
+
+.method private logi(Ljava/lang/String;)V
+    .locals 1
+    .param p1, "string"    # Ljava/lang/String;
+
+    .line 561
+    const-string v0, "QtiSubscriptionController"
+
+    invoke-static {v0, p1}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 562
+    return-void
+.end method
+
+.method private subscriptionIdToPhoneAccountHandle(I)Landroid/telecom/PhoneAccountHandle;
+    .locals 4
+    .param p1, "subId"    # I
+
+    .line 512
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelecomManager:Landroid/telecom/TelecomManager;
+
+    .line 513
+    invoke-virtual {v0}, Landroid/telecom/TelecomManager;->getCallCapablePhoneAccounts()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->listIterator()Ljava/util/ListIterator;
+
+    move-result-object v0
+
+    .line 515
+    .local v0, "phoneAccounts":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/telecom/PhoneAccountHandle;>;"
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 516
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/telecom/PhoneAccountHandle;
+
+    .line 517
+    .local v1, "phoneAccountHandle":Landroid/telecom/PhoneAccountHandle;
+    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelecomManager:Landroid/telecom/TelecomManager;
+
+    invoke-virtual {v2, v1}, Landroid/telecom/TelecomManager;->getPhoneAccount(Landroid/telecom/PhoneAccountHandle;)Landroid/telecom/PhoneAccount;
+
+    move-result-object v2
+
+    .line 518
+    .local v2, "phoneAccount":Landroid/telecom/PhoneAccount;
+    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v3, v2}, Landroid/telephony/TelephonyManager;->getSubIdForPhoneAccount(Landroid/telecom/PhoneAccount;)I
+
+    move-result v3
+
+    if-ne p1, v3, :cond_0
+
+    .line 519
+    return-object v1
+
+    .line 521
+    .end local v1    # "phoneAccountHandle":Landroid/telecom/PhoneAccountHandle;
+    .end local v2    # "phoneAccount":Landroid/telecom/PhoneAccount;
+    :cond_0
+    goto :goto_0
+
+    .line 523
+    :cond_1
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
+
+# virtual methods
+.method public addSubInfo(Ljava/lang/String;Ljava/lang/String;II)I
+    .locals 7
+    .param p1, "uniqueId"    # Ljava/lang/String;
+    .param p2, "displayName"    # Ljava/lang/String;
+    .param p3, "slotIndex"    # I
+    .param p4, "subscriptionType"    # I
+
+    .line 171
+    invoke-super {p0, p1, p2, p3, p4}, Lcom/android/internal/telephony/SubscriptionController;->addSubInfo(Ljava/lang/String;Ljava/lang/String;II)I
+
+    move-result v0
+
+    .line 173
+    .local v0, "retVal":I
+    invoke-virtual {p0, p3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getSubId(I)[I
+
+    move-result-object v1
+
+    .line 174
+    .local v1, "subId":[I
+    if-eqz v1, :cond_0
+
+    array-length v2, v1
+
+    if-lez v2, :cond_0
+
+    .line 176
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, " Invalid slotId "
+    const-string v3, "addSubInfoRecord: broadcast intent subId["
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, " or subId = "
+    const-string v3, "] = "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/4 v3, 0x0
+
+    aget v4, v1, v3
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->loge(Ljava/lang/String;)V
+    invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
 
-    .line 520
+    .line 177
+    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mAddSubscriptionRecordRegistrants:Landroid/os/RegistrantList;
+
+    new-instance v4, Landroid/os/AsyncResult;
+
+    .line 178
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-direct {v4, v6, v5, v6}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
+
+    .line 177
+    invoke-virtual {v2, v4}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
+
+    .line 179
+    new-instance v2, Landroid/content/Intent;
+
+    const-string v4, "org.codeaurora.intent.action.SUBSCRIPTION_INFO_RECORD_ADDED"
+
+    invoke-direct {v2, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 180
+    .local v2, "intent":Landroid/content/Intent;
+    aget v3, v1, v3
+
+    invoke-static {v2, p3, v3}, Landroid/telephony/SubscriptionManager;->putPhoneIdAndSubIdExtra(Landroid/content/Intent;II)V
+
+    .line 181
+    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 183
+    .end local v2    # "intent":Landroid/content/Intent;
+    :cond_0
+    return v0
+.end method
+
+.method public addSubInfoRecord(Ljava/lang/String;I)I
+    .locals 2
+    .param p1, "iccId"    # Ljava/lang/String;
+    .param p2, "slotIndex"    # I
+
+    .line 163
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "addSubInfoRecord: broadcast intent subId["
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, "]"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
+
+    .line 164
     const/4 v0, 0x0
 
-    .line 528
-    .end local v1    # "slotId":I
-    :cond_3
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, p1, v0, p2, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->addSubInfo(Ljava/lang/String;Ljava/lang/String;II)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isRadioInValidState()Z
+    .locals 6
+
+    .line 272
+    const/4 v0, 0x0
+
+    .line 274
+    .local v0, "simNotPwrDown":I
+    const/4 v1, 0x0
+
+    :try_start_0
+    invoke-static {}, Lcom/qualcomm/qti/internal/telephony/QtiTelephonyComponentFactory;->getInstance()Lcom/qualcomm/qti/internal/telephony/QtiTelephonyComponentFactory;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Lcom/qualcomm/qti/internal/telephony/QtiTelephonyComponentFactory;->getRil(I)Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    move-result-object v2
+
+    const-string v3, "persist.vendor.radio.apm_sim_not_pwdn"
+
+    .line 275
+    invoke-virtual {v2, v3, v1}, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->getPropertyValueInt(Ljava/lang/String;I)I
+
+    move-result v2
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move v0, v2
+
+    .line 278
+    goto :goto_0
+
+    .line 276
+    :catch_0
+    move-exception v2
+
+    .line 277
+    .local v2, "ex":Ljava/lang/Exception;
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Exception: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->loge(Ljava/lang/String;)V
+
+    .line 279
+    .end local v2    # "ex":Ljava/lang/Exception;
+    :goto_0
+    const/4 v2, 0x1
+
+    if-ne v0, v2, :cond_0
+
+    move v3, v2
+
+    goto :goto_1
+
+    :cond_0
+    move v3, v1
+
+    .line 280
+    .local v3, "isApmSimNotPwrDown":Z
     :goto_1
+    iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "airplane_mode_on"
+
+    invoke-static {v4, v5, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    .line 284
+    .local v4, "isAPMOn":I
+    if-ne v4, v2, :cond_1
+
+    if-nez v3, :cond_1
+
+    .line 285
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "isRadioInValidState, isApmSimNotPwrDown = "
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v5, ", isAPMOn:"
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
+
+    .line 287
+    return v1
+
+    .line 291
+    :cond_1
+    invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isRadioAvailableOnAllSubs()Z
+
+    move-result v5
+
+    if-nez v5, :cond_2
+
+    .line 292
+    const-string v2, " isRadioInValidState, radio not available"
+
+    invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
+
+    .line 293
+    return v1
+
+    .line 297
+    :cond_2
+    invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isShuttingDown()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    .line 298
+    const-string v2, " isRadioInValidState: device shutdown in progress "
+
+    invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
+
+    .line 299
+    return v1
+
+    .line 301
+    :cond_3
+    return v2
+.end method
+
+.method public isSMSPromptEnabled()Z
+    .locals 4
+
+    .line 471
+    const/4 v0, 0x0
+
+    .line 472
+    .local v0, "prompt":Z
+    const/4 v1, 0x0
+
+    .line 474
+    .local v1, "value":I
+    :try_start_0
+    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "multi_sim_sms_prompt"
+
+    invoke-static {v2, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+
+    move-result v2
+    :try_end_0
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move v1, v2
+
+    .line 478
+    goto :goto_0
+
+    .line 476
+    :catch_0
+    move-exception v2
+
+    .line 477
+    .local v2, "snfe":Landroid/provider/Settings$SettingNotFoundException;
+    const-string v3, "Settings Exception Reading Dual Sim SMS Prompt Values"
+
+    invoke-direct {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->loge(Ljava/lang/String;)V
+
+    .line 479
+    .end local v2    # "snfe":Landroid/provider/Settings$SettingNotFoundException;
+    :goto_0
+    if-nez v1, :cond_0
+
+    const/4 v2, 0x0
+
+    goto :goto_1
+
+    :cond_0
+    const/4 v2, 0x1
+
+    :goto_1
+    move v0, v2
+
+    .line 480
+    sget-boolean v2, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->VDBG:Z
+
+    if-eqz v2, :cond_1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "SMS Prompt option:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
+
+    .line 482
+    :cond_1
     return v0
 .end method
 
@@ -1598,27 +1485,27 @@
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
 
-    .line 214
+    .line 144
     new-instance v0, Landroid/os/Registrant;
 
     invoke-direct {v0, p1, p2, p3}, Landroid/os/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 215
+    .line 145
     .local v0, "r":Landroid/os/Registrant;
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mAddSubscriptionRecordRegistrants:Landroid/os/RegistrantList;
 
     monitor-enter v1
 
-    .line 216
+    .line 146
     :try_start_0
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mAddSubscriptionRecordRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v2, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
 
-    .line 217
+    .line 147
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
 
-    .line 218
+    .line 148
     invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
 
     move-result-object v2
@@ -1627,22 +1514,22 @@
 
     move-result-object v2
 
-    .line 219
+    .line 149
     .local v2, "subInfoList":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/SubscriptionInfo;>;"
     if-eqz v2, :cond_0
 
-    .line 220
+    .line 150
     invoke-virtual {v0}, Landroid/os/Registrant;->notifyRegistrant()V
 
-    .line 222
+    .line 152
     .end local v2    # "subInfoList":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/SubscriptionInfo;>;"
     :cond_0
     monitor-exit v1
 
-    .line 223
+    .line 153
     return-void
 
-    .line 222
+    .line 152
     :catchall_0
     move-exception v2
 
@@ -1657,28 +1544,30 @@
     .locals 5
     .param p1, "subId"    # I
 
-    .line 251
+    .line 188
     const-string v0, "setDefaultDataSubId"
 
     invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->enforceModifyPhoneState(Ljava/lang/String;)V
 
-    .line 252
+    .line 189
+    nop
+
+    .line 190
     const-string v0, "persist.vendor.radio.flexmap_type"
 
     const-string v1, "nw_mode"
 
-    .line 253
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 256
+    .line 193
     .local v0, "flexMapSupportType":Ljava/lang/String;
     sget-boolean v1, Lcom/qualcomm/qti/internal/telephony/QtiPhoneSwitcher;->isLplusLSupported:Z
 
     if-eqz v1, :cond_0
 
-    .line 257
+    .line 195
     invoke-static {}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->getInstance()Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     move-result-object v1
@@ -1689,14 +1578,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 258
+    .line 196
     invoke-static {}, Lcom/qualcomm/qti/internal/telephony/QtiDdsSwitchController;->isTempDdsSwitchRequired()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 260
+    .line 199
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1713,10 +1602,10 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
 
-    .line 261
+    .line 200
     iput p1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mCurrentDdsSubId:I
 
-    .line 262
+    .line 201
     invoke-static {}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->getInstance()Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;
 
     move-result-object v1
@@ -1729,10 +1618,10 @@
 
     invoke-virtual {v1, v2, v3, v4}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->registerForCallEnd(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 264
+    .line 203
     return-void
 
-    .line 269
+    .line 208
     :cond_0
     invoke-static {p1}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
 
@@ -1748,12 +1637,12 @@
 
     if-eqz v1, :cond_2
 
-    .line 271
+    .line 210
     invoke-static {}, Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;->getInstance()Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;
 
     move-result-object v1
 
-    .line 273
+    .line 212
     .local v1, "radioCapController":Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;
     invoke-virtual {v1}, Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;->isBothPhonesMappedToSameStack()Z
 
@@ -1761,10 +1650,10 @@
 
     if-eqz v2, :cond_1
 
-    .line 274
+    .line 213
     invoke-virtual {v1}, Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;->initNormalMappingRequest()Z
 
-    .line 275
+    .line 214
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1781,19 +1670,19 @@
 
     invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
 
-    .line 277
+    .line 216
     :cond_1
     invoke-super {p0, p1}, Lcom/android/internal/telephony/SubscriptionController;->setDefaultDataSubId(I)V
 
-    .line 278
+    .line 217
     .end local v1    # "radioCapController":Lcom/qualcomm/qti/internal/telephony/QtiRadioCapabilityController;
     goto :goto_0
 
-    .line 279
+    .line 218
     :cond_2
     invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->updateAllDataConnectionTrackers()V
 
-    .line 281
+    .line 220
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1804,10 +1693,10 @@
 
     invoke-static {v1, v2, p1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 283
+    .line 222
     invoke-virtual {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->broadcastDefaultDataSubIdChanged(I)V
 
-    .line 285
+    .line 224
     :goto_0
     return-void
 .end method
@@ -1816,15 +1705,15 @@
     .locals 3
     .param p1, "enabled"    # Z
 
-    .line 549
+    .line 487
     const-string v0, "setSMSPromptEnabled"
 
     invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->enforceModifyPhoneState(Ljava/lang/String;)V
 
-    .line 550
+    .line 488
     move v0, p1
 
-    .line 551
+    .line 489
     .local v0, "value":I
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
 
@@ -1836,7 +1725,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 553
+    .line 491
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1853,7 +1742,7 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logi(Ljava/lang/String;)V
 
-    .line 554
+    .line 492
     return-void
 .end method
 
@@ -1869,7 +1758,7 @@
         }
     .end annotation
 
-    .line 316
+    .line 228
     .local p1, "records":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/SubscriptionInfo;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1887,12 +1776,12 @@
 
     invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
 
-    .line 317
+    .line 229
     const/4 v0, 0x1
 
     if-nez p1, :cond_0
 
-    .line 318
+    .line 230
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1909,10 +1798,10 @@
 
     invoke-virtual {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
 
-    .line 319
+    .line 231
     return v0
 
-    .line 321
+    .line 233
     :cond_0
     invoke-static {p2}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
 
@@ -1922,7 +1811,7 @@
 
     if-nez v1, :cond_1
 
-    .line 323
+    .line 235
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1939,10 +1828,10 @@
 
     invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
 
-    .line 324
+    .line 236
     return v2
 
-    .line 326
+    .line 238
     :cond_1
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -1961,13 +1850,13 @@
 
     check-cast v3, Landroid/telephony/SubscriptionInfo;
 
-    .line 327
+    .line 239
     .local v3, "record":Landroid/telephony/SubscriptionInfo;
     invoke-virtual {v3}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
 
     move-result v4
 
-    .line 328
+    .line 240
     .local v4, "id":I
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -1985,10 +1874,10 @@
 
     invoke-virtual {p0, v5}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
 
-    .line 329
+    .line 241
     if-ne v4, p2, :cond_2
 
-    .line 330
+    .line 242
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2005,30 +1894,30 @@
 
     invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
 
-    .line 331
+    .line 243
     return v2
 
-    .line 333
+    .line 245
     .end local v3    # "record":Landroid/telephony/SubscriptionInfo;
     .end local v4    # "id":I
     :cond_2
     goto :goto_0
 
-    .line 334
+    .line 246
     :cond_3
     invoke-virtual {p0, p2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getSlotIndex(I)I
 
     move-result v1
 
-    .line 335
+    .line 247
     .local v1, "slotId":I
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getUiccProvisionStatus(I)I
+    invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getUiccProvisionStatus(I)I
 
     move-result v3
 
     if-ne v3, v0, :cond_4
 
-    .line 336
+    .line 248
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2045,10 +1934,10 @@
 
     invoke-virtual {p0, v0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
 
-    .line 337
+    .line 249
     return v2
 
-    .line 339
+    .line 251
     :cond_4
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -2066,7 +1955,7 @@
 
     invoke-virtual {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logdl(Ljava/lang/String;)V
 
-    .line 340
+    .line 252
     return v0
 .end method
 
@@ -2074,24 +1963,24 @@
     .locals 2
     .param p1, "handler"    # Landroid/os/Handler;
 
-    .line 226
+    .line 156
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mAddSubscriptionRecordRegistrants:Landroid/os/RegistrantList;
 
     monitor-enter v0
 
-    .line 227
+    .line 157
     :try_start_0
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mAddSubscriptionRecordRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 228
+    .line 158
     monitor-exit v0
 
-    .line 229
+    .line 159
     return-void
 
-    .line 228
+    .line 158
     :catchall_0
     move-exception v1
 
@@ -2102,42 +1991,34 @@
     throw v1
 .end method
 
-.method declared-synchronized updateUserPreferences()V
-    .locals 8
+.method protected updateUserPreferences()V
+    .locals 10
 
-    monitor-enter p0
-
-    .line 389
+    .line 308
     const/4 v0, 0x0
 
-    .line 390
+    .line 309
     .local v0, "mNextActivatedSub":Landroid/telephony/SubscriptionInfo;
     const/4 v1, 0x0
 
-    .line 391
+    .line 310
     .local v1, "activeCount":I
-    :try_start_0
     invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isRadioInValidState()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 392
+    .line 311
     const-string v2, "Radio is in Invalid state, Ignore Updating User Preference!!!"
 
     invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 393
-    monitor-exit p0
-
+    .line 312
     return-void
 
-    .line 395
+    .line 314
     :cond_0
-    :try_start_1
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
@@ -2148,7 +2029,7 @@
 
     move-result-object v2
 
-    .line 398
+    .line 317
     .local v2, "sil":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/SubscriptionInfo;>;"
     if-eqz v2, :cond_c
 
@@ -2162,257 +2043,252 @@
 
     goto/16 :goto_2
 
-    .line 409
+    .line 324
     :cond_1
-    const-string v3, "persist.vendor.radio.aosp_usr_pref_sel"
+    const/4 v3, 0x0
 
-    const/4 v5, 0x0
+    const-string v5, "persist.vendor.radio.aosp_usr_pref_sel"
 
-    invoke-static {v3, v5}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v5, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_2
+    if-eqz v5, :cond_2
 
-    .line 410
+    .line 325
     const-string v3, "updateUserPreferences: AOSP user preference option enabled "
 
     invoke-direct {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logi(Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 411
-    monitor-exit p0
-
+    .line 326
     return-void
 
-    .line 415
+    .line 330
     :cond_2
-    :try_start_2
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v5
 
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
     if-eqz v6, :cond_4
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Landroid/telephony/SubscriptionInfo;
 
-    .line 416
+    .line 331
     .local v6, "subInfo":Landroid/telephony/SubscriptionInfo;
     invoke-virtual {v6}, Landroid/telephony/SubscriptionInfo;->getSimSlotIndex()I
 
     move-result v7
 
-    invoke-virtual {p0, v7}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getUiccProvisionStatus(I)I
+    invoke-direct {p0, v7}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getUiccProvisionStatus(I)I
 
     move-result v7
 
     if-ne v7, v4, :cond_3
 
-    .line 417
+    .line 332
     add-int/lit8 v1, v1, 0x1
 
-    .line 418
+    .line 333
     if-nez v0, :cond_3
 
     move-object v0, v6
 
-    .line 420
+    .line 335
     .end local v6    # "subInfo":Landroid/telephony/SubscriptionInfo;
     :cond_3
     goto :goto_0
 
-    .line 421
+    .line 336
     :cond_4
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "updateUserPreferences:: active sub count = "
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v6, " dds = "
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 422
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultDataSubId()I
-
-    move-result v6
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v6, " voice = "
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultVoiceSubId()I
-
-    move-result v6
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v6, " sms = "
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 423
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultSmsSubId()I
-
-    move-result v6
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 421
-    invoke-direct {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
-
-    .line 427
-    if-ne v1, v4, :cond_5
-
-    .line 428
-    invoke-virtual {p0, v5}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setSMSPromptEnabled(Z)V
-
-    .line 434
-    :cond_5
-    if-eqz v0, :cond_b
-
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getActiveSubInfoCountMax()I
-
-    move-result v3
-
-    if-ne v3, v4, :cond_6
-
-    goto/16 :goto_1
-
-    .line 436
-    :cond_6
-    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
-
-    move-result v3
-
-    invoke-direct {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->handleDataPreference(I)V
-
-    .line 438
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultSmsSubId()I
-
-    move-result v3
-
-    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
-
-    move-result v3
-
-    if-nez v3, :cond_7
-
-    .line 439
-    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
-
-    move-result v3
-
-    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultSmsSubId(I)V
-
-    .line 441
-    :cond_7
-    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultVoiceSubId()I
-
-    move-result v3
-
-    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
-
-    move-result v3
-
-    if-nez v3, :cond_8
-
-    .line 442
-    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
-
-    move-result v3
-
-    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultVoiceSubId(I)V
-
-    .line 450
-    :cond_8
-    invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isNonSimAccountFound()Z
-
-    move-result v3
-
-    if-nez v3, :cond_9
-
-    if-ne v1, v4, :cond_9
-
-    .line 451
-    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
-
-    move-result v3
-
-    .line 452
-    .local v3, "subId":I
-    invoke-direct {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->subscriptionIdToPhoneAccountHandle(I)Landroid/telecom/PhoneAccountHandle;
-
-    move-result-object v4
-
-    .line 453
-    .local v4, "phoneAccountHandle":Landroid/telecom/PhoneAccountHandle;
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "set default phoneaccount to  "
+    const-string v6, "updateUserPreferences:: active sub count = "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, " dds = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 337
+    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultDataSubId()I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, " voice = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultVoiceSubId()I
+
+    move-result v7
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v7, " sms = "
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 338
+    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultSmsSubId()I
+
+    move-result v8
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-direct {p0, v5}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logi(Ljava/lang/String;)V
+    .line 336
+    invoke-direct {p0, v5}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
 
-    .line 454
-    iget-object v5, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelecomManager:Landroid/telecom/TelecomManager;
+    .line 342
+    if-ne v1, v4, :cond_5
 
-    invoke-virtual {v5, v4}, Landroid/telecom/TelecomManager;->setUserSelectedOutgoingPhoneAccount(Landroid/telecom/PhoneAccountHandle;)V
+    .line 343
+    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setSMSPromptEnabled(Z)V
 
-    .line 456
-    .end local v3    # "subId":I
-    .end local v4    # "phoneAccountHandle":Landroid/telecom/PhoneAccountHandle;
-    :cond_9
-    sget v3, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mDefaultFallbackSubId:I
+    .line 349
+    :cond_5
+    if-eqz v0, :cond_b
 
-    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getActiveSubInfoCountMax()I
 
-    move-result v3
+    move-result v5
 
-    if-nez v3, :cond_a
+    if-ne v5, v4, :cond_6
 
-    .line 457
+    goto/16 :goto_1
+
+    .line 351
+    :cond_6
     invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultFallbackSubId(I)V
+    invoke-direct {p0, v5}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->handleDataPreference(I)V
 
-    .line 460
+    .line 353
+    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultSmsSubId()I
+
+    move-result v5
+
+    invoke-direct {p0, v5}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+
+    move-result v5
+
+    if-nez v5, :cond_7
+
+    .line 354
+    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result v5
+
+    invoke-virtual {p0, v5}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultSmsSubId(I)V
+
+    .line 356
+    :cond_7
+    invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultVoiceSubId()I
+
+    move-result v5
+
+    invoke-direct {p0, v5}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+
+    move-result v5
+
+    if-nez v5, :cond_8
+
+    .line 357
+    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result v5
+
+    invoke-virtual {p0, v5}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultVoiceSubId(I)V
+
+    .line 365
+    :cond_8
+    invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isNonSimAccountFound()Z
+
+    move-result v5
+
+    if-nez v5, :cond_9
+
+    if-ne v1, v4, :cond_9
+
+    .line 366
+    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result v4
+
+    .line 367
+    .local v4, "subId":I
+    invoke-direct {p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->subscriptionIdToPhoneAccountHandle(I)Landroid/telecom/PhoneAccountHandle;
+
+    move-result-object v5
+
+    .line 368
+    .local v5, "phoneAccountHandle":Landroid/telecom/PhoneAccountHandle;
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "set default phoneaccount to  "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-direct {p0, v8}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logi(Ljava/lang/String;)V
+
+    .line 369
+    iget-object v8, p0, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mTelecomManager:Landroid/telecom/TelecomManager;
+
+    invoke-virtual {v8, v5}, Landroid/telecom/TelecomManager;->setUserSelectedOutgoingPhoneAccount(Landroid/telecom/PhoneAccountHandle;)V
+
+    .line 371
+    .end local v4    # "subId":I
+    .end local v5    # "phoneAccountHandle":Landroid/telecom/PhoneAccountHandle;
+    :cond_9
+    sget v4, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->mDefaultFallbackSubId:I
+
+    invoke-direct {p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->isSubProvisioned(I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_a
+
+    .line 372
+    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result v4
+
+    invoke-virtual {p0, v4, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultFallbackSubId(II)V
+
+    .line 376
     :cond_a
     invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->notifySubscriptionInfoChanged()V
 
-    .line 461
+    .line 377
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2427,20 +2303,16 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v4, " voice = "
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 462
+    .line 378
     invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultVoiceSubId()I
 
     move-result v4
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v4, " sms = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->getDefaultSmsSubId()I
 
@@ -2452,55 +2324,24 @@
 
     move-result-object v3
 
-    .line 461
+    .line 377
     invoke-direct {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logd(Ljava/lang/String;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 463
-    monitor-exit p0
-
+    .line 379
     return-void
 
-    .line 434
+    .line 349
     :cond_b
     :goto_1
-    monitor-exit p0
-
     return-void
 
-    .line 399
+    .line 318
     :cond_c
     :goto_2
-    :try_start_3
     const-string v3, "updateUserPreferences: Subscription list is empty"
 
     invoke-direct {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->logi(Ljava/lang/String;)V
 
-    .line 402
-    invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->clearVoiceSubId()V
-
-    .line 403
-    const v3, 0x7ffffffb
-
-    invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;->setDefaultFallbackSubId(I)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    .line 404
-    monitor-exit p0
-
+    .line 319
     return-void
-
-    .line 388
-    .end local v0    # "mNextActivatedSub":Landroid/telephony/SubscriptionInfo;
-    .end local v1    # "activeCount":I
-    .end local v2    # "sil":Ljava/util/List;, "Ljava/util/List<Landroid/telephony/SubscriptionInfo;>;"
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    .end local p0    # "this":Lcom/qualcomm/qti/internal/telephony/QtiSubscriptionController;
-    throw v0
 .end method

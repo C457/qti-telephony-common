@@ -10,7 +10,7 @@
 
 .field public sleepModeTimeMs:I
 
-.field public final txmModetimeMs:[I
+.field public txmModetimeMs:[I
 
 
 # direct methods
@@ -162,55 +162,55 @@
     invoke-virtual {v0, v2, v3, v1}, Landroid/os/HwBlob;->putInt32(JI)V
 
     .line 112
-    const/4 v2, 0x0
+    const-wide/16 v2, 0xc
 
-    const-wide/16 v3, 0xc
+    const/4 v4, 0x0
 
-    invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBool(JZ)V
+    invoke-virtual {v0, v2, v3, v4}, Landroid/os/HwBlob;->putBool(JZ)V
 
     .line 113
-    new-instance v3, Landroid/os/HwBlob;
+    new-instance v2, Landroid/os/HwBlob;
 
-    mul-int/lit8 v4, v1, 0x20
+    mul-int/lit8 v3, v1, 0x20
 
-    invoke-direct {v3, v4}, Landroid/os/HwBlob;-><init>(I)V
+    invoke-direct {v2, v3}, Landroid/os/HwBlob;-><init>(I)V
 
     .line 114
-    .local v3, "childBlob":Landroid/os/HwBlob;
-    nop
+    .local v2, "childBlob":Landroid/os/HwBlob;
+    const/4 v3, 0x0
 
-    .local v2, "_hidl_index_0":I
+    .local v3, "_hidl_index_0":I
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge v3, v1, :cond_0
 
     .line 115
-    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Landroid/hardware/radio/V1_0/ActivityStatsInfo;
 
-    mul-int/lit8 v5, v2, 0x20
+    mul-int/lit8 v5, v3, 0x20
 
     int-to-long v5, v5
 
-    invoke-virtual {v4, v3, v5, v6}, Landroid/hardware/radio/V1_0/ActivityStatsInfo;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+    invoke-virtual {v4, v2, v5, v6}, Landroid/hardware/radio/V1_0/ActivityStatsInfo;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 114
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 117
-    .end local v2    # "_hidl_index_0":I
+    .end local v3    # "_hidl_index_0":I
     :cond_0
-    const-wide/16 v4, 0x0
+    const-wide/16 v3, 0x0
 
-    invoke-virtual {v0, v4, v5, v3}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
+    invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
 
     .line 120
     .end local v1    # "_hidl_vec_size":I
-    .end local v3    # "childBlob":Landroid/os/HwBlob;
+    .end local v2    # "childBlob":Landroid/os/HwBlob;
     invoke-virtual {p0, v0}, Landroid/os/HwParcel;->writeBuffer(Landroid/os/HwBlob;)V
 
     .line 121
@@ -553,7 +553,7 @@
 .end method
 
 .method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-    .locals 3
+    .locals 5
     .param p1, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p2, "_hidl_offset"    # J
 
@@ -584,13 +584,25 @@
     .local v0, "_hidl_array_offset_0":J
     iget-object v2, p0, Landroid/hardware/radio/V1_0/ActivityStatsInfo;->txmModetimeMs:[I
 
+    .line 131
+    .local v2, "_hidl_array_item_0":[I
+    if-eqz v2, :cond_0
+
+    array-length v3, v2
+
+    const/4 v4, 0x5
+
+    if-ne v3, v4, :cond_0
+
+    .line 135
     invoke-virtual {p1, v0, v1, v2}, Landroid/os/HwBlob;->putInt32Array(J[I)V
 
-    .line 130
+    .line 136
     nop
 
-    .line 132
+    .line 138
     .end local v0    # "_hidl_array_offset_0":J
+    .end local v2    # "_hidl_array_item_0":[I
     const-wide/16 v0, 0x1c
 
     add-long/2addr v0, p2
@@ -599,8 +611,20 @@
 
     invoke-virtual {p1, v0, v1, v2}, Landroid/os/HwBlob;->putInt32(JI)V
 
-    .line 133
+    .line 139
     return-void
+
+    .line 132
+    .restart local v0    # "_hidl_array_offset_0":J
+    .restart local v2    # "_hidl_array_item_0":[I
+    :cond_0
+    new-instance v3, Ljava/lang/IllegalArgumentException;
+
+    const-string v4, "Array element is not of the expected length"
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
 .end method
 
 .method public final writeToParcel(Landroid/os/HwParcel;)V

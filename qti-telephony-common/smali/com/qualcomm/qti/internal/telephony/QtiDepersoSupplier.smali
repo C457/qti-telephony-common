@@ -108,25 +108,23 @@
 
     move-result v0
 
+    const-string v1, "QtiDepersoSupplier"
+
     if-nez v0, :cond_0
 
     .line 46
-    const-string v0, "QtiDepersoSupplier"
+    const-string v0, "Oem hook service is not ready yet "
 
-    const-string v1, "Oem hook service is not ready yet "
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 47
     return-void
 
     .line 49
     :cond_0
-    const-string v0, "QtiDepersoSupplier"
+    const-string v0, "supplyIccDepersonalization"
 
-    const-string v1, "supplyIccDepersonalization"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 50
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiDepersoSupplier;->mQtiRilInterface:Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;

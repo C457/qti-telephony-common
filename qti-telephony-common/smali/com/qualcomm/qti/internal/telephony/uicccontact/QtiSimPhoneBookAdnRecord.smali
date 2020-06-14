@@ -255,7 +255,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     .line 91
     new-instance v0, Ljava/lang/StringBuilder;
@@ -283,16 +283,13 @@
 
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mAlphaTag:Ljava/lang/String;
 
+    const-string v2, "null"
+
     if-nez v1, :cond_0
 
-    const-string v1, "null"
-
-    goto :goto_0
+    move-object v1, v2
 
     :cond_0
-    iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mAlphaTag:Ljava/lang/String;
-
-    :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 96
@@ -304,14 +301,9 @@
 
     if-nez v1, :cond_1
 
-    const-string v1, "null"
-
-    goto :goto_1
+    move-object v1, v2
 
     :cond_1
-    iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mNumber:Ljava/lang/String;
-
-    :goto_1
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 98

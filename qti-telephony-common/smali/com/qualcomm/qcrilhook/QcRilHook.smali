@@ -35,7 +35,7 @@
 
 .field private static final VDBG:Z = false
 
-.field private static mRegistrants:Landroid/os/RegistrantList;
+.field private static mRegistrants:Lorg/codeaurora/telephony/utils/RegistrantList;
 
 
 # instance fields
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/qualcomm/qcrilhook/QcRilHookCallback;)V
-    .locals 6
+    .locals 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cb"    # Lcom/qualcomm/qcrilhook/QcRilHookCallback;
 
@@ -88,8 +88,6 @@
     iput-object v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mOemIdentifier:Ljava/lang/String;
 
     .line 64
-    const-string v0, "QOEMHOOK"
-
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v0
@@ -123,7 +121,7 @@
 
     iput-object v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 1736
+    .line 1759
     new-instance v0, Lcom/qualcomm/qcrilhook/QcRilHook$6;
 
     invoke-direct {v0, p0}, Lcom/qualcomm/qcrilhook/QcRilHook$6;-><init>(Lcom/qualcomm/qcrilhook/QcRilHook;)V
@@ -134,11 +132,11 @@
     iput-object p2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mQcrilHookCb:Lcom/qualcomm/qcrilhook/QcRilHookCallback;
 
     .line 102
-    new-instance v0, Landroid/os/RegistrantList;
+    new-instance v0, Lorg/codeaurora/telephony/utils/RegistrantList;
 
-    invoke-direct {v0}, Landroid/os/RegistrantList;-><init>()V
+    invoke-direct {v0}, Lorg/codeaurora/telephony/utils/RegistrantList;-><init>()V
 
-    sput-object v0, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Landroid/os/RegistrantList;
+    sput-object v0, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Lorg/codeaurora/telephony/utils/RegistrantList;
 
     .line 104
     iput-object p1, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mContext:Landroid/content/Context;
@@ -236,23 +234,23 @@
 
     .line 126
     .local v2, "e":Ljava/lang/Exception;
-    const-string v3, "QC_RIL_OEM_HOOK"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "Uncaught Exception while while registering ACTION_UNSOL_RESPONSE_OEM_HOOK_RAW intent. Reason: "
 
-    const-string v5, "Uncaught Exception while while registering ACTION_UNSOL_RESPONSE_OEM_HOOK_RAW intent. Reason: "
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
+    const-string v4, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 129
     .end local v2    # "e":Ljava/lang/Exception;
@@ -385,12 +383,12 @@
     .locals 1
     .param p1, "str"    # Ljava/lang/String;
 
-    .line 1766
+    .line 1789
     const-string v0, "QC_RIL_OEM_HOOK"
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1768
+    .line 1791
     return-void
 .end method
 
@@ -398,27 +396,25 @@
     .locals 0
     .param p1, "str"    # Ljava/lang/String;
 
-    .line 1774
+    .line 1797
     return-void
 .end method
 
-.method public static notifyRegistrants(Landroid/os/AsyncResult;)V
+.method public static notifyRegistrants(Lorg/codeaurora/telephony/utils/AsyncResult;)V
     .locals 2
-    .param p0, "ar"    # Landroid/os/AsyncResult;
+    .param p0, "ar"    # Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    .line 1729
-    sget-object v0, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Landroid/os/RegistrantList;
+    .line 1752
+    sget-object v0, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Lorg/codeaurora/telephony/utils/RegistrantList;
 
     if-eqz v0, :cond_0
 
-    .line 1730
-    sget-object v0, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Landroid/os/RegistrantList;
-
-    invoke-virtual {v0, p0}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
+    .line 1753
+    invoke-virtual {v0, p0}, Lorg/codeaurora/telephony/utils/RegistrantList;->notifyRegistrants(Lorg/codeaurora/telephony/utils/AsyncResult;)V
 
     goto :goto_0
 
-    .line 1732
+    .line 1755
     :cond_0
     const-string v0, "QC_RIL_OEM_HOOK"
 
@@ -426,7 +422,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1734
+    .line 1757
     :goto_0
     return-void
 .end method
@@ -437,30 +433,30 @@
     .param p1, "what"    # I
     .param p2, "obj"    # Ljava/lang/Object;
 
-    .line 1692
-    new-instance v0, Landroid/os/Registrant;
+    .line 1715
+    new-instance v0, Lorg/codeaurora/telephony/utils/Registrant;
 
-    invoke-direct {v0, p0, p1, p2}, Landroid/os/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
+    invoke-direct {v0, p0, p1, p2}, Lorg/codeaurora/telephony/utils/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1693
-    .local v0, "r":Landroid/os/Registrant;
-    sget-object v1, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Landroid/os/RegistrantList;
+    .line 1716
+    .local v0, "r":Lorg/codeaurora/telephony/utils/Registrant;
+    sget-object v1, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Lorg/codeaurora/telephony/utils/RegistrantList;
 
     monitor-enter v1
 
-    .line 1694
+    .line 1717
     :try_start_0
-    sget-object v2, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Landroid/os/RegistrantList;
+    sget-object v2, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Lorg/codeaurora/telephony/utils/RegistrantList;
 
-    invoke-virtual {v2, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
+    invoke-virtual {v2, v0}, Lorg/codeaurora/telephony/utils/RegistrantList;->add(Lorg/codeaurora/telephony/utils/Registrant;)V
 
-    .line 1695
+    .line 1718
     monitor-exit v1
 
-    .line 1696
+    .line 1719
     return-void
 
-    .line 1695
+    .line 1718
     :catchall_0
     move-exception v2
 
@@ -471,7 +467,7 @@
     throw v2
 .end method
 
-.method private sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
+.method private sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
     .locals 1
     .param p1, "requestId"    # I
     .param p2, "request"    # [B
@@ -479,160 +475,153 @@
     .line 264
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    invoke-direct {p0, p1, p2, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method private sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
-    .locals 6
+.method private sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
+    .locals 7
     .param p1, "requestId"    # I
     .param p2, "request"    # [B
     .param p3, "phoneId"    # I
 
     .line 270
-    const/16 v0, 0x800
+    const-string v0, "QC_RIL_OEM_HOOK"
 
-    new-array v0, v0, [B
+    const/16 v1, 0x800
+
+    new-array v1, v1, [B
 
     .line 272
-    .local v0, "response":[B
-    new-instance v1, Ljava/lang/StringBuilder;
+    .local v1, "response":[B
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "sendRilOemHookMsg: Outgoing Data is "
+    const-string v3, "sendRilOemHookMsg: Outgoing Data is "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {p2}, Lcom/android/internal/telephony/uicc/IccUtils;->bytesToHexString([B)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
-
-    .line 275
-    const/4 v1, 0x0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mService:Lcom/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel;
-
-    invoke-interface {v2, p2, v0, p3}, Lcom/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel;->sendOemRilRequestRaw([B[BI)I
-
-    move-result v2
-
-    .line 276
-    .local v2, "retVal":I
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "sendOemRilRequestRaw returns value = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {p2}, Lcom/qualcomm/qcrilhook/EmbmsOemHook;->bytesToHexString([B)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-direct {p0, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
+
+    .line 275
+    const/4 v2, 0x0
+
+    :try_start_0
+    iget-object v3, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mService:Lcom/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel;
+
+    invoke-interface {v3, p2, v1, p3}, Lcom/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel;->sendOemRilRequestRaw([B[BI)I
+
+    move-result v3
+
+    .line 276
+    .local v3, "retVal":I
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "sendOemRilRequestRaw returns value = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {p0, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
     .line 277
-    const/4 v3, 0x0
-
-    if-ltz v2, :cond_1
+    if-ltz v3, :cond_1
 
     .line 278
     const/4 v4, 0x0
 
     .line 280
     .local v4, "validResponseBytes":[B
-    if-lez v2, :cond_0
+    if-lez v3, :cond_0
 
     .line 281
-    new-array v5, v2, [B
-
-    move-object v4, v5
-
-    .line 282
-    invoke-static {v0, v3, v4, v3, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
-
-    .line 284
-    :cond_0
-    new-instance v3, Landroid/os/AsyncResult;
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1, v3}, Ljava/util/Arrays;->copyOf([BI)[B
 
     move-result-object v5
 
-    invoke-direct {v3, v5, v4, v1}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
+    move-object v4, v5
 
+    .line 283
+    :cond_0
+    new-instance v5, Lorg/codeaurora/telephony/utils/AsyncResult;
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-direct {v5, v6, v4, v2}, Lorg/codeaurora/telephony/utils/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
+
+    move-object v0, v5
+
+    .line 284
     .end local v4    # "validResponseBytes":[B
-    move-object v1, v3
-
-    .line 285
-    .local v1, "ar":Landroid/os/AsyncResult;
+    .local v0, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     goto :goto_0
 
-    .line 291
-    .end local v1    # "ar":Landroid/os/AsyncResult;
+    .line 290
+    .end local v0    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     :cond_1
-    array-length v4, v0
+    array-length v4, v1
 
-    new-array v4, v4, [B
+    invoke-static {v1, v4}, Ljava/util/Arrays;->copyOf([BI)[B
+
+    move-result-object v4
+
+    .line 291
+    .restart local v4    # "validResponseBytes":[B
+    mul-int/lit8 v5, v3, -0x1
+
+    invoke-static {v5}, Lorg/codeaurora/telephony/utils/CommandException;->fromRilErrno(I)Lorg/codeaurora/telephony/utils/CommandException;
+
+    move-result-object v5
 
     .line 292
-    .restart local v4    # "validResponseBytes":[B
-    array-length v5, v0
+    .local v5, "ex":Lorg/codeaurora/telephony/utils/CommandException;
+    new-instance v6, Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    invoke-static {v0, v3, v4, v3, v5}, Ljava/lang/System;->arraycopy([BI[BII)V
-
-    .line 293
-    const/4 v3, -0x1
-
-    mul-int/2addr v3, v2
-
-    invoke-static {v3}, Lcom/android/internal/telephony/CommandException;->fromRilErrno(I)Lcom/android/internal/telephony/CommandException;
-
-    move-result-object v3
-
-    .line 294
-    .local v3, "ex":Lcom/android/internal/telephony/CommandException;
-    new-instance v5, Landroid/os/AsyncResult;
-
-    invoke-direct {v5, p2, v4, v3}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
+    invoke-direct {v6, p2, v4, v5}, Lorg/codeaurora/telephony/utils/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v3    # "ex":Lcom/android/internal/telephony/CommandException;
-    .end local v4    # "validResponseBytes":[B
-    move-object v1, v5
+    move-object v0, v6
 
-    .restart local v1    # "ar":Landroid/os/AsyncResult;
+    .line 303
+    .end local v4    # "validResponseBytes":[B
+    .end local v5    # "ex":Lorg/codeaurora/telephony/utils/CommandException;
+    .restart local v0    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     :goto_0
     goto :goto_1
 
-    .line 301
-    .end local v1    # "ar":Landroid/os/AsyncResult;
-    .end local v2    # "retVal":I
+    .line 299
+    .end local v0    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    .end local v3    # "retVal":I
     :catch_0
-    move-exception v2
+    move-exception v3
 
-    .line 302
-    .local v2, "e":Ljava/lang/NullPointerException;
-    const-string v3, "QC_RIL_OEM_HOOK"
-
+    .line 300
+    .local v3, "e":Ljava/lang/NullPointerException;
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -651,30 +640,28 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 304
-    new-instance v3, Landroid/os/AsyncResult;
+    .line 302
+    new-instance v0, Lorg/codeaurora/telephony/utils/AsyncResult;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-direct {v3, v4, v1, v2}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v4, v2, v3}, Lorg/codeaurora/telephony/utils/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
 
-    .end local v2    # "e":Ljava/lang/NullPointerException;
-    move-object v1, v3
+    .end local v3    # "e":Ljava/lang/NullPointerException;
+    .restart local v0    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    goto :goto_1
 
-    goto :goto_2
-
-    .line 296
+    .line 294
+    .end local v0    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     :catch_1
-    move-exception v2
+    move-exception v3
 
-    .line 297
-    .local v2, "e":Landroid/os/RemoteException;
-    const-string v3, "QC_RIL_OEM_HOOK"
-
+    .line 295
+    .local v3, "e":Landroid/os/RemoteException;
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -693,31 +680,25 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v4, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 300
-    new-instance v3, Landroid/os/AsyncResult;
+    .line 298
+    new-instance v0, Lorg/codeaurora/telephony/utils/AsyncResult;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-direct {v3, v4, v1, v2}, Landroid/os/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v4, v2, v3}, Lorg/codeaurora/telephony/utils/AsyncResult;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
 
-    .end local v2    # "e":Landroid/os/RemoteException;
-    move-object v1, v3
+    .line 303
+    .end local v3    # "e":Landroid/os/RemoteException;
+    .restart local v0    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    nop
 
     .line 305
-    .restart local v1    # "ar":Landroid/os/AsyncResult;
     :goto_1
-    nop
-
-    .line 304
-    :goto_2
-    nop
-
-    .line 307
-    return-object v1
+    return-object v0
 .end method
 
 .method private sendRilOemHookMsgAsync(I[BLcom/qualcomm/qcrilhook/IOemHookCallback;I)V
@@ -732,57 +713,21 @@
         }
     .end annotation
 
-    .line 320
-    new-instance v0, Ljava/lang/StringBuilder;
+    .line 318
+    const-string v0, "QC_RIL_OEM_HOOK"
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "sendRilOemHookMsgAsync: Outgoing Data is "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 321
-    invoke-static {p2}, Lcom/android/internal/telephony/uicc/IccUtils;->bytesToHexString([B)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 320
-    invoke-direct {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
-
-    .line 324
-    :try_start_0
-    iget-object v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mService:Lcom/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel;
-
-    invoke-interface {v0, p2, p3, p4}, Lcom/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel;->sendOemRilRequestRawAsync([BLcom/qualcomm/qcrilhook/IOemHookCallback;I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    .line 328
-    :catch_0
-    move-exception v0
-
-    .line 329
-    .local v0, "e":Ljava/lang/NullPointerException;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "NullPointerException caught at sendOemRilRequestRawAsync.RequestID = "
+    const-string v2, "sendRilOemHookMsgAsync: Outgoing Data is "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    .line 319
+    invoke-static {p2}, Lcom/qualcomm/qcrilhook/EmbmsOemHook;->bytesToHexString([B)Ljava/lang/String;
 
-    const-string v2, ". Throw to the caller"
+    move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -790,22 +735,56 @@
 
     move-result-object v1
 
-    const-string v2, "QC_RIL_OEM_HOOK"
+    .line 318
+    invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    invoke-static {v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    .line 322
+    :try_start_0
+    iget-object v1, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mService:Lcom/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel;
 
-    .line 331
-    throw v0
+    invoke-interface {v1, p2, p3, p4}, Lcom/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel;->sendOemRilRequestRawAsync([BLcom/qualcomm/qcrilhook/IOemHookCallback;I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 325
-    .end local v0    # "e":Ljava/lang/NullPointerException;
-    :catch_1
-    move-exception v0
+    goto :goto_0
 
     .line 326
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string v1, "QC_RIL_OEM_HOOK"
+    :catch_0
+    move-exception v1
 
+    .line 327
+    .local v1, "e":Ljava/lang/NullPointerException;
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "NullPointerException caught at sendOemRilRequestRawAsync.RequestID = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, ". Throw to the caller"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 329
+    throw v1
+
+    .line 323
+    .end local v1    # "e":Ljava/lang/NullPointerException;
+    :catch_1
+    move-exception v1
+
+    .line 324
+    .local v1, "e":Landroid/os/RemoteException;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -824,14 +803,14 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 332
-    .end local v0    # "e":Landroid/os/RemoteException;
+    .line 330
+    .end local v1    # "e":Landroid/os/RemoteException;
     :goto_0
     nop
 
-    .line 333
+    .line 331
     return-void
 .end method
 
@@ -839,24 +818,24 @@
     .locals 2
     .param p0, "h"    # Landroid/os/Handler;
 
-    .line 1699
-    sget-object v0, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Landroid/os/RegistrantList;
+    .line 1722
+    sget-object v0, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Lorg/codeaurora/telephony/utils/RegistrantList;
 
     monitor-enter v0
 
-    .line 1700
+    .line 1723
     :try_start_0
-    sget-object v1, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Landroid/os/RegistrantList;
+    sget-object v1, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Lorg/codeaurora/telephony/utils/RegistrantList;
 
-    invoke-virtual {v1, p0}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
+    invoke-virtual {v1, p0}, Lorg/codeaurora/telephony/utils/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1701
+    .line 1724
     monitor-exit v0
 
-    .line 1702
+    .line 1725
     return-void
 
-    .line 1701
+    .line 1724
     :catchall_0
     move-exception v1
 
@@ -947,7 +926,7 @@
     iput-object v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mContext:Landroid/content/Context;
 
     .line 217
-    sput-object v0, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Landroid/os/RegistrantList;
+    sput-object v0, Lcom/qualcomm/qcrilhook/QcRilHook;->mRegistrants:Lorg/codeaurora/telephony/utils/RegistrantList;
 
     .line 218
     iput-object v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mQcrilHookCb:Lcom/qualcomm/qcrilhook/QcRilHookCallback;
@@ -960,45 +939,45 @@
 .method protected finalize()V
     .locals 1
 
-    .line 1725
+    .line 1748
     const-string v0, "is destroyed"
 
     invoke-direct {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 1726
+    .line 1749
     return-void
 .end method
 
 .method public getLpluslSupportStatus()Z
     .locals 5
 
-    .line 344
+    .line 342
     const/4 v0, 0x0
 
-    .line 345
+    .line 343
     .local v0, "status":Z
     const v1, 0x8005e
 
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
-    .line 347
-    .local v1, "ar":Landroid/os/AsyncResult;
-    iget-object v2, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 345
+    .local v1, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v2, :cond_1
 
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     if-eqz v2, :cond_1
 
-    .line 348
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 346
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v2, [B
 
-    .line 349
+    .line 347
     .local v2, "response":[B
     invoke-static {v2}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
@@ -1022,7 +1001,7 @@
     :goto_0
     move v0, v4
 
-    .line 352
+    .line 350
     .end local v2    # "response":[B
     :cond_1
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1039,7 +1018,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v3, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -1049,7 +1028,7 @@
 
     invoke-direct {p0, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 353
+    .line 351
     return v0
 .end method
 
@@ -1073,72 +1052,72 @@
 .end method
 
 .method public qcRilAbortNetworkScan(I)Z
-    .locals 7
+    .locals 6
     .param p1, "phoneId"    # I
 
-    .line 1226
+    .line 1249
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1227
+    .line 1250
     const/4 v0, 0x0
 
-    .line 1228
+    .line 1251
     .local v0, "retval":Z
     iget v1, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     new-array v1, v1, [B
 
-    .line 1230
+    .line 1253
     .local v1, "request":[B
     invoke-static {v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 1232
+    .line 1255
     .local v2, "reqBuffer":Ljava/nio/ByteBuffer;
     const v3, 0x8005f
 
     invoke-direct {p0, v2, v3, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1234
-    invoke-direct {p0, v3, v1, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1257
+    invoke-direct {p0, v3, v1, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v3
 
-    .line 1237
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1260
+    .local v3, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v4, :cond_0
 
-    .line 1238
+    .line 1261
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1240
+    .line 1263
     :cond_0
-    const-string v4, "QC_RIL_OEM_HOOK"
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v5, "QCRIL cancel ongoing nw scan returned exception "
 
-    const-string v6, "QCRIL cancel ongoing nw scan returned exception "
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v5, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v6, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v5
+    const-string v5, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1243
+    .line 1266
     :goto_0
     return v0
 .end method
@@ -1147,7 +1126,7 @@
     .locals 1
     .param p1, "phoneId"    # I
 
-    .line 686
+    .line 684
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->qcRilActivateConfig(II)Z
@@ -1158,14 +1137,14 @@
 .end method
 
 .method public qcRilActivateConfig(II)Z
-    .locals 6
+    .locals 5
     .param p1, "phoneId"    # I
     .param p2, "mbnType"    # I
 
-    .line 700
+    .line 698
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 701
+    .line 699
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     add-int/lit8 v0, v0, 0x4
@@ -1176,13 +1155,13 @@
 
     new-array v0, v0, [B
 
-    .line 702
+    .line 700
     .local v0, "payload":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 703
+    .line 701
     .local v2, "reqBuffer":Ljava/nio/ByteBuffer;
     const v3, 0x80032
 
@@ -1190,156 +1169,156 @@
 
     invoke-direct {p0, v2, v3, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 704
+    .line 702
     int-to-byte v4, p1
 
     invoke-virtual {v2, v4}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 705
+    .line 703
     invoke-virtual {v2, p2}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 707
-    invoke-direct {p0, v3, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
+    .line 705
+    invoke-direct {p0, v3, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v3
 
-    .line 708
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 706
+    .local v3, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v4, :cond_0
 
+    .line 707
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "QCRIL_EVT_HOOK_ACT_CONFIGS failed w/ "
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v4, "QC_RIL_OEM_HOOK"
+
+    invoke-static {v4, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
     .line 709
-    const-string v1, "QC_RIL_OEM_HOOK"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "QCRIL_EVT_HOOK_ACT_CONFIGS failed w/ "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v5, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v1, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 711
     const/4 v1, 0x0
 
     return v1
 
-    .line 713
+    .line 711
     :cond_0
     return v1
 .end method
 
 .method public qcRilCdmaAvoidCurNwk()Z
-    .locals 5
+    .locals 4
 
-    .line 1126
+    .line 1149
     const/4 v0, 0x0
 
-    .line 1127
+    .line 1150
     .local v0, "retval":Z
     const v1, 0x8000e
 
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
-    .line 1129
-    .local v1, "ar":Landroid/os/AsyncResult;
-    iget-object v2, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1152
+    .local v1, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v2, :cond_0
 
-    .line 1130
+    .line 1153
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1132
+    .line 1155
     :cond_0
-    const-string v2, "QC_RIL_OEM_HOOK"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "QCRIL Avoid the current cdma network Command returned Exception: "
 
-    const-string v4, "QCRIL Avoid the current cdma network Command returned Exception: "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v4, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    const-string v3, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1135
+    .line 1158
     :goto_0
     return v0
 .end method
 
 .method public qcRilCdmaClearAvoidanceList()Z
-    .locals 5
+    .locals 4
 
-    .line 1161
+    .line 1184
     const/4 v0, 0x0
 
-    .line 1162
+    .line 1185
     .local v0, "retval":Z
     const v1, 0x8000f
 
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
-    .line 1164
-    .local v1, "ar":Landroid/os/AsyncResult;
-    iget-object v2, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1187
+    .local v1, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v2, :cond_0
 
-    .line 1165
+    .line 1188
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1167
+    .line 1190
     :cond_0
-    const-string v2, "QC_RIL_OEM_HOOK"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "QCRIL Clear the cdma avoidance list Command returned Exception: "
 
-    const-string v4, "QCRIL Clear the cdma avoidance list Command returned Exception: "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v4, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    const-string v3, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1170
+    .line 1193
     :goto_0
     return v0
 .end method
@@ -1347,50 +1326,50 @@
 .method public qcRilCdmaGetAvoidanceList()[B
     .locals 6
 
-    .line 1174
+    .line 1197
     const/4 v0, 0x0
 
-    .line 1175
+    .line 1198
     .local v0, "retval":[B
     const v1, 0x80010
 
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
-    .line 1177
-    .local v1, "ar":Landroid/os/AsyncResult;
-    iget-object v2, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1200
+    .local v1, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    const-string v3, "QC_RIL_OEM_HOOK"
 
     if-nez v2, :cond_2
 
-    .line 1178
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1201
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     if-eqz v2, :cond_1
 
-    .line 1183
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1206
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v2, [B
 
-    .line 1184
+    .line 1207
     .local v2, "result":[B
-    array-length v3, v2
+    array-length v4, v2
 
-    const/16 v4, 0xa4
+    const/16 v5, 0xa4
 
-    if-ne v3, v4, :cond_0
+    if-ne v4, v5, :cond_0
 
-    .line 1187
+    .line 1210
     move-object v0, v2
 
     goto :goto_0
 
-    .line 1189
+    .line 1212
     :cond_0
-    const-string v3, "QC_RIL_OEM_HOOK"
-
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1409,96 +1388,92 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1192
+    .line 1215
     .end local v2    # "result":[B
     :goto_0
     goto :goto_1
 
-    .line 1193
+    .line 1216
     :cond_1
-    const-string v2, "QC_RIL_OEM_HOOK"
+    const-string v2, "QCRIL Get cdma avoidance list command returned a null result."
 
-    const-string v3, "QCRIL Get cdma avoidance list command returned a null result."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
-    .line 1197
+    .line 1220
     :cond_2
-    const-string v2, "QC_RIL_OEM_HOOK"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v4, "QCRIL Get the cdma avoidance list Command returned Exception: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v4, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1201
+    .line 1224
     :goto_1
     return-object v0
 .end method
 
 .method public qcRilCleanupConfigs()Z
-    .locals 5
+    .locals 4
 
-    .line 793
+    .line 816
     const/4 v0, 0x0
 
-    .line 794
+    .line 817
     .local v0, "retval":Z
     const v1, 0x8001f
 
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
-    .line 796
-    .local v1, "ar":Landroid/os/AsyncResult;
-    iget-object v2, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 819
+    .local v1, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v2, :cond_0
 
-    .line 797
+    .line 820
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 799
+    .line 822
     :cond_0
-    const-string v2, "QC_RIL_OEM_HOOK"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "QCRIL_EVT_HOOK_DELETE_ALL_CONFIGS failed w/ "
 
-    const-string v4, "QCRIL_EVT_HOOK_DELETE_ALL_CONFIGS failed w/ "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v4, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    const-string v3, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 803
+    .line 826
     :goto_0
     return v0
 .end method
@@ -1506,7 +1481,7 @@
 .method public qcRilDeactivateConfigs()Z
     .locals 1
 
-    .line 806
+    .line 829
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->qcRilDeactivateConfigs(I)Z
@@ -1517,16 +1492,16 @@
 .end method
 
 .method public qcRilDeactivateConfigs(I)Z
-    .locals 7
+    .locals 6
     .param p1, "mbnType"    # I
 
-    .line 819
+    .line 842
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 820
+    .line 843
     const/4 v0, 0x0
 
-    .line 821
+    .line 844
     .local v0, "retval":Z
     iget v1, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -1536,107 +1511,186 @@
 
     new-array v1, v1, [B
 
-    .line 822
+    .line 845
     .local v1, "payload":[B
     invoke-static {v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v3
 
-    .line 824
+    .line 847
     .local v3, "reqBuffer":Ljava/nio/ByteBuffer;
     const v4, 0x8002c
 
     invoke-direct {p0, v3, v4, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 825
+    .line 848
     invoke-virtual {v3, p1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 827
-    invoke-direct {p0, v4, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
+    .line 850
+    invoke-direct {p0, v4, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v2
 
-    .line 829
-    .local v2, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v2, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 852
+    .local v2, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v4, v2, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v4, :cond_0
 
-    .line 830
+    .line 853
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 832
+    .line 855
     :cond_0
-    const-string v4, "QC_RIL_OEM_HOOK"
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v5, "QCRIL_EVT_HOOK_DEACT_CONFIGS failed w/ "
 
-    const-string v6, "QCRIL_EVT_HOOK_DEACT_CONFIGS failed w/ "
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v5, v2, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v6, v2, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v5
+    const-string v5, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 836
+    .line 859
     :goto_0
     return v0
 .end method
 
-.method public qcRilGetAllConfigs()Z
-    .locals 4
+.method public qcRilEnableAutoMode(I)Z
+    .locals 5
+    .param p1, "phoneId"    # I
 
-    .line 776
-    const v0, 0x80017
+    .line 763
+    invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    invoke-virtual {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Landroid/os/AsyncResult;
+    .line 764
+    iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
-    move-result-object v0
+    add-int/lit8 v0, v0, 0x4
 
-    .line 777
-    .local v0, "ar":Landroid/os/AsyncResult;
-    iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    const/4 v1, 0x1
 
-    if-eqz v1, :cond_0
+    add-int/2addr v0, v1
 
-    .line 778
-    const-string v1, "QC_RIL_OEM_HOOK"
+    new-array v0, v0, [B
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "QCRIL_EVT_HOOK_GET_AVAILABLE_CONFIGS failed w/ "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v3, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 765
+    .local v0, "payload":[B
+    invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    .line 766
+    .local v2, "reqBuffer":Ljava/nio/ByteBuffer;
+    const v3, 0x80022
 
-    .line 780
+    const/4 v4, 0x5
+
+    invoke-direct {p0, v2, v3, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
+
+    .line 767
+    int-to-byte v4, p1
+
+    invoke-virtual {v2, v4}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+
+    .line 769
+    invoke-direct {p0, v3, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
+
+    move-result-object v3
+
+    .line 770
+    .local v3, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    if-eqz v4, :cond_0
+
+    .line 771
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "QCRIL_EVT_HOOK_ENABLE_MODEM_UPDATE failed w/ "
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v4, "QC_RIL_OEM_HOOK"
+
+    invoke-static {v4, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 773
     const/4 v1, 0x0
 
     return v1
 
-    .line 782
+    .line 775
+    :cond_0
+    return v1
+.end method
+
+.method public qcRilGetAllConfigs()Z
+    .locals 3
+
+    .line 799
+    const v0, 0x80017
+
+    invoke-virtual {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
+
+    move-result-object v0
+
+    .line 800
+    .local v0, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v1, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    if-eqz v1, :cond_0
+
+    .line 801
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "QCRIL_EVT_HOOK_GET_AVAILABLE_CONFIGS failed w/ "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "QC_RIL_OEM_HOOK"
+
+    invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 803
+    const/4 v1, 0x0
+
+    return v1
+
+    .line 805
     :cond_0
     const/4 v1, 0x1
 
@@ -1649,14 +1703,14 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 764
+    .line 787
     const-string v0, "QC_RIL_OEM_HOOK"
 
     const-string v1, "qcRilGetAvailableConfigs is deprecated"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 765
+    .line 788
     const/4 v0, 0x0
 
     return-object v0
@@ -1665,7 +1719,7 @@
 .method public qcRilGetConfig()Ljava/lang/String;
     .locals 1
 
-    .line 409
+    .line 407
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->qcRilGetConfig(I)Ljava/lang/String;
@@ -1679,7 +1733,7 @@
     .locals 1
     .param p1, "phoneId"    # I
 
-    .line 421
+    .line 419
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->qcRilGetConfig(II)Ljava/lang/String;
@@ -1694,13 +1748,13 @@
     .param p1, "phoneId"    # I
     .param p2, "mbnType"    # I
 
-    .line 367
+    .line 365
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 368
+    .line 366
     const/4 v0, 0x0
 
-    .line 369
+    .line 367
     .local v0, "result":Ljava/lang/String;
     iget v1, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -1710,13 +1764,13 @@
 
     new-array v1, v1, [B
 
-    .line 370
+    .line 368
     .local v1, "payload":[B
     invoke-static {v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 372
+    .line 370
     .local v2, "reqBuffer":Ljava/nio/ByteBuffer;
     const v3, 0x80016
 
@@ -1724,71 +1778,69 @@
 
     invoke-direct {p0, v2, v3, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 373
+    .line 371
     int-to-byte v4, p1
 
     invoke-virtual {v2, v4}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 374
+    .line 372
     invoke-virtual {v2, p2}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 376
-    invoke-direct {p0, v3, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
+    .line 374
+    invoke-direct {p0, v3, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v3
 
-    .line 378
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 376
+    .local v3, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    const-string v5, "QC_RIL_OEM_HOOK"
 
     if-eqz v4, :cond_0
 
-    .line 379
-    const-string v4, "QC_RIL_OEM_HOOK"
+    .line 377
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v6, "QCRIL_EVT_HOOK_GET_CONFIG failed w/ "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v6, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 381
+    .line 379
     return-object v0
 
-    .line 384
+    .line 382
     :cond_0
-    iget-object v4, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     if-nez v4, :cond_1
 
-    .line 385
-    const-string v4, "QC_RIL_OEM_HOOK"
+    .line 383
+    const-string v4, "QCRIL_EVT_HOOK_GET_CONFIG failed w/ null result"
 
-    const-string v5, "QCRIL_EVT_HOOK_GET_CONFIG failed w/ null result"
+    invoke-static {v5, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 386
+    .line 384
     return-object v0
 
-    .line 391
+    .line 389
     :cond_1
     :try_start_0
     new-instance v4, Ljava/lang/String;
 
-    iget-object v5, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v5, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v5, [B
 
@@ -1800,10 +1852,10 @@
 
     move-object v0, v4
 
-    .line 395
+    .line 393
     nop
 
-    .line 396
+    .line 394
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1820,20 +1872,20 @@
 
     invoke-direct {p0, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 398
+    .line 396
     return-object v0
 
-    .line 392
+    .line 390
     :catch_0
     move-exception v4
 
-    .line 393
+    .line 391
     .local v4, "e":Ljava/io/UnsupportedEncodingException;
     const-string v5, "unsupport ISO-8859-1"
 
     invoke-direct {p0, v5}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 394
+    .line 392
     const/4 v5, 0x0
 
     return-object v5
@@ -1842,34 +1894,36 @@
 .method public qcRilGetCsgId()I
     .locals 5
 
-    .line 1078
+    .line 1101
     const/4 v0, -0x1
 
-    .line 1079
+    .line 1102
     .local v0, "csgId":I
     const v1, 0x80018
 
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
-    .line 1080
-    .local v1, "ar":Landroid/os/AsyncResult;
-    iget-object v2, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1103
+    .local v1, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    const-string v3, "QC_RIL_OEM_HOOK"
 
     if-nez v2, :cond_1
 
-    .line 1081
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1104
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     if-eqz v2, :cond_0
 
-    .line 1082
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1105
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v2, [B
 
-    .line 1083
+    .line 1106
     .local v2, "response":[B
     invoke-static {v2}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
@@ -1879,7 +1933,7 @@
 
     move-result v0
 
-    .line 1084
+    .line 1107
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1896,43 +1950,39 @@
 
     invoke-direct {p0, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1085
+    .line 1108
     .end local v2    # "response":[B
     goto :goto_0
 
-    .line 1086
+    .line 1109
     :cond_0
-    const-string v2, "QC_RIL_OEM_HOOK"
+    const-string v2, "qcRilGetCsgId: Null Response"
 
-    const-string v3, "qcRilGetCsgId: Null Response"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 1089
+    .line 1112
     :cond_1
-    const-string v2, "QC_RIL_OEM_HOOK"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v4, "qcRilGetCsgId: Exception "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v4, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1091
+    .line 1114
     :goto_0
     return v0
 .end method
@@ -1941,7 +1991,7 @@
     .locals 1
     .param p1, "config"    # Ljava/lang/String;
 
-    .line 886
+    .line 909
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->qcRilGetMetaInfoForConfig(Ljava/lang/String;I)Ljava/lang/String;
@@ -1952,256 +2002,244 @@
 .end method
 
 .method public qcRilGetMetaInfoForConfig(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 7
+    .locals 9
     .param p1, "config"    # Ljava/lang/String;
     .param p2, "mbnType"    # I
 
-    .line 891
+    .line 914
+    const-string v0, "unsupport ISO-8859-1"
+
+    const-string v1, "ISO-8859-1"
+
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 892
-    const/4 v0, 0x0
+    .line 915
+    const/4 v2, 0x0
 
-    .line 893
-    .local v0, "result":Ljava/lang/String;
-    const/4 v1, 0x0
+    .line 916
+    .local v2, "result":Ljava/lang/String;
+    const/4 v3, 0x0
 
-    .line 895
-    .local v1, "payload":[B
+    .line 918
+    .local v3, "payload":[B
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_2
+    const-string v5, "QC_RIL_OEM_HOOK"
+
+    if-nez v4, :cond_2
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v4
 
-    const/16 v3, 0x7c
+    const/16 v6, 0x7c
 
-    if-gt v2, v3, :cond_2
+    if-gt v4, v6, :cond_2
 
-    .line 897
-    const/4 v2, 0x0
+    .line 920
+    const/4 v4, 0x0
 
     :try_start_0
-    iget v3, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
+    iget v6, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
-    const/4 v4, 0x4
+    add-int/lit8 v6, v6, 0x4
 
-    add-int/2addr v3, v4
+    invoke-virtual {p1, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    const-string v5, "ISO-8859-1"
+    move-result-object v7
 
-    invoke-virtual {p1, v5}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    array-length v7, v7
 
-    move-result-object v5
+    add-int/2addr v6, v7
 
-    array-length v5, v5
+    new-array v6, v6, [B
 
-    add-int/2addr v3, v5
+    move-object v3, v6
 
-    new-array v3, v3, [B
+    .line 921
+    invoke-static {v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
-    move-object v1, v3
+    move-result-object v6
 
-    .line 898
-    invoke-static {v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
+    .line 922
+    .local v6, "buf":Ljava/nio/ByteBuffer;
+    nop
 
-    move-result-object v3
+    .line 923
+    invoke-virtual {p1, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    .line 899
-    .local v3, "buf":Ljava/nio/ByteBuffer;
-    const-string v5, "ISO-8859-1"
+    move-result-object v7
 
-    .line 900
-    invoke-virtual {p1, v5}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    array-length v7, v7
 
-    move-result-object v5
+    add-int/lit8 v7, v7, 0x4
 
-    array-length v5, v5
+    .line 922
+    const v8, 0x80021
 
-    add-int/2addr v4, v5
+    invoke-direct {p0, v6, v8, v7}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 899
-    const v5, 0x80021
+    .line 924
+    invoke-virtual {v6, p2}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    invoke-direct {p0, v3, v5, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
+    .line 925
+    invoke-virtual {p1, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    .line 901
-    invoke-virtual {v3, p2}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    move-result-object v7
 
-    .line 902
-    const-string v4, "ISO-8859-1"
-
-    invoke-virtual {p1, v4}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v6, v7}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 906
-    .end local v3    # "buf":Ljava/nio/ByteBuffer;
+    .line 929
     nop
 
-    .line 908
-    invoke-direct {p0, v5, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
+    .line 931
+    .end local v6    # "buf":Ljava/nio/ByteBuffer;
+    invoke-direct {p0, v8, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    move-result-object v3
+    move-result-object v6
 
-    .line 910
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 933
+    .local v6, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v7, v6, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-eqz v4, :cond_0
+    if-eqz v7, :cond_0
 
-    .line 911
-    const-string v2, "QC_RIL_OEM_HOOK"
+    .line 934
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "QCRIL_EVT_HOOK_GET_META_INFO failed w/ "
 
-    const-string v5, "QCRIL_EVT_HOOK_GET_META_INFO failed w/ "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v1, v6, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v5, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v4
+    invoke-static {v5, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v2, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    .line 936
+    return-object v2
 
-    .line 913
-    return-object v0
-
-    .line 916
+    .line 939
     :cond_0
-    iget-object v4, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v7, v6, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
-    if-nez v4, :cond_1
+    if-nez v7, :cond_1
 
-    .line 917
-    const-string v2, "QC_RIL_OEM_HOOK"
+    .line 940
+    const-string v0, "QCRIL_EVT_HOOK_GET_META_INFO failed w/ null result"
 
-    const-string v4, "QCRIL_EVT_HOOK_GET_META_INFO failed w/ null result"
+    invoke-static {v5, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v2, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    .line 941
+    return-object v2
 
-    .line 918
-    return-object v0
-
-    .line 923
+    .line 946
     :cond_1
     :try_start_1
-    new-instance v4, Ljava/lang/String;
+    new-instance v5, Ljava/lang/String;
 
-    iget-object v5, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v7, v6, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
-    check-cast v5, [B
+    check-cast v7, [B
 
-    const-string v6, "ISO-8859-1"
-
-    invoke-direct {v4, v5, v6}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    invoke-direct {v5, v7, v1}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
     :try_end_1
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-object v0, v4
+    move-object v2, v5
 
-    .line 927
+    .line 950
     nop
 
-    .line 928
-    new-instance v2, Ljava/lang/StringBuilder;
+    .line 951
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "QCRIL_EVT_HOOK_GET_META_INFO returned w/ "
+    const-string v1, "QCRIL_EVT_HOOK_GET_META_INFO returned w/ "
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {p0, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 929
-    .end local v3    # "ar":Landroid/os/AsyncResult;
+    .line 952
+    .end local v6    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     goto :goto_0
 
-    .line 924
-    .restart local v3    # "ar":Landroid/os/AsyncResult;
+    .line 947
+    .restart local v6    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     :catch_0
-    move-exception v4
+    move-exception v1
 
-    .line 925
-    .local v4, "e":Ljava/io/UnsupportedEncodingException;
-    const-string v5, "unsupport ISO-8859-1"
+    .line 948
+    .local v1, "e":Ljava/io/UnsupportedEncodingException;
+    invoke-direct {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    invoke-direct {p0, v5}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
+    .line 949
+    return-object v4
 
     .line 926
-    return-object v2
-
-    .line 903
-    .end local v3    # "ar":Landroid/os/AsyncResult;
-    .end local v4    # "e":Ljava/io/UnsupportedEncodingException;
+    .end local v1    # "e":Ljava/io/UnsupportedEncodingException;
+    .end local v6    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     :catch_1
-    move-exception v3
+    move-exception v1
 
-    .line 904
-    .local v3, "e":Ljava/io/UnsupportedEncodingException;
-    const-string v4, "unsupport ISO-8859-1"
+    .line 927
+    .restart local v1    # "e":Ljava/io/UnsupportedEncodingException;
+    invoke-direct {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    invoke-direct {p0, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
+    .line 928
+    return-object v4
 
-    .line 905
-    return-object v2
-
-    .line 930
-    .end local v3    # "e":Ljava/io/UnsupportedEncodingException;
+    .line 953
+    .end local v1    # "e":Ljava/io/UnsupportedEncodingException;
     :cond_2
-    const-string v2, "QC_RIL_OEM_HOOK"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "get meta info with incorrect config id: "
 
-    const-string v4, "get meta info with incorrect config id: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v3
+    invoke-static {v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 932
+    .line 955
     :goto_0
-    return-object v0
+    return-object v2
 .end method
 
 .method public qcRilGetOemVersionOfFile(Ljava/lang/String;)[B
     .locals 7
     .param p1, "file"    # Ljava/lang/String;
 
-    .line 565
+    .line 563
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 566
+    .line 564
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
@@ -2210,10 +2248,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 567
+    .line 565
     return-object v1
 
-    .line 569
+    .line 567
     :cond_0
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -2227,13 +2265,13 @@
 
     new-array v0, v0, [B
 
-    .line 570
+    .line 568
     .local v0, "payload":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 571
+    .line 569
     .local v2, "buf":Ljava/nio/ByteBuffer;
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
@@ -2245,65 +2283,63 @@
 
     invoke-direct {p0, v2, v4, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 572
+    .line 570
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 574
-    invoke-direct {p0, v4, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
+    .line 572
+    invoke-direct {p0, v4, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v3
 
-    .line 575
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 573
+    .local v3, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    const-string v5, "QC_RIL_OEM_HOOK"
 
     if-eqz v4, :cond_1
 
-    .line 576
-    const-string v4, "QC_RIL_OEM_HOOK"
+    .line 574
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v6, "QCRIL_EVT_HOOK_GET_OEM_VERSION_OF_FILE failed w/ "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v6, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 578
+    .line 576
     return-object v1
 
-    .line 580
+    .line 578
     :cond_1
-    iget-object v4, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     if-nez v4, :cond_2
 
-    .line 581
-    const-string v4, "QC_RIL_OEM_HOOK"
+    .line 579
+    const-string v4, "QCRIL_EVT_HOOK_GET_OEM_VERSION_OF_FILE failed w/ null result"
 
-    const-string v5, "QCRIL_EVT_HOOK_GET_OEM_VERSION_OF_FILE failed w/ null result"
+    invoke-static {v5, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 582
+    .line 580
     return-object v1
 
-    .line 586
+    .line 584
     :cond_2
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2313,7 +2349,7 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v4, [B
 
@@ -2325,8 +2361,8 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 587
-    iget-object v1, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 585
+    iget-object v1, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [B
 
@@ -2337,15 +2373,17 @@
     .locals 7
     .param p1, "config_id"    # Ljava/lang/String;
 
-    .line 643
+    .line 641
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 644
+    .line 642
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    const/4 v1, 0x0
+    const-string v1, "QC_RIL_OEM_HOOK"
+
+    const/4 v2, 0x0
 
     if-nez v0, :cond_3
 
@@ -2353,73 +2391,71 @@
 
     move-result v0
 
-    const/16 v2, 0x7c
+    const/16 v3, 0x7c
 
-    if-le v0, v2, :cond_0
+    if-le v0, v3, :cond_0
 
     goto :goto_0
 
-    .line 649
+    .line 647
     :cond_0
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v3
 
-    add-int/2addr v0, v2
+    add-int/2addr v0, v3
 
     new-array v0, v0, [B
 
-    .line 650
+    .line 648
     .local v0, "payload":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v2
-
-    .line 651
-    .local v2, "buf":Ljava/nio/ByteBuffer;
-    nop
-
-    .line 652
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    .line 651
-    const v4, 0x80031
-
-    invoke-direct {p0, v2, v4, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
-
-    .line 654
-    :try_start_0
-    const-string v3, "ISO-8859-1"
-
-    invoke-virtual {p1, v3}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
-
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    .line 649
+    .local v3, "buf":Ljava/nio/ByteBuffer;
+    nop
+
+    .line 650
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    .line 649
+    const v5, 0x80031
+
+    invoke-direct {p0, v3, v5, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
+
+    .line 652
+    :try_start_0
+    const-string v4, "ISO-8859-1"
+
+    invoke-virtual {p1, v4}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 658
+    .line 656
     nop
 
+    .line 658
+    invoke-direct {p0, v5, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
+
+    move-result-object v4
+
+    .line 659
+    .local v4, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    if-eqz v5, :cond_1
+
     .line 660
-    invoke-direct {p0, v4, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
-
-    move-result-object v3
-
-    .line 661
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
-
-    if-eqz v4, :cond_1
-
-    .line 662
-    const-string v4, "QC_RIL_OEM_HOOK"
-
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -2428,7 +2464,7 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v6, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -2436,42 +2472,40 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 662
+    return-object v2
 
     .line 664
-    return-object v1
-
-    .line 666
     :cond_1
-    iget-object v4, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
-    if-nez v4, :cond_2
+    if-nez v5, :cond_2
 
-    .line 667
-    const-string v4, "QC_RIL_OEM_HOOK"
-
+    .line 665
     const-string v5, "QCRIL_EVT_HOOK_GET_OEM_VERSION_OF_ID failed w/ null result"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 668
-    return-object v1
+    .line 666
+    return-object v2
 
-    .line 672
+    .line 670
     :cond_2
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "QCRIL_EVT_HOOK_GET_OEM_VERSION_OF_ID returned w/ "
+    const-string v2, "QCRIL_EVT_HOOK_GET_OEM_VERSION_OF_ID returned w/ "
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v2, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
-    check-cast v4, [B
+    check-cast v2, [B
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2479,109 +2513,109 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 673
-    iget-object v1, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 671
+    iget-object v1, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [B
 
     return-object v1
 
-    .line 655
-    .end local v3    # "ar":Landroid/os/AsyncResult;
+    .line 653
+    .end local v4    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     :catch_0
-    move-exception v3
+    move-exception v1
 
-    .line 656
-    .local v3, "e":Ljava/io/UnsupportedEncodingException;
+    .line 654
+    .local v1, "e":Ljava/io/UnsupportedEncodingException;
     const-string v4, "unsupport ISO-8859-1"
 
     invoke-direct {p0, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 657
-    return-object v1
+    .line 655
+    return-object v2
 
-    .line 645
+    .line 643
     .end local v0    # "payload":[B
-    .end local v2    # "buf":Ljava/nio/ByteBuffer;
-    .end local v3    # "e":Ljava/io/UnsupportedEncodingException;
+    .end local v1    # "e":Ljava/io/UnsupportedEncodingException;
+    .end local v3    # "buf":Ljava/nio/ByteBuffer;
     :cond_3
     :goto_0
-    const-string v0, "QC_RIL_OEM_HOOK"
+    const-string v0, "invalid config_id"
 
-    const-string v2, "invalid config_id"
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 646
-    return-object v1
+    .line 644
+    return-object v2
 .end method
 
 .method public qcRilGetPreferredNetworkAcqOrder(I)B
     .locals 9
     .param p1, "phoneId"    # I
 
-    .line 1314
+    .line 1337
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1315
+    .line 1338
     const/4 v0, 0x0
 
-    .line 1316
+    .line 1339
     .local v0, "acq_order":B
     const v1, 0x8001c
 
-    .line 1317
+    .line 1340
     .local v1, "requestId":I
     iget v2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     new-array v2, v2, [B
 
-    .line 1318
+    .line 1341
     .local v2, "request":[B
     invoke-static {v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v3
 
-    .line 1320
+    .line 1343
     .local v3, "reqBuffer":Ljava/nio/ByteBuffer;
     const/4 v4, 0x4
 
     invoke-direct {p0, v3, v1, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1321
-    invoke-direct {p0, v1, v2, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1344
+    invoke-direct {p0, v1, v2, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v4
 
-    .line 1323
-    .local v4, "ar":Landroid/os/AsyncResult;
-    iget-object v5, v4, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1346
+    .local v4, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    const-string v6, "QC_RIL_OEM_HOOK"
 
     if-nez v5, :cond_1
 
-    .line 1324
-    iget-object v5, v4, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1347
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     if-eqz v5, :cond_0
 
-    .line 1325
-    iget-object v5, v4, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1348
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v5, [B
 
-    .line 1326
+    .line 1349
     .local v5, "result":[B
     invoke-static {v5}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v6
 
-    .line 1327
+    .line 1350
     .local v6, "byteBuf":Ljava/nio/ByteBuffer;
     invoke-virtual {v6}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v0
 
-    .line 1328
+    .line 1351
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -2598,44 +2632,40 @@
 
     invoke-direct {p0, v7}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1329
+    .line 1352
     .end local v5    # "result":[B
     .end local v6    # "byteBuf":Ljava/nio/ByteBuffer;
     goto :goto_0
 
-    .line 1330
+    .line 1353
     :cond_0
-    const-string v5, "QC_RIL_OEM_HOOK"
+    const-string v5, "no acq order result return"
 
-    const-string v6, "no acq order result return"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 1333
+    .line 1356
     :cond_1
-    const-string v5, "QC_RIL_OEM_HOOK"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v7, "QCRIL set acq order cmd returned exception: "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v7, v4, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v7, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1336
+    .line 1359
     :goto_0
     return v0
 .end method
@@ -2645,71 +2675,73 @@
     .param p1, "bandType"    # I
     .param p2, "phoneId"    # I
 
-    .line 1556
+    .line 1579
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1557
+    .line 1580
     const/4 v0, 0x0
 
-    .line 1558
+    .line 1581
     .local v0, "band_pref":B
     const v1, 0x80026
 
-    .line 1559
+    .line 1582
     .local v1, "requestId":I
     iget v2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     new-array v2, v2, [B
 
-    .line 1560
+    .line 1583
     .local v2, "request":[B
     invoke-static {v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v3
 
-    .line 1562
+    .line 1585
     .local v3, "reqBuffer":Ljava/nio/ByteBuffer;
     const/4 v4, 0x4
 
     invoke-direct {p0, v3, v1, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1563
+    .line 1586
     invoke-virtual {v3, p1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1565
-    invoke-direct {p0, v1, v2, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1588
+    invoke-direct {p0, v1, v2, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v4
 
-    .line 1567
-    .local v4, "ar":Landroid/os/AsyncResult;
-    iget-object v5, v4, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1590
+    .local v4, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    const-string v6, "QC_RIL_OEM_HOOK"
 
     if-nez v5, :cond_1
 
-    .line 1568
-    iget-object v5, v4, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1591
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     if-eqz v5, :cond_0
 
-    .line 1569
-    iget-object v5, v4, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1592
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v5, [B
 
-    .line 1570
+    .line 1593
     .local v5, "result":[B
     invoke-static {v5}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v6
 
-    .line 1571
+    .line 1594
     .local v6, "byteBuf":Ljava/nio/ByteBuffer;
     invoke-virtual {v6}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v0
 
-    .line 1572
+    .line 1595
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -2726,44 +2758,40 @@
 
     invoke-direct {p0, v7}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1573
+    .line 1596
     .end local v5    # "result":[B
     .end local v6    # "byteBuf":Ljava/nio/ByteBuffer;
     goto :goto_0
 
-    .line 1574
+    .line 1597
     :cond_0
-    const-string v5, "QC_RIL_OEM_HOOK"
+    const-string v5, "no band pref result return"
 
-    const-string v6, "no band pref result return"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 1577
+    .line 1600
     :cond_1
-    const-string v5, "QC_RIL_OEM_HOOK"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v7, "QCRIL get band perf cmd returned exception: "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v7, v4, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v7, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1580
+    .line 1603
     :goto_0
     return v0
 .end method
@@ -2771,34 +2799,36 @@
 .method public qcRilGetPrioritySubscription()I
     .locals 5
 
-    .line 1095
+    .line 1118
     const/4 v0, 0x0
 
-    .line 1096
+    .line 1119
     .local v0, "subscriptionIndex":I
     const v1, 0x80008
 
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
-    .line 1097
-    .local v1, "ar":Landroid/os/AsyncResult;
-    iget-object v2, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1120
+    .local v1, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    const-string v3, "QC_RIL_OEM_HOOK"
 
     if-nez v2, :cond_1
 
-    .line 1098
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1121
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     if-eqz v2, :cond_0
 
-    .line 1099
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1122
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v2, [B
 
-    .line 1100
+    .line 1123
     .local v2, "response":[B
     invoke-static {v2}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
@@ -2808,7 +2838,7 @@
 
     move-result v0
 
-    .line 1101
+    .line 1124
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2825,43 +2855,39 @@
 
     invoke-direct {p0, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 1103
+    .line 1126
     .end local v2    # "response":[B
     goto :goto_0
 
-    .line 1104
+    .line 1127
     :cond_0
-    const-string v2, "QC_RIL_OEM_HOOK"
+    const-string v2, "qcRilGetPrioritySubscription: Null Response"
 
-    const-string v3, "qcRilGetPrioritySubscription: Null Response"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 1107
+    .line 1130
     :cond_1
-    const-string v2, "QC_RIL_OEM_HOOK"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v4, "qcRilGetPrioritySubscription: Exception "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v4, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1109
+    .line 1132
     :goto_0
     return v0
 .end method
@@ -2870,10 +2896,10 @@
     .locals 7
     .param p1, "file"    # Ljava/lang/String;
 
-    .line 530
+    .line 528
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 531
+    .line 529
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
@@ -2882,10 +2908,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 532
+    .line 530
     return-object v1
 
-    .line 534
+    .line 532
     :cond_0
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -2899,13 +2925,13 @@
 
     new-array v0, v0, [B
 
-    .line 535
+    .line 533
     .local v0, "payload":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 536
+    .line 534
     .local v2, "buf":Ljava/nio/ByteBuffer;
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
@@ -2917,65 +2943,63 @@
 
     invoke-direct {p0, v2, v4, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 537
+    .line 535
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 539
-    invoke-direct {p0, v4, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
+    .line 537
+    invoke-direct {p0, v4, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v3
 
-    .line 540
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 538
+    .local v3, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    const-string v5, "QC_RIL_OEM_HOOK"
 
     if-eqz v4, :cond_1
 
-    .line 541
-    const-string v4, "QC_RIL_OEM_HOOK"
+    .line 539
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v6, "QCRIL_EVT_HOOK_GET_QC_VERSION_OF_FILE failed w/ "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v6, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 543
+    .line 541
     return-object v1
 
-    .line 545
+    .line 543
     :cond_1
-    iget-object v4, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     if-nez v4, :cond_2
 
-    .line 546
-    const-string v4, "QC_RIL_OEM_HOOK"
+    .line 544
+    const-string v4, "QCRIL_EVT_HOOK_GET_QC_VERSION_OF_FILE failed w/ null result"
 
-    const-string v5, "QCRIL_EVT_HOOK_GET_QC_VERSION_OF_FILE failed w/ null result"
+    invoke-static {v5, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 547
+    .line 545
     return-object v1
 
-    .line 551
+    .line 549
     :cond_2
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2985,7 +3009,7 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v4, [B
 
@@ -2997,8 +3021,8 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 552
-    iget-object v1, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 550
+    iget-object v1, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [B
 
@@ -3009,15 +3033,17 @@
     .locals 7
     .param p1, "configId"    # Ljava/lang/String;
 
-    .line 600
+    .line 598
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 601
+    .line 599
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    const/4 v1, 0x0
+    const-string v1, "QC_RIL_OEM_HOOK"
+
+    const/4 v2, 0x0
 
     if-nez v0, :cond_3
 
@@ -3025,73 +3051,71 @@
 
     move-result v0
 
-    const/16 v2, 0x7c
+    const/16 v3, 0x7c
 
-    if-le v0, v2, :cond_0
+    if-le v0, v3, :cond_0
 
     goto :goto_0
 
-    .line 606
+    .line 604
     :cond_0
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v3
 
-    add-int/2addr v0, v2
+    add-int/2addr v0, v3
 
     new-array v0, v0, [B
 
-    .line 607
+    .line 605
     .local v0, "payload":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v2
-
-    .line 608
-    .local v2, "buf":Ljava/nio/ByteBuffer;
-    nop
-
-    .line 609
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    .line 608
-    const v4, 0x8002f
-
-    invoke-direct {p0, v2, v4, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
-
-    .line 611
-    :try_start_0
-    const-string v3, "ISO-8859-1"
-
-    invoke-virtual {p1, v3}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
-
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    .line 606
+    .local v3, "buf":Ljava/nio/ByteBuffer;
+    nop
+
+    .line 607
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    .line 606
+    const v5, 0x8002f
+
+    invoke-direct {p0, v3, v5, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
+
+    .line 609
+    :try_start_0
+    const-string v4, "ISO-8859-1"
+
+    invoke-virtual {p1, v4}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 615
+    .line 613
     nop
 
+    .line 615
+    invoke-direct {p0, v5, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
+
+    move-result-object v4
+
+    .line 616
+    .local v4, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    if-eqz v5, :cond_1
+
     .line 617
-    invoke-direct {p0, v4, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
-
-    move-result-object v3
-
-    .line 618
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
-
-    if-eqz v4, :cond_1
-
-    .line 619
-    const-string v4, "QC_RIL_OEM_HOOK"
-
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -3100,7 +3124,7 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v6, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -3108,155 +3132,36 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 619
+    return-object v2
 
     .line 621
-    return-object v1
-
-    .line 623
     :cond_1
-    iget-object v4, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
-    if-nez v4, :cond_2
+    if-nez v5, :cond_2
 
-    .line 624
-    const-string v4, "QC_RIL_OEM_HOOK"
-
+    .line 622
     const-string v5, "QCRIL_EVT_HOOK_GET_QC_VERSION_OF_ID failed w/ null result"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 625
-    return-object v1
+    .line 623
+    return-object v2
 
-    .line 629
+    .line 627
     :cond_2
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "QCRIL_EVT_HOOK_GET_QC_VERSION_OF_ID returned w/ "
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v4, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
-
-    check-cast v4, [B
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
-
-    .line 630
-    iget-object v1, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
-
-    check-cast v1, [B
-
-    return-object v1
-
-    .line 612
-    .end local v3    # "ar":Landroid/os/AsyncResult;
-    :catch_0
-    move-exception v3
-
-    .line 613
-    .local v3, "e":Ljava/io/UnsupportedEncodingException;
-    const-string v4, "unsupport ISO-8859-1"
-
-    invoke-direct {p0, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
-
-    .line 614
-    return-object v1
-
-    .line 602
-    .end local v0    # "payload":[B
-    .end local v2    # "buf":Ljava/nio/ByteBuffer;
-    .end local v3    # "e":Ljava/io/UnsupportedEncodingException;
-    :cond_3
-    :goto_0
-    const-string v0, "QC_RIL_OEM_HOOK"
-
-    const-string v2, "invalid config id"
-
-    invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 603
-    return-object v1
-.end method
-
-.method public qcRilGetSlotStatus()[B
-    .locals 5
-
-    .line 1593
-    const v0, 0x800da
-
-    invoke-virtual {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Landroid/os/AsyncResult;
-
-    move-result-object v0
-
-    .line 1594
-    .local v0, "ar":Landroid/os/AsyncResult;
-    iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
-
-    const/4 v2, 0x0
-
-    if-eqz v1, :cond_0
-
-    .line 1595
-    const-string v1, "QC_RIL_OEM_HOOK"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "QCRIL_EVT_HOOK_GET_SLOTS_STATUS_REQ failed w/ "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v4, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v1, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1597
-    return-object v2
-
-    .line 1599
-    :cond_0
-    iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
-
-    if-nez v1, :cond_1
-
-    .line 1600
-    const-string v1, "QC_RIL_OEM_HOOK"
-
-    const-string v3, "QCRIL_EVT_HOOK_GET_SLOTS_STATUS_REQ failed w/ null result"
-
-    invoke-static {v1, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1601
-    return-object v2
-
-    .line 1605
-    :cond_1
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "QCRIL_EVT_HOOK_GET_SLOTS_STATUS_REQ returned w/ "
+    const-string v2, "QCRIL_EVT_HOOK_GET_QC_VERSION_OF_ID returned w/ "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v2, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v2, [B
 
@@ -3268,8 +3173,121 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 1606
-    iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 628
+    iget-object v1, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
+
+    check-cast v1, [B
+
+    return-object v1
+
+    .line 610
+    .end local v4    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    :catch_0
+    move-exception v1
+
+    .line 611
+    .local v1, "e":Ljava/io/UnsupportedEncodingException;
+    const-string v4, "unsupport ISO-8859-1"
+
+    invoke-direct {p0, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
+
+    .line 612
+    return-object v2
+
+    .line 600
+    .end local v0    # "payload":[B
+    .end local v1    # "e":Ljava/io/UnsupportedEncodingException;
+    .end local v3    # "buf":Ljava/nio/ByteBuffer;
+    :cond_3
+    :goto_0
+    const-string v0, "invalid config id"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 601
+    return-object v2
+.end method
+
+.method public qcRilGetSlotStatus()[B
+    .locals 5
+
+    .line 1616
+    const v0, 0x800da
+
+    invoke-virtual {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
+
+    move-result-object v0
+
+    .line 1617
+    .local v0, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v1, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    const/4 v2, 0x0
+
+    const-string v3, "QC_RIL_OEM_HOOK"
+
+    if-eqz v1, :cond_0
+
+    .line 1618
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "QCRIL_EVT_HOOK_GET_SLOTS_STATUS_REQ failed w/ "
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v4, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1620
+    return-object v2
+
+    .line 1622
+    :cond_0
+    iget-object v1, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
+
+    if-nez v1, :cond_1
+
+    .line 1623
+    const-string v1, "QCRIL_EVT_HOOK_GET_SLOTS_STATUS_REQ failed w/ null result"
+
+    invoke-static {v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1624
+    return-object v2
+
+    .line 1628
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "QCRIL_EVT_HOOK_GET_SLOTS_STATUS_REQ returned w/ "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
+
+    check-cast v2, [B
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
+
+    .line 1629
+    iget-object v1, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [B
 
@@ -3279,46 +3297,48 @@
 .method public qcRilGetTuneAway()Z
     .locals 7
 
-    .line 1036
+    .line 1059
     const/4 v0, 0x0
 
-    .line 1038
+    .line 1061
     .local v0, "tuneAway":Z
     const v1, 0x80006
 
-    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
-    .line 1040
-    .local v1, "ar":Landroid/os/AsyncResult;
-    iget-object v2, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1063
+    .local v1, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    const-string v3, "QC_RIL_OEM_HOOK"
 
     if-nez v2, :cond_2
 
-    .line 1041
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1064
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     if-eqz v2, :cond_1
 
-    .line 1042
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1065
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v2, [B
 
-    .line 1043
+    .line 1066
     .local v2, "response":[B
     invoke-static {v2}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v3
 
-    .line 1044
+    .line 1067
     .local v3, "byteBuffer":Ljava/nio/ByteBuffer;
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v4
 
-    .line 1045
+    .line 1068
     .local v4, "tuneAwayValue":B
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -3336,107 +3356,103 @@
 
     invoke-direct {p0, v5}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1047
+    .line 1070
     const/4 v5, 0x1
 
     if-ne v4, v5, :cond_0
 
-    .line 1048
+    .line 1071
     const/4 v0, 0x1
 
-    .line 1050
+    .line 1073
     .end local v2    # "response":[B
     .end local v3    # "byteBuffer":Ljava/nio/ByteBuffer;
     .end local v4    # "tuneAwayValue":B
     :cond_0
     goto :goto_0
 
-    .line 1051
+    .line 1074
     :cond_1
-    const-string v2, "QC_RIL_OEM_HOOK"
+    const-string v2, "qcRilGetTuneAway: Null Response"
 
-    const-string v3, "qcRilGetTuneAway: Null Response"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 1054
+    .line 1077
     :cond_2
-    const-string v2, "QC_RIL_OEM_HOOK"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v4, "qcRilGetTuneAway: Exception "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v4, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1056
+    .line 1079
     :goto_0
     return v0
 .end method
 
 .method public qcRilGoDormant(Ljava/lang/String;)Z
-    .locals 5
+    .locals 4
     .param p1, "interfaceName"    # Ljava/lang/String;
 
-    .line 943
+    .line 966
     const/4 v0, 0x0
 
-    .line 944
+    .line 967
     .local v0, "retval":Z
     const v1, 0x80003
 
-    invoke-virtual {p0, v1, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(ILjava/lang/String;)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v1, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(ILjava/lang/String;)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
-    .line 946
-    .local v1, "result":Landroid/os/AsyncResult;
-    iget-object v2, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 969
+    .local v1, "result":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v2, :cond_0
 
-    .line 948
+    .line 971
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 950
+    .line 973
     :cond_0
-    const-string v2, "QC_RIL_OEM_HOOK"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Go Dormant Command returned Exception: "
 
-    const-string v4, "Go Dormant Command returned Exception: "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v4, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    const-string v3, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 953
+    .line 976
     :goto_0
     return v0
 .end method
@@ -3445,7 +3461,7 @@
     .locals 3
     .param p1, "phoneId"    # I
 
-    .line 1113
+    .line 1136
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3462,92 +3478,92 @@
 
     invoke-direct {p0, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1114
+    .line 1137
     new-instance v0, Lcom/qualcomm/qcrilhook/QcRilHook$2;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook$2;-><init>(Lcom/qualcomm/qcrilhook/QcRilHook;Landroid/os/Message;)V
 
-    .line 1120
+    .line 1143
     .local v0, "oemHookCb":Lcom/qualcomm/qcrilhook/OemHookCallback;
     const v2, 0x8000a
 
     invoke-virtual {p0, v2, v1, v0, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsgAsync(I[BLcom/qualcomm/qcrilhook/OemHookCallback;I)V
 
-    .line 1122
+    .line 1145
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method public qcRilPerformIncrManualScan(I)Z
-    .locals 7
+    .locals 6
     .param p1, "phoneId"    # I
 
-    .line 1205
+    .line 1228
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1206
+    .line 1229
     const/4 v0, 0x0
 
-    .line 1207
+    .line 1230
     .local v0, "retval":Z
     iget v1, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     new-array v1, v1, [B
 
-    .line 1209
+    .line 1232
     .local v1, "request":[B
     invoke-static {v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 1211
+    .line 1234
     .local v2, "reqBuffer":Ljava/nio/ByteBuffer;
     const v3, 0x80012
 
     invoke-direct {p0, v2, v3, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1213
-    invoke-direct {p0, v3, v1, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1236
+    invoke-direct {p0, v3, v1, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v3
 
-    .line 1216
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1239
+    .local v3, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v4, :cond_0
 
-    .line 1217
+    .line 1240
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1219
+    .line 1242
     :cond_0
-    const-string v4, "QC_RIL_OEM_HOOK"
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v5, "QCRIL perform incr manual scan returned exception "
 
-    const-string v6, "QCRIL perform incr manual scan returned exception "
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v5, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v6, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v5
+    const-string v5, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1222
+    .line 1245
     :goto_0
     return v0
 .end method
@@ -3557,7 +3573,7 @@
     .param p1, "config"    # Ljava/lang/String;
     .param p2, "subMask"    # I
 
-    .line 840
+    .line 863
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->qcRilSelectConfig(Ljava/lang/String;II)Z
@@ -3568,187 +3584,181 @@
 .end method
 
 .method public qcRilSelectConfig(Ljava/lang/String;II)Z
-    .locals 6
+    .locals 8
     .param p1, "config"    # Ljava/lang/String;
     .param p2, "subMask"    # I
     .param p3, "mbnType"    # I
 
-    .line 855
+    .line 878
+    const-string v0, "ISO-8859-1"
+
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 856
-    const/4 v0, 0x0
+    .line 879
+    const/4 v1, 0x0
 
-    .line 857
-    .local v0, "payload":[B
+    .line 880
+    .local v1, "payload":[B
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x0
+    const-string v3, "QC_RIL_OEM_HOOK"
 
-    if-nez v1, :cond_1
+    const/4 v4, 0x0
+
+    if-nez v2, :cond_1
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    const/16 v3, 0x7c
+    const/16 v5, 0x7c
 
-    if-gt v1, v3, :cond_1
+    if-gt v2, v5, :cond_1
 
-    .line 859
+    .line 882
     :try_start_0
-    iget v1, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
+    iget v2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
-    add-int/2addr v1, v3
+    add-int/2addr v2, v5
 
-    add-int/lit8 v1, v1, 0x4
+    add-int/lit8 v2, v2, 0x4
 
-    const-string v4, "ISO-8859-1"
+    .line 883
+    invoke-virtual {p1, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    .line 860
-    invoke-virtual {p1, v4}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    move-result-object v6
 
-    move-result-object v4
+    array-length v6, v6
 
-    array-length v4, v4
+    add-int/2addr v2, v6
 
-    add-int/2addr v1, v4
+    new-array v2, v2, [B
 
-    new-array v1, v1, [B
+    move-object v1, v2
 
-    move-object v0, v1
+    .line 884
+    invoke-static {v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
-    .line 861
-    invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
+    move-result-object v2
 
-    move-result-object v1
+    .line 885
+    .local v2, "buf":Ljava/nio/ByteBuffer;
+    nop
 
-    .line 862
-    .local v1, "buf":Ljava/nio/ByteBuffer;
-    const/4 v4, 0x5
+    .line 886
+    invoke-virtual {p1, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    const-string v5, "ISO-8859-1"
+    move-result-object v6
 
-    .line 863
-    invoke-virtual {p1, v5}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    array-length v6, v6
 
-    move-result-object v5
+    add-int/lit8 v6, v6, 0x5
 
-    array-length v5, v5
+    .line 885
+    const v7, 0x80020
 
-    add-int/2addr v4, v5
+    invoke-direct {p0, v2, v7, v6}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 862
-    const v5, 0x80020
+    .line 887
+    int-to-byte v6, p2
 
-    invoke-direct {p0, v1, v5, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
+    invoke-virtual {v2, v6}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 864
-    int-to-byte v4, p2
+    .line 888
+    invoke-virtual {v2, p3}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1, v4}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+    .line 889
+    invoke-virtual {p1, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    .line 865
-    invoke-virtual {v1, p3}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    move-result-object v0
 
-    .line 866
-    const-string v4, "ISO-8859-1"
-
-    invoke-virtual {p1, v4}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
-
-    move-result-object v4
-
-    invoke-virtual {v1, v4}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v2, v0}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 870
-    .end local v1    # "buf":Ljava/nio/ByteBuffer;
+    .line 893
     nop
 
-    .line 872
-    invoke-direct {p0, v5, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
+    .line 895
+    .end local v2    # "buf":Ljava/nio/ByteBuffer;
+    invoke-direct {p0, v7, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 873
-    .local v1, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 896
+    .local v0, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v2, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-eqz v4, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 874
-    const-string v3, "QC_RIL_OEM_HOOK"
+    .line 897
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v5, "QCRIL_EVT_HOOK_SEL_CONFIG failed w/ "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v5, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v5, v0, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 876
-    return v2
+    .line 899
+    return v4
 
-    .line 878
-    .end local v1    # "ar":Landroid/os/AsyncResult;
+    .line 901
+    .end local v0    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     :cond_0
     nop
 
-    .line 882
-    return v3
+    .line 905
+    return v5
 
-    .line 867
+    .line 890
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    .line 868
-    .local v1, "e":Ljava/io/UnsupportedEncodingException;
-    const-string v3, "unsupport ISO-8859-1"
+    .line 891
+    .local v0, "e":Ljava/io/UnsupportedEncodingException;
+    const-string v2, "unsupport ISO-8859-1"
 
-    invoke-direct {p0, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
+    invoke-direct {p0, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 869
-    return v2
+    .line 892
+    return v4
 
-    .line 879
-    .end local v1    # "e":Ljava/io/UnsupportedEncodingException;
+    .line 902
+    .end local v0    # "e":Ljava/io/UnsupportedEncodingException;
     :cond_1
-    const-string v1, "QC_RIL_OEM_HOOK"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "select with incorrect config id: "
 
-    const-string v4, "select with incorrect config id: "
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v3
+    invoke-static {v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 880
-    return v2
+    .line 903
+    return v4
 .end method
 
 .method public qcRilSendApnInfo(Ljava/lang/String;Ljava/lang/String;II)V
@@ -3758,13 +3768,13 @@
     .param p3, "isValid"    # I
     .param p4, "phoneId"    # I
 
-    .line 1443
+    .line 1466
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1444
+    .line 1467
     const v0, 0x8002a
 
-    .line 1445
+    .line 1468
     .local v0, "requestId":I
     new-instance v1, Lcom/qualcomm/qcrilhook/QcRilHook$5;
 
@@ -3772,7 +3782,7 @@
 
     invoke-direct {v1, p0, v2}, Lcom/qualcomm/qcrilhook/QcRilHook$5;-><init>(Lcom/qualcomm/qcrilhook/QcRilHook;Landroid/os/Message;)V
 
-    .line 1451
+    .line 1474
     .local v1, "oemHookCb":Lcom/qualcomm/qcrilhook/OemHookCallback;
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
@@ -3780,56 +3790,54 @@
 
     array-length v2, v2
 
-    const/16 v3, 0xc
+    add-int/lit8 v2, v2, 0xc
 
-    add-int/2addr v3, v2
-
-    .line 1452
+    .line 1475
     invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v2
+    move-result-object v3
 
-    array-length v2, v2
-
-    add-int/2addr v3, v2
-
-    add-int/lit8 v3, v3, 0x2
-
-    .line 1453
-    .local v3, "payloadSize":I
-    const/16 v2, 0x400
-
-    if-le v3, v2, :cond_0
-
-    .line 1454
-    const-string v2, "QC_RIL_OEM_HOOK"
-
-    const-string v4, "APN sent is larger than maximum buffer. Bail out"
-
-    invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1455
-    return-void
-
-    .line 1457
-    :cond_0
-    iget v2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
+    array-length v3, v3
 
     add-int/2addr v2, v3
 
-    new-array v2, v2, [B
+    add-int/lit8 v2, v2, 0x2
 
-    .line 1458
-    .local v2, "request":[B
-    invoke-static {v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
+    .line 1476
+    .local v2, "payloadSize":I
+    const/16 v3, 0x400
+
+    if-le v2, v3, :cond_0
+
+    .line 1477
+    const-string v3, "QC_RIL_OEM_HOOK"
+
+    const-string v4, "APN sent is larger than maximum buffer. Bail out"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1478
+    return-void
+
+    .line 1480
+    :cond_0
+    iget v3, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
+
+    add-int/2addr v3, v2
+
+    new-array v3, v3, [B
+
+    .line 1481
+    .local v3, "request":[B
+    invoke-static {v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v4
 
-    .line 1459
+    .line 1482
     .local v4, "reqBuffer":Ljava/nio/ByteBuffer;
-    invoke-direct {p0, v4, v0, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
+    invoke-direct {p0, v4, v0, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1460
+    .line 1483
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v5
@@ -3840,19 +3848,19 @@
 
     invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1461
+    .line 1484
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v5
 
     invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 1462
+    .line 1485
     const/4 v5, 0x0
 
     invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 1463
+    .line 1486
     invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v6
@@ -3863,43 +3871,43 @@
 
     invoke-virtual {v4, v6}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1464
+    .line 1487
     invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v6
 
     invoke-virtual {v4, v6}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 1465
+    .line 1488
     invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 1466
+    .line 1489
     invoke-virtual {v4, p3}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1467
-    invoke-direct {p0, v0, v2, v1, p4}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsgAsync(I[BLcom/qualcomm/qcrilhook/IOemHookCallback;I)V
+    .line 1490
+    invoke-direct {p0, v0, v3, v1, p4}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsgAsync(I[BLcom/qualcomm/qcrilhook/IOemHookCallback;I)V
 
-    .line 1468
+    .line 1491
     return-void
 .end method
 
 .method public qcRilSendDDSInfo(III)Z
-    .locals 8
+    .locals 7
     .param p1, "dds"    # I
     .param p2, "reason"    # I
     .param p3, "phoneId"    # I
 
-    .line 1471
+    .line 1494
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1472
+    .line 1495
     const/4 v0, 0x0
 
-    .line 1473
+    .line 1496
     .local v0, "retval":Z
     const v1, 0x80027
 
-    .line 1474
+    .line 1497
     .local v1, "requestId":I
     iget v2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -3909,13 +3917,13 @@
 
     new-array v2, v2, [B
 
-    .line 1475
+    .line 1498
     .local v2, "request":[B
     invoke-static {v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v4
 
-    .line 1477
+    .line 1500
     .local v4, "reqBuffer":Ljava/nio/ByteBuffer;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -3939,54 +3947,54 @@
 
     invoke-direct {p0, v5}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1478
+    .line 1501
     invoke-direct {p0, v4, v1, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1479
+    .line 1502
     invoke-virtual {v4, p1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1480
+    .line 1503
     invoke-virtual {v4, p2}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1482
-    invoke-direct {p0, v1, v2, p3}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1505
+    invoke-direct {p0, v1, v2, p3}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v3
 
-    .line 1483
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v5, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1506
+    .local v3, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v5, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v5, :cond_0
 
-    .line 1484
+    .line 1507
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1486
+    .line 1509
     :cond_0
-    const-string v5, "QC_RIL_OEM_HOOK"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v6, "QCRIL send dds sub info returned exception: "
 
-    const-string v7, "QCRIL send dds sub info returned exception: "
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v6, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v7, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v6
+    const-string v6, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1488
+    .line 1511
     :goto_0
     return v0
 .end method
@@ -3996,13 +4004,13 @@
     .param p1, "enable"    # I
     .param p2, "phoneId"    # I
 
-    .line 1383
+    .line 1406
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1384
+    .line 1407
     const v0, 0x80028
 
-    .line 1385
+    .line 1408
     .local v0, "requestId":I
     new-instance v1, Lcom/qualcomm/qcrilhook/QcRilHook$3;
 
@@ -4010,7 +4018,7 @@
 
     invoke-direct {v1, p0, v2}, Lcom/qualcomm/qcrilhook/QcRilHook$3;-><init>(Lcom/qualcomm/qcrilhook/QcRilHook;Landroid/os/Message;)V
 
-    .line 1391
+    .line 1414
     .local v1, "oemHookCb":Lcom/qualcomm/qcrilhook/OemHookCallback;
     iget v2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -4020,23 +4028,23 @@
 
     new-array v2, v2, [B
 
-    .line 1392
+    .line 1415
     .local v2, "request":[B
     invoke-static {v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v4
 
-    .line 1393
+    .line 1416
     .local v4, "reqBuffer":Ljava/nio/ByteBuffer;
     invoke-direct {p0, v4, v0, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1394
+    .line 1417
     invoke-virtual {v4, p1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1395
+    .line 1418
     invoke-direct {p0, v0, v2, v1, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsgAsync(I[BLcom/qualcomm/qcrilhook/IOemHookCallback;I)V
 
-    .line 1396
+    .line 1419
     return-void
 .end method
 
@@ -4045,13 +4053,13 @@
     .param p1, "enable"    # I
     .param p2, "phoneId"    # I
 
-    .line 1409
+    .line 1432
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1410
+    .line 1433
     const v0, 0x80029
 
-    .line 1411
+    .line 1434
     .local v0, "requestId":I
     new-instance v1, Lcom/qualcomm/qcrilhook/QcRilHook$4;
 
@@ -4059,7 +4067,7 @@
 
     invoke-direct {v1, p0, v2}, Lcom/qualcomm/qcrilhook/QcRilHook$4;-><init>(Lcom/qualcomm/qcrilhook/QcRilHook;Landroid/os/Message;)V
 
-    .line 1417
+    .line 1440
     .local v1, "oemHookCb":Lcom/qualcomm/qcrilhook/OemHookCallback;
     iget v2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -4069,23 +4077,23 @@
 
     new-array v2, v2, [B
 
-    .line 1418
+    .line 1441
     .local v2, "request":[B
     invoke-static {v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v4
 
-    .line 1419
+    .line 1442
     .local v4, "reqBuffer":Ljava/nio/ByteBuffer;
     invoke-direct {p0, v4, v0, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1420
+    .line 1443
     invoke-virtual {v4, p1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1421
+    .line 1444
     invoke-direct {p0, v0, v2, v1, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsgAsync(I[BLcom/qualcomm/qcrilhook/IOemHookCallback;I)V
 
-    .line 1422
+    .line 1445
     return-void
 .end method
 
@@ -4094,10 +4102,10 @@
     .param p1, "protocolBuffer"    # [B
     .param p2, "phoneId"    # I
 
-    .line 999
+    .line 1022
     const/4 v0, 0x0
 
-    .line 1000
+    .line 1023
     .local v0, "returnValue":[B
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -4119,62 +4127,60 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 1002
+    .line 1025
     const v1, 0x80065
 
-    invoke-virtual {p0, v1, p1, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I[BI)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v1, p1, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
-    .line 1004
-    .local v1, "ar":Landroid/os/AsyncResult;
-    iget-object v2, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1027
+    .local v1, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    const-string v3, "QC_RIL_OEM_HOOK"
 
     if-eqz v2, :cond_0
 
-    .line 1005
-    const-string v2, "QC_RIL_OEM_HOOK"
+    .line 1028
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v4, "qcRilSendProtoBufMessage: Exception "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v4, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1006
+    .line 1029
     return-object v0
 
-    .line 1008
+    .line 1031
     :cond_0
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     if-nez v2, :cond_1
 
-    .line 1009
-    const-string v2, "QC_RIL_OEM_HOOK"
+    .line 1032
+    const-string v2, "QCRIL_EVT_HOOK_PROTOBUF_MSG returned null"
 
-    const-string v3, "QCRIL_EVT_HOOK_PROTOBUF_MSG returned null"
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1010
+    .line 1033
     return-object v0
 
-    .line 1012
+    .line 1035
     :cond_1
-    iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    iget-object v2, v1, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v2, [B
 
@@ -4186,13 +4192,13 @@
     .param p1, "cdmaSubscription"    # I
     .param p2, "spc"    # Ljava/lang/String;
 
-    .line 957
+    .line 980
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 958
+    .line 981
     const/4 v0, 0x0
 
-    .line 960
+    .line 983
     .local v0, "retval":Z
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -4210,10 +4216,12 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 962
+    .line 985
     invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
+
+    const-string v2, "QC_RIL_OEM_HOOK"
 
     if-nez v1, :cond_4
 
@@ -4221,76 +4229,76 @@
 
     move-result v1
 
-    const/4 v2, 0x6
+    const/4 v3, 0x6
 
-    if-gt v1, v2, :cond_4
+    if-gt v1, v3, :cond_4
 
-    .line 964
+    .line 987
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    add-int/2addr v1, v2
+    add-int/2addr v1, v3
 
     new-array v1, v1, [B
 
-    .line 969
+    .line 992
     .local v1, "payload":[B
     invoke-static {v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v3
+    move-result-object v4
 
-    .line 970
-    .local v3, "buf":Ljava/nio/ByteBuffer;
-    int-to-byte v4, p1
+    .line 993
+    .local v4, "buf":Ljava/nio/ByteBuffer;
+    int-to-byte v5, p1
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 971
+    .line 994
     invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 973
-    const v4, 0x8000b
+    .line 996
+    const v5, 0x8000b
 
-    invoke-virtual {p0, v4, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I[B)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v5, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 
-    move-result-object v4
+    move-result-object v5
 
-    .line 975
-    .local v4, "ar":Landroid/os/AsyncResult;
-    iget-object v5, v4, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 998
+    .local v5, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v6, v5, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-nez v5, :cond_2
+    if-nez v6, :cond_2
 
-    .line 976
-    iget-object v5, v4, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 999
+    iget-object v2, v5, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
-    if-eqz v5, :cond_3
+    if-eqz v2, :cond_3
 
-    .line 977
-    iget-object v5, v4, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+    .line 1000
+    iget-object v2, v5, Lorg/codeaurora/telephony/utils/AsyncResult;->result:Ljava/lang/Object;
 
-    check-cast v5, [B
+    check-cast v2, [B
 
-    .line 978
-    .local v5, "result":[B
-    invoke-static {v5}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
+    .line 1001
+    .local v2, "result":[B
+    invoke-static {v2}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v6
 
-    .line 979
+    .line 1002
     .local v6, "byteBuf":Ljava/nio/ByteBuffer;
     invoke-virtual {v6}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v7
 
-    .line 980
+    .line 1003
     .local v7, "succeed":B
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -4300,8 +4308,8 @@
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 981
-    if-ne v7, v2, :cond_0
+    .line 1004
+    if-ne v7, v3, :cond_0
 
     const-string v9, "Succeed."
 
@@ -4317,79 +4325,75 @@
 
     move-result-object v8
 
-    .line 980
+    .line 1003
     invoke-direct {p0, v8}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 982
-    if-ne v7, v2, :cond_1
+    .line 1005
+    if-ne v7, v3, :cond_1
 
-    .line 983
+    .line 1006
     const/4 v0, 0x1
 
     goto :goto_1
 
-    .line 985
+    .line 1008
     :cond_1
     const/4 v0, 0x0
 
-    .line 987
-    .end local v5    # "result":[B
+    .line 1010
+    .end local v2    # "result":[B
     .end local v6    # "byteBuf":Ljava/nio/ByteBuffer;
     .end local v7    # "succeed":B
     :goto_1
     goto :goto_2
 
-    .line 989
+    .line 1012
     :cond_2
-    const-string v2, "QC_RIL_OEM_HOOK"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v6, "QCRIL Set Cdma Subscription Source Command returned Exception: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, v4, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v6, v5, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-static {v2, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 992
+    .line 1015
     .end local v1    # "payload":[B
-    .end local v3    # "buf":Ljava/nio/ByteBuffer;
-    .end local v4    # "ar":Landroid/os/AsyncResult;
+    .end local v4    # "buf":Ljava/nio/ByteBuffer;
+    .end local v5    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     :cond_3
     :goto_2
     goto :goto_3
 
-    .line 993
+    .line 1016
     :cond_4
-    const-string v1, "QC_RIL_OEM_HOOK"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v3, "QCRIL Set Cdma Subscription Source Command incorrect SPC: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 995
+    .line 1018
     :goto_3
     return v0
 .end method
@@ -4398,7 +4402,7 @@
     .locals 1
     .param p1, "file"    # Ljava/lang/String;
 
-    .line 502
+    .line 500
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, p1, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->qcRilSetConfig(Ljava/lang/String;Ljava/lang/String;I)Z
@@ -4413,7 +4417,7 @@
     .param p1, "file"    # Ljava/lang/String;
     .param p2, "subMask"    # I
 
-    .line 517
+    .line 515
     invoke-virtual {p0, p1, p1, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->qcRilSetConfig(Ljava/lang/String;Ljava/lang/String;I)Z
 
     move-result v0
@@ -4427,7 +4431,7 @@
     .param p2, "config"    # Ljava/lang/String;
     .param p3, "subMask"    # I
 
-    .line 436
+    .line 434
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->qcRilSetConfig(Ljava/lang/String;Ljava/lang/String;II)Z
@@ -4444,15 +4448,17 @@
     .param p3, "subMask"    # I
     .param p4, "mbnType"    # I
 
-    .line 453
+    .line 451
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 454
+    .line 452
     invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    const/4 v1, 0x0
+    const-string v1, "QC_RIL_OEM_HOOK"
+
+    const/4 v2, 0x0
 
     if-nez v0, :cond_1
 
@@ -4460,117 +4466,115 @@
 
     move-result v0
 
-    const/16 v2, 0x7c
+    const/16 v3, 0x7c
 
-    if-gt v0, v2, :cond_1
+    if-gt v0, v3, :cond_1
 
-    .line 455
+    .line 453
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 456
+    .line 454
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     add-int/lit8 v0, v0, 0x3
 
     add-int/lit8 v0, v0, 0x4
 
-    .line 457
+    .line 455
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v3
 
-    add-int/2addr v0, v2
+    add-int/2addr v0, v3
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v3
 
-    add-int/2addr v0, v2
+    add-int/2addr v0, v3
 
     new-array v0, v0, [B
 
-    .line 458
+    .line 456
     .local v0, "payload":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v2
+    move-result-object v3
 
-    .line 463
-    .local v2, "buf":Ljava/nio/ByteBuffer;
-    const/4 v3, 0x7
+    .line 461
+    .local v3, "buf":Ljava/nio/ByteBuffer;
+    nop
 
-    .line 464
+    .line 462
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    add-int/2addr v3, v4
+    add-int/lit8 v4, v4, 0x7
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v5
 
-    add-int/2addr v3, v4
+    add-int/2addr v4, v5
+
+    .line 461
+    const v5, 0x80015
+
+    invoke-direct {p0, v3, v5, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
     .line 463
-    const v4, 0x80015
+    int-to-byte v4, p3
 
-    invoke-direct {p0, v2, v4, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
+    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+
+    .line 464
+    invoke-virtual {v3, p4}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
     .line 465
-    int-to-byte v3, p3
-
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
-
-    .line 466
-    invoke-virtual {v2, p4}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
-
-    .line 467
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+
+    .line 466
+    invoke-virtual {v3, v2}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
     .line 468
-    invoke-virtual {v2, v1}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
-
-    .line 470
     :try_start_0
-    const-string v3, "ISO-8859-1"
+    const-string v4, "ISO-8859-1"
 
-    invoke-virtual {p2, v3}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    invoke-virtual {p2, v4}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 474
+    .line 472
     nop
 
+    .line 473
+    invoke-virtual {v3, v2}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+
     .line 475
-    invoke-virtual {v2, v1}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+    invoke-direct {p0, v5, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
+
+    move-result-object v4
+
+    .line 476
+    .local v4, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    if-eqz v5, :cond_0
 
     .line 477
-    invoke-direct {p0, v4, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
-
-    move-result-object v3
-
-    .line 478
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
-
-    if-eqz v4, :cond_0
-
-    .line 479
-    const-string v4, "QC_RIL_OEM_HOOK"
-
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -4579,7 +4583,7 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v6, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -4587,78 +4591,76 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 479
+    return v2
 
     .line 481
-    return v1
-
-    .line 483
     .end local v0    # "payload":[B
-    .end local v2    # "buf":Ljava/nio/ByteBuffer;
-    .end local v3    # "ar":Landroid/os/AsyncResult;
+    .end local v3    # "buf":Ljava/nio/ByteBuffer;
+    .end local v4    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     :cond_0
     nop
 
-    .line 488
+    .line 486
     const/4 v0, 0x1
 
     return v0
 
-    .line 471
+    .line 469
     .restart local v0    # "payload":[B
-    .restart local v2    # "buf":Ljava/nio/ByteBuffer;
+    .restart local v3    # "buf":Ljava/nio/ByteBuffer;
     :catch_0
-    move-exception v3
+    move-exception v1
 
-    .line 472
-    .local v3, "e":Ljava/io/UnsupportedEncodingException;
+    .line 470
+    .local v1, "e":Ljava/io/UnsupportedEncodingException;
     const-string v4, "unsupport ISO-8859-1"
 
     invoke-direct {p0, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 473
-    return v1
+    .line 471
+    return v2
 
-    .line 484
+    .line 482
     .end local v0    # "payload":[B
-    .end local v2    # "buf":Ljava/nio/ByteBuffer;
-    .end local v3    # "e":Ljava/io/UnsupportedEncodingException;
+    .end local v1    # "e":Ljava/io/UnsupportedEncodingException;
+    .end local v3    # "buf":Ljava/nio/ByteBuffer;
     :cond_1
-    const-string v0, "QC_RIL_OEM_HOOK"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v3, "set with incorrect config id: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 485
-    return v1
+    .line 483
+    return v2
 .end method
 
 .method public qcRilSetFieldTestMode(IBI)Z
-    .locals 7
+    .locals 6
     .param p1, "phoneId"    # I
     .param p2, "ratType"    # B
     .param p3, "enable"    # I
 
-    .line 1139
+    .line 1162
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1140
+    .line 1163
     const/4 v0, 0x0
 
-    .line 1142
+    .line 1165
     .local v0, "retval":Z
     iget v1, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -4666,13 +4668,13 @@
 
     new-array v1, v1, [B
 
-    .line 1143
+    .line 1166
     .local v1, "request":[B
     invoke-static {v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 1145
+    .line 1168
     .local v2, "reqBuffer":Ljava/nio/ByteBuffer;
     const v3, 0x80013
 
@@ -4680,13 +4682,13 @@
 
     invoke-direct {p0, v2, v3, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1146
+    .line 1169
     invoke-virtual {v2, p2}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1147
+    .line 1170
     invoke-virtual {v2, p3}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1148
+    .line 1171
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -4709,69 +4711,69 @@
 
     invoke-direct {p0, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1149
-    invoke-direct {p0, v3, v1, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1172
+    invoke-direct {p0, v3, v1, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v3
 
-    .line 1151
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1174
+    .local v3, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v4, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v4, :cond_0
 
-    .line 1152
+    .line 1175
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1154
+    .line 1177
     :cond_0
-    const-string v4, "QC_RIL_OEM_HOOK"
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v5, "QCRIL enable engineer mode cmd returned exception: "
 
-    const-string v6, "QCRIL enable engineer mode cmd returned exception: "
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v5, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v6, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v5
+    const-string v5, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1157
+    .line 1180
     :goto_0
     return v0
 .end method
 
 .method public qcRilSetLteTuneaway(ZI)Z
-    .locals 9
+    .locals 8
     .param p1, "enable"    # Z
     .param p2, "phoneId"    # I
 
-    .line 1350
+    .line 1373
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1351
+    .line 1374
     const/4 v0, 0x0
 
-    .line 1352
+    .line 1375
     .local v0, "retval":Z
     move v1, p1
 
-    .line 1353
+    .line 1376
     .local v1, "tuneaway":B
     const v2, 0x8002b
 
-    .line 1354
+    .line 1377
     .local v2, "requestId":I
     iget v3, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -4781,13 +4783,13 @@
 
     new-array v3, v3, [B
 
-    .line 1355
+    .line 1378
     .local v3, "request":[B
     invoke-static {v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v5
 
-    .line 1358
+    .line 1381
     .local v5, "reqBuffer":Ljava/nio/ByteBuffer;
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -4805,71 +4807,71 @@
 
     invoke-direct {p0, v6}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1359
+    .line 1382
     invoke-direct {p0, v5, v2, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1360
+    .line 1383
     invoke-virtual {v5, v1}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 1362
-    invoke-direct {p0, v2, v3, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1385
+    invoke-direct {p0, v2, v3, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v4
 
-    .line 1363
-    .local v4, "ar":Landroid/os/AsyncResult;
-    iget-object v6, v4, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1386
+    .local v4, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v6, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v6, :cond_0
 
-    .line 1364
+    .line 1387
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1366
+    .line 1389
     :cond_0
-    const-string v6, "QC_RIL_OEM_HOOK"
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v7, "QCRIL set lte tune away returned exception: "
 
-    const-string v8, "QCRIL set lte tune away returned exception: "
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v7, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v8, v4, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v7
+    const-string v7, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1369
+    .line 1392
     :goto_0
     return v0
 .end method
 
 .method public qcRilSetPreferredNetworkAcqOrder(II)Z
-    .locals 8
+    .locals 7
     .param p1, "acqOrder"    # I
     .param p2, "phoneId"    # I
 
-    .line 1283
+    .line 1306
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1284
+    .line 1307
     const/4 v0, 0x0
 
-    .line 1285
+    .line 1308
     .local v0, "retval":Z
     const v1, 0x8001b
 
-    .line 1286
+    .line 1309
     .local v1, "requestId":I
     iget v2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -4879,13 +4881,13 @@
 
     new-array v2, v2, [B
 
-    .line 1287
+    .line 1310
     .local v2, "request":[B
     invoke-static {v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v4
 
-    .line 1290
+    .line 1313
     .local v4, "reqBuffer":Ljava/nio/ByteBuffer;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -4903,71 +4905,71 @@
 
     invoke-direct {p0, v5}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1291
+    .line 1314
     invoke-direct {p0, v4, v1, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1292
+    .line 1315
     invoke-virtual {v4, p1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1294
-    invoke-direct {p0, v1, v2, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1317
+    invoke-direct {p0, v1, v2, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v3
 
-    .line 1295
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v5, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1318
+    .local v3, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v5, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v5, :cond_0
 
-    .line 1296
+    .line 1319
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1298
+    .line 1321
     :cond_0
-    const-string v5, "QC_RIL_OEM_HOOK"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v6, "QCRIL set acq order cmd returned exception: "
 
-    const-string v7, "QCRIL set acq order cmd returned exception: "
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v6, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v7, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v6
+    const-string v6, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1301
+    .line 1324
     :goto_0
     return v0
 .end method
 
 .method public qcRilSetPreferredNetworkBandPref(II)Z
-    .locals 8
+    .locals 7
     .param p1, "bandPref"    # I
     .param p2, "phoneId"    # I
 
-    .line 1524
+    .line 1547
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1525
+    .line 1548
     const/4 v0, 0x0
 
-    .line 1526
+    .line 1549
     .local v0, "retval":Z
     const v1, 0x80025
 
-    .line 1527
+    .line 1550
     .local v1, "requestId":I
     iget v2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -4977,13 +4979,13 @@
 
     new-array v2, v2, [B
 
-    .line 1528
+    .line 1551
     .local v2, "request":[B
     invoke-static {v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v4
 
-    .line 1531
+    .line 1554
     .local v4, "reqBuffer":Ljava/nio/ByteBuffer;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -5001,63 +5003,63 @@
 
     invoke-direct {p0, v5}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1532
+    .line 1555
     invoke-direct {p0, v4, v1, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1533
+    .line 1556
     invoke-virtual {v4, p1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1535
-    invoke-direct {p0, v1, v2, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1558
+    invoke-direct {p0, v1, v2, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v3
 
-    .line 1536
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v5, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1559
+    .local v3, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v5, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v5, :cond_0
 
-    .line 1537
+    .line 1560
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1539
+    .line 1562
     :cond_0
-    const-string v5, "QC_RIL_OEM_HOOK"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v6, "QCRIL set band pref cmd returned exception: "
 
-    const-string v7, "QCRIL set band pref cmd returned exception: "
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v6, v3, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v7, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v6
+    const-string v6, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1542
+    .line 1565
     :goto_0
     return v0
 .end method
 
 .method public qcRilSetPrioritySubscription(I)Z
-    .locals 6
+    .locals 5
     .param p1, "priorityIndex"    # I
 
-    .line 1060
+    .line 1083
     const/4 v0, 0x0
 
-    .line 1061
+    .line 1084
     .local v0, "returnValue":Z
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -5075,10 +5077,10 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 1064
+    .line 1087
     int-to-byte v1, p1
 
-    .line 1065
+    .line 1088
     .local v1, "payload":B
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -5096,59 +5098,59 @@
 
     invoke-direct {p0, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 1067
+    .line 1090
     const v2, 0x80007
 
-    invoke-virtual {p0, v2, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(IB)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v2, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(IB)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v2
 
-    .line 1069
-    .local v2, "ar":Landroid/os/AsyncResult;
-    iget-object v3, v2, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1092
+    .local v2, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v3, v2, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v3, :cond_0
 
-    .line 1070
+    .line 1093
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1072
+    .line 1095
     :cond_0
-    const-string v3, "QC_RIL_OEM_HOOK"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "qcRilSetPrioritySubscription: Exception "
 
-    const-string v5, "qcRilSetPrioritySubscription: Exception "
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v4, v2, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v5, v2, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
+    const-string v4, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1074
+    .line 1097
     :goto_0
     return v0
 .end method
 
 .method public qcRilSetTuneAway(Z)Z
-    .locals 6
+    .locals 5
     .param p1, "tuneAway"    # Z
 
-    .line 1016
+    .line 1039
     const/4 v0, 0x0
 
-    .line 1017
+    .line 1040
     .local v0, "returnValue":Z
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -5166,17 +5168,17 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1019
+    .line 1042
     const/4 v1, 0x0
 
-    .line 1020
+    .line 1043
     .local v1, "payload":B
     if-eqz p1, :cond_0
 
-    .line 1021
+    .line 1044
     const/4 v1, 0x1
 
-    .line 1023
+    .line 1046
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -5194,47 +5196,47 @@
 
     invoke-direct {p0, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->logv(Ljava/lang/String;)V
 
-    .line 1025
+    .line 1048
     const v2, 0x80005
 
-    invoke-virtual {p0, v2, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(IB)Landroid/os/AsyncResult;
+    invoke-virtual {p0, v2, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(IB)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v2
 
-    .line 1027
-    .local v2, "ar":Landroid/os/AsyncResult;
-    iget-object v3, v2, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1050
+    .local v2, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v3, v2, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v3, :cond_1
 
-    .line 1028
+    .line 1051
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1030
+    .line 1053
     :cond_1
-    const-string v3, "QC_RIL_OEM_HOOK"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "qcRilSetTuneAway: Exception "
 
-    const-string v5, "qcRilSetTuneAway: Exception "
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v4, v2, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v5, v2, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
+    const-string v4, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1032
+    .line 1055
     :goto_0
     return v0
 .end method
@@ -5244,15 +5246,17 @@
     .param p1, "configId"    # Ljava/lang/String;
     .param p2, "phoneId"    # I
 
-    .line 728
+    .line 726
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 729
+    .line 727
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    const/4 v1, 0x0
+    const-string v1, "QC_RIL_OEM_HOOK"
+
+    const/4 v2, 0x0
 
     if-nez v0, :cond_2
 
@@ -5260,19 +5264,17 @@
 
     move-result v0
 
-    const/16 v2, 0x7c
+    const/16 v3, 0x7c
 
-    if-le v0, v2, :cond_0
+    if-le v0, v3, :cond_0
 
     goto :goto_0
 
-    .line 733
+    .line 731
     :cond_0
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
-    const/4 v2, 0x2
-
-    add-int/2addr v0, v2
+    add-int/lit8 v0, v0, 0x2
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -5282,65 +5284,63 @@
 
     new-array v0, v0, [B
 
-    .line 734
+    .line 732
     .local v0, "payload":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v3
 
-    .line 735
+    .line 733
     .local v3, "buf":Ljava/nio/ByteBuffer;
     const v4, 0x8002e
 
-    .line 736
+    .line 734
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v5
 
-    add-int/2addr v2, v5
+    add-int/lit8 v5, v5, 0x2
+
+    .line 733
+    invoke-direct {p0, v3, v4, v5}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
     .line 735
-    invoke-direct {p0, v3, v4, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
+    int-to-byte v4, p2
+
+    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
     .line 737
-    int-to-byte v2, p2
-
-    invoke-virtual {v3, v2}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
-
-    .line 739
     :try_start_0
-    const-string v2, "ISO-8859-1"
+    const-string v4, "ISO-8859-1"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    invoke-virtual {p1, v4}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v3, v2}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 743
+    .line 741
     nop
 
+    .line 742
+    invoke-virtual {v3, v2}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+
     .line 744
-    invoke-virtual {v3, v1}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+    const v4, 0x80021
+
+    invoke-direct {p0, v4, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
+
+    move-result-object v4
+
+    .line 745
+    .local v4, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    if-eqz v5, :cond_1
 
     .line 746
-    const v2, 0x80021
-
-    invoke-direct {p0, v2, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
-
-    move-result-object v2
-
-    .line 747
-    .local v2, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v2, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
-
-    if-eqz v4, :cond_1
-
-    .line 748
-    const-string v4, "QC_RIL_OEM_HOOK"
-
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -5349,7 +5349,7 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, v2, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v6, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -5357,45 +5357,43 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 748
+    return v2
 
     .line 750
-    return v1
-
-    .line 752
     :cond_1
     const/4 v1, 0x1
 
     return v1
 
-    .line 740
-    .end local v2    # "ar":Landroid/os/AsyncResult;
+    .line 738
+    .end local v4    # "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
     :catch_0
-    move-exception v2
+    move-exception v1
 
-    .line 741
-    .local v2, "e":Ljava/io/UnsupportedEncodingException;
+    .line 739
+    .local v1, "e":Ljava/io/UnsupportedEncodingException;
     const-string v4, "unsupport ISO-8859-1"
 
     invoke-direct {p0, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 742
-    return v1
+    .line 740
+    return v2
 
-    .line 730
+    .line 728
     .end local v0    # "payload":[B
-    .end local v2    # "e":Ljava/io/UnsupportedEncodingException;
+    .end local v1    # "e":Ljava/io/UnsupportedEncodingException;
     .end local v3    # "buf":Ljava/nio/ByteBuffer;
     :cond_2
     :goto_0
-    const-string v0, "QC_RIL_OEM_HOOK"
+    const-string v0, "invalid config id"
 
-    const-string v2, "invalid config id"
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 731
-    return v1
+    .line 729
+    return v2
 .end method
 
 .method public qcrilSetBuiltInPLMNList([BI)Z
@@ -5403,75 +5401,73 @@
     .param p1, "payload"    # [B
     .param p2, "phoneId"    # I
 
-    .line 1247
+    .line 1270
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1248
+    .line 1271
     const/4 v0, 0x0
 
-    .line 1249
+    .line 1272
     .local v0, "retval":Z
-    if-nez p1, :cond_0
-
-    .line 1250
     const-string v1, "QC_RIL_OEM_HOOK"
 
+    if-nez p1, :cond_0
+
+    .line 1273
     const-string v2, "payload is null"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1251
+    .line 1274
     const/4 v1, 0x0
 
     return v1
 
-    .line 1254
+    .line 1277
     :cond_0
-    iget v1, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
+    iget v2, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
-    array-length v2, p1
-
-    add-int/2addr v1, v2
-
-    new-array v1, v1, [B
-
-    .line 1255
-    .local v1, "request":[B
-    invoke-static {v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
-
-    move-result-object v2
-
-    .line 1257
-    .local v2, "reqBuffer":Ljava/nio/ByteBuffer;
     array-length v3, p1
 
-    const v4, 0x80011
+    add-int/2addr v2, v3
 
-    invoke-direct {p0, v2, v4, v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
+    new-array v2, v2, [B
 
-    .line 1259
-    invoke-virtual {v2, p1}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
-
-    .line 1261
-    invoke-direct {p0, v4, v1, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1278
+    .local v2, "request":[B
+    invoke-static {v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v3
 
-    .line 1263
-    .local v3, "ar":Landroid/os/AsyncResult;
-    iget-object v4, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1280
+    .local v3, "reqBuffer":Ljava/nio/ByteBuffer;
+    array-length v4, p1
 
-    if-nez v4, :cond_1
+    const v5, 0x80011
 
-    .line 1264
+    invoke-direct {p0, v3, v5, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
+
+    .line 1282
+    invoke-virtual {v3, p1}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+
+    .line 1284
+    invoke-direct {p0, v5, v2, p2}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
+
+    move-result-object v4
+
+    .line 1286
+    .local v4, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v5, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
+
+    if-nez v5, :cond_1
+
+    .line 1287
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1266
+    .line 1289
     :cond_1
-    const-string v4, "QC_RIL_OEM_HOOK"
-
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -5480,7 +5476,7 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v6, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -5488,9 +5484,9 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1269
+    .line 1292
     :goto_0
     return v0
 .end method
@@ -5501,7 +5497,7 @@
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
 
-    .line 1717
+    .line 1740
     return-void
 .end method
 
@@ -5511,67 +5507,67 @@
     .param p2, "what"    # I
     .param p3, "obj"    # Ljava/lang/Object;
 
-    .line 1707
+    .line 1730
     return-void
 .end method
 
-.method public sendQcRilHookMsg(I)Landroid/os/AsyncResult;
+.method public sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
     .locals 3
     .param p1, "requestId"    # I
 
-    .line 1610
+    .line 1633
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1611
+    .line 1634
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     new-array v0, v0, [B
 
-    .line 1612
+    .line 1635
     .local v0, "request":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
-    .line 1614
+    .line 1637
     .local v1, "reqBuffer":Ljava/nio/ByteBuffer;
     const/4 v2, 0x0
 
     invoke-direct {p0, v1, p1, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1616
-    invoke-direct {p0, p1, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
+    .line 1639
+    invoke-direct {p0, p1, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v2
 
     return-object v2
 .end method
 
-.method public sendQcRilHookMsg(IB)Landroid/os/AsyncResult;
+.method public sendQcRilHookMsg(IB)Lorg/codeaurora/telephony/utils/AsyncResult;
     .locals 1
     .param p1, "requestId"    # I
     .param p2, "payload"    # B
 
-    .line 1620
+    .line 1643
     const/4 v0, 0x0
 
-    invoke-virtual {p0, p1, p2, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(IBI)Landroid/os/AsyncResult;
+    invoke-virtual {p0, p1, p2, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(IBI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public sendQcRilHookMsg(IBI)Landroid/os/AsyncResult;
+.method public sendQcRilHookMsg(IBI)Lorg/codeaurora/telephony/utils/AsyncResult;
     .locals 3
     .param p1, "requestId"    # I
     .param p2, "payload"    # B
     .param p3, "phoneId"    # I
 
-    .line 1623
+    .line 1646
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1624
+    .line 1647
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     const/4 v1, 0x1
@@ -5580,36 +5576,36 @@
 
     new-array v0, v0, [B
 
-    .line 1625
+    .line 1648
     .local v0, "request":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 1627
+    .line 1650
     .local v2, "reqBuffer":Ljava/nio/ByteBuffer;
     invoke-direct {p0, v2, p1, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1628
+    .line 1651
     invoke-virtual {v2, p2}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 1630
-    invoke-direct {p0, p1, v0, p3}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1653
+    invoke-direct {p0, p1, v0, p3}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
     return-object v1
 .end method
 
-.method public sendQcRilHookMsg(II)Landroid/os/AsyncResult;
+.method public sendQcRilHookMsg(II)Lorg/codeaurora/telephony/utils/AsyncResult;
     .locals 3
     .param p1, "requestId"    # I
     .param p2, "payload"    # I
 
-    .line 1648
+    .line 1671
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1649
+    .line 1672
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     const/4 v1, 0x4
@@ -5618,36 +5614,36 @@
 
     new-array v0, v0, [B
 
-    .line 1650
+    .line 1673
     .local v0, "request":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 1652
+    .line 1675
     .local v2, "reqBuffer":Ljava/nio/ByteBuffer;
     invoke-direct {p0, v2, p1, v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1653
+    .line 1676
     invoke-virtual {v2, p2}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 1655
-    invoke-direct {p0, p1, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
+    .line 1678
+    invoke-direct {p0, p1, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v1
 
     return-object v1
 .end method
 
-.method public sendQcRilHookMsg(ILjava/lang/String;)Landroid/os/AsyncResult;
+.method public sendQcRilHookMsg(ILjava/lang/String;)Lorg/codeaurora/telephony/utils/AsyncResult;
     .locals 3
     .param p1, "requestId"    # I
     .param p2, "payload"    # Ljava/lang/String;
 
-    .line 1659
+    .line 1682
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1660
+    .line 1683
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
@@ -5658,13 +5654,13 @@
 
     new-array v0, v0, [B
 
-    .line 1661
+    .line 1684
     .local v0, "request":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
-    .line 1663
+    .line 1686
     .local v1, "reqBuffer":Ljava/nio/ByteBuffer;
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
@@ -5672,46 +5668,46 @@
 
     invoke-direct {p0, v1, p1, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1664
+    .line 1687
     invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 1666
-    invoke-direct {p0, p1, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Landroid/os/AsyncResult;
+    .line 1689
+    invoke-direct {p0, p1, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v2
 
     return-object v2
 .end method
 
-.method public sendQcRilHookMsg(I[B)Landroid/os/AsyncResult;
+.method public sendQcRilHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
     .locals 1
     .param p1, "requestId"    # I
     .param p2, "payload"    # [B
 
-    .line 1634
+    .line 1657
     const/4 v0, 0x0
 
-    invoke-virtual {p0, p1, p2, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I[BI)Landroid/os/AsyncResult;
+    invoke-virtual {p0, p1, p2, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public sendQcRilHookMsg(I[BI)Landroid/os/AsyncResult;
+.method public sendQcRilHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
     .locals 3
     .param p1, "requestId"    # I
     .param p2, "payload"    # [B
     .param p3, "phoneId"    # I
 
-    .line 1637
+    .line 1660
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1638
+    .line 1661
     iget v0, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
     array-length v1, p2
@@ -5720,23 +5716,23 @@
 
     new-array v0, v0, [B
 
-    .line 1639
+    .line 1662
     .local v0, "request":[B
     invoke-static {v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
-    .line 1641
+    .line 1664
     .local v1, "reqBuffer":Ljava/nio/ByteBuffer;
     array-length v2, p2
 
     invoke-direct {p0, v1, p1, v2}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1642
+    .line 1665
     invoke-virtual {v1, p2}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 1644
-    invoke-direct {p0, p1, v0, p3}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1667
+    invoke-direct {p0, p1, v0, p3}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v2
 
@@ -5749,12 +5745,12 @@
     .param p2, "payload"    # [B
     .param p3, "oemHookCb"    # Lcom/qualcomm/qcrilhook/OemHookCallback;
 
-    .line 1670
+    .line 1693
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendQcRilHookMsgAsync(I[BLcom/qualcomm/qcrilhook/OemHookCallback;I)V
 
-    .line 1671
+    .line 1694
     return-void
 .end method
 
@@ -5765,20 +5761,20 @@
     .param p3, "oemHookCb"    # Lcom/qualcomm/qcrilhook/OemHookCallback;
     .param p4, "phoneId"    # I
 
-    .line 1675
+    .line 1698
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1676
+    .line 1699
     const/4 v0, 0x0
 
-    .line 1677
+    .line 1700
     .local v0, "payloadLength":I
     if-eqz p2, :cond_0
 
-    .line 1678
+    .line 1701
     array-length v0, p2
 
-    .line 1681
+    .line 1704
     :cond_0
     iget v1, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -5786,50 +5782,50 @@
 
     new-array v1, v1, [B
 
-    .line 1682
+    .line 1705
     .local v1, "request":[B
     invoke-static {v1}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 1684
+    .line 1707
     .local v2, "reqBuffer":Ljava/nio/ByteBuffer;
     invoke-direct {p0, v2, p1, v0}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1685
+    .line 1708
     if-eqz p2, :cond_1
 
-    .line 1686
+    .line 1709
     invoke-virtual {v2, p2}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 1688
+    .line 1711
     :cond_1
     invoke-direct {p0, p1, v1, p3, p4}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsgAsync(I[BLcom/qualcomm/qcrilhook/IOemHookCallback;I)V
 
-    .line 1689
+    .line 1712
     return-void
 .end method
 
 .method public setLocalCallHold(IZ)Z
-    .locals 9
+    .locals 8
     .param p1, "phoneId"    # I
     .param p2, "enable"    # Z
 
-    .line 1492
+    .line 1515
     invoke-direct {p0}, Lcom/qualcomm/qcrilhook/QcRilHook;->validateInternalState()V
 
-    .line 1493
+    .line 1516
     const/4 v0, 0x0
 
-    .line 1494
+    .line 1517
     .local v0, "retval":Z
     move v1, p2
 
-    .line 1495
+    .line 1518
     .local v1, "lchStatus":B
     const v2, 0x81b58
 
-    .line 1496
+    .line 1519
     .local v2, "requestId":I
     iget v3, p0, Lcom/qualcomm/qcrilhook/QcRilHook;->mHeaderSize:I
 
@@ -5839,13 +5835,13 @@
 
     new-array v3, v3, [B
 
-    .line 1497
+    .line 1520
     .local v3, "request":[B
     invoke-static {v3}, Lcom/qualcomm/qcrilhook/QcRilHook;->createBufferWithNativeByteOrder([B)Ljava/nio/ByteBuffer;
 
     move-result-object v5
 
-    .line 1499
+    .line 1522
     .local v5, "reqBuffer":Ljava/nio/ByteBuffer;
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -5869,56 +5865,56 @@
 
     invoke-direct {p0, v6}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1500
+    .line 1523
     invoke-direct {p0, v5, v2, v4}, Lcom/qualcomm/qcrilhook/QcRilHook;->addQcRilHookHeader(Ljava/nio/ByteBuffer;II)V
 
-    .line 1501
+    .line 1524
     invoke-virtual {v5, v1}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 1503
-    invoke-direct {p0, v2, v3, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Landroid/os/AsyncResult;
+    .line 1526
+    invoke-direct {p0, v2, v3, p1}, Lcom/qualcomm/qcrilhook/QcRilHook;->sendRilOemHookMsg(I[BI)Lorg/codeaurora/telephony/utils/AsyncResult;
 
     move-result-object v4
 
-    .line 1504
-    .local v4, "ar":Landroid/os/AsyncResult;
-    iget-object v6, v4, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    .line 1527
+    .local v4, "ar":Lorg/codeaurora/telephony/utils/AsyncResult;
+    iget-object v6, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v6, :cond_0
 
-    .line 1505
+    .line 1528
     const-string v6, "setLocalCallHold success"
 
     invoke-direct {p0, v6}, Lcom/qualcomm/qcrilhook/QcRilHook;->logd(Ljava/lang/String;)V
 
-    .line 1506
+    .line 1529
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1508
+    .line 1531
     :cond_0
-    const-string v6, "QC_RIL_OEM_HOOK"
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v7, "QCRIL setLocalCallHold returned exception: "
 
-    const-string v8, "QCRIL setLocalCallHold returned exception: "
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v7, v4, Lorg/codeaurora/telephony/utils/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    iget-object v8, v4, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v7
+    const-string v7, "QC_RIL_OEM_HOOK"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1510
+    .line 1533
     :goto_0
     return v0
 .end method
@@ -5927,7 +5923,7 @@
     .locals 0
     .param p1, "h"    # Landroid/os/Handler;
 
-    .line 1722
+    .line 1745
     return-void
 .end method
 
@@ -5935,6 +5931,6 @@
     .locals 0
     .param p1, "h"    # Landroid/os/Handler;
 
-    .line 1712
+    .line 1735
     return-void
 .end method

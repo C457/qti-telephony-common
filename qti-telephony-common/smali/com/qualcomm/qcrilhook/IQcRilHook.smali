@@ -110,6 +110,8 @@
 
 .field public static final QCRIL_EVT_HOOK_ENABLE_ENGINEER_MODE:I = 0x80013
 
+.field public static final QCRIL_EVT_HOOK_ENABLE_MODEM_UPDATE:I = 0x80022
+
 .field public static final QCRIL_EVT_HOOK_ENTER_DEPERSONALIZATION_CODE:I = 0x800d8
 
 .field public static final QCRIL_EVT_HOOK_GET_ADN_RECORD:I = 0x800dd
@@ -270,19 +272,19 @@
 .method public abstract registerForFieldTestData(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
-.method public abstract sendQcRilHookMsg(I)Landroid/os/AsyncResult;
+.method public abstract sendQcRilHookMsg(I)Lorg/codeaurora/telephony/utils/AsyncResult;
 .end method
 
-.method public abstract sendQcRilHookMsg(IB)Landroid/os/AsyncResult;
+.method public abstract sendQcRilHookMsg(IB)Lorg/codeaurora/telephony/utils/AsyncResult;
 .end method
 
-.method public abstract sendQcRilHookMsg(II)Landroid/os/AsyncResult;
+.method public abstract sendQcRilHookMsg(II)Lorg/codeaurora/telephony/utils/AsyncResult;
 .end method
 
-.method public abstract sendQcRilHookMsg(ILjava/lang/String;)Landroid/os/AsyncResult;
+.method public abstract sendQcRilHookMsg(ILjava/lang/String;)Lorg/codeaurora/telephony/utils/AsyncResult;
 .end method
 
-.method public abstract sendQcRilHookMsg(I[B)Landroid/os/AsyncResult;
+.method public abstract sendQcRilHookMsg(I[B)Lorg/codeaurora/telephony/utils/AsyncResult;
 .end method
 
 .method public abstract unregisterForExtendedDbmIntl(Landroid/os/Handler;)V

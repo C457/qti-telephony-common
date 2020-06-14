@@ -100,11 +100,9 @@
 
     move-result v0
 
-    const/4 v1, 0x3
+    add-int/lit8 v0, v0, 0x3
 
-    add-int/2addr v1, v0
-
-    invoke-static {v1}, Lcom/qualcomm/qcrilhook/BaseQmiTypes$BaseQmiItemType;->createByteBuffer(I)Ljava/nio/ByteBuffer;
+    invoke-static {v0}, Lcom/qualcomm/qcrilhook/BaseQmiTypes$BaseQmiItemType;->createByteBuffer(I)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 

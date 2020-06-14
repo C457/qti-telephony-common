@@ -9,7 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel$Stub;
+        Lcom/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel$Stub;,
+        Lcom/qualcomm/qcrilmsgtunnel/IQcrilMsgTunnel$Default;
     }
 .end annotation
 

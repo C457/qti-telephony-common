@@ -30,15 +30,15 @@
     .param p1, "this$0"    # Lcom/qualcomm/qti/internal/telephony/QtiRIL;
     .param p2, "ril"    # Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
-    .line 391
+    .line 444
     iput-object p1, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
     invoke-direct {p0}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;-><init>()V
 
-    .line 392
+    .line 445
     iput-object p2, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->mRil:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
-    .line 393
+    .line 446
     return-void
 .end method
 
@@ -47,25 +47,25 @@
     .param p1, "responseInfo"    # Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .param p2, "sms"    # Landroid/hardware/radio/V1_0/SendSmsResult;
 
-    .line 617
+    .line 670
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->mRil:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
     invoke-virtual {v0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->qtiProcessResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 618
+    .line 671
     .local v0, "request":Ljava/lang/Object;
     if-eqz v0, :cond_1
 
-    .line 619
+    .line 672
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->mRil:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
     invoke-virtual {v1, v0}, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->qtiGetMessageFromRequest(Ljava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 
-    .line 620
+    .line 673
     .local v1, "result":Landroid/os/Message;
     new-instance v2, Lcom/android/internal/telephony/SmsResponse;
 
@@ -77,22 +77,22 @@
 
     invoke-direct {v2, v3, v4, v5}, Lcom/android/internal/telephony/SmsResponse;-><init>(ILjava/lang/String;I)V
 
-    .line 621
+    .line 674
     .local v2, "ret":Lcom/android/internal/telephony/SmsResponse;
     iget v3, p1, Landroid/hardware/radio/V1_0/RadioResponseInfo;->error:I
 
     if-nez v3, :cond_0
 
-    .line 622
+    .line 675
     invoke-virtual {p0, v1, v2}, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->sendMessageResponse(Landroid/os/Message;Ljava/lang/Object;)V
 
-    .line 624
+    .line 677
     :cond_0
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->mRil:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
     invoke-virtual {v3, v0, p1, v2}, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->qtiProcessResponseDone(Ljava/lang/Object;Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/Object;)V
 
-    .line 626
+    .line 679
     .end local v1    # "result":Landroid/os/Message;
     .end local v2    # "ret":Lcom/android/internal/telephony/SmsResponse;
     :cond_1
@@ -104,14 +104,14 @@
     .param p1, "responseInfo"    # Landroid/hardware/radio/V1_0/RadioResponseInfo;
     .param p2, "str"    # Ljava/lang/String;
 
-    .line 417
+    .line 470
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->mRil:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
     invoke-virtual {v0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->qtiProcessResponse(Landroid/hardware/radio/V1_0/RadioResponseInfo;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 418
+    .line 471
     .local v0, "request":Ljava/lang/Object;
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->mRil:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
@@ -119,25 +119,25 @@
 
     move-result-object v1
 
-    .line 419
+    .line 472
     .local v1, "result":Landroid/os/Message;
     if-eqz v1, :cond_1
 
-    .line 420
+    .line 473
     iget v2, p1, Landroid/hardware/radio/V1_0/RadioResponseInfo;->error:I
 
     if-nez v2, :cond_0
 
-    .line 421
+    .line 474
     invoke-virtual {p0, v1, p2}, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->sendMessageResponse(Landroid/os/Message;Ljava/lang/Object;)V
 
-    .line 423
+    .line 476
     :cond_0
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->mRil:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
     invoke-virtual {v2, v0, p1, p2}, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->qtiProcessResponseDone(Ljava/lang/Object;Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/Object;)V
 
-    .line 425
+    .line 478
     :cond_1
     return-void
 .end method
@@ -149,71 +149,71 @@
     .param p1, "qtiResponseInfo"    # Lvendor/qti/hardware/radio/qtiradio/V1_0/QtiRadioResponseInfo;
     .param p2, "atr"    # Ljava/lang/String;
 
-    .line 433
+    .line 486
     const-string v0, "QtiRadioResponse"
 
     const-string v1, "getAtrResponse"
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 434
+    .line 487
     invoke-virtual {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->toRadioResponseInfo(Lvendor/qti/hardware/radio/qtiradio/V1_0/QtiRadioResponseInfo;)Landroid/hardware/radio/V1_0/RadioResponseInfo;
 
     move-result-object v0
 
-    .line 436
+    .line 489
     .local v0, "responseInfo":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     invoke-direct {p0, v0, p2}, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->responseString(Landroid/hardware/radio/V1_0/RadioResponseInfo;Ljava/lang/String;)V
 
-    .line 437
+    .line 490
     return-void
 .end method
 
 .method public on5gConfigInfoResponse(III)V
-    .locals 3
+    .locals 2
     .param p1, "serial"    # I
     .param p2, "errorCode"    # I
     .param p3, "confType"    # I
 
-    .line 549
-    const-string v0, "QTIRILJ"
+    .line 602
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "on5gConfigInfoResponse: serial = "
 
-    const-string v2, "on5gConfigInfoResponse: serial = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " errorCode = "
 
-    const-string v2, " errorCode = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " ConfigType = "
 
-    const-string v2, " ConfigType = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "QTIRILJ"
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 551
+    .line 604
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
     iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
 
     if-eqz v0, :cond_0
 
-    .line 553
+    .line 606
     :try_start_0
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
@@ -223,18 +223,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 557
+    .line 610
     goto :goto_0
 
-    .line 555
+    .line 608
     :catch_0
     move-exception v0
 
-    .line 556
+    .line 609
     .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    .line 559
+    .line 612
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     :goto_0
@@ -242,50 +242,50 @@
 .end method
 
 .method public on5gStatusResponse(III)V
-    .locals 3
+    .locals 2
     .param p1, "serial"    # I
     .param p2, "errorCode"    # I
     .param p3, "enabled"    # I
 
-    .line 479
-    const-string v0, "QTIRILJ"
+    .line 532
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "on5gStatusResponse: serial = "
 
-    const-string v2, "on5gStatusResponse: serial = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " errorCode = "
 
-    const-string v2, " errorCode = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " enabled = "
 
-    const-string v2, " enabled = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "QTIRILJ"
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 481
+    .line 534
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
     iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
 
     if-eqz v0, :cond_0
 
-    .line 483
+    .line 536
     :try_start_0
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
@@ -295,18 +295,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 486
+    .line 539
     goto :goto_0
 
-    .line 484
+    .line 537
     :catch_0
     move-exception v0
 
-    .line 485
+    .line 538
     .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    .line 488
+    .line 541
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     :goto_0
@@ -314,473 +314,41 @@
 .end method
 
 .method public onDisable5gResponse(III)V
-    .locals 3
+    .locals 2
     .param p1, "serial"    # I
     .param p2, "errorCode"    # I
     .param p3, "status"    # I
-
-    .line 453
-    const-string v0, "QTIRILJ"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "onDisable5gResponse: serial = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " errorCode = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " status = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 455
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    if-eqz v0, :cond_0
-
-    .line 457
-    :try_start_0
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onDisable5gResponse(III)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 460
-    goto :goto_0
-
-    .line 458
-    :catch_0
-    move-exception v0
-
-    .line 459
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
-
-    .line 462
-    .end local v0    # "e":Landroid/os/RemoteException;
-    :cond_0
-    :goto_0
-    return-void
-.end method
-
-.method public onEnable5gOnlyResponse(III)V
-    .locals 3
-    .param p1, "serial"    # I
-    .param p2, "errorCode"    # I
-    .param p3, "status"    # I
-
-    .line 466
-    const-string v0, "QTIRILJ"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "onEnable5gOnlyResponse: serial = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " errorCode = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " status = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 468
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    if-eqz v0, :cond_0
-
-    .line 470
-    :try_start_0
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onEnable5gOnlyResponse(III)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 473
-    goto :goto_0
-
-    .line 471
-    :catch_0
-    move-exception v0
-
-    .line 472
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
-
-    .line 475
-    .end local v0    # "e":Landroid/os/RemoteException;
-    :cond_0
-    :goto_0
-    return-void
-.end method
-
-.method public onEnable5gResponse(III)V
-    .locals 3
-    .param p1, "serial"    # I
-    .param p2, "errorCode"    # I
-    .param p3, "status"    # I
-
-    .line 440
-    const-string v0, "QTIRILJ"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "onEnable5gResponse: serial = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " errorCode = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " status = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 442
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    if-eqz v0, :cond_0
-
-    .line 444
-    :try_start_0
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onEnable5gResponse(III)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 447
-    goto :goto_0
-
-    .line 445
-    :catch_0
-    move-exception v0
-
-    .line 446
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
-
-    .line 449
-    .end local v0    # "e":Landroid/os/RemoteException;
-    :cond_0
-    :goto_0
-    return-void
-.end method
-
-.method public onEnableEndcResponse(III)V
-    .locals 3
-    .param p1, "serial"    # I
-    .param p2, "errorCode"    # I
-    .param p3, "status"    # I
-
-    .line 592
-    const-string v0, "QTIRILJ"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "onEnableEndcResponse: serial = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " errorCode = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " status = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 594
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    if-eqz v0, :cond_0
-
-    .line 596
-    :try_start_0
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onEnableEndcResponse(III)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 599
-    goto :goto_0
-
-    .line 597
-    :catch_0
-    move-exception v0
-
-    .line 598
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
-
-    .line 601
-    .end local v0    # "e":Landroid/os/RemoteException;
-    :cond_0
-    :goto_0
-    return-void
-.end method
-
-.method public onEndcStatusResponse(III)V
-    .locals 3
-    .param p1, "serial"    # I
-    .param p2, "errorCode"    # I
-    .param p3, "endcStatus"    # I
-
-    .line 605
-    const-string v0, "QTIRILJ"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "onEndcStatusResponse: serial = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " errorCode = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " endcStatus = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 607
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    if-eqz v0, :cond_0
-
-    .line 609
-    :try_start_0
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onEndcStatusResponse(III)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 612
-    goto :goto_0
-
-    .line 610
-    :catch_0
-    move-exception v0
-
-    .line 611
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
-
-    .line 614
-    .end local v0    # "e":Landroid/os/RemoteException;
-    :cond_0
-    :goto_0
-    return-void
-.end method
-
-.method public onNrBearerAllocationResponse(III)V
-    .locals 3
-    .param p1, "serial"    # I
-    .param p2, "errorCode"    # I
-    .param p3, "bearerStatus"    # I
-
-    .line 520
-    const-string v0, "QTIRILJ"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "onNrBearerAllocationResponse: serial = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " errorCode = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " bearerStatus = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 522
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    if-eqz v0, :cond_0
-
-    .line 524
-    :try_start_0
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
-
-    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
-
-    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onNrBearerAllocationResponse(III)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 528
-    goto :goto_0
-
-    .line 526
-    :catch_0
-    move-exception v0
-
-    .line 527
-    .local v0, "e":Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
-
-    .line 530
-    .end local v0    # "e":Landroid/os/RemoteException;
-    :cond_0
-    :goto_0
-    return-void
-.end method
-
-.method public onNrBearerAllocationResponse_2_1(III)V
-    .locals 3
-    .param p1, "serial"    # I
-    .param p2, "errorCode"    # I
-    .param p3, "bearerStatus"    # I
 
     .line 506
-    const-string v0, "QTIRILJ"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "onDisable5gResponse: serial = "
 
-    const-string v2, "onNrBearerAllocationResponse_2_1: serial = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " errorCode = "
 
-    const-string v2, " errorCode = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " status = "
 
-    const-string v2, " bearerStatus = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "QTIRILJ"
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 508
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
@@ -795,64 +363,136 @@
 
     iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
 
-    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onNrBearerAllocationResponse_2_1(III)V
+    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onDisable5gResponse(III)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 514
+    .line 513
     goto :goto_0
 
-    .line 512
+    .line 511
     :catch_0
     move-exception v0
 
-    .line 513
+    .line 512
     .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    .line 516
+    .line 515
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     :goto_0
     return-void
 .end method
 
-.method public onNrDcParamResponse(IILvendor/qti/hardware/radio/qtiradio/V2_0/DcParam;)V
-    .locals 3
+.method public onEnable5gOnlyResponse(III)V
+    .locals 2
     .param p1, "serial"    # I
     .param p2, "errorCode"    # I
-    .param p3, "dcParam"    # Lvendor/qti/hardware/radio/qtiradio/V2_0/DcParam;
+    .param p3, "status"    # I
+
+    .line 519
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onEnable5gOnlyResponse: serial = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " errorCode = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " status = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "QTIRILJ"
+
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 521
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    if-eqz v0, :cond_0
+
+    .line 523
+    :try_start_0
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onEnable5gOnlyResponse(III)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 526
+    goto :goto_0
+
+    .line 524
+    :catch_0
+    move-exception v0
+
+    .line 525
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    .line 528
+    .end local v0    # "e":Landroid/os/RemoteException;
+    :cond_0
+    :goto_0
+    return-void
+.end method
+
+.method public onEnable5gResponse(III)V
+    .locals 2
+    .param p1, "serial"    # I
+    .param p2, "errorCode"    # I
+    .param p3, "status"    # I
 
     .line 493
-    const-string v0, "QTIRILJ"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "onEnable5gResponse: serial = "
 
-    const-string v2, "onNrDcParamResponse: serial = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " errorCode = "
 
-    const-string v2, " errorCode = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " status = "
 
-    const-string v2, " dcParam = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "QTIRILJ"
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 495
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
@@ -867,7 +507,7 @@
 
     iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
 
-    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onNrDcParamResponse(IILvendor/qti/hardware/radio/qtiradio/V2_0/DcParam;)V
+    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onEnable5gResponse(III)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -889,51 +529,411 @@
     return-void
 .end method
 
-.method public onNrIconTypeResponse(III)V
-    .locals 3
+.method public onEnableEndcResponse(III)V
+    .locals 2
     .param p1, "serial"    # I
     .param p2, "errorCode"    # I
-    .param p3, "iconType"    # I
+    .param p3, "status"    # I
 
-    .line 578
-    const-string v0, "QTIRILJ"
+    .line 645
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "onEnableEndcResponse: serial = "
 
-    const-string v2, "onNrIconTypeResponse: serial = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " errorCode = "
 
-    const-string v2, " errorCode = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " status = "
 
-    const-string v2, " iconType = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "QTIRILJ"
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 580
+    .line 647
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
     iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
 
     if-eqz v0, :cond_0
 
-    .line 582
+    .line 649
+    :try_start_0
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onEnableEndcResponse(III)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 652
+    goto :goto_0
+
+    .line 650
+    :catch_0
+    move-exception v0
+
+    .line 651
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    .line 654
+    .end local v0    # "e":Landroid/os/RemoteException;
+    :cond_0
+    :goto_0
+    return-void
+.end method
+
+.method public onEndcStatusResponse(III)V
+    .locals 2
+    .param p1, "serial"    # I
+    .param p2, "errorCode"    # I
+    .param p3, "endcStatus"    # I
+
+    .line 658
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onEndcStatusResponse: serial = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " errorCode = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " endcStatus = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "QTIRILJ"
+
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 660
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    if-eqz v0, :cond_0
+
+    .line 662
+    :try_start_0
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onEndcStatusResponse(III)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 665
+    goto :goto_0
+
+    .line 663
+    :catch_0
+    move-exception v0
+
+    .line 664
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    .line 667
+    .end local v0    # "e":Landroid/os/RemoteException;
+    :cond_0
+    :goto_0
+    return-void
+.end method
+
+.method public onNrBearerAllocationResponse(III)V
+    .locals 2
+    .param p1, "serial"    # I
+    .param p2, "errorCode"    # I
+    .param p3, "bearerStatus"    # I
+
+    .line 573
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onNrBearerAllocationResponse: serial = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " errorCode = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " bearerStatus = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "QTIRILJ"
+
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 575
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    if-eqz v0, :cond_0
+
+    .line 577
+    :try_start_0
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onNrBearerAllocationResponse(III)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 581
+    goto :goto_0
+
+    .line 579
+    :catch_0
+    move-exception v0
+
+    .line 580
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    .line 583
+    .end local v0    # "e":Landroid/os/RemoteException;
+    :cond_0
+    :goto_0
+    return-void
+.end method
+
+.method public onNrBearerAllocationResponse_2_1(III)V
+    .locals 2
+    .param p1, "serial"    # I
+    .param p2, "errorCode"    # I
+    .param p3, "bearerStatus"    # I
+
+    .line 559
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onNrBearerAllocationResponse_2_1: serial = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " errorCode = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " bearerStatus = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "QTIRILJ"
+
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 561
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    if-eqz v0, :cond_0
+
+    .line 563
+    :try_start_0
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onNrBearerAllocationResponse_2_1(III)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 567
+    goto :goto_0
+
+    .line 565
+    :catch_0
+    move-exception v0
+
+    .line 566
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    .line 569
+    .end local v0    # "e":Landroid/os/RemoteException;
+    :cond_0
+    :goto_0
+    return-void
+.end method
+
+.method public onNrDcParamResponse(IILvendor/qti/hardware/radio/qtiradio/V2_0/DcParam;)V
+    .locals 2
+    .param p1, "serial"    # I
+    .param p2, "errorCode"    # I
+    .param p3, "dcParam"    # Lvendor/qti/hardware/radio/qtiradio/V2_0/DcParam;
+
+    .line 546
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onNrDcParamResponse: serial = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " errorCode = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " dcParam = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "QTIRILJ"
+
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 548
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    if-eqz v0, :cond_0
+
+    .line 550
+    :try_start_0
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    invoke-virtual {v0, p1, p2, p3}, Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;->onNrDcParamResponse(IILvendor/qti/hardware/radio/qtiradio/V2_0/DcParam;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 553
+    goto :goto_0
+
+    .line 551
+    :catch_0
+    move-exception v0
+
+    .line 552
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    .line 555
+    .end local v0    # "e":Landroid/os/RemoteException;
+    :cond_0
+    :goto_0
+    return-void
+.end method
+
+.method public onNrIconTypeResponse(III)V
+    .locals 2
+    .param p1, "serial"    # I
+    .param p2, "errorCode"    # I
+    .param p3, "iconType"    # I
+
+    .line 631
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onNrIconTypeResponse: serial = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " errorCode = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " iconType = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "QTIRILJ"
+
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 633
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
+
+    iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
+
+    if-eqz v0, :cond_0
+
+    .line 635
     :try_start_0
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
@@ -943,18 +943,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 586
+    .line 639
     goto :goto_0
 
-    .line 584
+    .line 637
     :catch_0
     move-exception v0
 
-    .line 585
+    .line 638
     .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    .line 588
+    .line 641
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     :goto_0
@@ -962,50 +962,50 @@
 .end method
 
 .method public onSignalStrengthResponse(IILvendor/qti/hardware/radio/qtiradio/V2_0/SignalStrength;)V
-    .locals 3
+    .locals 2
     .param p1, "serial"    # I
     .param p2, "errorCode"    # I
     .param p3, "signalStrength"    # Lvendor/qti/hardware/radio/qtiradio/V2_0/SignalStrength;
 
-    .line 564
-    const-string v0, "QTIRILJ"
+    .line 617
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "onSignalStrengthResponse: serial = "
 
-    const-string v2, "onSignalStrengthResponse: serial = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " errorCode = "
 
-    const-string v2, " errorCode = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " signalStrength = "
 
-    const-string v2, " signalStrength = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "QTIRILJ"
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 566
+    .line 619
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
     iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
 
     if-eqz v0, :cond_0
 
-    .line 568
+    .line 621
     :try_start_0
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
@@ -1015,18 +1015,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 572
+    .line 625
     goto :goto_0
 
-    .line 570
+    .line 623
     :catch_0
     move-exception v0
 
-    .line 571
+    .line 624
     .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    .line 574
+    .line 627
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     :goto_0
@@ -1034,50 +1034,50 @@
 .end method
 
 .method public onUpperLayerIndInfoResponse(IILvendor/qti/hardware/radio/qtiradio/V2_1/UpperLayerIndInfo;)V
-    .locals 3
+    .locals 2
     .param p1, "serial"    # I
     .param p2, "errorCode"    # I
     .param p3, "uliInfo"    # Lvendor/qti/hardware/radio/qtiradio/V2_1/UpperLayerIndInfo;
 
-    .line 535
-    const-string v0, "QTIRILJ"
+    .line 588
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "UpperLayerIndInfoResponse: serial = "
 
-    const-string v2, "UpperLayerIndInfoResponse: serial = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " errorCode = "
 
-    const-string v2, " errorCode = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " UpperLayerIndInfo = "
 
-    const-string v2, " UpperLayerIndInfo = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "QTIRILJ"
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 537
+    .line 590
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
     iget-object v0, v0, Lcom/qualcomm/qti/internal/telephony/QtiRIL;->mClientRadioResponseCb:Lvendor/qti/hardware/radio/qtiradio/V2_3/IQtiRadioResponse$Stub;
 
     if-eqz v0, :cond_0
 
-    .line 539
+    .line 592
     :try_start_0
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->this$0:Lcom/qualcomm/qti/internal/telephony/QtiRIL;
 
@@ -1087,18 +1087,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 543
+    .line 596
     goto :goto_0
 
-    .line 541
+    .line 594
     :catch_0
     move-exception v0
 
-    .line 542
+    .line 595
     .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    .line 545
+    .line 598
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_0
     :goto_0
@@ -1106,52 +1106,52 @@
 .end method
 
 .method public sendCdmaSmsResponse(Lvendor/qti/hardware/radio/qtiradio/V1_0/QtiRadioResponseInfo;Landroid/hardware/radio/V1_0/SendSmsResult;)V
-    .locals 4
+    .locals 3
     .param p1, "qtiResponseInfo"    # Lvendor/qti/hardware/radio/qtiradio/V1_0/QtiRadioResponseInfo;
     .param p2, "sms"    # Landroid/hardware/radio/V1_0/SendSmsResult;
 
-    .line 634
+    .line 687
     const-string v0, "QTIRILJ"
 
     const-string v1, "sendCdmaSmsResponse"
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 635
+    .line 688
     invoke-virtual {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->toRadioResponseInfo(Lvendor/qti/hardware/radio/qtiradio/V1_0/QtiRadioResponseInfo;)Landroid/hardware/radio/V1_0/RadioResponseInfo;
 
     move-result-object v0
 
-    .line 637
+    .line 690
     .local v0, "responseInfo":Landroid/hardware/radio/V1_0/RadioResponseInfo;
-    const-string v1, "QtiRadioResponse"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "["
 
-    const-string v3, "["
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v2, p1, Lvendor/qti/hardware/radio/qtiradio/V1_0/QtiRadioResponseInfo;->serial:I
 
-    iget v3, p1, Lvendor/qti/hardware/radio/qtiradio/V1_0/QtiRadioResponseInfo;->serial:I
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v2, "] < RIL_REQUEST_CDMA_SEND_SMS "
 
-    const-string v3, "] < RIL_REQUEST_CDMA_SEND_SMS "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const-string v2, "QtiRadioResponse"
 
-    invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 638
+    .line 691
     invoke-direct {p0, v0, p2}, Lcom/qualcomm/qti/internal/telephony/QtiRIL$QtiRadioResponse;->responseSms(Landroid/hardware/radio/V1_0/RadioResponseInfo;Landroid/hardware/radio/V1_0/SendSmsResult;)V
 
-    .line 639
+    .line 692
     return-void
 .end method
 
@@ -1160,18 +1160,18 @@
     .param p1, "msg"    # Landroid/os/Message;
     .param p2, "ret"    # Ljava/lang/Object;
 
-    .line 401
+    .line 454
     if-eqz p1, :cond_0
 
-    .line 402
+    .line 455
     const/4 v0, 0x0
 
     invoke-static {p1, p2, v0}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
 
-    .line 403
+    .line 456
     invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
-    .line 405
+    .line 458
     :cond_0
     return-void
 .end method
@@ -1180,27 +1180,27 @@
     .locals 2
     .param p1, "qtiResponseInfo"    # Lvendor/qti/hardware/radio/qtiradio/V1_0/QtiRadioResponseInfo;
 
-    .line 409
+    .line 462
     new-instance v0, Landroid/hardware/radio/V1_0/RadioResponseInfo;
 
     invoke-direct {v0}, Landroid/hardware/radio/V1_0/RadioResponseInfo;-><init>()V
 
-    .line 410
+    .line 463
     .local v0, "responseInfo":Landroid/hardware/radio/V1_0/RadioResponseInfo;
     iget v1, p1, Lvendor/qti/hardware/radio/qtiradio/V1_0/QtiRadioResponseInfo;->type:I
 
     iput v1, v0, Landroid/hardware/radio/V1_0/RadioResponseInfo;->type:I
 
-    .line 411
+    .line 464
     iget v1, p1, Lvendor/qti/hardware/radio/qtiradio/V1_0/QtiRadioResponseInfo;->serial:I
 
     iput v1, v0, Landroid/hardware/radio/V1_0/RadioResponseInfo;->serial:I
 
-    .line 412
+    .line 465
     iget v1, p1, Lvendor/qti/hardware/radio/qtiradio/V1_0/QtiRadioResponseInfo;->error:I
 
     iput v1, v0, Landroid/hardware/radio/V1_0/RadioResponseInfo;->error:I
 
-    .line 413
+    .line 466
     return-object v0
 .end method

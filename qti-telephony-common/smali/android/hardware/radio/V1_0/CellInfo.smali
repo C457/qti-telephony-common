@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field public final cdma:Ljava/util/ArrayList;
+.field public cdma:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -16,7 +16,7 @@
 
 .field public cellInfoType:I
 
-.field public final gsm:Ljava/util/ArrayList;
+.field public gsm:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -26,7 +26,7 @@
     .end annotation
 .end field
 
-.field public final lte:Ljava/util/ArrayList;
+.field public lte:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -38,7 +38,7 @@
 
 .field public registered:Z
 
-.field public final tdscdma:Ljava/util/ArrayList;
+.field public tdscdma:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -52,7 +52,7 @@
 
 .field public timeStampType:I
 
-.field public final wcdma:Ljava/util/ArrayList;
+.field public wcdma:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -240,55 +240,55 @@
     invoke-virtual {v0, v2, v3, v1}, Landroid/os/HwBlob;->putInt32(JI)V
 
     .line 208
-    const/4 v2, 0x0
+    const-wide/16 v2, 0xc
 
-    const-wide/16 v3, 0xc
+    const/4 v4, 0x0
 
-    invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBool(JZ)V
+    invoke-virtual {v0, v2, v3, v4}, Landroid/os/HwBlob;->putBool(JZ)V
 
     .line 209
-    new-instance v3, Landroid/os/HwBlob;
+    new-instance v2, Landroid/os/HwBlob;
 
-    mul-int/lit8 v4, v1, 0x68
+    mul-int/lit8 v3, v1, 0x68
 
-    invoke-direct {v3, v4}, Landroid/os/HwBlob;-><init>(I)V
+    invoke-direct {v2, v3}, Landroid/os/HwBlob;-><init>(I)V
 
     .line 210
-    .local v3, "childBlob":Landroid/os/HwBlob;
-    nop
+    .local v2, "childBlob":Landroid/os/HwBlob;
+    const/4 v3, 0x0
 
-    .local v2, "_hidl_index_0":I
+    .local v3, "_hidl_index_0":I
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge v3, v1, :cond_0
 
     .line 211
-    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Landroid/hardware/radio/V1_0/CellInfo;
 
-    mul-int/lit8 v5, v2, 0x68
+    mul-int/lit8 v5, v3, 0x68
 
     int-to-long v5, v5
 
-    invoke-virtual {v4, v3, v5, v6}, Landroid/hardware/radio/V1_0/CellInfo;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+    invoke-virtual {v4, v2, v5, v6}, Landroid/hardware/radio/V1_0/CellInfo;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 210
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 213
-    .end local v2    # "_hidl_index_0":I
+    .end local v3    # "_hidl_index_0":I
     :cond_0
-    const-wide/16 v4, 0x0
+    const-wide/16 v3, 0x0
 
-    invoke-virtual {v0, v4, v5, v3}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
+    invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
 
     .line 216
     .end local v1    # "_hidl_vec_size":I
-    .end local v3    # "childBlob":Landroid/os/HwBlob;
+    .end local v2    # "childBlob":Landroid/os/HwBlob;
     invoke-virtual {p0, v0}, Landroid/os/HwParcel;->writeBuffer(Landroid/os/HwBlob;)V
 
     .line 217
@@ -631,18 +631,18 @@
 .end method
 
 .method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
-    .locals 19
+    .locals 17
     .param p1, "parcel"    # Landroid/os/HwParcel;
     .param p2, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p3, "_hidl_offset"    # J
 
+    .line 125
     move-object/from16 v0, p0
 
     move-object/from16 v9, p1
 
     move-object/from16 v10, p2
 
-    .line 125
     const-wide/16 v11, 0x0
 
     add-long v1, p3, v11
@@ -695,11 +695,11 @@
 
     invoke-virtual {v10, v3, v4}, Landroid/os/HwBlob;->getInt32(J)I
 
-    move-result v8
+    move-result v15
 
     .line 131
-    .local v8, "_hidl_vec_size":I
-    mul-int/lit8 v3, v8, 0x40
+    .local v15, "_hidl_vec_size":I
+    mul-int/lit8 v3, v15, 0x40
 
     int-to-long v3, v3
 
@@ -710,25 +710,21 @@
 
     add-long v1, p3, v1
 
-    add-long v15, v1, v11
+    add-long v7, v1, v11
 
     .line 131
-    const/16 v17, 0x1
+    const/16 v16, 0x1
 
-    move-object v1, v9
+    move-object/from16 v1, p1
 
     move-wide v2, v3
 
     move-wide v4, v5
 
-    move-wide v6, v15
+    move-wide v6, v7
 
-    move v11, v8
+    move/from16 v8, v16
 
-    move/from16 v8, v17
-
-    .end local v8    # "_hidl_vec_size":I
-    .local v11, "_hidl_vec_size":I
     invoke-virtual/range {v1 .. v8}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
 
     move-result-object v1
@@ -740,13 +736,11 @@
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
     .line 136
-    const/4 v12, 0x0
-
-    move v2, v12
+    const/4 v2, 0x0
 
     .local v2, "_hidl_index_0":I
     :goto_0
-    if-ge v2, v11, :cond_0
+    if-ge v2, v15, :cond_0
 
     .line 137
     new-instance v3, Landroid/hardware/radio/V1_0/CellInfoGsm;
@@ -775,7 +769,7 @@
     .line 143
     .end local v1    # "childBlob":Landroid/os/HwBlob;
     .end local v2    # "_hidl_index_0":I
-    .end local v11    # "_hidl_vec_size":I
+    .end local v15    # "_hidl_vec_size":I
     :cond_0
     const-wide/16 v1, 0x28
 
@@ -785,11 +779,11 @@
 
     invoke-virtual {v10, v3, v4}, Landroid/os/HwBlob;->getInt32(J)I
 
-    move-result v11
+    move-result v15
 
     .line 144
-    .restart local v11    # "_hidl_vec_size":I
-    mul-int/lit8 v3, v11, 0x28
+    .restart local v15    # "_hidl_vec_size":I
+    mul-int/lit8 v3, v15, 0x28
 
     int-to-long v3, v3
 
@@ -800,20 +794,20 @@
 
     add-long v1, p3, v1
 
-    const-wide/16 v7, 0x0
+    add-long v7, v1, v11
 
-    add-long v15, v1, v7
-
-    const/4 v8, 0x1
+    const/16 v16, 0x1
 
     .line 144
-    move-object v1, v9
+    move-object/from16 v1, p1
 
     move-wide v2, v3
 
     move-wide v4, v5
 
-    move-wide v6, v15
+    move-wide v6, v7
+
+    move/from16 v8, v16
 
     invoke-virtual/range {v1 .. v8}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
 
@@ -826,11 +820,11 @@
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
     .line 149
-    move v2, v12
+    const/4 v2, 0x0
 
     .restart local v2    # "_hidl_index_0":I
     :goto_1
-    if-ge v2, v11, :cond_1
+    if-ge v2, v15, :cond_1
 
     .line 150
     new-instance v3, Landroid/hardware/radio/V1_0/CellInfoCdma;
@@ -859,7 +853,7 @@
     .line 156
     .end local v1    # "childBlob":Landroid/os/HwBlob;
     .end local v2    # "_hidl_index_0":I
-    .end local v11    # "_hidl_vec_size":I
+    .end local v15    # "_hidl_vec_size":I
     :cond_1
     const-wide/16 v1, 0x38
 
@@ -869,11 +863,11 @@
 
     invoke-virtual {v10, v3, v4}, Landroid/os/HwBlob;->getInt32(J)I
 
-    move-result v11
+    move-result v15
 
     .line 157
-    .restart local v11    # "_hidl_vec_size":I
-    mul-int/lit8 v3, v11, 0x48
+    .restart local v15    # "_hidl_vec_size":I
+    mul-int/lit8 v3, v15, 0x48
 
     int-to-long v3, v3
 
@@ -884,20 +878,20 @@
 
     add-long v1, p3, v1
 
-    const-wide/16 v7, 0x0
+    add-long v7, v1, v11
 
-    add-long v15, v1, v7
-
-    const/4 v8, 0x1
+    const/16 v16, 0x1
 
     .line 157
-    move-object v1, v9
+    move-object/from16 v1, p1
 
     move-wide v2, v3
 
     move-wide v4, v5
 
-    move-wide v6, v15
+    move-wide v6, v7
+
+    move/from16 v8, v16
 
     invoke-virtual/range {v1 .. v8}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
 
@@ -910,11 +904,11 @@
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
     .line 162
-    move v2, v12
+    const/4 v2, 0x0
 
     .restart local v2    # "_hidl_index_0":I
     :goto_2
-    if-ge v2, v11, :cond_2
+    if-ge v2, v15, :cond_2
 
     .line 163
     new-instance v3, Landroid/hardware/radio/V1_0/CellInfoLte;
@@ -943,7 +937,7 @@
     .line 169
     .end local v1    # "childBlob":Landroid/os/HwBlob;
     .end local v2    # "_hidl_index_0":I
-    .end local v11    # "_hidl_vec_size":I
+    .end local v15    # "_hidl_vec_size":I
     :cond_2
     const-wide/16 v1, 0x48
 
@@ -953,11 +947,11 @@
 
     invoke-virtual {v10, v3, v4}, Landroid/os/HwBlob;->getInt32(J)I
 
-    move-result v11
+    move-result v15
 
     .line 170
-    .restart local v11    # "_hidl_vec_size":I
-    mul-int/lit8 v3, v11, 0x38
+    .restart local v15    # "_hidl_vec_size":I
+    mul-int/lit8 v3, v15, 0x38
 
     int-to-long v3, v3
 
@@ -968,20 +962,20 @@
 
     add-long v1, p3, v1
 
-    const-wide/16 v7, 0x0
+    add-long v7, v1, v11
 
-    add-long v15, v1, v7
-
-    const/4 v8, 0x1
+    const/16 v16, 0x1
 
     .line 170
-    move-object v1, v9
+    move-object/from16 v1, p1
 
     move-wide v2, v3
 
     move-wide v4, v5
 
-    move-wide v6, v15
+    move-wide v6, v7
+
+    move/from16 v8, v16
 
     invoke-virtual/range {v1 .. v8}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
 
@@ -994,11 +988,11 @@
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
     .line 175
-    move v2, v12
+    const/4 v2, 0x0
 
     .restart local v2    # "_hidl_index_0":I
     :goto_3
-    if-ge v2, v11, :cond_3
+    if-ge v2, v15, :cond_3
 
     .line 176
     new-instance v3, Landroid/hardware/radio/V1_0/CellInfoWcdma;
@@ -1027,7 +1021,7 @@
     .line 182
     .end local v1    # "childBlob":Landroid/os/HwBlob;
     .end local v2    # "_hidl_index_0":I
-    .end local v11    # "_hidl_vec_size":I
+    .end local v15    # "_hidl_vec_size":I
     :cond_3
     const-wide/16 v1, 0x58
 
@@ -1037,11 +1031,11 @@
 
     invoke-virtual {v10, v3, v4}, Landroid/os/HwBlob;->getInt32(J)I
 
-    move-result v11
+    move-result v13
 
     .line 183
-    .restart local v11    # "_hidl_vec_size":I
-    mul-int/lit8 v3, v11, 0x38
+    .local v13, "_hidl_vec_size":I
+    mul-int/lit8 v3, v13, 0x38
 
     int-to-long v3, v3
 
@@ -1052,14 +1046,12 @@
 
     add-long v1, p3, v1
 
-    const-wide/16 v7, 0x0
+    add-long v7, v1, v11
 
-    add-long/2addr v7, v1
-
-    const/4 v13, 0x1
+    const/4 v11, 0x1
 
     .line 183
-    move-object v1, v9
+    move-object/from16 v1, p1
 
     move-wide v2, v3
 
@@ -1067,7 +1059,7 @@
 
     move-wide v6, v7
 
-    move v8, v13
+    move v8, v11
 
     invoke-virtual/range {v1 .. v8}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
 
@@ -1080,15 +1072,11 @@
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
     .line 188
-    nop
+    const/4 v2, 0x0
 
-    .local v12, "_hidl_index_0":I
-    :goto_4
-    move v2, v12
-
-    .end local v12    # "_hidl_index_0":I
     .restart local v2    # "_hidl_index_0":I
-    if-ge v2, v11, :cond_4
+    :goto_4
+    if-ge v2, v13, :cond_4
 
     .line 189
     new-instance v3, Landroid/hardware/radio/V1_0/CellInfoTdscdma;
@@ -1110,16 +1098,14 @@
 
     .line 188
     .end local v3    # "_hidl_vec_element":Landroid/hardware/radio/V1_0/CellInfoTdscdma;
-    add-int/lit8 v12, v2, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    .end local v2    # "_hidl_index_0":I
-    .restart local v12    # "_hidl_index_0":I
     goto :goto_4
 
     .line 194
     .end local v1    # "childBlob":Landroid/os/HwBlob;
-    .end local v11    # "_hidl_vec_size":I
-    .end local v12    # "_hidl_index_0":I
+    .end local v2    # "_hidl_index_0":I
+    .end local v13    # "_hidl_vec_size":I
     :cond_4
     return-void
 .end method
@@ -1271,15 +1257,15 @@
 .end method
 
 .method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-    .locals 15
+    .locals 16
     .param p1, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p2, "_hidl_offset"    # J
 
-    move-object v0, p0
+    .line 221
+    move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    .line 221
     const-wide/16 v2, 0x0
 
     add-long v4, p2, v2
@@ -1352,33 +1338,31 @@
 
     .line 230
     .local v9, "childBlob":Landroid/os/HwBlob;
-    move v10, v13
+    const/4 v10, 0x0
 
     .local v10, "_hidl_index_0":I
     :goto_0
     if-ge v10, v6, :cond_0
 
     .line 231
-    iget-object v13, v0, Landroid/hardware/radio/V1_0/CellInfo;->gsm:Ljava/util/ArrayList;
+    iget-object v14, v0, Landroid/hardware/radio/V1_0/CellInfo;->gsm:Ljava/util/ArrayList;
 
-    invoke-virtual {v13, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v14, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v14
 
-    check-cast v13, Landroid/hardware/radio/V1_0/CellInfoGsm;
+    check-cast v14, Landroid/hardware/radio/V1_0/CellInfoGsm;
 
-    mul-int/lit8 v11, v10, 0x40
+    mul-int/lit8 v15, v10, 0x40
 
-    int-to-long v11, v11
+    int-to-long v11, v15
 
-    invoke-virtual {v13, v9, v11, v12}, Landroid/hardware/radio/V1_0/CellInfoGsm;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+    invoke-virtual {v14, v9, v11, v12}, Landroid/hardware/radio/V1_0/CellInfoGsm;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 230
     add-int/lit8 v10, v10, 0x1
 
     const-wide/16 v11, 0xc
-
-    const/4 v13, 0x0
 
     goto :goto_0
 
@@ -1417,9 +1401,7 @@
 
     add-long/2addr v9, v11
 
-    const/4 v11, 0x0
-
-    invoke-virtual {v1, v9, v10, v11}, Landroid/os/HwBlob;->putBool(JZ)V
+    invoke-virtual {v1, v9, v10, v13}, Landroid/os/HwBlob;->putBool(JZ)V
 
     .line 239
     new-instance v9, Landroid/os/HwBlob;
@@ -1447,9 +1429,9 @@
 
     mul-int/lit8 v12, v10, 0x28
 
-    int-to-long v12, v12
+    int-to-long v14, v12
 
-    invoke-virtual {v11, v9, v12, v13}, Landroid/hardware/radio/V1_0/CellInfoCdma;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+    invoke-virtual {v11, v9, v14, v15}, Landroid/hardware/radio/V1_0/CellInfoCdma;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 240
     add-int/lit8 v10, v10, 0x1
@@ -1491,9 +1473,7 @@
 
     add-long/2addr v9, v11
 
-    const/4 v11, 0x0
-
-    invoke-virtual {v1, v9, v10, v11}, Landroid/os/HwBlob;->putBool(JZ)V
+    invoke-virtual {v1, v9, v10, v13}, Landroid/os/HwBlob;->putBool(JZ)V
 
     .line 249
     new-instance v9, Landroid/os/HwBlob;
@@ -1521,9 +1501,9 @@
 
     mul-int/lit8 v12, v10, 0x48
 
-    int-to-long v12, v12
+    int-to-long v14, v12
 
-    invoke-virtual {v11, v9, v12, v13}, Landroid/hardware/radio/V1_0/CellInfoLte;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+    invoke-virtual {v11, v9, v14, v15}, Landroid/hardware/radio/V1_0/CellInfoLte;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 250
     add-int/lit8 v10, v10, 0x1
@@ -1565,9 +1545,7 @@
 
     add-long/2addr v9, v11
 
-    const/4 v11, 0x0
-
-    invoke-virtual {v1, v9, v10, v11}, Landroid/os/HwBlob;->putBool(JZ)V
+    invoke-virtual {v1, v9, v10, v13}, Landroid/os/HwBlob;->putBool(JZ)V
 
     .line 259
     new-instance v9, Landroid/os/HwBlob;
@@ -1595,9 +1573,9 @@
 
     mul-int/lit8 v12, v10, 0x38
 
-    int-to-long v12, v12
+    int-to-long v14, v12
 
-    invoke-virtual {v11, v9, v12, v13}, Landroid/hardware/radio/V1_0/CellInfoWcdma;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+    invoke-virtual {v11, v9, v14, v15}, Landroid/hardware/radio/V1_0/CellInfoWcdma;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 260
     add-int/lit8 v10, v10, 0x1
@@ -1639,9 +1617,7 @@
 
     add-long/2addr v4, v9
 
-    const/4 v11, 0x0
-
-    invoke-virtual {v1, v4, v5, v11}, Landroid/os/HwBlob;->putBool(JZ)V
+    invoke-virtual {v1, v4, v5, v13}, Landroid/os/HwBlob;->putBool(JZ)V
 
     .line 269
     new-instance v4, Landroid/os/HwBlob;
@@ -1652,14 +1628,10 @@
 
     .line 270
     .local v4, "childBlob":Landroid/os/HwBlob;
-    nop
+    const/4 v5, 0x0
 
-    .local v11, "_hidl_index_0":I
-    :goto_4
-    move v5, v11
-
-    .end local v11    # "_hidl_index_0":I
     .local v5, "_hidl_index_0":I
+    :goto_4
     if-ge v5, v6, :cond_4
 
     .line 271
@@ -1678,14 +1650,12 @@
     invoke-virtual {v9, v4, v10, v11}, Landroid/hardware/radio/V1_0/CellInfoTdscdma;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 270
-    add-int/lit8 v11, v5, 0x1
+    add-int/lit8 v5, v5, 0x1
 
-    .end local v5    # "_hidl_index_0":I
-    .restart local v11    # "_hidl_index_0":I
     goto :goto_4
 
     .line 273
-    .end local v11    # "_hidl_index_0":I
+    .end local v5    # "_hidl_index_0":I
     :cond_4
     add-long v7, p2, v7
 

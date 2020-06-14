@@ -103,26 +103,26 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 3
 
     .line 287
-    const-string v0, "val=%d"
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    new-array v0, v0, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    iget-short v1, p0, Lcom/qualcomm/qcrilhook/QmiPrimitiveTypes$QmiEnum;->mVal:S
 
-    iget-short v2, p0, Lcom/qualcomm/qcrilhook/QmiPrimitiveTypes$QmiEnum;->mVal:S
+    invoke-static {v1}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
 
-    invoke-static {v2}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    aput-object v1, v0, v2
 
-    aput-object v2, v1, v3
+    const-string v1, "val=%d"
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

@@ -44,25 +44,25 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 82
-    const-string v0, "MainServiceImplHandler: "
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "handleMessage msg.what = "
 
-    const-string v2, "handleMessage msg.what = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v1, p1, Landroid/os/Message;->what:I
 
-    iget v2, p1, Landroid/os/Message;->what:I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "MainServiceImplHandler: "
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 83
     iget v0, p1, Landroid/os/Message;->what:I
@@ -74,11 +74,9 @@
 
     .line 153
     :pswitch_1
-    const-string v0, "MainServiceImplHandler: "
+    const-string v0, "EVENT_ON_ENDC_STATUS"
 
-    const-string v1, "EVENT_ON_ENDC_STATUS"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 154
     iget v0, p1, Landroid/os/Message;->arg1:I
@@ -114,11 +112,9 @@
     .end local v0    # "slotId":I
     .end local v1    # "result":Lcom/qualcomm/qti/internal/nrNetworkService/MainServiceImpl$Result;
     :pswitch_2
-    const-string v0, "MainServiceImplHandler: "
+    const-string v0, "EVENT_ON_ENABLE_ENDC"
 
-    const-string v1, "EVENT_ON_ENABLE_ENDC"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 146
     iget v0, p1, Landroid/os/Message;->arg1:I
@@ -146,11 +142,9 @@
     .end local v0    # "slotId":I
     .end local v1    # "result":Lcom/qualcomm/qti/internal/nrNetworkService/MainServiceImpl$Result;
     :pswitch_3
-    const-string v0, "MainServiceImplHandler: "
+    const-string v0, "EVENT_ON_NR_ICON_TYPE"
 
-    const-string v1, "EVENT_ON_NR_ICON_TYPE"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 137
     iget v0, p1, Landroid/os/Message;->arg1:I
@@ -182,11 +176,9 @@
     .end local v0    # "slotId":I
     .end local v1    # "result":Lcom/qualcomm/qti/internal/nrNetworkService/MainServiceImpl$Result;
     :pswitch_4
-    const-string v0, "MainServiceImplHandler: "
+    const-string v0, "EVENT_ON_5G_CONFIG_INFO"
 
-    const-string v1, "EVENT_ON_5G_CONFIG_INFO"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 128
     iget v0, p1, Landroid/os/Message;->arg1:I
@@ -218,11 +210,9 @@
     .end local v0    # "slotId":I
     .end local v1    # "result":Lcom/qualcomm/qti/internal/nrNetworkService/MainServiceImpl$Result;
     :pswitch_5
-    const-string v0, "MainServiceImplHandler: "
+    const-string v0, "EVENT_ON_UPPER_LAYER_INDICATION_INFO"
 
-    const-string v1, "EVENT_ON_UPPER_LAYER_INDICATION_INFO"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 119
     iget v0, p1, Landroid/os/Message;->arg1:I
@@ -254,11 +244,9 @@
     .end local v0    # "slotId":I
     .end local v1    # "result":Lcom/qualcomm/qti/internal/nrNetworkService/MainServiceImpl$Result;
     :pswitch_6
-    const-string v0, "MainServiceImplHandler: "
+    const-string v0, "EVENT_ON_NR_DUAL_CONNECTIVITY_CHANGE_IND"
 
-    const-string v1, "EVENT_ON_NR_DUAL_CONNECTIVITY_CHANGE_IND"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 112
     iget v0, p1, Landroid/os/Message;->arg1:I
@@ -290,11 +278,9 @@
     .end local v0    # "slotId":I
     .end local v1    # "result":Lcom/qualcomm/qti/internal/nrNetworkService/MainServiceImpl$Result;
     :pswitch_7
-    const-string v0, "MainServiceImplHandler: "
+    const-string v0, "EVENT_ON_5G_SIGNAL_STRENGTH_CHANGE_IND"
 
-    const-string v1, "EVENT_ON_5G_SIGNAL_STRENGTH_CHANGE_IND"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 103
     iget v0, p1, Landroid/os/Message;->arg1:I
@@ -326,11 +312,9 @@
     .end local v0    # "slotId":I
     .end local v1    # "result":Lcom/qualcomm/qti/internal/nrNetworkService/MainServiceImpl$Result;
     :pswitch_8
-    const-string v0, "MainServiceImplHandler: "
+    const-string v0, "EVENT_ON_5G_ENABLE_STATUS"
 
-    const-string v1, "EVENT_ON_5G_ENABLE_STATUS"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 95
     iget v0, p1, Landroid/os/Message;->arg1:I
@@ -366,11 +350,9 @@
     .end local v0    # "slotId":I
     .end local v1    # "result":Lcom/qualcomm/qti/internal/nrNetworkService/MainServiceImpl$Result;
     :pswitch_9
-    const-string v0, "MainServiceImplHandler: "
+    const-string v0, "EVENT_ON_BEARER_ALLOCATION_CHANGE_IND"
 
-    const-string v1, "EVENT_ON_BEARER_ALLOCATION_CHANGE_IND"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 86
     iget v0, p1, Landroid/os/Message;->arg1:I

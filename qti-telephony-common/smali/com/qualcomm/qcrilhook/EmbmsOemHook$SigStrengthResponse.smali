@@ -80,7 +80,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6
 
     .line 2035
     :try_start_0
@@ -96,9 +96,15 @@
 
     .line 2038
     .local v2, "length":S
-    packed-switch v1, :pswitch_data_0
+    const/4 v3, 0x1
 
-    packed-switch v1, :pswitch_data_1
+    if-eq v1, v3, :cond_5
+
+    const/4 v3, 0x2
+
+    if-eq v1, v3, :cond_4
+
+    packed-switch v1, :pswitch_data_0
 
     .line 2089
     invoke-static {}, Lcom/qualcomm/qcrilhook/EmbmsOemHook;->access$000()Ljava/lang/String;
@@ -121,13 +127,9 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .end local v1    # "type":I
-    .end local v2    # "length":S
     goto/16 :goto_5
 
     .line 2077
-    .restart local v1    # "type":I
-    .restart local v2    # "length":S
     :pswitch_0
     invoke-static {p1, p3}, Lcom/qualcomm/qcrilhook/EmbmsOemHook;->access$600(Lcom/qualcomm/qcrilhook/EmbmsOemHook;Ljava/nio/ByteBuffer;)[B
 
@@ -177,7 +179,7 @@
 
     .line 2069
     .local v4, "tmgiPerMbsfnArray":[I
-    move v5, v0
+    const/4 v5, 0x0
 
     .local v5, "i":I
     :goto_1
@@ -246,7 +248,7 @@
 
     .line 2060
     .local v4, "esnrArray":[F
-    move v5, v0
+    const/4 v5, 0x0
 
     .restart local v5    # "i":I
     :goto_2
@@ -313,7 +315,7 @@
 
     .line 2042
     .local v4, "snrArray":[F
-    move v5, v0
+    const/4 v5, 0x0
 
     .restart local v5    # "i":I
     :goto_3
@@ -380,7 +382,7 @@
 
     .line 2051
     .local v4, "mbsfnArray":[I
-    move v5, v0
+    const/4 v5, 0x0
 
     .restart local v5    # "i":I
     :goto_4
@@ -436,7 +438,7 @@
     .line 2081
     .end local v3    # "mbsfnLength":B
     .end local v4    # "mbsfnArray":[I
-    :pswitch_5
+    :cond_4
     invoke-virtual {p3}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v3
@@ -470,7 +472,7 @@
     goto :goto_5
 
     .line 2085
-    :pswitch_6
+    :cond_5
     invoke-virtual {p3}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v3
@@ -527,68 +529,60 @@
     goto/16 :goto_0
 
     .line 2097
-    :cond_4
+    :cond_6
     iget-object v1, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$SigStrengthResponse;->snr:[F
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_7
 
     new-array v1, v0, [F
 
     iput-object v1, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$SigStrengthResponse;->snr:[F
 
     .line 2098
-    :cond_5
+    :cond_7
     iget-object v1, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$SigStrengthResponse;->esnr:[F
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_8
 
     new-array v1, v0, [F
 
     iput-object v1, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$SigStrengthResponse;->esnr:[F
 
     .line 2099
-    :cond_6
+    :cond_8
     iget-object v1, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$SigStrengthResponse;->tmgiPerMbsfn:[I
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_9
 
     new-array v1, v0, [I
 
     iput-object v1, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$SigStrengthResponse;->tmgiPerMbsfn:[I
 
     .line 2100
-    :cond_7
+    :cond_9
     iget-object v1, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$SigStrengthResponse;->mbsfnAreaId:[I
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_a
 
     new-array v1, v0, [I
 
     iput-object v1, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$SigStrengthResponse;->mbsfnAreaId:[I
 
     .line 2101
-    :cond_8
+    :cond_a
     iget-object v1, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$SigStrengthResponse;->tmgilist:[B
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_b
 
     new-array v0, v0, [B
 
     iput-object v0, p0, Lcom/qualcomm/qcrilhook/EmbmsOemHook$SigStrengthResponse;->tmgilist:[B
 
     .line 2102
-    :cond_9
+    :cond_b
     return-void
 
-    nop
-
     :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-    .end packed-switch
-
-    :pswitch_data_1
     .packed-switch 0x10
         :pswitch_4
         :pswitch_3

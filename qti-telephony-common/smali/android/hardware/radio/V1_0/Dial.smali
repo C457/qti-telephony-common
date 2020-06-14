@@ -8,7 +8,7 @@
 
 .field public clir:I
 
-.field public final uusInfo:Ljava/util/ArrayList;
+.field public uusInfo:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -175,55 +175,55 @@
     invoke-virtual {v0, v2, v3, v1}, Landroid/os/HwBlob;->putInt32(JI)V
 
     .line 118
-    const/4 v2, 0x0
+    const-wide/16 v2, 0xc
 
-    const-wide/16 v3, 0xc
+    const/4 v4, 0x0
 
-    invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBool(JZ)V
+    invoke-virtual {v0, v2, v3, v4}, Landroid/os/HwBlob;->putBool(JZ)V
 
     .line 119
-    new-instance v3, Landroid/os/HwBlob;
+    new-instance v2, Landroid/os/HwBlob;
 
-    mul-int/lit8 v4, v1, 0x28
+    mul-int/lit8 v3, v1, 0x28
 
-    invoke-direct {v3, v4}, Landroid/os/HwBlob;-><init>(I)V
+    invoke-direct {v2, v3}, Landroid/os/HwBlob;-><init>(I)V
 
     .line 120
-    .local v3, "childBlob":Landroid/os/HwBlob;
-    nop
+    .local v2, "childBlob":Landroid/os/HwBlob;
+    const/4 v3, 0x0
 
-    .local v2, "_hidl_index_0":I
+    .local v3, "_hidl_index_0":I
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge v3, v1, :cond_0
 
     .line 121
-    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Landroid/hardware/radio/V1_0/Dial;
 
-    mul-int/lit8 v5, v2, 0x28
+    mul-int/lit8 v5, v3, 0x28
 
     int-to-long v5, v5
 
-    invoke-virtual {v4, v3, v5, v6}, Landroid/hardware/radio/V1_0/Dial;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
+    invoke-virtual {v4, v2, v5, v6}, Landroid/hardware/radio/V1_0/Dial;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 120
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 123
-    .end local v2    # "_hidl_index_0":I
+    .end local v3    # "_hidl_index_0":I
     :cond_0
-    const-wide/16 v4, 0x0
+    const-wide/16 v3, 0x0
 
-    invoke-virtual {v0, v4, v5, v3}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
+    invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
 
     .line 126
     .end local v1    # "_hidl_vec_size":I
-    .end local v3    # "childBlob":Landroid/os/HwBlob;
+    .end local v2    # "childBlob":Landroid/os/HwBlob;
     invoke-virtual {p0, v0}, Landroid/os/HwParcel;->writeBuffer(Landroid/os/HwBlob;)V
 
     .line 127
@@ -389,11 +389,11 @@
     .param p2, "_hidl_blob"    # Landroid/os/HwBlob;
     .param p3, "_hidl_offset"    # J
 
+    .line 83
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
 
-    .line 83
     const-wide/16 v2, 0x0
 
     add-long v4, p3, v2
@@ -521,13 +521,13 @@
 
     goto :goto_0
 
+    :cond_0
+    move-object/from16 v5, p1
+
     .line 104
     .end local v2    # "childBlob":Landroid/os/HwBlob;
     .end local v3    # "_hidl_index_0":I
     .end local v6    # "_hidl_vec_size":I
-    :cond_0
-    move-object/from16 v5, p1
-
     return-void
 .end method
 
@@ -675,14 +675,10 @@
 
     .line 138
     .local v5, "childBlob":Landroid/os/HwBlob;
-    nop
+    const/4 v6, 0x0
 
-    .local v7, "_hidl_index_0":I
-    :goto_0
-    move v6, v7
-
-    .end local v7    # "_hidl_index_0":I
     .local v6, "_hidl_index_0":I
+    :goto_0
     if-ge v6, v2, :cond_0
 
     .line 139
@@ -701,14 +697,12 @@
     invoke-virtual {v7, v5, v8, v9}, Landroid/hardware/radio/V1_0/UusInfo;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
 
     .line 138
-    add-int/lit8 v7, v6, 0x1
+    add-int/lit8 v6, v6, 0x1
 
-    .end local v6    # "_hidl_index_0":I
-    .restart local v7    # "_hidl_index_0":I
     goto :goto_0
 
     .line 141
-    .end local v7    # "_hidl_index_0":I
+    .end local v6    # "_hidl_index_0":I
     :cond_0
     add-long/2addr v3, p2
 

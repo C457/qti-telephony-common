@@ -28,7 +28,7 @@
 
     iget-object v0, p0, Lcom/qualcomm/qti/internal/nrNetworkService/hidl/-$$Lambda$QtiRadioHidlClient$fDxYx_TYBjQqOTTFKsiClnVL8ic;->f$0:Lcom/qualcomm/qti/internal/nrNetworkService/hidl/QtiRadioHidlClient;
 
-    invoke-static {v0, p1}, Lcom/qualcomm/qti/internal/nrNetworkService/hidl/QtiRadioHidlClient;->lambda$register$0(Lcom/qualcomm/qti/internal/nrNetworkService/hidl/QtiRadioHidlClient;I)V
+    invoke-virtual {v0, p1}, Lcom/qualcomm/qti/internal/nrNetworkService/hidl/QtiRadioHidlClient;->lambda$register$0$QtiRadioHidlClient(I)V
 
     return-void
 .end method

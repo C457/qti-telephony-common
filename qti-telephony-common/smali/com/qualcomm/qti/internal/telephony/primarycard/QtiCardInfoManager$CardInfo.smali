@@ -278,8 +278,6 @@
 
     if-eqz v0, :cond_0
 
-    iget v0, p0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardInfo;->mUpdateCardTypeState:I
-
     if-eq v0, v1, :cond_0
 
     move v0, v1

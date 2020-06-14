@@ -1,7 +1,8 @@
 !!brut.androlib.meta.MetaInfo
 apkFileName: qti-telephony-common.jar
 compressionType: false
-doNotCompress: null
+doNotCompress:
+- classes.dex
 isFrameworkApk: false
 packageInfo: null
 sdkInfo: null
@@ -9,5 +10,5 @@ sharedLibrary: false
 sparseResources: false
 unknownFiles: {}
 usesFramework: null
-version: 2.4.0
+version: 2.4.1
 versionInfo: null

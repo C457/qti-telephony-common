@@ -82,131 +82,117 @@
     iput-boolean v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mIsCallInProgress:Z
 
     .line 43
-    new-instance v1, Landroid/os/RegistrantList;
+    new-instance v0, Landroid/os/RegistrantList;
 
-    invoke-direct {v1}, Landroid/os/RegistrantList;-><init>()V
+    invoke-direct {v0}, Landroid/os/RegistrantList;-><init>()V
 
-    iput-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mCallEndRegistrants:Landroid/os/RegistrantList;
+    iput-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mCallEndRegistrants:Landroid/os/RegistrantList;
 
     .line 46
-    const/16 v1, 0x65
+    const/16 v0, 0x65
 
-    iput v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->EVENT_PRECISE_CS_CALL_STATE_CHANGED:I
+    iput v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->EVENT_PRECISE_CS_CALL_STATE_CHANGED:I
 
     .line 47
-    const/16 v2, 0x66
+    const/16 v1, 0x66
 
-    iput v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->EVENT_PRECISE_IMS_CALL_STATE_CHANGED:I
+    iput v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->EVENT_PRECISE_IMS_CALL_STATE_CHANGED:I
 
     .line 72
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
 
-    move-result v3
+    move-result v2
 
-    iput v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mNumPhones:I
+    iput v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mNumPhones:I
 
     .line 73
     iput-object p1, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mPhones:[Lcom/android/internal/telephony/Phone;
 
     .line 75
-    iget v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mNumPhones:I
+    iget v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mNumPhones:I
 
-    new-array v3, v3, [Lcom/android/internal/telephony/imsphone/ImsPhone;
+    new-array v3, v2, [Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     iput-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mImsPhones:[Lcom/android/internal/telephony/imsphone/ImsPhone;
 
     .line 76
-    iget v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mNumPhones:I
-
-    new-array v3, v3, [Lcom/android/internal/telephony/GsmCdmaCall;
+    new-array v3, v2, [Lcom/android/internal/telephony/GsmCdmaCall;
 
     iput-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mFgCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
 
     .line 77
-    iget v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mNumPhones:I
-
-    new-array v3, v3, [Lcom/android/internal/telephony/GsmCdmaCall;
+    new-array v3, v2, [Lcom/android/internal/telephony/GsmCdmaCall;
 
     iput-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mBgCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
 
     .line 78
-    iget v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mNumPhones:I
-
-    new-array v3, v3, [Lcom/android/internal/telephony/GsmCdmaCall;
+    new-array v3, v2, [Lcom/android/internal/telephony/GsmCdmaCall;
 
     iput-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mRiCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
 
     .line 79
-    iget v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mNumPhones:I
-
-    new-array v3, v3, [Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    new-array v3, v2, [Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     iput-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mFgImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     .line 80
-    iget v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mNumPhones:I
-
-    new-array v3, v3, [Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    new-array v3, v2, [Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     iput-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mBgImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     .line 81
-    iget v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mNumPhones:I
+    new-array v2, v2, [Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
-    new-array v3, v3, [Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    iput-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mRiImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    iput-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mRiImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     .line 83
-    new-instance v3, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;
+    new-instance v2, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {v3, p0, v4}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;-><init>(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$1;)V
+    invoke-direct {v2, p0, v3}, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;-><init>(Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$1;)V
 
-    iput-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mCallStateHandler:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;
+    iput-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mCallStateHandler:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;
 
     .line 86
-    nop
+    const/4 v2, 0x0
 
-    .local v0, "i":I
+    .local v2, "i":I
     :goto_0
     iget v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mNumPhones:I
 
-    if-ge v0, v3, :cond_2
+    if-ge v2, v3, :cond_2
 
     .line 87
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mPhones:[Lcom/android/internal/telephony/Phone;
 
-    aget-object v3, v3, v0
+    aget-object v4, v3, v2
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
     .line 88
-    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mPhones:[Lcom/android/internal/telephony/Phone;
-
-    aget-object v3, v3, v0
+    aget-object v3, v3, v2
 
     iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mCallStateHandler:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;
 
     .line 89
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 
     .line 88
-    invoke-virtual {v3, v4, v1, v5}, Lcom/android/internal/telephony/Phone;->registerForPreciseCallStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
+    invoke-virtual {v3, v4, v0, v5}, Lcom/android/internal/telephony/Phone;->registerForPreciseCallStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 
     .line 90
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mFgCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
 
     iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mPhones:[Lcom/android/internal/telephony/Phone;
 
-    aget-object v4, v4, v0
+    aget-object v4, v4, v2
 
     invoke-virtual {v4}, Lcom/android/internal/telephony/Phone;->getForegroundCall()Lcom/android/internal/telephony/Call;
 
@@ -214,14 +200,14 @@
 
     check-cast v4, Lcom/android/internal/telephony/GsmCdmaCall;
 
-    aput-object v4, v3, v0
+    aput-object v4, v3, v2
 
     .line 91
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mBgCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
 
     iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mPhones:[Lcom/android/internal/telephony/Phone;
 
-    aget-object v4, v4, v0
+    aget-object v4, v4, v2
 
     invoke-virtual {v4}, Lcom/android/internal/telephony/Phone;->getBackgroundCall()Lcom/android/internal/telephony/Call;
 
@@ -229,14 +215,14 @@
 
     check-cast v4, Lcom/android/internal/telephony/GsmCdmaCall;
 
-    aput-object v4, v3, v0
+    aput-object v4, v3, v2
 
     .line 92
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mRiCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
 
     iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mPhones:[Lcom/android/internal/telephony/Phone;
 
-    aget-object v4, v4, v0
+    aget-object v4, v4, v2
 
     invoke-virtual {v4}, Lcom/android/internal/telephony/Phone;->getRingingCall()Lcom/android/internal/telephony/Call;
 
@@ -244,7 +230,7 @@
 
     check-cast v4, Lcom/android/internal/telephony/GsmCdmaCall;
 
-    aput-object v4, v3, v0
+    aput-object v4, v3, v2
 
     .line 95
     :cond_0
@@ -252,7 +238,7 @@
 
     iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mPhones:[Lcom/android/internal/telephony/Phone;
 
-    aget-object v4, v4, v0
+    aget-object v4, v4, v2
 
     invoke-virtual {v4}, Lcom/android/internal/telephony/Phone;->getImsPhone()Lcom/android/internal/telephony/Phone;
 
@@ -260,77 +246,75 @@
 
     check-cast v4, Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    aput-object v4, v3, v0
+    aput-object v4, v3, v2
 
     .line 96
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mImsPhones:[Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    aget-object v3, v3, v0
+    aget-object v4, v3, v2
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
     .line 97
-    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mImsPhones:[Lcom/android/internal/telephony/imsphone/ImsPhone;
-
-    aget-object v3, v3, v0
+    aget-object v3, v3, v2
 
     iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mCallStateHandler:Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier$CallStateHandler;
 
     .line 98
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 
     .line 97
-    invoke-virtual {v3, v4, v2, v5}, Lcom/android/internal/telephony/imsphone/ImsPhone;->registerForPreciseCallStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
+    invoke-virtual {v3, v4, v1, v5}, Lcom/android/internal/telephony/imsphone/ImsPhone;->registerForPreciseCallStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 
     .line 99
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mFgImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mImsPhones:[Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    aget-object v4, v4, v0
+    aget-object v4, v4, v2
 
     invoke-virtual {v4}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getForegroundCall()Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     move-result-object v4
 
-    aput-object v4, v3, v0
+    aput-object v4, v3, v2
 
     .line 100
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mBgImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mImsPhones:[Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    aget-object v4, v4, v0
+    aget-object v4, v4, v2
 
     invoke-virtual {v4}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getBackgroundCall()Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     move-result-object v4
 
-    aput-object v4, v3, v0
+    aput-object v4, v3, v2
 
     .line 101
     iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mRiImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mImsPhones:[Lcom/android/internal/telephony/imsphone/ImsPhone;
 
-    aget-object v4, v4, v0
+    aget-object v4, v4, v2
 
     invoke-virtual {v4}, Lcom/android/internal/telephony/imsphone/ImsPhone;->getRingingCall()Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
     move-result-object v4
 
-    aput-object v4, v3, v0
+    aput-object v4, v3, v2
 
     .line 86
     :cond_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto/16 :goto_0
 
     .line 104
-    .end local v0    # "i":I
+    .end local v2    # "i":I
     :cond_2
     return-void
 .end method
@@ -502,17 +486,9 @@
     .line 135
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mFgCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
 
-    aget-object v0, v0, p1
+    aget-object v1, v0, p1
 
-    invoke-virtual {v0}, Lcom/android/internal/telephony/GsmCdmaCall;->getState()Lcom/android/internal/telephony/Call$State;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
-
-    if-eq v0, v1, :cond_1
-
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mBgCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
+    if-eqz v1, :cond_0
 
     aget-object v0, v0, p1
 
@@ -523,155 +499,223 @@
 
     sget-object v1, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_5
 
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mRiCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
+    :cond_0
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mBgCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
+
+    aget-object v1, v0, p1
+
+    if-eqz v1, :cond_1
 
     aget-object v0, v0, p1
 
-    .line 137
+    .line 138
     invoke-virtual {v0}, Lcom/android/internal/telephony/GsmCdmaCall;->getState()Lcom/android/internal/telephony/Call$State;
 
     move-result-object v0
 
     sget-object v1, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_5
 
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mFgImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    :cond_1
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mRiCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
 
-    aget-object v0, v0, p1
+    aget-object v1, v0, p1
 
-    .line 138
-    invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
-
-    if-eq v0, v1, :cond_1
-
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mBgImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
-
-    aget-object v0, v0, p1
-
-    .line 139
-    invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
-
-    if-eq v0, v1, :cond_1
-
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mRiImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+    if-eqz v1, :cond_2
 
     aget-object v0, v0, p1
 
     .line 140
+    invoke-virtual {v0}, Lcom/android/internal/telephony/GsmCdmaCall;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
+
+    if-eq v0, v1, :cond_5
+
+    :cond_2
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mFgImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+
+    aget-object v1, v0, p1
+
+    if-eqz v1, :cond_3
+
+    aget-object v0, v0, p1
+
+    .line 142
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
 
     move-result-object v0
 
     sget-object v1, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
 
-    if-ne v0, v1, :cond_0
+    if-eq v0, v1, :cond_5
+
+    :cond_3
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mBgImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+
+    aget-object v1, v0, p1
+
+    if-eqz v1, :cond_4
+
+    aget-object v0, v0, p1
+
+    .line 144
+    invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
+
+    if-eq v0, v1, :cond_5
+
+    :cond_4
+    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mRiImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
+
+    aget-object v1, v0, p1
+
+    if-eqz v1, :cond_6
+
+    aget-object v0, v0, p1
+
+    .line 146
+    invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
+
+    if-ne v0, v1, :cond_6
+
+    :cond_5
+    const/4 v0, 0x1
 
     goto :goto_0
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 v0, 0x1
-
     .line 135
-    :goto_1
+    :goto_0
     return v0
 .end method
 
 .method private isCallIdle(I)Z
-    .locals 1
+    .locals 2
     .param p1, "phoneId"    # I
 
-    .line 147
+    .line 153
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mFgCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
 
+    aget-object v1, v0, p1
+
+    if-eqz v1, :cond_0
+
     aget-object v0, v0, p1
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/GsmCdmaCall;->isIdle()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
+    :cond_0
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mBgCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
 
+    aget-object v1, v0, p1
+
+    if-eqz v1, :cond_1
+
     aget-object v0, v0, p1
 
-    .line 148
+    .line 154
     invoke-virtual {v0}, Lcom/android/internal/telephony/GsmCdmaCall;->isIdle()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
+    :cond_1
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mRiCsCalls:[Lcom/android/internal/telephony/GsmCdmaCall;
 
+    aget-object v1, v0, p1
+
+    if-eqz v1, :cond_2
+
     aget-object v0, v0, p1
 
-    .line 149
+    .line 155
     invoke-virtual {v0}, Lcom/android/internal/telephony/GsmCdmaCall;->isIdle()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
+    :cond_2
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mFgImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
+    aget-object v1, v0, p1
+
+    if-eqz v1, :cond_3
+
     aget-object v0, v0, p1
 
-    .line 150
+    .line 156
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isIdle()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
+    :cond_3
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mBgImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
+    aget-object v1, v0, p1
+
+    if-eqz v1, :cond_4
+
     aget-object v0, v0, p1
 
-    .line 151
+    .line 157
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isIdle()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
+    :cond_4
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiCallStateNotifier;->mRiImsCalls:[Lcom/android/internal/telephony/imsphone/ImsPhoneCall;
 
+    aget-object v1, v0, p1
+
+    if-eqz v1, :cond_6
+
     aget-object v0, v0, p1
 
-    .line 152
+    .line 158
     invoke-virtual {v0}, Lcom/android/internal/telephony/imsphone/ImsPhoneCall;->isIdle()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
+    if-eqz v0, :cond_5
 
     goto :goto_0
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
-    .line 147
+    goto :goto_1
+
+    :cond_6
     :goto_0
+    const/4 v0, 0x1
+
+    .line 153
+    :goto_1
     return v0
 .end method
 
@@ -699,12 +743,12 @@
     .locals 1
     .param p1, "l"    # Ljava/lang/String;
 
-    .line 190
+    .line 196
     const-string v0, "QtiCallStateNotifier"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 191
+    .line 197
     return-void
 .end method
 

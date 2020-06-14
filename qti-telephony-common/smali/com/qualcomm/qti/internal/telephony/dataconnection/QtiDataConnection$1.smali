@@ -26,7 +26,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;
 
-    .line 45
+    .line 53
     iput-object p1, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,59 +36,86 @@
 
 
 # virtual methods
-.method public onResetEvent()V
-    .locals 5
+.method public onResetEvent(Z)V
+    .locals 4
+    .param p1, "retry"    # Z
 
-    .line 48
+    .line 57
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;
 
-    const-string v1, "DataConnection onResetEvent, reset mPdpRejectCount"
+    const-string v1, "onResetEvent: reset mPdpRejectCount"
 
     invoke-static {v0, v1}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->access$000(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;Ljava/lang/String;)V
 
-    .line 49
+    .line 58
     const/4 v0, 0x0
 
     sput v0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->mPdpRejectCount:I
 
-    .line 50
-    sget-object v1, Lcom/android/internal/telephony/dataconnection/DcFailCause;->UNKNOWN:Lcom/android/internal/telephony/dataconnection/DcFailCause;
+    .line 59
+    const/high16 v1, 0x10000
 
-    sput-object v1, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->mPdpRejectCause:Lcom/android/internal/telephony/dataconnection/DcFailCause;
+    sput v1, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->mPdpRejectCause:I
 
-    .line 51
+    .line 60
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;
 
     iget-object v1, v1, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->mDcRetryAlarmController:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDcRetryAlarmController;
 
     invoke-virtual {v1}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDcRetryAlarmController;->cancel()V
 
-    .line 52
+    .line 62
+    sget-object v1, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->mDataRejectDialog:Landroid/app/AlertDialog;
+
+    if-eqz v1, :cond_0
+
+    sget-object v1, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->mDataRejectDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->isShowing()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 63
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;
 
-    iget-object v1, v1, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->mQtiDataResetEventTracker:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;
+    const-string v2, "onResetEvent: Dismiss dialog"
 
-    invoke-virtual {v1}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataResetEventTracker;->stopResetEventTracker()V
+    invoke-static {v1, v2}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->access$100(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;Ljava/lang/String;)V
 
-    .line 53
+    .line 64
+    sget-object v1, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->mDataRejectDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
+
+    .line 66
+    :cond_0
+    if-eqz p1, :cond_1
+
+    .line 67
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;
 
-    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;
+    const-string v2, "onResetEvent: retry data call"
 
-    iget-object v3, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;
+    invoke-static {v1, v2}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->access$200(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;Ljava/lang/String;)V
 
-    invoke-static {v3}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->access$100(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;)I
+    .line 68
+    iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection$1;->this$0:Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;
+
+    const v2, 0x4001b
+
+    invoke-static {v1}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->access$300(Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;)I
 
     move-result v3
 
-    const v4, 0x4000a
-
-    invoke-virtual {v2, v4, v3, v0}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {v1, v2, v3, v0}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 
     invoke-virtual {v1, v0}, Lcom/qualcomm/qti/internal/telephony/dataconnection/QtiDataConnection;->sendMessage(Landroid/os/Message;)V
 
-    .line 54
+    .line 70
+    :cond_1
     return-void
 .end method

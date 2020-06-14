@@ -41,44 +41,44 @@
     .line 67
     new-instance v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
-    const-string v1, "UNKNOWN"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "UNKNOWN"
 
-    invoke-direct {v0, v1, v2}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v2, v1}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;->UNKNOWN:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
     .line 68
     new-instance v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
-    const-string v1, "CARDTYPE_2G"
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    const-string v3, "CARDTYPE_2G"
 
-    invoke-direct {v0, v1, v3}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v3, v2}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;->CARDTYPE_2G:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
     .line 69
     new-instance v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
-    const-string v1, "CARDTYPE_3G"
+    const/4 v3, 0x2
 
-    const/4 v4, 0x2
+    const-string v4, "CARDTYPE_3G"
 
-    invoke-direct {v0, v1, v4}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v4, v3}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;->CARDTYPE_3G:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
     .line 70
     new-instance v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
-    const-string v1, "CARDTYPE_4G"
+    const/4 v4, 0x3
 
-    const/4 v5, 0x3
+    const-string v5, "CARDTYPE_4G"
 
-    invoke-direct {v0, v1, v5}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v5, v4}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;->CARDTYPE_4G:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
@@ -87,21 +87,21 @@
 
     new-array v0, v0, [Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
-    sget-object v1, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;->UNKNOWN:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
+    sget-object v5, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;->UNKNOWN:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
-    aput-object v1, v0, v2
+    aput-object v5, v0, v1
 
     sget-object v1, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;->CARDTYPE_2G:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     sget-object v1, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;->CARDTYPE_3G:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v3
 
     sget-object v1, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;->CARDTYPE_4G:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v4
 
     sput-object v0, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;->$VALUES:[Lcom/qualcomm/qti/internal/telephony/primarycard/QtiCardInfoManager$CardType;
 

@@ -73,44 +73,44 @@
 
     move-result-object v0
 
-    const-string v1, "device_Subsidy_state"
+    sget v1, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mCurrentState:I
 
-    sget v2, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mCurrentState:I
+    const-string v2, "device_Subsidy_state"
 
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
     sput v0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mCurrentState:I
 
     .line 69
-    const-string v0, "SubsidyLockSettingsObserver"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, " in constructor, context =  "
 
-    const-string v2, " in constructor, context =  "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mContext:Landroid/content/Context;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v1, " device state "
 
-    const-string v2, " device state "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget v1, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mCurrentState:I
 
-    sget v2, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mCurrentState:I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "SubsidyLockSettingsObserver"
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 70
     return-void
@@ -158,9 +158,9 @@
 
     move-result-object v0
 
+    .line 124
     const-string v1, "subsidy_status"
 
-    .line 124
     const/4 v2, -0x1
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -187,27 +187,25 @@
 .method public static isSubsidyLockFeatureEnabled()Z
     .locals 3
 
-    .line 316
-    const-string v0, "ro.vendor.radio.subsidylock"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
     .line 317
-    .local v0, "propVal":I
+    const/4 v0, 0x0
+
+    const-string v1, "ro.vendor.radio.subsidylock"
+
+    invoke-static {v1, v0}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    .line 318
+    .local v1, "propVal":I
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v1, v2, :cond_0
 
-    move v1, v2
-
-    nop
+    move v0, v2
 
     :cond_0
-    return v1
+    return v0
 .end method
 
 .method public static isSubsidyLocked(Landroid/content/Context;)Z
@@ -222,9 +220,9 @@
 
     move-result-object v0
 
+    .line 110
     const-string v1, "subsidy_status"
 
-    .line 110
     const/4 v2, -0x1
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -268,9 +266,9 @@
 
     move-result-object v0
 
+    .line 117
     const-string v1, "subsidy_status"
 
-    .line 117
     const/4 v2, -0x1
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -333,10 +331,10 @@
     .locals 2
     .param p1, "newState"    # I
 
-    .line 310
+    .line 311
     sput p1, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mCurrentState:I
 
-    .line 311
+    .line 312
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
@@ -347,16 +345,16 @@
 
     move-result-object v0
 
+    .line 313
     const-string v1, "device_Subsidy_state"
 
-    .line 312
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 313
+    .line 314
     return-void
 .end method
 
@@ -364,31 +362,31 @@
     .locals 3
     .param p1, "newState"    # I
 
-    .line 283
+    .line 284
     sget v0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mCurrentState:I
 
     if-eq v0, p1, :cond_5
 
-    .line 284
-    const-string v0, "SubsidyLockSettingsObserver"
+    .line 285
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, " updateDeviceState, new state  "
 
-    const-string v2, " updateDeviceState, new state  "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "SubsidyLockSettingsObserver"
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 286
+    .line 287
     const/16 v0, 0x64
 
     if-eq p1, v0, :cond_0
@@ -397,25 +395,23 @@
 
     if-ne v1, v0, :cond_1
 
-    .line 291
+    .line 292
     :cond_0
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mPriorityHandler:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardPriorityHandler;
 
     if-eqz v1, :cond_1
 
-    .line 292
-    iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mPriorityHandler:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardPriorityHandler;
-
+    .line 293
     invoke-virtual {v1}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardPriorityHandler;->reloadPriorityConfig()V
 
-    .line 293
+    .line 294
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mPriorityHandler:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardPriorityHandler;
 
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardPriorityHandler;->loadCurrentPriorityConfigs(Z)V
 
-    .line 296
+    .line 297
     :cond_1
     sget v1, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mCurrentState:I
 
@@ -429,7 +425,7 @@
 
     if-ne p1, v1, :cond_3
 
-    .line 300
+    .line 301
     :cond_2
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mSettingsHandler:Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver$SubsidySettingsHandler;
 
@@ -439,28 +435,28 @@
 
     move-result-object v0
 
-    .line 301
+    .line 302
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     goto :goto_0
 
-    .line 302
+    .line 303
     :cond_3
     if-ne p1, v0, :cond_4
 
-    .line 303
+    .line 304
     invoke-static {}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardController;->getInstance()Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardController;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardController;->saveUserSelectionMode()V
 
-    .line 305
+    .line 306
     :cond_4
     :goto_0
     invoke-direct {p0, p1}, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->saveDeviceState(I)V
 
-    .line 307
+    .line 308
     :cond_5
     return-void
 .end method
@@ -472,7 +468,7 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    .line 322
+    .line 323
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mSettingsHandler:Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver$SubsidySettingsHandler;
 
     return-object v0
@@ -498,9 +494,11 @@
     iput-object p2, p0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mPriorityHandler:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardPriorityHandler;
 
     .line 77
-    const-string v1, "subsidy_status"
+    nop
 
     .line 78
+    const-string v1, "subsidy_status"
+
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
@@ -529,8 +527,6 @@
     if-eqz v0, :cond_0
 
     .line 93
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/primarycard/SubsidyLockSettingsObserver;->mPriorityHandler:Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardPriorityHandler;
-
     invoke-virtual {v0}, Lcom/qualcomm/qti/internal/telephony/primarycard/QtiPrimaryCardPriorityHandler;->reloadPriorityConfig()V
 
     .line 94

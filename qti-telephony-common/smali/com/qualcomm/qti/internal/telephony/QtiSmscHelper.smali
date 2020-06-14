@@ -10,7 +10,7 @@
 
 .field private static final LOG_TAG:Ljava/lang/String; = "QtiSmscHelper"
 
-.field private static final PHONE_COUNT:I
+.field private static PHONE_COUNT:I
 
 
 # instance fields
@@ -26,25 +26,9 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .line 24
-    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
-
-    move-result v0
-
-    sput v0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->PHONE_COUNT:I
-
-    return-void
-.end method
-
-.method public constructor <init>()V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
 
     .line 37
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -53,28 +37,49 @@
 
     invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 28
+    .line 29
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSetLock:Ljava/lang/Object;
 
-    .line 29
+    .line 30
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mGetLock:Ljava/lang/Object;
 
-    .line 31
+    .line 32
     invoke-static {}, Lcom/android/internal/telephony/PhoneFactory;->getPhones()[Lcom/android/internal/telephony/Phone;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mPhones:[Lcom/android/internal/telephony/Phone;
 
-    .line 32
+    .line 34
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSuccess:Z
+
+    .line 39
+    const-string v0, "phone"
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/telephony/TelephonyManager;
+
+    .line 40
+    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
+
+    move-result v0
+
+    sput v0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->PHONE_COUNT:I
+
+    .line 41
     new-instance v0, Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     sget v1, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->PHONE_COUNT:I
@@ -85,12 +90,7 @@
 
     iput-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSmscArray:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
-    .line 34
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSuccess:Z
-
-    .line 38
+    .line 42
     return-void
 .end method
 
@@ -98,7 +98,7 @@
     .locals 1
     .param p1, "slotId"    # I
 
-    .line 102
+    .line 106
     if-ltz p1, :cond_0
 
     sget v0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->PHONE_COUNT:I
@@ -122,44 +122,44 @@
     .locals 4
     .param p1, "slotId"    # I
 
-    .line 85
+    .line 89
     invoke-direct {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->isValidPhoneId(I)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 86
-    const-string v0, "QtiSmscHelper"
+    .line 90
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Invalid phone id = "
 
-    const-string v2, "Invalid phone id = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "QtiSmscHelper"
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 87
+    .line 91
     const/4 v0, 0x0
 
     return-object v0
 
-    .line 89
+    .line 93
     :cond_0
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mGetLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 90
+    .line 94
     :try_start_0
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mPhones:[Lcom/android/internal/telephony/Phone;
 
@@ -177,7 +177,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 93
+    .line 97
     :try_start_1
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mGetLock:Ljava/lang/Object;
 
@@ -186,14 +186,14 @@
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 96
+    .line 100
     goto :goto_0
 
-    .line 94
+    .line 98
     :catch_0
     move-exception v1
 
-    .line 97
+    .line 101
     :goto_0
     :try_start_2
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSmscArray:Ljava/util/concurrent/atomic/AtomicReferenceArray;
@@ -208,7 +208,7 @@
 
     return-object v1
 
-    .line 98
+    .line 102
     :catchall_0
     move-exception v1
 
@@ -223,34 +223,40 @@
     .locals 5
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 41
+    .line 45
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 42
+    .line 46
     .local v0, "ar":Landroid/os/AsyncResult;
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_0
+    const/4 v2, 0x1
 
-    goto :goto_4
+    if-eq v1, v2, :cond_2
 
-    .line 44
-    :pswitch_0
+    const/4 v2, 0x2
+
+    if-eq v1, v2, :cond_0
+
+    goto :goto_1
+
+    .line 48
+    :cond_0
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mGetLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 45
-    if-eqz v0, :cond_0
+    .line 49
+    if-eqz v0, :cond_1
 
     :try_start_0
     iget-object v2, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
-    .line 46
+    .line 50
     const-string v2, "QtiSmscHelper"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -279,7 +285,7 @@
 
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 47
+    .line 51
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSmscArray:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
     iget v3, p1, Landroid/os/Message;->arg1:I
@@ -288,92 +294,76 @@
 
     invoke-virtual {v2, v3, v4}, Ljava/util/concurrent/atomic/AtomicReferenceArray;->set(ILjava/lang/Object;)V
 
-    goto :goto_0
-
-    .line 50
-    :catchall_0
-    move-exception v2
-
-    goto :goto_1
-
-    .line 49
-    :cond_0
-    :goto_0
+    .line 53
+    :cond_1
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mGetLock:Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->notifyAll()V
 
-    .line 50
+    .line 54
     monitor-exit v1
 
-    .line 51
-    goto :goto_4
+    .line 55
+    goto :goto_1
 
-    .line 50
-    :goto_1
+    .line 54
+    :catchall_0
+    move-exception v2
+
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
-    .line 53
-    :pswitch_1
+    .line 57
+    :cond_2
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSetLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 54
-    if-eqz v0, :cond_1
+    .line 58
+    if-eqz v0, :cond_3
 
     :try_start_1
-    iget-object v2, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
+    iget-object v3, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_3
 
-    const/4 v2, 0x1
+    goto :goto_0
 
-    goto :goto_2
-
-    .line 56
+    .line 60
     :catchall_1
     move-exception v2
 
-    goto :goto_3
+    goto :goto_2
 
-    .line 54
-    :cond_1
+    .line 58
+    :cond_3
     const/4 v2, 0x0
 
-    :goto_2
+    :goto_0
     iput-boolean v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSuccess:Z
 
-    .line 55
+    .line 59
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSetLock:Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->notifyAll()V
 
-    .line 56
+    .line 60
     monitor-exit v1
 
-    goto :goto_4
+    .line 63
+    :goto_1
+    return-void
 
-    :goto_3
+    .line 60
+    :goto_2
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     throw v2
-
-    .line 59
-    :goto_4
-    return-void
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method public setSmscAddress(ILjava/lang/String;)Z
@@ -381,44 +371,44 @@
     .param p1, "slotId"    # I
     .param p2, "smsc"    # Ljava/lang/String;
 
-    .line 62
+    .line 66
     invoke-direct {p0, p1}, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->isValidPhoneId(I)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 63
-    const-string v0, "QtiSmscHelper"
+    .line 67
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Invalid phone id = "
 
-    const-string v2, "Invalid phone id = "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "QtiSmscHelper"
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 64
+    .line 68
     const/4 v0, 0x0
 
     return v0
 
-    .line 66
+    .line 70
     :cond_0
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSetLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 67
+    .line 71
     :try_start_0
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSmscArray:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
@@ -436,7 +426,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 68
+    .line 72
     const-string v1, "QtiSmscHelper"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -455,12 +445,12 @@
 
     invoke-static {v1, v3}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 69
+    .line 73
     monitor-exit v0
 
     return v2
 
-    .line 71
+    .line 75
     :cond_1
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mPhones:[Lcom/android/internal/telephony/Phone;
 
@@ -476,7 +466,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 74
+    .line 78
     :try_start_1
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSetLock:Ljava/lang/Object;
 
@@ -485,14 +475,14 @@
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 77
+    .line 81
     goto :goto_0
 
-    .line 75
+    .line 79
     :catch_0
     move-exception v1
 
-    .line 79
+    .line 83
     :goto_0
     :try_start_2
     iget-boolean v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSuccess:Z
@@ -503,7 +493,7 @@
 
     invoke-virtual {v1, p1, p2}, Ljava/util/concurrent/atomic/AtomicReferenceArray;->set(ILjava/lang/Object;)V
 
-    .line 80
+    .line 84
     :cond_2
     iget-boolean v1, p0, Lcom/qualcomm/qti/internal/telephony/QtiSmscHelper;->mSuccess:Z
 
@@ -511,7 +501,7 @@
 
     return v1
 
-    .line 81
+    .line 85
     :catchall_0
     move-exception v1
 

@@ -59,7 +59,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_6
 
     .line 1158
     :try_start_0
@@ -83,22 +83,50 @@
 
     .line 1162
     .local v2, "length":I
-    packed-switch v1, :pswitch_data_0
+    const/4 v3, 0x1
+
+    if-eq v1, v3, :cond_5
+
+    const/4 v4, 0x2
+
+    if-eq v1, v4, :cond_3
+
+    const/4 v4, 0x3
+
+    if-eq v1, v4, :cond_1
+
+    const/4 v4, 0x4
+
+    if-eq v1, v4, :cond_0
 
     .line 1192
     invoke-static {}, Lcom/qualcomm/qcrilhook/EmbmsOemHook;->access$000()Ljava/lang/String;
 
     move-result-object v3
 
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "CellIdIndication: Unexpected Type "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
     goto/16 :goto_3
 
     .line 1182
-    :pswitch_0
-    const-string v3, "%7s"
+    :cond_0
+    const-string v4, "%7s"
 
-    const/4 v4, 0x1
-
-    new-array v4, v4, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->getInt()I
 
@@ -108,9 +136,9 @@
 
     move-result-object v5
 
-    aput-object v5, v4, v0
+    aput-object v5, v3, v0
 
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v4, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -149,19 +177,19 @@
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1185
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     .line 1172
-    :pswitch_1
+    :cond_1
     new-array v3, v2, [B
 
     .line 1173
     .local v3, "temp":[B
-    move v4, v0
+    const/4 v4, 0x0
 
     .local v4, "i":I
     :goto_1
-    if-ge v4, v2, :cond_0
+    if-ge v4, v2, :cond_2
 
     .line 1174
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->get()B
@@ -177,7 +205,7 @@
 
     .line 1176
     .end local v4    # "i":I
-    :cond_0
+    :cond_2
     new-instance v4, Lcom/qualcomm/qcrilhook/QmiPrimitiveTypes$QmiString;
 
     invoke-direct {v4, v3}, Lcom/qualcomm/qcrilhook/QmiPrimitiveTypes$QmiString;-><init>([B)V
@@ -212,20 +240,20 @@
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1178
-    goto/16 :goto_4
+    goto :goto_3
 
     .line 1164
     .end local v3    # "temp":[B
-    :pswitch_2
+    :cond_3
     new-array v3, v2, [B
 
     .line 1165
     .restart local v3    # "temp":[B
-    move v4, v0
+    const/4 v4, 0x0
 
     .restart local v4    # "i":I
     :goto_2
-    if-ge v4, v2, :cond_1
+    if-ge v4, v2, :cond_4
 
     .line 1166
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->get()B
@@ -241,7 +269,7 @@
 
     .line 1168
     .end local v4    # "i":I
-    :cond_1
+    :cond_4
     new-instance v4, Lcom/qualcomm/qcrilhook/QmiPrimitiveTypes$QmiString;
 
     invoke-direct {v4, v3}, Lcom/qualcomm/qcrilhook/QmiPrimitiveTypes$QmiString;-><init>([B)V
@@ -276,11 +304,11 @@
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1170
-    goto :goto_4
+    goto :goto_3
 
     .line 1188
     .end local v3    # "temp":[B
-    :pswitch_3
+    :cond_5
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v3
@@ -309,35 +337,15 @@
     move-result-object v4
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1190
-    goto :goto_4
-
-    .line 1192
-    :goto_3
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "CellIdIndication: Unexpected Type "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v1    # "type":I
-    .end local v2    # "length":I
-    goto :goto_4
+    .line 1190
+    goto :goto_3
 
     .line 1195
+    .end local v1    # "type":I
+    .end local v2    # "length":I
     :catch_0
     move-exception v1
 
@@ -353,20 +361,10 @@
 
     .line 1197
     .end local v1    # "e":Ljava/nio/BufferUnderflowException;
-    :goto_4
+    :goto_3
     goto/16 :goto_0
 
     .line 1199
-    :cond_2
+    :cond_6
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
