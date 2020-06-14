@@ -17,19 +17,29 @@
 # instance fields
 .field private Y:I
 
-.field private Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+.field private Z:Landroid/content/res/ColorStateList;
 
-.field private aa:[Landroid/widget/TextView;
+.field private aa:Landroid/content/res/ColorStateList;
 
-.field private ac:[Landroid/widget/TextView;
+.field private ab:Landroid/view/MenuItem;
 
-.field private ad:Landroid/widget/TextView;
+.field private ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
-.field private ae:Landroid/widget/TextView;
+.field private af:[Landroid/widget/TextView;
 
-.field private af:Landroid/widget/TextView;
+.field private ag:[Landroid/widget/TextView;
 
-.field private ag:Lcom/dts/dtsxultra/b/h$a;
+.field private ah:Landroid/widget/TextView;
+
+.field private ai:Landroid/widget/TextView;
+
+.field private aj:Lcom/dts/dtsxultra/b/h$a;
+
+.field private ak:Landroid/widget/TextView;
+
+.field private al:I
+
+.field private am:Landroid/content/BroadcastReceiver;
 
 
 # direct methods
@@ -48,9 +58,15 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Lcom/dts/dtsxultra/b/g;-><init>()V
+
+    new-instance v0, Lcom/dts/dtsxultra/b/h$3;
+
+    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/h$3;-><init>(Lcom/dts/dtsxultra/b/h;)V
+
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->am:Landroid/content/BroadcastReceiver;
 
     return-void
 .end method
@@ -101,7 +117,7 @@
 
     move-result v1
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
     aget-object v3, v3, v2
 
@@ -111,7 +127,7 @@
 
     invoke-virtual {v3, v4}, Lcom/dts/dtsxultra/views/VerticalSeekBar;->setProgress(I)V
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
 
     aget-object v3, v3, v2
 
@@ -164,19 +180,19 @@
     :goto_0
     new-array v0, v5, [Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
     new-array v0, v5, [Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
 
     new-array v0, v5, [Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
-    const v0, 0x7f08008c
+    const v0, 0x7f080096
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -186,9 +202,9 @@
 
     aput-object v0, v3, v2
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
-    const v0, 0x7f08008e
+    const v0, 0x7f080098
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -198,9 +214,9 @@
 
     aput-object v0, v3, v6
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
-    const v0, 0x7f08008f
+    const v0, 0x7f080099
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -210,9 +226,9 @@
 
     aput-object v0, v3, v7
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
-    const v0, 0x7f080090
+    const v0, 0x7f08009a
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -222,11 +238,11 @@
 
     aput-object v0, v3, v8
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
     const/4 v4, 0x4
 
-    const v0, 0x7f080091
+    const v0, 0x7f08009b
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -236,11 +252,11 @@
 
     aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
     const/4 v4, 0x5
 
-    const v0, 0x7f080092
+    const v0, 0x7f08009c
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -250,11 +266,11 @@
 
     aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
     const/4 v4, 0x6
 
-    const v0, 0x7f080093
+    const v0, 0x7f08009d
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -264,11 +280,11 @@
 
     aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
     const/4 v4, 0x7
 
-    const v0, 0x7f080094
+    const v0, 0x7f08009e
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -278,11 +294,11 @@
 
     aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
     const/16 v4, 0x8
 
-    const v0, 0x7f080095
+    const v0, 0x7f08009f
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -292,11 +308,11 @@
 
     aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
     const/16 v4, 0x9
 
-    const v0, 0x7f08008d
+    const v0, 0x7f080097
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -306,9 +322,9 @@
 
     aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
 
-    const v0, 0x7f080075
+    const v0, 0x7f08007e
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -318,7 +334,151 @@
 
     aput-object v0, v3, v2
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
+
+    const v0, 0x7f080080
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    aput-object v0, v3, v6
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
+
+    const v0, 0x7f080081
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    aput-object v0, v3, v7
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
+
+    const v0, 0x7f080082
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    aput-object v0, v3, v8
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
+
+    const/4 v4, 0x4
+
+    const v0, 0x7f080083
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    aput-object v0, v3, v4
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
+
+    const/4 v4, 0x5
+
+    const v0, 0x7f080084
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    aput-object v0, v3, v4
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
+
+    const/4 v4, 0x6
+
+    const v0, 0x7f080085
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    aput-object v0, v3, v4
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
+
+    const/4 v4, 0x7
+
+    const v0, 0x7f080086
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    aput-object v0, v3, v4
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
+
+    const/16 v4, 0x8
+
+    const v0, 0x7f080087
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    aput-object v0, v3, v4
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
+
+    const/16 v4, 0x9
+
+    const v0, 0x7f08007f
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    aput-object v0, v3, v4
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
+
+    const v0, 0x7f080074
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    aput-object v0, v3, v2
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
+
+    const v0, 0x7f080076
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    aput-object v0, v3, v6
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
 
     const v0, 0x7f080077
 
@@ -328,9 +488,9 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    aput-object v0, v3, v6
+    aput-object v0, v3, v7
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
 
     const v0, 0x7f080078
 
@@ -340,9 +500,11 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    aput-object v0, v3, v7
+    aput-object v0, v3, v8
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
+
+    const/4 v4, 0x4
 
     const v0, 0x7f080079
 
@@ -352,11 +514,11 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    aput-object v0, v3, v8
+    aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
 
-    const/4 v4, 0x4
+    const/4 v4, 0x5
 
     const v0, 0x7f08007a
 
@@ -368,9 +530,9 @@
 
     aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
 
-    const/4 v4, 0x5
+    const/4 v4, 0x6
 
     const v0, 0x7f08007b
 
@@ -382,9 +544,9 @@
 
     aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
 
-    const/4 v4, 0x6
+    const/4 v4, 0x7
 
     const v0, 0x7f08007c
 
@@ -396,9 +558,9 @@
 
     aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
 
-    const/4 v4, 0x7
+    const/16 v4, 0x8
 
     const v0, 0x7f08007d
 
@@ -410,25 +572,11 @@
 
     aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
-
-    const/16 v4, 0x8
-
-    const v0, 0x7f08007e
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    aput-object v0, v3, v4
-
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
 
     const/16 v4, 0x9
 
-    const v0, 0x7f080076
+    const v0, 0x7f080075
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -438,9 +586,7 @@
 
     aput-object v0, v3, v4
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
-
-    const v0, 0x7f08006b
+    const v0, 0x7f08008a
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -448,11 +594,9 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    aput-object v0, v3, v2
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ah:Landroid/widget/TextView;
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
-
-    const v0, 0x7f08006d
+    const v0, 0x7f080088
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -460,11 +604,9 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    aput-object v0, v3, v6
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ai:Landroid/widget/TextView;
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
-
-    const v0, 0x7f08006e
+    const v0, 0x7f080089
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -472,139 +614,51 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    aput-object v0, v3, v7
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ak:Landroid/widget/TextView;
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
-
-    const v0, 0x7f08006f
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/h;->d()Landroid/content/Context;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/TextView;
+    const v3, 0x7f05008d
 
-    aput-object v0, v3, v8
+    invoke-static {v0, v3}, Landroid/support/v4/a/a;->c(Landroid/content/Context;I)I
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
+    move-result v0
 
-    const/4 v4, 0x4
-
-    const v0, 0x7f080070
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->Z:Landroid/content/res/ColorStateList;
 
-    aput-object v0, v3, v4
-
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
-
-    const/4 v4, 0x5
-
-    const v0, 0x7f080071
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/h;->d()Landroid/content/Context;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/TextView;
+    const v3, 0x7f050049
 
-    aput-object v0, v3, v4
+    invoke-static {v0, v3}, Landroid/support/v4/a/a;->c(Landroid/content/Context;I)I
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
+    move-result v0
 
-    const/4 v4, 0x6
-
-    const v0, 0x7f080072
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/TextView;
-
-    aput-object v0, v3, v4
-
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
-
-    const/4 v4, 0x7
-
-    const v0, 0x7f080073
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    aput-object v0, v3, v4
-
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
-
-    const/16 v4, 0x8
-
-    const v0, 0x7f080074
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    aput-object v0, v3, v4
-
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
-
-    const/16 v4, 0x9
-
-    const v0, 0x7f08006c
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    aput-object v0, v3, v4
-
-    const v0, 0x7f080081
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ad:Landroid/widget/TextView;
-
-    const v0, 0x7f08007f
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ae:Landroid/widget/TextView;
-
-    const v0, 0x7f080080
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->af:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->aa:Landroid/content/res/ColorStateList;
 
     new-instance v0, Lcom/dts/dtsxultra/b/h$a;
 
     invoke-direct {v0, p0, v2}, Lcom/dts/dtsxultra/b/h$a;-><init>(Lcom/dts/dtsxultra/b/h;B)V
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ag:Lcom/dts/dtsxultra/b/h$a;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->aj:Lcom/dts/dtsxultra/b/h$a;
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+
+    array-length v0, v0
+
+    iput v0, p0, Lcom/dts/dtsxultra/b/h;->al:I
 
     invoke-virtual {p0}, Lcom/dts/dtsxultra/b/h;->f()Landroid/content/res/Resources;
 
@@ -630,7 +684,7 @@
 
     :cond_0
     :goto_1
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->o()Z
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->o()Z
 
     move-result v0
 
@@ -638,13 +692,13 @@
 
     iput v5, p0, Lcom/dts/dtsxultra/b/h;->Y:I
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ad:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ah:Landroid/widget/TextView;
 
     const-string v3, "10"
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ae:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ai:Landroid/widget/TextView;
 
     const-string v3, "-10"
 
@@ -656,7 +710,7 @@
     :goto_3
     if-ge v0, v5, :cond_6
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
     aget-object v3, v3, v0
 
@@ -731,13 +785,13 @@
 
     iput v0, p0, Lcom/dts/dtsxultra/b/h;->Y:I
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ad:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ah:Landroid/widget/TextView;
 
     const-string v3, "12"
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ae:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ai:Landroid/widget/TextView;
 
     const-string v3, "-12"
 
@@ -751,7 +805,7 @@
     :goto_4
     if-ge v0, v5, :cond_8
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
     aget-object v2, v2, v0
 
@@ -763,7 +817,7 @@
 
     if-eqz p3, :cond_7
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/h;->Z:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
 
     aget-object v2, v2, v0
 
@@ -785,7 +839,7 @@
 .method static synthetic a(Lcom/dts/dtsxultra/b/h;)[Landroid/widget/TextView;
     .locals 1
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
 
     return-object v0
 .end method
@@ -793,7 +847,7 @@
 .method static synthetic b(Lcom/dts/dtsxultra/b/h;)Lcom/dts/dtsxultra/b/h$a;
     .locals 1
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ag:Lcom/dts/dtsxultra/b/h$a;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->aj:Lcom/dts/dtsxultra/b/h$a;
 
     return-object v0
 .end method
@@ -806,11 +860,11 @@
     move v0, v1
 
     :goto_0
-    const/16 v2, 0xa
+    iget v2, p0, Lcom/dts/dtsxultra/b/h;->al:I
 
     if-ge v0, v2, :cond_0
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/h;->ac:[Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
 
     aget-object v2, v2, v0
 
@@ -818,27 +872,9 @@
 
     invoke-virtual {v2, v1, v3}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/h;->aa:[Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/h;->af:[Landroid/widget/TextView;
 
     aget-object v2, v2, v0
-
-    int-to-float v3, p1
-
-    invoke-virtual {v2, v1, v3}, Landroid/widget/TextView;->setTextSize(IF)V
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/h;->ad:Landroid/widget/TextView;
-
-    int-to-float v3, p1
-
-    invoke-virtual {v2, v1, v3}, Landroid/widget/TextView;->setTextSize(IF)V
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/h;->ae:Landroid/widget/TextView;
-
-    int-to-float v3, p1
-
-    invoke-virtual {v2, v1, v3}, Landroid/widget/TextView;->setTextSize(IF)V
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/h;->af:Landroid/widget/TextView;
 
     int-to-float v3, p1
 
@@ -849,6 +885,24 @@
     goto :goto_0
 
     :cond_0
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ah:Landroid/widget/TextView;
+
+    int-to-float v2, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextSize(IF)V
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ai:Landroid/widget/TextView;
+
+    int-to-float v2, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextSize(IF)V
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ak:Landroid/widget/TextView;
+
+    int-to-float v2, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextSize(IF)V
+
     return-void
 .end method
 
@@ -861,7 +915,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ab:Landroid/support/v4/app/f;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ac:Landroid/support/v4/app/f;
 
     invoke-virtual {p0}, Lcom/dts/dtsxultra/b/h;->i()V
 
@@ -871,7 +925,7 @@
 
     if-lt v0, v1, :cond_0
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ab:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ac:Landroid/support/v4/app/f;
 
     invoke-virtual {v0}, Landroid/support/v4/app/f;->isInMultiWindowMode()Z
 
@@ -905,6 +959,14 @@
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
+    const/4 v0, 0x0
+
+    invoke-interface {p1, v0}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/h;->ab:Landroid/view/MenuItem;
+
     return-void
 .end method
 
@@ -927,7 +989,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ab:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ac:Landroid/support/v4/app/f;
 
     invoke-virtual {v0}, Landroid/support/v4/app/f;->e()Landroid/support/v4/app/j;
 
@@ -953,6 +1015,8 @@
 .method public final a(Landroid/view/MenuItem;)Z
     .locals 2
 
+    iput-object p1, p0, Lcom/dts/dtsxultra/b/h;->ab:Landroid/view/MenuItem;
+
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
@@ -967,7 +1031,7 @@
     return v0
 
     :pswitch_0
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ag:Lcom/dts/dtsxultra/b/h$a;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->aj:Lcom/dts/dtsxultra/b/h$a;
 
     const/16 v1, 0xa
 
@@ -986,7 +1050,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f080020
+    .packed-switch 0x7f080021
         :pswitch_0
     .end packed-switch
 
@@ -1005,14 +1069,95 @@
     .end array-data
 .end method
 
+.method final d(Z)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ab:Landroid/view/MenuItem;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ab:Landroid/view/MenuItem;
+
+    invoke-interface {v0}, Landroid/view/MenuItem;->getItemId()I
+
+    move-result v0
+
+    const v1, 0x7f080021
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ab:Landroid/view/MenuItem;
+
+    invoke-interface {v0, p1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+
+    array-length v1, v1
+
+    if-ge v0, v1, :cond_2
+
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+
+    aget-object v1, v1, v0
+
+    invoke-virtual {v1, p1}, Lcom/dts/dtsxultra/views/VerticalSeekBar;->setEnabled(Z)V
+
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/h;->ae:[Lcom/dts/dtsxultra/views/VerticalSeekBar;
+
+    aget-object v1, v1, v0
+
+    invoke-virtual {v1}, Lcom/dts/dtsxultra/views/VerticalSeekBar;->getThumb()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v2
+
+    if-eqz p1, :cond_1
+
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/h;->Z:Landroid/content/res/ColorStateList;
+
+    :goto_1
+    invoke-virtual {v2, v1}, Landroid/graphics/drawable/Drawable;->setTintList(Landroid/content/res/ColorStateList;)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/h;->aa:Landroid/content/res/ColorStateList;
+
+    goto :goto_1
+
+    :cond_2
+    return-void
+.end method
+
 .method public final s()V
-    .locals 2
+    .locals 5
 
     invoke-super {p0}, Lcom/dts/dtsxultra/b/g;->s()V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ab:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ac:Landroid/support/v4/app/f;
 
-    const v1, 0x7f0801af
+    invoke-static {v0}, Landroid/support/v4/a/c;->a(Landroid/content/Context;)Landroid/support/v4/a/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/h;->am:Landroid/content/BroadcastReceiver;
+
+    new-instance v2, Landroid/content/IntentFilter;
+
+    const-string v3, "com.dts.NOTIFICATION_UPDATE_EVENT"
+
+    invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1, v2}, Landroid/support/v4/a/c;->a(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)V
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ac:Landroid/support/v4/app/f;
+
+    const v1, 0x7f080205
 
     invoke-virtual {v0, v1}, Landroid/support/v4/app/f;->findViewById(I)Landroid/view/View;
 
@@ -1020,7 +1165,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0e0070
+    const v1, 0x7f0e0071
 
     invoke-virtual {p0, v1}, Lcom/dts/dtsxultra/b/h;->a(I)Ljava/lang/String;
 
@@ -1033,6 +1178,78 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     invoke-direct {p0}, Lcom/dts/dtsxultra/b/h;->R()V
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->b()Lcom/dts/dtssdk/f/a;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/dts/dtssdk/f/a;->c:Ljava/lang/Object;
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/b/h;->d(Z)V
+
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/h;->f()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->fontScale:F
+
+    const v1, 0x3fa66666    # 1.3f
+
+    invoke-static {v0, v1}, Ljava/lang/Float;->compare(FF)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/h;->ag:[Landroid/widget/TextView;
+
+    array-length v2, v1
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v2, :cond_0
+
+    aget-object v3, v1, v0
+
+    const/high16 v4, 0x41300000    # 11.0f
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextSize(F)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method public final u()V
+    .locals 2
+
+    invoke-super {p0}, Lcom/dts/dtsxultra/b/g;->u()V
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/h;->ac:Landroid/support/v4/app/f;
+
+    invoke-static {v0}, Landroid/support/v4/a/c;->a(Landroid/content/Context;)Landroid/support/v4/a/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/h;->am:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/a/c;->a(Landroid/content/BroadcastReceiver;)V
 
     return-void
 .end method

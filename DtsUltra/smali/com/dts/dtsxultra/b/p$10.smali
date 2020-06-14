@@ -20,25 +20,21 @@
         "Ljava/lang/Object;",
         "Lcom/dts/dtssdk/c/c",
         "<",
-        "Lcom/dts/dtssdk/a/a;",
+        "Ljava/lang/Integer;",
         ">;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Ljava/lang/String;
-
-.field final synthetic b:Lcom/dts/dtsxultra/b/p;
+.field final synthetic a:Lcom/dts/dtsxultra/b/p;
 
 
 # direct methods
-.method constructor <init>(Lcom/dts/dtsxultra/b/p;Ljava/lang/String;)V
+.method constructor <init>(Lcom/dts/dtsxultra/b/p;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/dts/dtsxultra/b/p$10;->b:Lcom/dts/dtsxultra/b/p;
-
-    iput-object p2, p0, Lcom/dts/dtsxultra/b/p$10;->a:Ljava/lang/String;
+    iput-object p1, p0, Lcom/dts/dtsxultra/b/p$10;->a:Lcom/dts/dtsxultra/b/p;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,14 +44,14 @@
 
 # virtual methods
 .method public final a(Lcom/dts/dtssdk/f/a;Ljava/util/List;)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/dts/dtssdk/f/a;",
             "Ljava/util/List",
             "<",
-            "Lcom/dts/dtssdk/a/a;",
+            "Ljava/lang/Integer;",
             ">;)V"
         }
     .end annotation
@@ -64,15 +60,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$10;->b:Lcom/dts/dtsxultra/b/p;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$10;->a:Lcom/dts/dtsxultra/b/p;
 
-    invoke-virtual {v0}, Lcom/dts/dtsxultra/b/p;->g()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
+    invoke-virtual {v0, p1}, Lcom/dts/dtsxultra/b/p;->a(Lcom/dts/dtssdk/f/a;)V
 
     invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
 
@@ -80,7 +72,7 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v2, "Error while checking if headphone exists in the datastore. Error result: "
+    const-string v2, "Querying for get Product Audio Route returned error: "
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
@@ -108,101 +100,100 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$10;->b:Lcom/dts/dtsxultra/b/p;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$10;->a:Lcom/dts/dtsxultra/b/p;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->b(Lcom/dts/dtsxultra/b/p;)Lcom/dts/dtsxultra/views/a;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->f(Lcom/dts/dtsxultra/b/p;)V
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/dts/dtsxultra/views/a;->notifyDataSetChanged()V
-
-    :cond_0
     :goto_0
     return-void
 
-    :cond_1
-    if-eqz p2, :cond_2
-
-    invoke-interface {p2}, Ljava/util/List;->size()I
+    :cond_0
+    invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    const/4 v1, 0x1
+    if-nez v0, :cond_4
 
-    if-ne v0, v1, :cond_2
+    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$10;->b:Lcom/dts/dtsxultra/b/p;
+    move-result-object v1
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->d(Lcom/dts/dtsxultra/b/p;)Landroid/support/v4/app/f;
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result-object v0
+    move-result v0
 
-    sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
+    if-eqz v0, :cond_3
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/p$10;->a:Ljava/lang/String;
-
-    invoke-static {v0, v1, v2}, Lcom/dts/dtsxultra/util/a;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string v0, "Saving new branded headphone to: "
-
-    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const/4 v0, 0x0
-
-    invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/dts/dtssdk/a/a;
+    check-cast v0, Ljava/lang/Integer;
 
-    iget-object v0, v0, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v2
 
-    invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
+    const/4 v3, 0x2
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$10;->b:Lcom/dts/dtsxultra/b/p;
+    if-eq v2, v3, :cond_1
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->e(Lcom/dts/dtsxultra/b/p;)V
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    goto :goto_0
+    move-result v2
+
+    const/16 v3, 0xe
+
+    if-ne v2, v3, :cond_2
+
+    :cond_1
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/p$10;->a:Lcom/dts/dtsxultra/b/p;
+
+    invoke-static {v2}, Lcom/dts/dtsxultra/b/p;->h(Lcom/dts/dtsxultra/b/p;)Lcom/dts/dtssdk/a/a;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/dts/dtssdk/a/a;->h:I
 
     :cond_2
     invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
 
-    move-result-object v0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v1, "Returned list is either null or empty (or more than one)."
+    const-string v3, "Product Audio Route : "
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    goto :goto_1
+
+    :cond_3
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$10;->a:Lcom/dts/dtsxultra/b/p;
+
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/p$10;->a:Lcom/dts/dtsxultra/b/p;
+
+    invoke-static {v1}, Lcom/dts/dtsxultra/b/p;->h(Lcom/dts/dtsxultra/b/p;)Lcom/dts/dtssdk/a/a;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/dts/dtsxultra/b/p;->a(Lcom/dts/dtsxultra/b/p;Lcom/dts/dtssdk/a/a;)V
+
+    goto :goto_0
+
+    :cond_4
     invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "The selected headphone does not exist in the database. Showing no selection in the UI"
+    const-string v1, "There is no audio route for this particular accessory"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$10;->b:Lcom/dts/dtsxultra/b/p;
-
-    invoke-virtual {v0}, Lcom/dts/dtsxultra/b/p;->g()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$10;->b:Lcom/dts/dtsxultra/b/p;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->b(Lcom/dts/dtsxultra/b/p;)Lcom/dts/dtsxultra/views/a;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/dts/dtsxultra/views/a;->notifyDataSetChanged()V
 
     goto :goto_0
 .end method

@@ -288,7 +288,7 @@
     return-void
 
     :cond_2
-    iget-object v0, p2, Lcom/dts/dtssdk/a/a;->b:Lcom/dts/dtssdk/a/i;
+    iget-object v0, p2, Lcom/dts/dtssdk/a/a;->c:Lcom/dts/dtssdk/a/i;
 
     if-eqz v0, :cond_5
 
@@ -310,7 +310,7 @@
 
     move-result-object v0
 
-    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -327,9 +327,9 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/activities/AccessorySelectionActivity;->l:Ljava/lang/String;
 
-    iget-object v2, p2, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v2, p2, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
-    invoke-static {p0, v1, v2}, Lcom/dts/dtsxultra/util/f;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p0, v1, v2}, Lcom/dts/dtsxultra/util/e;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_3
     iget-object v1, p0, Lcom/dts/dtsxultra/activities/AccessorySelectionActivity;->m:Ljava/lang/String;
@@ -338,9 +338,9 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/activities/AccessorySelectionActivity;->m:Ljava/lang/String;
 
-    iget-object v2, p2, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v2, p2, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
-    invoke-static {p0, v1, v2}, Lcom/dts/dtsxultra/util/f;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p0, v1, v2}, Lcom/dts/dtsxultra/util/e;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_4
     iget-object v1, p0, Lcom/dts/dtsxultra/activities/AccessorySelectionActivity;->k:Landroid/widget/LinearLayout;
@@ -351,7 +351,7 @@
 
     invoke-virtual {v0}, Landroid/support/design/widget/Snackbar;->b()V
 
-    iget-object v0, p2, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v0, p2, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     invoke-static {p0, p1, v0}, Lcom/dts/dtsxultra/util/a;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Ljava/lang/String;)V
 
@@ -365,9 +365,13 @@
 
     if-ne v0, v1, :cond_1
 
-    sget-object v0, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/activities/AccessorySelectionActivity;->getApplicationContext()Landroid/content/Context;
 
-    invoke-static {p0, v0, v3}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
+    move-result-object v0
+
+    sget-object v1, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
+
+    invoke-static {v0, v1, v3}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
 
     goto :goto_0
 
@@ -378,7 +382,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -422,7 +426,7 @@
 
     invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/activities/AccessorySelectionActivity;->setContentView(I)V
 
-    const v0, 0x7f08012f
+    const v0, 0x7f08016a
 
     invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/activities/AccessorySelectionActivity;->findViewById(I)Landroid/view/View;
 
@@ -432,7 +436,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/activities/AccessorySelectionActivity;->k:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f080130
+    const v0, 0x7f08016b
 
     invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/activities/AccessorySelectionActivity;->findViewById(I)Landroid/view/View;
 
@@ -484,7 +488,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
+    invoke-static {v0}, Lcom/dts/dtssdk/g;->b(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
 
     invoke-virtual {p0}, Lcom/dts/dtsxultra/activities/AccessorySelectionActivity;->getIntent()Landroid/content/Intent;
 
@@ -512,11 +516,11 @@
 .end method
 
 .method protected onPause()V
-    .locals 2
+    .locals 3
 
     invoke-super {p0}, Landroid/support/v7/app/c;->onPause()V
 
-    invoke-static {p0}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;)Z
+    invoke-static {p0}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -526,15 +530,19 @@
 
     invoke-static {p0}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->a(Landroid/content/Context;)V
 
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/activities/AccessorySelectionActivity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     invoke-static {}, Lcom/dts/dtssdk/g;->f()Lcom/dts/dtssdk/util/a;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {p0, v0, v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
+    invoke-static {v0, v1, v2}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
 
     :cond_0
     return-void

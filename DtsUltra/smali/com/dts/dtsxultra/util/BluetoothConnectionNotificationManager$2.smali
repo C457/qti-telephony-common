@@ -85,7 +85,7 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager$2;->c:Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;
 
-    const v2, 0x7f0800e2
+    const v2, 0x7f0800f8
 
     invoke-virtual {v1, v2, v0}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->setImageViewBitmap(ILandroid/graphics/Bitmap;)V
 
@@ -119,13 +119,13 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager$2;->c:Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;
 
-    const v2, 0x7f08002b
+    const v2, 0x7f08002c
 
     invoke-virtual {v1, v2, v0}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->setTextViewText(ILjava/lang/CharSequence;)V
 
     iget-object v0, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager$2;->c:Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;
 
-    const v1, 0x7f08002a
+    const v1, 0x7f08002b
 
     iget-object v2, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager$2;->c:Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;
 
@@ -137,7 +137,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0e00bb
+    const v3, 0x7f0e00be
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -147,7 +147,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager$2;->c:Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;
 
-    const v1, 0x7f080113
+    const v1, 0x7f080145
 
     invoke-virtual {v0, v1, v4}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->setViewVisibility(II)V
 
@@ -163,7 +163,7 @@
     :cond_0
     iget-object v0, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager$2;->a:Lcom/dts/dtssdk/a/a;
 
-    iget-object v0, v0, Lcom/dts/dtssdk/a/a;->f:Lcom/dts/dtssdk/a/a$a;
+    iget-object v0, v0, Lcom/dts/dtssdk/a/a;->g:Lcom/dts/dtssdk/a/a$a;
 
     if-eqz v0, :cond_1
 
@@ -171,7 +171,7 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager$2;->a:Lcom/dts/dtssdk/a/a;
 
-    iget-object v1, v1, Lcom/dts/dtssdk/a/a;->f:Lcom/dts/dtssdk/a/a$a;
+    iget-object v1, v1, Lcom/dts/dtssdk/a/a;->g:Lcom/dts/dtssdk/a/a$a;
 
     invoke-virtual {v1}, Lcom/dts/dtssdk/a/a$a;->ordinal()I
 

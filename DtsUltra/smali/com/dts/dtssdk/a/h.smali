@@ -5,12 +5,13 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/dts/dtssdk/a/h$k;,
         Lcom/dts/dtssdk/a/h$a;,
         Lcom/dts/dtssdk/a/h$c;,
         Lcom/dts/dtssdk/a/h$d;,
-        Lcom/dts/dtssdk/a/h$l;,
+        Lcom/dts/dtssdk/a/h$m;,
         Lcom/dts/dtssdk/a/h$h;,
-        Lcom/dts/dtssdk/a/h$k;,
+        Lcom/dts/dtssdk/a/h$l;,
         Lcom/dts/dtssdk/a/h$i;,
         Lcom/dts/dtssdk/a/h$j;,
         Lcom/dts/dtssdk/a/h$g;,
@@ -229,9 +230,9 @@
 
     iget-object v0, p0, Lcom/dts/dtssdk/a/h;->a:Ljava/util/concurrent/ExecutorService;
 
-    new-instance v1, Lcom/dts/dtssdk/a/h$k;
+    new-instance v1, Lcom/dts/dtssdk/a/h$l;
 
-    invoke-direct {v1, p0, p1, p2, p3}, Lcom/dts/dtssdk/a/h$k;-><init>(Lcom/dts/dtssdk/a/h;Landroid/content/Context;Ljava/lang/String;Lcom/dts/dtssdk/c/c;)V
+    invoke-direct {v1, p0, p1, p2, p3}, Lcom/dts/dtssdk/a/h$l;-><init>(Lcom/dts/dtssdk/a/h;Landroid/content/Context;Ljava/lang/String;Lcom/dts/dtssdk/c/c;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 

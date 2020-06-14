@@ -2,12 +2,12 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/dts/dtsxultra/b/o;->a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
+    value = Lcom/dts/dtsxultra/b/o;->s()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,40 +33,14 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 4
+.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    .locals 1
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/o$14;->a:Lcom/dts/dtsxultra/b/o;
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/o$14;->a:Lcom/dts/dtsxultra/b/o;
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/o;->ac:Landroid/support/v4/app/f;
 
-    invoke-virtual {v1}, Lcom/dts/dtsxultra/b/o;->f()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0e00df
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/o$14;->a:Lcom/dts/dtsxultra/b/o;
-
-    invoke-virtual {v2}, Lcom/dts/dtsxultra/b/o;->f()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f0e00c7
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/dts/dtsxultra/b/o$14$1;
-
-    invoke-direct {v3, p0}, Lcom/dts/dtsxultra/b/o$14$1;-><init>(Lcom/dts/dtsxultra/b/o$14;)V
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/dts/dtsxultra/b/o;->a(Ljava/lang/String;Ljava/lang/String;Lcom/dts/dtsxultra/c/b;)V
+    invoke-static {v0, p2}, Lcom/dts/dtsxultra/util/e;->g(Landroid/content/Context;Z)V
 
     return-void
 .end method

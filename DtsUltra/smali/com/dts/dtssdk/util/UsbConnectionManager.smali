@@ -199,7 +199,7 @@
 
     move-result-object v2
 
-    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
@@ -219,7 +219,7 @@
 
     move-result-object v2
 
-    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -227,9 +227,9 @@
 
     move-result-object v2
 
-    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
-    iget-object v4, p1, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v4, p1, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     if-eqz v0, :cond_2
 

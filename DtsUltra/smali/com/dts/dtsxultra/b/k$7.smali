@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/dts/dtsxultra/c/b;
+.implements Landroid/media/AudioManager$OnAudioFocusChangeListener;
 
 
 # annotations
@@ -33,49 +33,31 @@
 
 
 # virtual methods
-.method public final a()V
+.method public final onAudioFocusChange(I)V
     .locals 3
 
-    :try_start_0
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k$7;->a:Lcom/dts/dtsxultra/b/k;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/k;->j(Lcom/dts/dtsxultra/b/k;)Landroid/support/v4/app/f;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/dts/dtsxultra/c/c;
+    const/4 v0, 0x1
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/k$7;->a:Lcom/dts/dtsxultra/b/k;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/k;->j(Lcom/dts/dtsxultra/b/k;)Landroid/support/v4/app/f;
+    if-eq v0, p1, :cond_0
 
-    move-result-object v1
+    const/4 v2, 0x2
 
-    invoke-virtual {v1}, Landroid/support/v4/app/f;->getResources()Landroid/content/res/Resources;
+    if-eq v2, p1, :cond_0
 
-    move-result-object v1
+    const/4 v2, 0x3
 
-    const v2, 0x7f0e00af
+    if-ne v2, p1, :cond_1
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Lcom/dts/dtsxultra/c/c;->a(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
-
+    :cond_0
     :goto_0
+    invoke-static {v1, v0}, Lcom/dts/dtsxultra/b/k;->a(Lcom/dts/dtsxultra/b/k;Z)Z
+
     return-void
 
-    :catch_0
-    move-exception v0
-
-    sget-object v0, Lcom/dts/dtsxultra/b/k;->X:Ljava/lang/String;
-
-    const-string v1, "Hosting activity does not implement SnackBarListener. Aborting"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :cond_1
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method

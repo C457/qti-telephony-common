@@ -90,7 +90,7 @@
     .line 41
     sget-object v0, Landroid/media/audiofx/DtsAudio;->TAG:Ljava/lang/String;
 
-    const-string v1, "getParameter"
+    const-string/jumbo v1, "getParameter"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

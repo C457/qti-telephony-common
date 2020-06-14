@@ -24,7 +24,7 @@
 
 
 # virtual methods
-.method public a(Landroid/graphics/Canvas;)V
+.method public a(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;)V
     .locals 0
 
     return-void

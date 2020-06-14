@@ -129,7 +129,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->o()Z
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
 
     move-result v1
 
@@ -172,7 +172,7 @@
     throw v1
 
     :cond_0
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->j()V
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->i()V
 
     :cond_1
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$5;->a:Landroid/support/v7/widget/RecyclerView;
@@ -255,7 +255,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->o()Z
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
 
     move-result v1
 

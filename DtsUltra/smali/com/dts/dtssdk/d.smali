@@ -15,7 +15,7 @@
 .method public abstract a(III)Lcom/dts/dtssdk/o;
 .end method
 
-.method public abstract a(ILjava/lang/String;)Lcom/dts/dtssdk/o;
+.method public abstract a(ILjava/lang/String;I)Lcom/dts/dtssdk/o;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method

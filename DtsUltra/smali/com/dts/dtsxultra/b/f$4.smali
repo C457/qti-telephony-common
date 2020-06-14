@@ -44,13 +44,7 @@
 
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/f$4;->a:Lcom/dts/dtsxultra/b/f;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/f;->a(Lcom/dts/dtsxultra/b/f;)Landroid/support/v4/app/f;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/util/f;->k(Landroid/content/Context;)[F
+    invoke-static {}, Lcom/dts/dtsxultra/b/f;->S()[F
 
     move-result-object v0
 
@@ -58,13 +52,11 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/f$4;->a:Lcom/dts/dtsxultra/b/f;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/f;->c(Lcom/dts/dtsxultra/b/f;)V
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/f;->b(Lcom/dts/dtsxultra/b/f;)V
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/f$4;->a:Lcom/dts/dtsxultra/b/f;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/f;->a(Lcom/dts/dtsxultra/b/f;)Landroid/support/v4/app/f;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
 
     const-string v1, "Listening profile updated"
 

@@ -548,50 +548,51 @@
 .end method
 
 .method private static a(Lcom/dts/dtssdk/util/a;Lcom/dts/dtssdk/a/a;ZLcom/dts/dtssdk/a/j;)Lcom/dts/dtssdk/f/a;
-    .locals 7
+    .locals 5
 
     invoke-static {}, Lcom/dts/dtssdk/k;->a()Z
 
     :try_start_0
     invoke-static {p3}, Lcom/dts/dtssdk/DtsCore;->a(Lcom/dts/dtssdk/a/j;)I
 
-    move-result v5
-
-    invoke-static {}, Lcom/dts/dtssdk/j;->a()Lcom/dts/dtssdk/j;
-
-    move-result-object v1
+    move-result v0
 
     invoke-static {p0}, Lcom/dts/dtssdk/n;->a(Lcom/dts/dtssdk/util/a;)I
 
-    move-result v2
+    move-result v1
 
-    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    const/4 v2, 0x3
 
-    invoke-static {p2}, Lcom/dts/dtssdk/k;->a(Z)I
+    if-ne v1, v2, :cond_0
 
-    move-result v4
-
-    new-instance v6, Lcom/dts/dtssdk/j$a;
-
-    new-instance v0, Lcom/dts/dtssdk/j$30;
-
-    invoke-direct/range {v0 .. v5}, Lcom/dts/dtssdk/j$30;-><init>(Lcom/dts/dtssdk/j;ILjava/lang/String;II)V
-
-    invoke-direct {v6, v1, v0}, Lcom/dts/dtssdk/j$a;-><init>(Lcom/dts/dtssdk/j;Ljava/util/concurrent/Callable;)V
-
-    invoke-virtual {v6}, Lcom/dts/dtssdk/j$a;->a()Ljava/lang/Object;
+    invoke-static {}, Lcom/dts/dtssdk/j;->a()Lcom/dts/dtssdk/j;
 
     move-result-object v0
 
-    check-cast v0, Lcom/dts/dtssdk/o;
+    invoke-static {p0}, Lcom/dts/dtssdk/n;->a(Lcom/dts/dtssdk/util/a;)I
+
+    move-result v1
+
+    iget-object v2, p1, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
+
+    invoke-static {p2}, Lcom/dts/dtssdk/k;->a(Z)I
+
+    move-result v3
+
+    iget v4, p1, Lcom/dts/dtssdk/a/a;->h:I
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/dts/dtssdk/j;->a(ILjava/lang/String;II)Lcom/dts/dtssdk/o;
     :try_end_0
     .catch Lcom/dts/dtssdk/d/a; {:try_start_0 .. :try_end_0} :catch_0
 
+    move-result-object v0
+
+    :goto_0
     invoke-virtual {v0}, Lcom/dts/dtssdk/o;->a()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-static {}, Lcom/dts/dtssdk/b/c;->a()Lcom/dts/dtssdk/b/c;
 
@@ -607,7 +608,7 @@
 
     move-result-object v2
 
-    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -617,7 +618,7 @@
 
     move-result-object v2
 
-    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -627,7 +628,7 @@
 
     move-result-object v2
 
-    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->f:Lcom/dts/dtssdk/a/a$a;
+    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->g:Lcom/dts/dtssdk/a/a$a;
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
@@ -657,7 +658,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v1, p1, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v1, p1, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -671,8 +672,32 @@
 
     iput-object v1, v0, Lcom/dts/dtssdk/f/a;->b:Ljava/lang/String;
 
-    :goto_0
+    :goto_1
     return-object v0
+
+    :cond_0
+    :try_start_1
+    invoke-static {}, Lcom/dts/dtssdk/j;->a()Lcom/dts/dtssdk/j;
+
+    move-result-object v1
+
+    invoke-static {p0}, Lcom/dts/dtssdk/n;->a(Lcom/dts/dtssdk/util/a;)I
+
+    move-result v2
+
+    iget-object v3, p1, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
+
+    invoke-static {p2}, Lcom/dts/dtssdk/k;->a(Z)I
+
+    move-result v4
+
+    invoke-virtual {v1, v2, v3, v4, v0}, Lcom/dts/dtssdk/j;->a(ILjava/lang/String;II)Lcom/dts/dtssdk/o;
+    :try_end_1
+    .catch Lcom/dts/dtssdk/d/a; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result-object v0
+
+    goto :goto_0
 
     :catch_0
     move-exception v0
@@ -683,9 +708,9 @@
 
     invoke-direct {v0, v1}, Lcom/dts/dtssdk/f/a;-><init>(Lcom/dts/dtssdk/f/a$a;)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_1
     new-instance v1, Lcom/dts/dtssdk/f/a;
 
     invoke-direct {v1, v0}, Lcom/dts/dtssdk/f/a;-><init>(Lcom/dts/dtssdk/o;)V
@@ -694,7 +719,7 @@
 
     sget-object v2, Lcom/dts/dtssdk/f/a$a;->x:Lcom/dts/dtssdk/f/a$a;
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_2
 
     new-instance v0, Ljava/lang/Throwable;
 
@@ -708,7 +733,7 @@
 
     invoke-static {}, Lcom/dts/dtssdk/k;->a()Z
 
-    const-string v3, "1.0.3.40"
+    const-string v3, "2.0.3.56"
 
     invoke-virtual {v2, v0, v3}, Lcom/dts/dtssdk/m;->a(Ljava/lang/Throwable;Ljava/lang/String;)V
 
@@ -724,10 +749,10 @@
 
     invoke-virtual {v0, v2}, Lcom/dts/dtssdk/b/c;->a(Lcom/dts/dtssdk/m;)V
 
-    :cond_1
+    :cond_2
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method static a(Lcom/dts/dtssdk/util/a;Lcom/dts/dtssdk/a/j;)Lcom/dts/dtssdk/f/a;
@@ -1751,7 +1776,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1763,7 +1788,7 @@
 
     move-result-object v0
 
-    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2032,7 +2057,7 @@
 
     invoke-static {}, Lcom/dts/dtssdk/k;->a()Z
 
-    const-string v3, "1.0.3.40"
+    const-string v3, "2.0.3.56"
 
     invoke-virtual {v2, v1, v3}, Lcom/dts/dtssdk/m;->a(Ljava/lang/Throwable;Ljava/lang/String;)V
 
@@ -2122,7 +2147,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v2, p0, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     if-eqz v0, :cond_1
 
@@ -2436,7 +2461,7 @@
 
     invoke-static {}, Lcom/dts/dtssdk/k;->a()Z
 
-    const-string v0, "1.0.3.40"
+    const-string v0, "2.0.3.56"
 
     return-object v0
 .end method
@@ -3793,7 +3818,7 @@
 
     sget-object v0, Lcom/dts/dtssdk/DtsCore;->a:Ljava/lang/String;
 
-    const-string v2, "Initializing DTS... Version: 1.0.3.40"
+    const-string v2, "Initializing DTS... Version: 2.0.3.56"
 
     invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -4025,7 +4050,7 @@
 
     invoke-static {}, Lcom/dts/dtssdk/k;->a()Z
 
-    const-string v1, "1.0.3.40"
+    const-string v1, "2.0.3.56"
 
     invoke-virtual {v0, p1, v1}, Lcom/dts/dtssdk/b/c;->a(Landroid/content/Context;Ljava/lang/String;)V
 

@@ -92,6 +92,6 @@
 
 .field public static final abc_toolbar_collapse_description:I = 0x7f0e0027
 
-.field public static final search_menu_title:I = 0x7f0e00e8
+.field public static final search_menu_title:I = 0x7f0e00eb
 
-.field public static final status_bar_notification_info_overflow:I = 0x7f0e00f0
+.field public static final status_bar_notification_info_overflow:I = 0x7f0e00f3

@@ -68,7 +68,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/util/f;->f(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/dts/dtsxultra/util/e;->f(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -179,7 +179,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;Z)V
+    invoke-static {v0, v1}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;Z)V
 
     goto :goto_0
 
@@ -200,7 +200,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, v2}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;Z)V
+    invoke-static {v0, v2}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;Z)V
 
     goto :goto_0
 
@@ -246,7 +246,7 @@
 
     move-result-object v1
 
-    const v0, 0x7f080007
+    const v0, 0x7f080008
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -256,7 +256,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/a;->Y:Landroid/widget/ImageView;
 
-    const v0, 0x7f08000a
+    const v0, 0x7f08000b
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -266,7 +266,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/a;->aa:Landroid/widget/TextView;
 
-    const v0, 0x7f080009
+    const v0, 0x7f08000a
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -312,7 +312,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f08000b
+    const v0, 0x7f08000c
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -358,7 +358,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0801af
+    const v1, 0x7f080205
 
     invoke-virtual {v0, v1}, Landroid/support/v4/app/f;->findViewById(I)Landroid/view/View;
 

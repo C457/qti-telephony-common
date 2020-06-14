@@ -24,14 +24,14 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/dts/dtsxultra/views/d;Landroid/view/View;)V
+.method constructor <init>(Lcom/dts/dtsxultra/views/d;Landroid/view/View;)V
     .locals 1
 
     iput-object p1, p0, Lcom/dts/dtsxultra/views/d$b;->u:Lcom/dts/dtsxultra/views/d;
 
     invoke-direct {p0, p2}, Landroid/support/v7/widget/RecyclerView$w;-><init>(Landroid/view/View;)V
 
-    const v0, 0x7f08004e
+    const v0, 0x7f080052
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -41,7 +41,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/views/d$b;->r:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f08004d
+    const v0, 0x7f080051
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -51,7 +51,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/views/d$b;->s:Landroid/widget/ImageView;
 
-    const v0, 0x7f080050
+    const v0, 0x7f080054
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

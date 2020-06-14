@@ -83,7 +83,7 @@
 
     and-int/lit8 v0, v0, 0xe
 
-    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->k()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->j()Z
 
     move-result v1
 
@@ -102,7 +102,7 @@
 
     iget v1, p0, Landroid/support/v7/widget/RecyclerView$w;->d:I
 
-    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->e()I
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->d()I
 
     move-result v2
 

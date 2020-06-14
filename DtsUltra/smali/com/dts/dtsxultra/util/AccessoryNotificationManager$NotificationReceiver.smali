@@ -110,7 +110,9 @@
 
     invoke-static {v0}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->b(Landroid/content/Context;)Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->c(Landroid/content/Context;)V
+    move-result-object v0
+
+    invoke-static {v0, p1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->d(Lcom/dts/dtsxultra/util/AccessoryNotificationManager;Landroid/content/Context;)V
 
     goto :goto_0
 
@@ -133,7 +135,7 @@
 
     sget-object v1, Lcom/dts/dtssdk/a/n;->b:Lcom/dts/dtssdk/a/n;
 
-    invoke-static {v0, p1, v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Lcom/dts/dtsxultra/util/AccessoryNotificationManager;Landroid/content/Context;Lcom/dts/dtssdk/a/n;)V
+    invoke-static {v0, p1, v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->b(Lcom/dts/dtsxultra/util/AccessoryNotificationManager;Landroid/content/Context;Lcom/dts/dtssdk/a/n;)V
 
     goto :goto_0
 
@@ -156,7 +158,7 @@
 
     sget-object v1, Lcom/dts/dtssdk/a/n;->c:Lcom/dts/dtssdk/a/n;
 
-    invoke-static {v0, p1, v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Lcom/dts/dtsxultra/util/AccessoryNotificationManager;Landroid/content/Context;Lcom/dts/dtssdk/a/n;)V
+    invoke-static {v0, p1, v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->b(Lcom/dts/dtsxultra/util/AccessoryNotificationManager;Landroid/content/Context;Lcom/dts/dtssdk/a/n;)V
 
     goto :goto_0
 
@@ -179,7 +181,7 @@
 
     sget-object v1, Lcom/dts/dtssdk/a/n;->d:Lcom/dts/dtssdk/a/n;
 
-    invoke-static {v0, p1, v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Lcom/dts/dtsxultra/util/AccessoryNotificationManager;Landroid/content/Context;Lcom/dts/dtssdk/a/n;)V
+    invoke-static {v0, p1, v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->b(Lcom/dts/dtsxultra/util/AccessoryNotificationManager;Landroid/content/Context;Lcom/dts/dtssdk/a/n;)V
 
     goto :goto_0
 
@@ -194,7 +196,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/dts/dtsxultra/util/f;->c(Landroid/content/Context;Z)V
+    invoke-static {p1, v0}, Lcom/dts/dtsxultra/util/e;->c(Landroid/content/Context;Z)V
 
     goto/16 :goto_0
 .end method

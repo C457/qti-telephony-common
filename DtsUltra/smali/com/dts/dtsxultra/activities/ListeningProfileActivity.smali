@@ -54,7 +54,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0050
+    const v2, 0x7f0e0051
 
     new-instance v3, Lcom/dts/dtsxultra/activities/ListeningProfileActivity$4;
 
@@ -131,7 +131,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e00ad
+    const v1, 0x7f0e00b0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -141,7 +141,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0071
+    const v2, 0x7f0e0072
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -165,7 +165,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e00ad
+    const v1, 0x7f0e00b0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -175,7 +175,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0071
+    const v2, 0x7f0e0072
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -199,7 +199,7 @@
 
     invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/activities/ListeningProfileActivity;->setContentView(I)V
 
-    const v0, 0x7f08012f
+    const v0, 0x7f08016a
 
     invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/activities/ListeningProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -209,7 +209,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/activities/ListeningProfileActivity;->k:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f080130
+    const v0, 0x7f08016b
 
     invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/activities/ListeningProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -357,7 +357,7 @@
 
     iget-boolean v0, p0, Lcom/dts/dtsxultra/activities/ListeningProfileActivity;->l:Z
 
-    invoke-static {p0, v0}, Lcom/dts/dtsxultra/util/f;->a(Landroid/content/Context;Z)V
+    invoke-static {p0, v0}, Lcom/dts/dtsxultra/util/e;->a(Landroid/content/Context;Z)V
 
     return-void
 .end method

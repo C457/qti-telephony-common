@@ -125,7 +125,7 @@
 .method private a(Landroid/support/v4/app/e;Ljava/lang/String;I)V
     .locals 4
 
-    const v3, 0x7f08012e
+    const v3, 0x7f080169
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -287,7 +287,7 @@
 
     move-result-object v1
 
-    const-string v2, " now 2131231022"
+    const-string v2, " now 2131231081"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

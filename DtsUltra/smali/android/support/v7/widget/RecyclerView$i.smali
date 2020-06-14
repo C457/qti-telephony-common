@@ -259,7 +259,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$j;->c:Landroid/support/v7/widget/RecyclerView$w;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->d()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->c()I
 
     move-result v0
 
@@ -659,7 +659,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->m:Landroid/support/v7/widget/RecyclerView$a;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$a;->b()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$a;->a()I
 
     move-result v0
 
@@ -737,7 +737,7 @@
 
     if-eqz v3, :cond_1
 
-    invoke-virtual {v3}, Landroid/support/v7/widget/RecyclerView$w;->d()I
+    invoke-virtual {v3}, Landroid/support/v7/widget/RecyclerView$w;->c()I
 
     move-result v4
 
@@ -757,7 +757,7 @@
 
     if-nez v4, :cond_0
 
-    invoke-virtual {v3}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
+    invoke-virtual {v3}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
 
     move-result v3
 
@@ -918,13 +918,13 @@
 
     if-nez v3, :cond_0
 
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->k()Z
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->j()Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
 
     move-result v3
 
@@ -1086,7 +1086,7 @@
 
     if-nez p3, :cond_0
 
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
 
     move-result v0
 
@@ -1106,26 +1106,26 @@
 
     check-cast v0, Landroid/support/v7/widget/RecyclerView$j;
 
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->h()Z
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->g()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->f()Z
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->e()Z
 
     move-result v1
 
     if-eqz v1, :cond_6
 
     :cond_1
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->f()Z
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->e()Z
 
     move-result v1
 
     if-eqz v1, :cond_5
 
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->g()V
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->f()V
 
     :goto_1
     iget-object v1, p0, Landroid/support/v7/widget/RecyclerView$i;->p:Landroid/support/v7/widget/ai;
@@ -1161,7 +1161,7 @@
     goto :goto_0
 
     :cond_5
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->i()V
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->h()V
 
     goto :goto_1
 
@@ -1283,7 +1283,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
+    invoke-virtual {v5}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
 
     move-result v6
 
@@ -1298,7 +1298,7 @@
     :goto_3
     iget-object v3, v3, Landroid/support/v7/widget/RecyclerView$i;->p:Landroid/support/v7/widget/ai;
 
-    invoke-virtual {v5}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
+    invoke-virtual {v5}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
 
     move-result v5
 
@@ -1475,7 +1475,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
 
     move-result v1
 
@@ -1611,7 +1611,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->m:Landroid/support/v7/widget/RecyclerView$a;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$a;->b()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$a;->a()I
 
     move-result v0
 
@@ -2051,7 +2051,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->m:Landroid/support/v7/widget/RecyclerView$a;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$a;->b()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$a;->a()I
 
     move-result v0
 
@@ -2150,7 +2150,7 @@
 
     invoke-virtual {v3, v5}, Landroid/support/v7/widget/RecyclerView$w;->a(Z)V
 
-    invoke-virtual {v3}, Landroid/support/v7/widget/RecyclerView$w;->o()Z
+    invoke-virtual {v3}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
 
     move-result v4
 

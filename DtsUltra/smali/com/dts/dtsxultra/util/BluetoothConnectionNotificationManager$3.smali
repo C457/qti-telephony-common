@@ -184,6 +184,10 @@
 
     move-result-object v0
 
+    invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     invoke-static {}, Lcom/dts/dtssdk/g;->f()Lcom/dts/dtssdk/util/a;

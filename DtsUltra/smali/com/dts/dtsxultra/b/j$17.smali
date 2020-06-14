@@ -36,41 +36,13 @@
 .method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 2
 
-    invoke-virtual {p1}, Landroid/widget/CompoundButton;->isClickable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p1}, Landroid/widget/CompoundButton;->isPressed()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->r()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$17;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->l(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtsxultra/b/m$a;
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/j$17;->a:Lcom/dts/dtsxultra/b/j;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->k(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/util/a;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->k(Lcom/dts/dtsxultra/b/j;)Landroid/widget/Switch;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/j$17;->a:Lcom/dts/dtsxultra/b/j;
-
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/j;->h(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/j;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, p2}, Lcom/dts/dtsxultra/b/m$a;->a(Lcom/dts/dtssdk/util/a;Lcom/dts/dtssdk/a/j;Z)Z
+    invoke-virtual {v0}, Landroid/widget/Switch;->isPressed()Z
 
     move-result v0
 
@@ -78,30 +50,42 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$17;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->m(Lcom/dts/dtsxultra/b/j;)Landroid/widget/Switch;
+    invoke-static {v0, p2}, Lcom/dts/dtsxultra/b/j;->a(Lcom/dts/dtsxultra/b/j;Z)V
 
-    move-result-object v0
-
-    invoke-virtual {v0, p2}, Landroid/widget/Switch;->setChecked(Z)V
-
-    :goto_0
-    return-void
-
-    :cond_0
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$17;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->m(Lcom/dts/dtsxultra/b/j;)Landroid/widget/Switch;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->i(Lcom/dts/dtsxultra/b/j;)Landroid/widget/Switch;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    if-nez p2, :cond_1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
+    const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/widget/Switch;->setChecked(Z)V
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/j$17;->a:Lcom/dts/dtsxultra/b/j;
+
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/dts/dtsxultra/b/j;->a(Lcom/dts/dtsxultra/b/j;Ljava/lang/Boolean;)Ljava/lang/Boolean;
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/j$17;->a:Lcom/dts/dtsxultra/b/j;
+
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/j;->ac:Landroid/support/v4/app/f;
+
+    invoke-static {v0, p2}, Lcom/dts/dtssdk/g;->b(Landroid/content/Context;Z)Z
+
+    :cond_0
+    return-void
 
     :cond_1
-    invoke-static {}, Lcom/dts/dtsxultra/b/j;->R()Ljava/lang/String;
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method

@@ -42,10 +42,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/16 v0, 0xc8
-
-    iput v0, p0, Lcom/dts/dtsxultra/b/h$a;->e:I
-
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
@@ -65,6 +61,10 @@
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/h$a;->c:Ljava/util/HashSet;
+
+    const/16 v0, 0xc8
+
+    iput v0, p0, Lcom/dts/dtsxultra/b/h$a;->e:I
 
     return-void
 

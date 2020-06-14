@@ -7,7 +7,9 @@
 
 
 # instance fields
-.field protected ab:Landroid/support/v4/app/f;
+.field protected ac:Landroid/support/v4/app/f;
+
+.field protected ad:Lcom/dts/dtssdk/a/j;
 
 
 # direct methods
@@ -31,6 +33,14 @@
     invoke-direct {p0}, Landroid/support/v4/app/e;-><init>()V
 
     return-void
+.end method
+
+.method static synthetic U()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/dts/dtsxultra/b/g;->X:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 
@@ -147,7 +157,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00c7
+    const v2, 0x7f0e00ca
 
     new-instance v3, Lcom/dts/dtsxultra/b/g$4;
 
@@ -190,7 +200,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0050
+    const v2, 0x7f0e0051
 
     new-instance v3, Lcom/dts/dtsxultra/b/g$2;
 
@@ -221,4 +231,85 @@
     move-exception v0
 
     goto :goto_0
+.end method
+
+.method protected final c(Z)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/g;->ac:Landroid/support/v4/app/f;
+
+    invoke-static {v0}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;)V
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->f()Lcom/dts/dtssdk/util/a;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/dts/dtsxultra/b/g$7;->a:[I
+
+    invoke-virtual {v0}, Lcom/dts/dtssdk/util/a;->ordinal()I
+
+    move-result v2
+
+    aget v1, v1, v2
+
+    packed-switch v1, :pswitch_data_0
+
+    :goto_0
+    return-void
+
+    :pswitch_0
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/g;->ac:Landroid/support/v4/app/f;
+
+    new-instance v3, Lcom/dts/dtsxultra/b/g$5;
+
+    invoke-direct {v3, p0, v0}, Lcom/dts/dtsxultra/b/g$5;-><init>(Lcom/dts/dtsxultra/b/g;Lcom/dts/dtssdk/util/a;)V
+
+    invoke-virtual {v1, v2, v3}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;Lcom/dts/dtssdk/c/b;)V
+
+    goto :goto_0
+
+    :pswitch_1
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/g;->ac:Landroid/support/v4/app/f;
+
+    new-instance v3, Lcom/dts/dtsxultra/b/g$6;
+
+    invoke-direct {v3, p0, v0, p1}, Lcom/dts/dtsxultra/b/g$6;-><init>(Lcom/dts/dtsxultra/b/g;Lcom/dts/dtssdk/util/a;Z)V
+
+    invoke-virtual {v1, v2, v0, v3}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Lcom/dts/dtssdk/c/a;)V
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+    .end packed-switch
+.end method
+
+.method public t()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/support/v4/app/e;->t()V
+
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/g;->d()Landroid/content/Context;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/dts/dtsxultra/util/e;->b(Landroid/content/Context;Ljava/lang/String;)V
+
+    return-void
 .end method

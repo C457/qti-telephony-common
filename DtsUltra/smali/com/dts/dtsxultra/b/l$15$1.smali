@@ -42,9 +42,7 @@
 
     iget-object v1, v1, Lcom/dts/dtsxultra/b/l$15;->a:Lcom/dts/dtsxultra/b/l;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/l;->d(Lcom/dts/dtsxultra/b/l;)Landroid/support/v4/app/f;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/dts/dtsxultra/b/l;->ac:Landroid/support/v4/app/f;
 
     const-class v2, Lcom/dts/dtsxultra/activities/ListeningProfileActivity;
 
@@ -54,9 +52,7 @@
 
     iget-object v1, v1, Lcom/dts/dtsxultra/b/l$15;->a:Lcom/dts/dtsxultra/b/l;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/l;->d(Lcom/dts/dtsxultra/b/l;)Landroid/support/v4/app/f;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/dts/dtsxultra/b/l;->ac:Landroid/support/v4/app/f;
 
     invoke-virtual {v1, v0}, Landroid/support/v4/app/f;->startActivity(Landroid/content/Intent;)V
 

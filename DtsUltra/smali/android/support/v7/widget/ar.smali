@@ -135,7 +135,7 @@
 
     if-ne v4, p1, :cond_0
 
-    invoke-virtual {v3}, Landroid/support/v7/widget/RecyclerView$w;->k()Z
+    invoke-virtual {v3}, Landroid/support/v7/widget/RecyclerView$w;->j()Z
 
     move-result v3
 
@@ -173,13 +173,13 @@
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->l()Z
 
     move-result v3
 
     if-eqz v3, :cond_4
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->k()Z
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->j()Z
 
     move-result v3
 
@@ -602,13 +602,13 @@
 
     if-eqz v4, :cond_b
 
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->l()Z
 
     move-result v4
 
     if-eqz v4, :cond_b
 
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->k()Z
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$w;->j()Z
 
     move-result v4
 
@@ -664,7 +664,7 @@
 
     iput v10, v4, Landroid/support/v7/widget/RecyclerView$t;->d:I
 
-    invoke-virtual {v9}, Landroid/support/v7/widget/RecyclerView$a;->b()I
+    invoke-virtual {v9}, Landroid/support/v7/widget/RecyclerView$a;->a()I
 
     move-result v9
 

@@ -58,7 +58,7 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->c(Landroid/content/Context;)Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;
+    invoke-static {v1}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->b(Landroid/content/Context;)Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;
 
     move-result-object v1
 

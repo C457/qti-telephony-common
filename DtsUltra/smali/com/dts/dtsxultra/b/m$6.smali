@@ -90,9 +90,7 @@
     :cond_0
     iget-object v0, p0, Lcom/dts/dtsxultra/b/m$6;->b:Lcom/dts/dtsxultra/b/m;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/m;->m(Lcom/dts/dtsxultra/b/m;)Landroid/support/v4/app/f;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/m;->ac:Landroid/support/v4/app/f;
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/m$6;->a:Lcom/dts/dtssdk/a/j;
 
@@ -122,7 +120,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/m$6;->b:Lcom/dts/dtsxultra/b/m;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/m;->n(Lcom/dts/dtsxultra/b/m;)V
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/m;->o(Lcom/dts/dtsxultra/b/m;)V
 
     goto :goto_0
 .end method

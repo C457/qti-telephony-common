@@ -2,10 +2,10 @@
 <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView android:id="@id/iv_hint" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/lp_dial_volume" android:layout_centerInParent="true" />
-    <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/lp_dial_core" android:layout_centerInParent="true" />
+    <ImageView android:id="@id/lp_dial_core" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/lp_dial_core" android:layout_centerInParent="true" />
     <ImageView android:id="@id/ring_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/lp_dial_ring_unpressed" android:layout_centerInParent="true" />
-    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+    <ImageView android:id="@id/rotary_center_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
     <ImageView android:id="@id/rotary_center" android:layout_width="35.0dip" android:layout_height="35.0dip" android:src="@drawable/lp_dial_step_1a" android:layout_centerInParent="true" />
-    <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/lp_bg_dial" android:layout_centerInParent="true" />
+    <ImageView android:id="@id/ring_fg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/lp_bg_dial" android:layout_centerInParent="true" />
     <com.dts.dtsxultra.listeningprofile.RotaryKnobThumb android:gravity="center" android:id="@id/rotaryKnobView" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true" />
 </RelativeLayout>

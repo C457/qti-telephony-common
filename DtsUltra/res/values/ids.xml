@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item type="id" name="LinearLayout_Complete" />
     <item type="id" name="about_document_layout" />
     <item type="id" name="about_logo" />
     <item type="id" name="about_product" />
@@ -36,8 +37,10 @@
     <item type="id" name="audioTitle" />
     <item type="id" name="audio_preference_bassSeekBar" />
     <item type="id" name="audio_preference_bassValue" />
+    <item type="id" name="audio_preference_bass_title" />
     <item type="id" name="audio_preference_dialogSeekBar" />
     <item type="id" name="audio_preference_dialogValue" />
+    <item type="id" name="audio_preference_dialog_title" />
     <item type="id" name="audio_preference_layout_bass" />
     <item type="id" name="audio_preference_layout_bassdialogtreble" />
     <item type="id" name="audio_preference_layout_dialog" />
@@ -45,6 +48,7 @@
     <item type="id" name="audio_preference_slider_title" />
     <item type="id" name="audio_preference_trebleSeekBar" />
     <item type="id" name="audio_preference_trebleValue" />
+    <item type="id" name="audio_preference_treble_title" />
     <item type="id" name="brandedheadphone_emptyText" />
     <item type="id" name="brandedheadphone_listView" />
     <item type="id" name="brandedheadphone_progressBar" />
@@ -66,6 +70,8 @@
     <item type="id" name="customPanel" />
     <item type="id" name="decor_content_parent" />
     <item type="id" name="default_activity_button" />
+    <item type="id" name="demo_layout_listening_custom" />
+    <item type="id" name="demo_layout_listening_custom_edit" />
     <item type="id" name="demo_layout_listening_reset" />
     <item type="id" name="demo_listening_custom_radio1" />
     <item type="id" name="demo_listening_custom_radio2" />
@@ -74,6 +80,9 @@
     <item type="id" name="demo_listening_custom_title" />
     <item type="id" name="demo_listening_custom_user" />
     <item type="id" name="demo_listening_custom_value" />
+    <item type="id" name="demo_listening_layout" />
+    <item type="id" name="demo_listening_title" />
+    <item type="id" name="demo_profile_summary" />
     <item type="id" name="demo_profile_title" />
     <item type="id" name="design_bottom_sheet" />
     <item type="id" name="design_menu_item_action_area" />
@@ -106,6 +115,7 @@
     <item type="id" name="equalizer_gainbottom" />
     <item type="id" name="equalizer_gainmid" />
     <item type="id" name="equalizer_gaintop" />
+    <item type="id" name="equalizer_layout_gain" />
     <item type="id" name="equalizer_line1" />
     <item type="id" name="equalizer_line10" />
     <item type="id" name="equalizer_line2" />
@@ -142,8 +152,12 @@
     <item type="id" name="general_contentmode_subtitle" />
     <item type="id" name="general_contentmode_title" />
     <item type="id" name="general_debug_menu_line" />
+    <item type="id" name="general_debug_title" />
+    <item type="id" name="general_demo_icon" />
+    <item type="id" name="general_demo_subtitle" />
     <item type="id" name="general_demo_title" />
     <item type="id" name="general_dts_icon" />
+    <item type="id" name="general_dts_subtitle" />
     <item type="id" name="general_dts_switch" />
     <item type="id" name="general_dts_title" />
     <item type="id" name="general_equalizer_icon" />
@@ -152,7 +166,10 @@
     <item type="id" name="general_headphone_icon" />
     <item type="id" name="general_headphone_subtitle" />
     <item type="id" name="general_headphone_title" />
+    <item type="id" name="general_integration_icon" />
+    <item type="id" name="general_integration_subtitle" />
     <item type="id" name="general_integration_title" />
+    <item type="id" name="general_layout_activeroute" />
     <item type="id" name="general_layout_bluetooth" />
     <item type="id" name="general_layout_contentmode" />
     <item type="id" name="general_layout_demo" />
@@ -166,12 +183,16 @@
     <item type="id" name="general_layout_usb" />
     <item type="id" name="general_my_audio_preference_icon" />
     <item type="id" name="general_my_audio_preference_title" />
+    <item type="id" name="general_personal_title" />
     <item type="id" name="general_preference_icon" />
     <item type="id" name="general_preference_subtitle" />
     <item type="id" name="general_preference_title" />
+    <item type="id" name="general_profile_icon" />
     <item type="id" name="general_profile_subtitle" />
     <item type="id" name="general_profile_title" />
     <item type="id" name="general_section_debug" />
+    <item type="id" name="general_section_personal" />
+    <item type="id" name="general_title" />
     <item type="id" name="general_usb_icon" />
     <item type="id" name="general_usb_subtitle" />
     <item type="id" name="general_usb_title" />
@@ -186,6 +207,7 @@
     <item type="id" name="home" />
     <item type="id" name="icon" />
     <item type="id" name="icon_group" />
+    <item type="id" name="id_recycle_view" />
     <item type="id" name="image" />
     <item type="id" name="imgBassBoost" />
     <item type="id" name="imgChangeHeadphone" />
@@ -202,33 +224,60 @@
     <item type="id" name="imgTrebleLevel" />
     <item type="id" name="imgWide" />
     <item type="id" name="info" />
+    <item type="id" name="integration_bassboost_icon" />
+    <item type="id" name="integration_dialog_icon" />
+    <item type="id" name="integration_trebleboost_icon" />
     <item type="id" name="integrationtest_all_version" />
     <item type="id" name="integrationtest_api_console" />
+    <item type="id" name="integrationtest_api_layout" />
+    <item type="id" name="integrationtest_api_title" />
+    <item type="id" name="integrationtest_broadcast" />
+    <item type="id" name="integrationtest_broadcast_subtitle" />
     <item type="id" name="integrationtest_broadcast_switch" />
     <item type="id" name="integrationtest_broadcast_title" />
+    <item type="id" name="integrationtest_bypass" />
+    <item type="id" name="integrationtest_bypass_subtitle" />
+    <item type="id" name="integrationtest_bypass_switch" />
+    <item type="id" name="integrationtest_bypass_title" />
+    <item type="id" name="integrationtest_customtuning_title" />
     <item type="id" name="integrationtest_forcereapply_progressbar" />
+    <item type="id" name="integrationtest_forcereapply_subtitle" />
     <item type="id" name="integrationtest_forcereapply_title" />
+    <item type="id" name="integrationtest_layout_broadcast" />
+    <item type="id" name="integrationtest_layout_bypass" />
     <item type="id" name="integrationtest_layout_forcereapply" />
     <item type="id" name="integrationtest_layout_license" />
     <item type="id" name="integrationtest_layout_m6m8" />
     <item type="id" name="integrationtest_layout_offlinedb" />
     <item type="id" name="integrationtest_layout_sdk" />
     <item type="id" name="integrationtest_layout_service" />
+    <item type="id" name="integrationtest_license_subtitle" />
     <item type="id" name="integrationtest_license_title" />
     <item type="id" name="integrationtest_license_value" />
+    <item type="id" name="integrationtest_m6m8_subtitle" />
     <item type="id" name="integrationtest_m6m8_title" />
     <item type="id" name="integrationtest_m6m8_value" />
+    <item type="id" name="integrationtest_offlinedb_subtitle" />
     <item type="id" name="integrationtest_offlinedb_title" />
     <item type="id" name="integrationtest_offlinedb_value" />
+    <item type="id" name="integrationtest_sdk_subtitle" />
     <item type="id" name="integrationtest_sdk_title" />
     <item type="id" name="integrationtest_sdk_value" />
+    <item type="id" name="integrationtest_service_subtitle" />
     <item type="id" name="integrationtest_service_title" />
     <item type="id" name="integrationtest_service_value" />
+    <item type="id" name="integrationtest_title" />
     <item type="id" name="integrationtest_tokens_console" />
+    <item type="id" name="integrationtest_tokens_layout" />
+    <item type="id" name="integrationtest_tokens_title" />
     <item type="id" name="integrationtest_version" />
+    <item type="id" name="integrationtest_version_eagle" />
     <item type="id" name="integrationtest_version_eagle_value" />
+    <item type="id" name="integrationtest_version_eplatform" />
     <item type="id" name="integrationtest_version_eplatform_value" />
+    <item type="id" name="integrationtest_version_sdk" />
     <item type="id" name="integrationtest_version_sdk_value" />
+    <item type="id" name="integrationtest_version_service" />
     <item type="id" name="integrationtest_version_service_value" />
     <item type="id" name="item_touch_helper_previous_elevation" />
     <item type="id" name="iv_dial_pointer" />
@@ -239,6 +288,7 @@
     <item type="id" name="layoutExpand" />
     <item type="id" name="layoutFront" />
     <item type="id" name="layoutHeadphoneChange" />
+    <item type="id" name="layoutMenu" />
     <item type="id" name="layoutMenuClose" />
     <item type="id" name="layoutMenuOk" />
     <item type="id" name="layoutMenuSearch" />
@@ -255,16 +305,25 @@
     <item type="id" name="list_emptyText" />
     <item type="id" name="list_headphone_title" />
     <item type="id" name="list_item" />
+    <item type="id" name="list_layout_title" />
     <item type="id" name="list_layout_tuning" />
+    <item type="id" name="list_layout_tuning_RV" />
     <item type="id" name="list_listview" />
     <item type="id" name="list_progressBar" />
     <item type="id" name="list_text_title" />
     <item type="id" name="list_tuning_icon" />
+    <item type="id" name="list_tuning_icon_RV" />
     <item type="id" name="list_tuning_radio" />
+    <item type="id" name="list_tuning_radio_RV" />
     <item type="id" name="list_tuning_subtitle" />
+    <item type="id" name="list_tuning_subtitle_RV" />
     <item type="id" name="list_tuning_title" />
+    <item type="id" name="list_tuning_title_RV" />
+    <item type="id" name="listening_profile_layout" />
     <item type="id" name="ll_buttons" />
     <item type="id" name="loudness_levelling_icon" />
+    <item type="id" name="lp_dial_core" />
+    <item type="id" name="main_coordinatorLayout" />
     <item type="id" name="main_fragment_container" />
     <item type="id" name="main_linearLayout" />
     <item type="id" name="main_toolbar" />
@@ -278,25 +337,37 @@
     <item type="id" name="notification_main_column" />
     <item type="id" name="notification_main_column_container" />
     <item type="id" name="parentPanel" />
+    <item type="id" name="parent_layout" />
     <item type="id" name="parent_matrix" />
     <item type="id" name="preference_infront_button" />
+    <item type="id" name="preference_infront_icon" />
+    <item type="id" name="preference_infront_subtitle" />
     <item type="id" name="preference_infront_title" />
     <item type="id" name="preference_layout_infront" />
     <item type="id" name="preference_layout_traditional" />
     <item type="id" name="preference_layout_wide" />
+    <item type="id" name="preference_title" />
     <item type="id" name="preference_traditional_button" />
+    <item type="id" name="preference_traditional_icon" />
+    <item type="id" name="preference_traditional_subtitle" />
     <item type="id" name="preference_traditional_title" />
     <item type="id" name="preference_wide_button" />
+    <item type="id" name="preference_wide_icon" />
+    <item type="id" name="preference_wide_subtitle" />
     <item type="id" name="preference_wide_title" />
+    <item type="id" name="progress" />
     <item type="id" name="progress_circular" />
     <item type="id" name="progress_horizontal" />
+    <item type="id" name="progressshape" />
     <item type="id" name="radio" />
     <item type="id" name="right_icon" />
     <item type="id" name="right_side" />
     <item type="id" name="ring_bg" />
+    <item type="id" name="ring_fg" />
     <item type="id" name="rootLayout" />
     <item type="id" name="rotaryKnobView" />
     <item type="id" name="rotary_center" />
+    <item type="id" name="rotary_center_title" />
     <item type="id" name="save_image_matrix" />
     <item type="id" name="save_non_transition_alpha" />
     <item type="id" name="save_scale_type" />
@@ -314,28 +385,39 @@
     <item type="id" name="search_src_text" />
     <item type="id" name="search_voice_btn" />
     <item type="id" name="select_dialog_listview" />
+    <item type="id" name="setting_demo_layout" />
     <item type="id" name="settings_bluetooth_autoswitch" />
     <item type="id" name="settings_bluetooth_autoswitch_line" />
+    <item type="id" name="settings_bluetooth_autoswitch_summary" />
     <item type="id" name="settings_bluetooth_autoswitch_switch" />
     <item type="id" name="settings_bluetooth_autoswitch_title" />
     <item type="id" name="settings_bluetooth_reset" />
+    <item type="id" name="settings_bluetooth_reset_summary" />
     <item type="id" name="settings_bluetooth_reset_title" />
+    <item type="id" name="settings_demo_title" />
     <item type="id" name="settings_dts_switch" />
     <item type="id" name="settings_layout_notifications" />
     <item type="id" name="settings_layout_personal" />
     <item type="id" name="settings_layout_profile" />
     <item type="id" name="settings_layout_reset" />
+    <item type="id" name="settings_loudness_leveling_control_summary" />
     <item type="id" name="settings_loudness_leveling_control_switch" />
     <item type="id" name="settings_loudness_leveling_control_title" />
     <item type="id" name="settings_loundess_leveling_control_autoswitch" />
+    <item type="id" name="settings_notification_summary" />
     <item type="id" name="settings_notification_title" />
+    <item type="id" name="settings_personal_title" />
+    <item type="id" name="settings_profile_summary" />
     <item type="id" name="settings_profile_title" />
+    <item type="id" name="settings_reset_summary" />
     <item type="id" name="settings_reset_title" />
     <item type="id" name="settings_usb_autoswitch" />
     <item type="id" name="settings_usb_autoswitch_line" />
+    <item type="id" name="settings_usb_autoswitch_summary" />
     <item type="id" name="settings_usb_autoswitch_switch" />
     <item type="id" name="settings_usb_autoswitch_title" />
     <item type="id" name="settings_usb_reset" />
+    <item type="id" name="settings_usb_reset_summary" />
     <item type="id" name="settings_usb_reset_title" />
     <item type="id" name="shortcut" />
     <item type="id" name="smallLabel" />
@@ -349,6 +431,7 @@
     <item type="id" name="splash_logo" />
     <item type="id" name="split_action_bar" />
     <item type="id" name="status_bar_latest_event_content" />
+    <item type="id" name="steps_divider" />
     <item type="id" name="submenuarrow" />
     <item type="id" name="submit_area" />
     <item type="id" name="tab_icon" />
@@ -360,12 +443,15 @@
     <item type="id" name="text2" />
     <item type="id" name="textSpacerNoButtons" />
     <item type="id" name="textSpacerNoTitle" />
+    <item type="id" name="textView_brandName" />
     <item type="id" name="text_input_password_toggle" />
     <item type="id" name="textinput_counter" />
     <item type="id" name="textinput_error" />
     <item type="id" name="textinput_helper_text" />
     <item type="id" name="time" />
     <item type="id" name="title" />
+    <item type="id" name="titleDivider" />
+    <item type="id" name="titleDivider2" />
     <item type="id" name="titleDividerNoCustom" />
     <item type="id" name="title_template" />
     <item type="id" name="toolbar_title" />
@@ -376,10 +462,17 @@
     <item type="id" name="transition_position" />
     <item type="id" name="transition_scene_layoutid_cache" />
     <item type="id" name="transition_transform" />
+    <item type="id" name="tvChangeHeadphone" />
+    <item type="id" name="tvChangeSpeakerMode" />
+    <item type="id" name="tvClose" />
     <item type="id" name="tvFront" />
+    <item type="id" name="tvOk" />
+    <item type="id" name="tvSearch" />
+    <item type="id" name="tvSound" />
     <item type="id" name="tvTraditional" />
     <item type="id" name="tvWide" />
     <item type="id" name="tv_roto_title" />
+    <item type="id" name="ui_dialog_message" />
     <item type="id" name="up" />
     <item type="id" name="viewPagerCountDots" />
     <item type="id" name="view_offset_helper" />

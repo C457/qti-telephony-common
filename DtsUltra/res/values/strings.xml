@@ -84,6 +84,7 @@ Check out DTS online to learn more."</string>
     <string name="bluetooth_reset_title">Reset Bluetooth tunings</string>
     <string name="bottom_sheet_behavior">android.support.design.widget.BottomSheetBehavior</string>
     <string name="brand_actionbar_title">Brands</string>
+    <string name="bypass_mode_on_warning">Bypass mode on !! Turn off and try again !!</string>
     <string name="cancel">Cancel</string>
     <string name="cancel_exit_home">Cancel and Exit to Home</string>
     <string name="car_audio">Car Audio</string>
@@ -136,7 +137,7 @@ Check out DTS online to learn more."</string>
     <string name="general_profile_subtitle">Personalized tunings for your ears</string>
     <string name="general_profile_title">Listening profile</string>
     <string name="general_usb_title">Digital headphones</string>
-    <string name="ha_adjust_volume">Set Max Volume, Dial down the volume until you can barely hear the sound. Then press Next.</string>
+    <string name="ha_adjust_volume">Set Max Volume,Dial down the volume until you can barely hear the sound. Then press Next.</string>
     <string name="headphone_actionbar_title">Wired headphones</string>
     <string name="headphone_branded_title">Branded headphones</string>
     <string name="headphone_featured_title">Featured headphones</string>
@@ -150,6 +151,8 @@ Check out DTS online to learn more."</string>
     <string name="integrationtest_broadcast_dts">DTS:X Ultra</string>
     <string name="integrationtest_broadcast_subtitle">"Enables product state management using the SDK's broadcast API"</string>
     <string name="integrationtest_broadcast_title">Broadcast API</string>
+    <string name="integrationtest_bypass_subtitle">"Enables bypass state management using the SDK's bypass API"</string>
+    <string name="integrationtest_bypass_title">Bypass API</string>
     <string name="integrationtest_customtuning_title">Custom Tuning</string>
     <string name="integrationtest_forcereapply_subtitle">Forces the SDK to reapply all tunings. This can be useful when the database was overwritten and SDK needs to be updated with the new tunings in the database.</string>
     <string name="integrationtest_forcereapply_title">Force Reapply All Tunings</string>

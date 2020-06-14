@@ -17,18 +17,14 @@
 
 
 # instance fields
-.field final synthetic a:Ljava/util/concurrent/CountDownLatch;
-
-.field final synthetic b:Lcom/dts/dtsxultra/b/o;
+.field final synthetic a:Lcom/dts/dtsxultra/b/o;
 
 
 # direct methods
-.method constructor <init>(Lcom/dts/dtsxultra/b/o;Ljava/util/concurrent/CountDownLatch;)V
+.method constructor <init>(Lcom/dts/dtsxultra/b/o;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/dts/dtsxultra/b/o$6;->b:Lcom/dts/dtsxultra/b/o;
-
-    iput-object p2, p0, Lcom/dts/dtsxultra/b/o$6;->a:Ljava/util/concurrent/CountDownLatch;
+    iput-object p1, p0, Lcom/dts/dtsxultra/b/o$6;->a:Lcom/dts/dtsxultra/b/o;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,57 +34,24 @@
 
 # virtual methods
 .method public final a(Lcom/dts/dtssdk/f/a;)V
-    .locals 3
+    .locals 2
 
     invoke-virtual {p1}, Lcom/dts/dtssdk/f/a;->a()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/dts/dtsxultra/b/o;->R()Ljava/lang/String;
+    iget-object v0, p1, Lcom/dts/dtssdk/f/a;->c:Ljava/lang/Object;
 
-    move-result-object v0
+    check-cast v0, Lcom/dts/dtssdk/a/j;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    if-eqz v0, :cond_0
 
-    const-string v2, "Resetting usb accessory failed: "
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/o$6;->a:Lcom/dts/dtsxultra/b/o;
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    iget-object v2, p1, Lcom/dts/dtssdk/f/a;->a:Lcom/dts/dtssdk/f/a$a;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, " | "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p1, Lcom/dts/dtssdk/f/a;->b:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$6;->a:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
-
-    return-void
+    iput-object v0, v1, Lcom/dts/dtsxultra/b/o;->ad:Lcom/dts/dtssdk/a/j;
 
     :cond_0
-    invoke-static {}, Lcom/dts/dtsxultra/b/o;->R()Ljava/lang/String;
-
-    goto :goto_0
+    return-void
 .end method

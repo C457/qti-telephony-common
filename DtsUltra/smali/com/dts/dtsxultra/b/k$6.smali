@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/dts/dtsxultra/a/a$a;
 
 
 # annotations
@@ -17,20 +17,14 @@
 
 
 # instance fields
-.field final synthetic a:J
-
-.field final synthetic b:Lcom/dts/dtsxultra/b/k;
+.field final synthetic a:Lcom/dts/dtsxultra/b/k;
 
 
 # direct methods
 .method constructor <init>(Lcom/dts/dtsxultra/b/k;)V
-    .locals 2
+    .locals 0
 
-    iput-object p1, p0, Lcom/dts/dtsxultra/b/k$6;->b:Lcom/dts/dtsxultra/b/k;
-
-    const-wide/16 v0, 0x7d0
-
-    iput-wide v0, p0, Lcom/dts/dtsxultra/b/k$6;->a:J
+    iput-object p1, p0, Lcom/dts/dtsxultra/b/k$6;->a:Lcom/dts/dtsxultra/b/k;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,35 +33,61 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 2
+.method public final a()V
+    .locals 4
 
-    :try_start_0
-    iget-wide v0, p0, Lcom/dts/dtsxultra/b/k$6;->a:J
+    new-instance v0, Landroid/content/Intent;
 
-    invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/k$6;->a:Lcom/dts/dtsxultra/b/k;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k$6;->b:Lcom/dts/dtsxultra/b/k;
+    iget-object v1, v1, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/k;->j(Lcom/dts/dtsxultra/b/k;)Landroid/support/v4/app/f;
+    const-class v2, Lcom/dts/dtsxultra/activities/MainActivity;
 
-    move-result-object v0
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    new-instance v1, Lcom/dts/dtsxultra/b/k$6$1;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/k$6;->a:Lcom/dts/dtsxultra/b/k;
 
-    invoke-direct {v1, p0}, Lcom/dts/dtsxultra/b/k$6$1;-><init>(Lcom/dts/dtsxultra/b/k$6;)V
+    iget-object v2, v1, Landroid/support/v4/app/e;->t:Landroid/support/v4/app/i;
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/f;->runOnUiThread(Ljava/lang/Runnable;)V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    if-nez v2, :cond_0
 
-    :goto_0
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string v3, "Fragment "
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " not attached to Activity"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    iget-object v1, v1, Landroid/support/v4/app/e;->t:Landroid/support/v4/app/i;
+
+    invoke-virtual {v1, v0}, Landroid/support/v4/app/i;->a(Landroid/content/Intent;)V
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k$6;->a:Lcom/dts/dtsxultra/b/k;
+
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
+
+    invoke-virtual {v0}, Landroid/support/v4/app/f;->finish()V
+
     return-void
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
-
-    goto :goto_0
 .end method

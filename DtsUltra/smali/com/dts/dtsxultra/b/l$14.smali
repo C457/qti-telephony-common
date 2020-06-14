@@ -38,7 +38,16 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/l$14;->a:Lcom/dts/dtsxultra/b/l;
 
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->a(Lcom/dts/dtsxultra/b/l;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/l$14;->a:Lcom/dts/dtsxultra/b/l;
+
     invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->c(Lcom/dts/dtsxultra/b/l;)V
 
+    :cond_0
     return-void
 .end method

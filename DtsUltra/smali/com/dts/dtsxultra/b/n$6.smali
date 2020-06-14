@@ -50,7 +50,7 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/n$6;->a:Lcom/dts/dtsxultra/b/n;
 
-    invoke-static {v1, v0}, Lcom/dts/dtsxultra/b/n;->a(Lcom/dts/dtsxultra/b/n;Lcom/dts/dtssdk/a/j;)Lcom/dts/dtssdk/a/j;
+    iput-object v0, v1, Lcom/dts/dtsxultra/b/n;->ad:Lcom/dts/dtssdk/a/j;
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/n$6;->a:Lcom/dts/dtsxultra/b/n;
 
@@ -60,7 +60,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/dts/dtsxultra/b/n;->a(Lcom/dts/dtsxultra/b/n;Lcom/dts/dtssdk/a/n;)V
+    invoke-static {v0, v1}, Lcom/dts/dtsxultra/b/n;->b(Lcom/dts/dtsxultra/b/n;Lcom/dts/dtssdk/a/n;)V
 
     :cond_0
     return-void

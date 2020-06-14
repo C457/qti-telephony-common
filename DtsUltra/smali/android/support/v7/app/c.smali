@@ -556,7 +556,7 @@
     goto :goto_0
 .end method
 
-.method protected onDestroy()V
+.method public onDestroy()V
     .locals 1
 
     invoke-super {p0}, Landroid/support/v4/app/f;->onDestroy()V
@@ -769,7 +769,7 @@
     return-void
 .end method
 
-.method protected onStart()V
+.method public onStart()V
     .locals 1
 
     invoke-super {p0}, Landroid/support/v4/app/f;->onStart()V
@@ -783,7 +783,7 @@
     return-void
 .end method
 
-.method protected onStop()V
+.method public onStop()V
     .locals 1
 
     invoke-super {p0}, Landroid/support/v4/app/f;->onStop()V

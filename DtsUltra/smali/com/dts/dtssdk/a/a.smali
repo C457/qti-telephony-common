@@ -27,27 +27,29 @@
 
 
 # instance fields
-.field public a:Ljava/lang/String;
+.field public a:I
 
-.field public b:Lcom/dts/dtssdk/a/i;
+.field public b:Ljava/lang/String;
 
-.field public c:Ljava/lang/String;
+.field public c:Lcom/dts/dtssdk/a/i;
 
 .field public d:Ljava/lang/String;
 
-.field e:Ljava/lang/String;
+.field public e:Ljava/lang/String;
 
-.field public f:Lcom/dts/dtssdk/a/a$a;
+.field f:Ljava/lang/String;
 
-.field private g:I
+.field public g:Lcom/dts/dtssdk/a/a$a;
 
-.field private h:Ljava/lang/String;
+.field public h:I
 
-.field private i:J
+.field private i:Ljava/lang/String;
 
-.field private j:I
+.field private j:J
 
 .field private k:I
+
+.field private l:I
 
 
 # direct methods
@@ -68,17 +70,21 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/dts/dtssdk/a/a;->h:I
+
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    iput v0, p0, Lcom/dts/dtssdk/a/a;->g:I
+    iput v0, p0, Lcom/dts/dtssdk/a/a;->a:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     const-class v0, Lcom/dts/dtssdk/a/i;
 
@@ -92,19 +98,7 @@
 
     check-cast v0, Lcom/dts/dtssdk/a/i;
 
-    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->b:Lcom/dts/dtssdk/a/i;
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->h:Ljava/lang/String;
+    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->c:Lcom/dts/dtssdk/a/i;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -116,7 +110,19 @@
 
     move-result-object v0
 
+    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->i:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
     iput-object v0, p0, Lcom/dts/dtssdk/a/a;->e:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->f:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -127,25 +133,25 @@
     sget-object v0, Lcom/dts/dtssdk/a/a$a;->a:Lcom/dts/dtssdk/a/a$a;
 
     :goto_0
-    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->f:Lcom/dts/dtssdk/a/a$a;
+    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->g:Lcom/dts/dtssdk/a/a$a;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
-    iput-wide v0, p0, Lcom/dts/dtssdk/a/a;->i:J
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/dts/dtssdk/a/a;->j:I
+    iput-wide v0, p0, Lcom/dts/dtssdk/a/a;->j:J
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/dts/dtssdk/a/a;->k:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/dts/dtssdk/a/a;->l:I
 
     return-void
 
@@ -168,8 +174,6 @@
     sget-object v0, Lcom/dts/dtssdk/a/a$a;->e:Lcom/dts/dtssdk/a/a$a;
 
     goto :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -195,33 +199,37 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Lcom/dts/dtssdk/a/a;->b:Lcom/dts/dtssdk/a/i;
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/dts/dtssdk/a/a;->h:I
+
+    iput-object p2, p0, Lcom/dts/dtssdk/a/a;->c:Lcom/dts/dtssdk/a/i;
 
     if-eqz p1, :cond_0
 
     iget v0, p1, Lcom/dts/dtssdk/a/b$g;->j:I
 
-    iput v0, p0, Lcom/dts/dtssdk/a/a;->g:I
+    iput v0, p0, Lcom/dts/dtssdk/a/a;->a:I
 
     iget-object v0, p1, Lcom/dts/dtssdk/a/b$g;->a:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     iget-object v0, p1, Lcom/dts/dtssdk/a/b$g;->c:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     iget-object v0, p1, Lcom/dts/dtssdk/a/b$g;->d:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->h:Ljava/lang/String;
+    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->i:Ljava/lang/String;
 
     iget-object v0, p1, Lcom/dts/dtssdk/a/b$g;->e:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
+    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->e:Ljava/lang/String;
 
     iget-object v0, p1, Lcom/dts/dtssdk/a/b$g;->f:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->e:Ljava/lang/String;
+    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->f:Ljava/lang/String;
 
     iget-object v0, p1, Lcom/dts/dtssdk/a/b$g;->f:Ljava/lang/String;
 
@@ -229,17 +237,17 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->f:Lcom/dts/dtssdk/a/a$a;
+    iput-object v0, p0, Lcom/dts/dtssdk/a/a;->g:Lcom/dts/dtssdk/a/a$a;
 
     iget-wide v0, p1, Lcom/dts/dtssdk/a/b$g;->g:J
 
-    iput-wide v0, p0, Lcom/dts/dtssdk/a/a;->i:J
+    iput-wide v0, p0, Lcom/dts/dtssdk/a/a;->j:J
 
     iget v0, p1, Lcom/dts/dtssdk/a/b$g;->h:I
 
-    iput v0, p0, Lcom/dts/dtssdk/a/a;->j:I
+    iput v0, p0, Lcom/dts/dtssdk/a/a;->k:I
 
-    iput p3, p0, Lcom/dts/dtssdk/a/a;->k:I
+    iput p3, p0, Lcom/dts/dtssdk/a/a;->l:I
 
     :cond_0
     return-void
@@ -250,11 +258,11 @@
 .method public final a()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->b:Lcom/dts/dtssdk/a/i;
+    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->c:Lcom/dts/dtssdk/a/i;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->b:Lcom/dts/dtssdk/a/i;
+    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->c:Lcom/dts/dtssdk/a/i;
 
     iget-object v0, v0, Lcom/dts/dtssdk/a/i;->b:Ljava/lang/String;
 
@@ -285,7 +293,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v1, p0, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     const-string v2, "IMAGE_SMALL"
 
@@ -299,7 +307,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v1, p0, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     const-string v2, "IMAGE_LARGE"
 
@@ -312,7 +320,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v1, p0, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     const-string v2, "IMAGE_MEDIUM"
 
@@ -340,27 +348,23 @@
 .method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
 
-    iget v0, p0, Lcom/dts/dtssdk/a/a;->g:I
+    iget v0, p0, Lcom/dts/dtssdk/a/a;->a:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->b:Lcom/dts/dtssdk/a/i;
+    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->c:Lcom/dts/dtssdk/a/i;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->h:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
     iget-object v0, p0, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->i:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -368,7 +372,11 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->f:Lcom/dts/dtssdk/a/a$a;
+    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->f:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->g:Lcom/dts/dtssdk/a/a$a;
 
     sget-object v1, Lcom/dts/dtssdk/a/a$2;->a:[I
 
@@ -385,15 +393,15 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-wide v0, p0, Lcom/dts/dtssdk/a/a;->i:J
+    iget-wide v0, p0, Lcom/dts/dtssdk/a/a;->j:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    iget v0, p0, Lcom/dts/dtssdk/a/a;->j:I
+    iget v0, p0, Lcom/dts/dtssdk/a/a;->k:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v0, p0, Lcom/dts/dtssdk/a/a;->k:I
+    iget v0, p0, Lcom/dts/dtssdk/a/a;->l:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

@@ -52,7 +52,7 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v2, "Resetting bluetooth accessory failed: "
+    const-string v2, "Resetting usb accessory failed: "
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 

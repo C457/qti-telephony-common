@@ -2,12 +2,12 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/dts/dtsxultra/c/b;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/dts/dtsxultra/b/k;->s()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/dts/dtsxultra/b/k;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,27 +33,33 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 2
-
-    const-wide/16 v0, 0x3e8
+.method public final a()V
+    .locals 3
 
     :try_start_0
-    invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
-
     iget-object v0, p0, Lcom/dts/dtsxultra/b/k$5;->a:Lcom/dts/dtsxultra/b/k;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/k;->j(Lcom/dts/dtsxultra/b/k;)Landroid/support/v4/app/f;
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
-    move-result-object v0
+    check-cast v0, Lcom/dts/dtsxultra/c/c;
 
-    new-instance v1, Lcom/dts/dtsxultra/b/k$5$1;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/k$5;->a:Lcom/dts/dtsxultra/b/k;
 
-    invoke-direct {v1, p0}, Lcom/dts/dtsxultra/b/k$5$1;-><init>(Lcom/dts/dtsxultra/b/k$5;)V
+    iget-object v1, v1, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/f;->runOnUiThread(Ljava/lang/Runnable;)V
+    invoke-virtual {v1}, Landroid/support/v4/app/f;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0e00b2
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Lcom/dts/dtsxultra/c/c;->a(Ljava/lang/String;)V
     :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
     return-void
@@ -61,7 +67,11 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    sget-object v0, Lcom/dts/dtsxultra/b/k;->X:Ljava/lang/String;
+
+    const-string v1, "Hosting activity does not implement SnackBarListener. Aborting"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

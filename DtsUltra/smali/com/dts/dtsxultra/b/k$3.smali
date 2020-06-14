@@ -2,12 +2,12 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/dts/dtsxultra/b/k;->a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
+    value = Lcom/dts/dtsxultra/b/k;->s()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,36 +33,33 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final run()V
     .locals 2
 
-    sget-object v0, Lcom/dts/dtsxultra/b/k;->X:Ljava/lang/String;
+    const-wide/16 v0, 0x3e8
 
-    const-string v1, "Next button clicked"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k$3;->a:Lcom/dts/dtsxultra/b/k;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/k;->g(Lcom/dts/dtsxultra/b/k;)Landroid/widget/Button;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->performHapticFeedback(I)Z
+    :try_start_0
+    invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/k$3;->a:Lcom/dts/dtsxultra/b/k;
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/k$3;->a:Lcom/dts/dtsxultra/b/k;
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
-    invoke-virtual {v1}, Lcom/dts/dtsxultra/b/k;->R()I
+    new-instance v1, Lcom/dts/dtsxultra/b/k$3$1;
 
-    move-result v1
+    invoke-direct {v1, p0}, Lcom/dts/dtsxultra/b/k$3$1;-><init>(Lcom/dts/dtsxultra/b/k$3;)V
 
-    add-int/lit8 v1, v1, 0x1
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/f;->runOnUiThread(Ljava/lang/Runnable;)V
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-virtual {v0, v1}, Lcom/dts/dtsxultra/b/k;->d(I)V
-
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+
+    goto :goto_0
 .end method

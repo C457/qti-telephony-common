@@ -1,13 +1,10 @@
 .class final Lcom/dts/dtsxultra/b/l$2;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
+.super Landroid/content/BroadcastReceiver;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/dts/dtsxultra/b/l;->a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/dts/dtsxultra/b/l;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -26,51 +23,64 @@
 
     iput-object p1, p0, Lcom/dts/dtsxultra/b/l$2;->a:Lcom/dts/dtsxultra/b/l;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 3
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 5
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/l$2;->a:Lcom/dts/dtsxultra/b/l;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->e(Lcom/dts/dtsxultra/b/l;)Z
+    const-string v1, "usbDeviceIdentifier"
 
-    move-result v0
+    invoke-virtual {p2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    const-string v1, "accessoryUuid"
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/l$2;->a:Lcom/dts/dtsxultra/b/l;
+    invoke-virtual {p2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->d(Lcom/dts/dtsxultra/b/l;)Landroid/support/v4/app/f;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {v0}, Lcom/dts/dtsxultra/b/l;->d()Landroid/content/Context;
 
-    const-string v1, "Integration test screen heavily relies on the service. Please make sure that the service is responsive"
+    move-result-object v2
 
-    const/4 v2, 0x1
+    invoke-static {v2}, Lcom/dts/dtsxultra/util/e;->j(Landroid/content/Context;)Z
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    move-result v2
 
-    move-result-object v0
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    if-eqz v1, :cond_0
 
-    :goto_0
-    return-void
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v3, Lcom/dts/dtssdk/a/a/a;
+
+    sget v4, Lcom/dts/dtssdk/a/a/a$a;->c:I
+
+    invoke-direct {v3, v4, v1}, Lcom/dts/dtssdk/a/a/a;-><init>(ILjava/lang/String;)V
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-static {}, Lcom/dts/dtssdk/a/e;->a()Lcom/dts/dtssdk/a/e;
+
+    invoke-virtual {v0}, Lcom/dts/dtsxultra/b/l;->d()Landroid/content/Context;
+
+    move-result-object v1
+
+    new-instance v3, Lcom/dts/dtsxultra/b/l$3;
+
+    invoke-direct {v3, v0}, Lcom/dts/dtsxultra/b/l$3;-><init>(Lcom/dts/dtsxultra/b/l;)V
+
+    invoke-static {v1, v2, v3}, Lcom/dts/dtssdk/a/e;->e(Landroid/content/Context;Ljava/util/List;Lcom/dts/dtssdk/c/c;)V
 
     :cond_0
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/l$2;->a:Lcom/dts/dtsxultra/b/l;
-
-    new-instance v1, Lcom/dts/dtsxultra/b/j;
-
-    invoke-direct {v1}, Lcom/dts/dtsxultra/b/j;-><init>()V
-
-    invoke-static {v0, v1}, Lcom/dts/dtsxultra/b/l;->a(Lcom/dts/dtsxultra/b/l;Landroid/support/v4/app/e;)V
-
-    goto :goto_0
+    return-void
 .end method

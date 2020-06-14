@@ -54,7 +54,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/o$a;->a:Lcom/dts/dtsxultra/b/o;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->g(Lcom/dts/dtsxultra/b/o;)V
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->e(Lcom/dts/dtsxultra/b/o;)V
 
     const/4 v0, 0x0
 
@@ -66,29 +66,21 @@
 .end method
 
 .method protected final synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$a;->a:Lcom/dts/dtsxultra/b/o;
-
-    invoke-static {v0, v3}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;Z)Z
+    const/4 v2, 0x0
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/o$a;->a:Lcom/dts/dtsxultra/b/o;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;)Landroid/support/v4/app/f;
+    invoke-static {v0, v2}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;Z)Z
 
-    move-result-object v0
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$a;->a:Lcom/dts/dtsxultra/b/o;
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/o$a;->a:Lcom/dts/dtsxultra/b/o;
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/o;->ac:Landroid/support/v4/app/f;
 
-    const v2, 0x7f0e00e3
+    const-string v1, "Reset to default settings finished"
 
-    invoke-virtual {v1, v2}, Lcom/dts/dtsxultra/b/o;->a(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v0
 
@@ -96,11 +88,9 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/o$a;->a:Lcom/dts/dtsxultra/b/o;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;)Landroid/support/v4/app/f;
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/o;->ac:Landroid/support/v4/app/f;
 
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -108,7 +98,9 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/o$a;->a:Lcom/dts/dtsxultra/b/o;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->h(Lcom/dts/dtsxultra/b/o;)V
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/dts/dtsxultra/b/o;->c(Z)V
 
     :goto_0
     return-void

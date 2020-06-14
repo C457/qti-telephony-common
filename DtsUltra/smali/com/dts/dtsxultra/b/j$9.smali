@@ -6,8 +6,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/dts/dtsxultra/b/j;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/dts/dtsxultra/b/j;->V()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -50,17 +50,17 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/j$9;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v1, v0}, Lcom/dts/dtsxultra/b/j;->a(Lcom/dts/dtsxultra/b/j;Lcom/dts/dtssdk/a/j;)Lcom/dts/dtssdk/a/j;
+    iput-object v0, v1, Lcom/dts/dtsxultra/b/j;->ad:Lcom/dts/dtssdk/a/j;
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/j$9;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/j;->y(Lcom/dts/dtsxultra/b/j;)V
+    invoke-static {v1}, Lcom/dts/dtsxultra/b/j;->z(Lcom/dts/dtsxultra/b/j;)V
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/j$9;->a:Lcom/dts/dtsxultra/b/j;
 
     iget-object v2, p0, Lcom/dts/dtsxultra/b/j$9;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v2}, Lcom/dts/dtsxultra/b/j;->k(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/util/a;
+    invoke-static {v2}, Lcom/dts/dtsxultra/b/j;->m(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/util/a;
 
     move-result-object v2
 

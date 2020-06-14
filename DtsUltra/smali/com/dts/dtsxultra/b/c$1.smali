@@ -141,11 +141,13 @@
 
     if-eqz p2, :cond_0
 
-    iget-object v1, v0, Lcom/dts/dtsxultra/views/b;->a:Ljava/util/ArrayList;
+    iget-object v1, v0, Lcom/dts/dtsxultra/views/b;->c:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p2}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    invoke-virtual {v0}, Lcom/dts/dtsxultra/views/b;->notifyDataSetChanged()V
+    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$a;->a:Landroid/support/v7/widget/RecyclerView$b;
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$b;->b()V
 
     goto :goto_0
 .end method

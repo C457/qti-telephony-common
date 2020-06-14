@@ -2,12 +2,12 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/dts/dtsxultra/b/m;->a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/dts/dtsxultra/b/m;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,12 +33,10 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
+.method public final onClick(Landroid/content/DialogInterface;I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/m$15;->a:Lcom/dts/dtsxultra/b/m;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/m;->d(Lcom/dts/dtsxultra/b/m;)V
+    invoke-interface {p1}, Landroid/content/DialogInterface;->cancel()V
 
     return-void
 .end method

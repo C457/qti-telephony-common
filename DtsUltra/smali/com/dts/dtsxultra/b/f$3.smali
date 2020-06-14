@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
 # annotations
@@ -33,48 +33,45 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 4
+.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    .locals 3
+
+    invoke-virtual {p1}, Landroid/widget/CompoundButton;->isPressed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/f$3;->a:Lcom/dts/dtsxultra/b/f;
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/f$3;->a:Lcom/dts/dtsxultra/b/f;
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/f;->a(Lcom/dts/dtsxultra/b/f;)Landroid/support/v4/app/f;
+    invoke-static {v0}, Lcom/dts/dtsxultra/util/e;->k(Landroid/content/Context;)[F
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/support/v4/app/f;->getResources()Landroid/content/res/Resources;
+    invoke-static {v0}, Lcom/dts/dtssdk/g;->a([F)Lcom/dts/dtssdk/f/a;
 
-    move-result-object v1
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/f$3;->a:Lcom/dts/dtsxultra/b/f;
 
-    const v2, 0x7f0e00df
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/f;->b(Lcom/dts/dtsxultra/b/f;)V
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/f$3;->a:Lcom/dts/dtsxultra/b/f;
 
-    move-result-object v1
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/f$3;->a:Lcom/dts/dtsxultra/b/f;
+    const-string v1, "Listening profile updated"
 
-    invoke-static {v2}, Lcom/dts/dtsxultra/b/f;->a(Lcom/dts/dtsxultra/b/f;)Landroid/support/v4/app/f;
+    const/4 v2, 0x0
 
-    move-result-object v2
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    invoke-virtual {v2}, Landroid/support/v4/app/f;->getResources()Landroid/content/res/Resources;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    const v3, 0x7f0e00c7
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/dts/dtsxultra/b/f$3$1;
-
-    invoke-direct {v3, p0}, Lcom/dts/dtsxultra/b/f$3$1;-><init>(Lcom/dts/dtsxultra/b/f$3;)V
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/dts/dtsxultra/b/f;->a(Ljava/lang/String;Ljava/lang/String;Lcom/dts/dtsxultra/c/b;)V
-
+    :cond_0
     return-void
 .end method

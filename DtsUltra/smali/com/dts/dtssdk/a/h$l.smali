@@ -18,12 +18,12 @@
 
 .field b:Ljava/lang/String;
 
-.field c:Lcom/dts/dtssdk/c/a;
+.field c:Lcom/dts/dtssdk/c/c;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/dts/dtssdk/c/a",
+            "Lcom/dts/dtssdk/c/c",
             "<",
-            "Lcom/dts/dtssdk/a/a;",
+            "Lcom/dts/dtssdk/a/l;",
             ">;"
         }
     .end annotation
@@ -33,16 +33,16 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/dts/dtssdk/a/h;Landroid/content/Context;Ljava/lang/String;Lcom/dts/dtssdk/c/a;)V
+.method constructor <init>(Lcom/dts/dtssdk/a/h;Landroid/content/Context;Ljava/lang/String;Lcom/dts/dtssdk/c/c;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
             "Ljava/lang/String;",
-            "Lcom/dts/dtssdk/c/a",
+            "Lcom/dts/dtssdk/c/c",
             "<",
-            "Lcom/dts/dtssdk/a/a;",
+            "Lcom/dts/dtssdk/a/l;",
             ">;)V"
         }
     .end annotation
@@ -55,7 +55,7 @@
 
     iput-object p3, p0, Lcom/dts/dtssdk/a/h$l;->b:Ljava/lang/String;
 
-    iput-object p4, p0, Lcom/dts/dtssdk/a/h$l;->c:Lcom/dts/dtssdk/c/a;
+    iput-object p4, p0, Lcom/dts/dtssdk/a/h$l;->c:Lcom/dts/dtssdk/c/c;
 
     return-void
 .end method
@@ -65,7 +65,7 @@
 .method final a()V
     .locals 10
 
-    const/16 v9, 0x8
+    const/4 v9, 0x5
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -82,7 +82,7 @@
 
     iget-object v1, p0, Lcom/dts/dtssdk/a/h$l;->b:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/dts/dtssdk/a/b;->c(Ljava/lang/String;)Lcom/dts/dtssdk/a/a;
+    invoke-virtual {v0, v1}, Lcom/dts/dtssdk/a/b;->a(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
 
@@ -90,7 +90,7 @@
 
     move-result-object v1
 
-    const/16 v4, 0x8
+    const/4 v4, 0x5
 
     new-instance v5, Lcom/dts/dtssdk/a/h$f;
 
@@ -102,7 +102,7 @@
 
     invoke-direct {v7, v8}, Lcom/dts/dtssdk/f/a;-><init>(Lcom/dts/dtssdk/f/a$a;)V
 
-    iget-object v8, p0, Lcom/dts/dtssdk/a/h$l;->c:Lcom/dts/dtssdk/c/a;
+    iget-object v8, p0, Lcom/dts/dtssdk/a/h$l;->c:Lcom/dts/dtssdk/c/c;
 
     invoke-direct {v5, v6, v7, v0, v8}, Lcom/dts/dtssdk/a/h$f;-><init>(Lcom/dts/dtssdk/a/h;Lcom/dts/dtssdk/f/a;Ljava/lang/Object;Ljava/lang/Object;)V
 
@@ -123,7 +123,7 @@
 
     new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string v5, "Usb device query took "
+    const-string v5, "SpeakerMode query took "
 
     invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
@@ -180,7 +180,7 @@
 
     iget-object v1, p0, Lcom/dts/dtssdk/a/h$l;->b:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/dts/dtssdk/a/b;->c(Ljava/lang/String;)Lcom/dts/dtssdk/a/a;
+    invoke-virtual {v0, v1}, Lcom/dts/dtssdk/a/b;->a(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
 
@@ -188,7 +188,7 @@
 
     move-result-object v1
 
-    const/16 v4, 0x8
+    const/4 v4, 0x5
 
     new-instance v5, Lcom/dts/dtssdk/a/h$f;
 
@@ -196,11 +196,11 @@
 
     new-instance v7, Lcom/dts/dtssdk/f/a;
 
-    sget-object v8, Lcom/dts/dtssdk/f/a$a;->b:Lcom/dts/dtssdk/f/a$a;
+    sget-object v8, Lcom/dts/dtssdk/f/a$a;->y:Lcom/dts/dtssdk/f/a$a;
 
     invoke-direct {v7, v8}, Lcom/dts/dtssdk/f/a;-><init>(Lcom/dts/dtssdk/f/a$a;)V
 
-    iget-object v8, p0, Lcom/dts/dtssdk/a/h$l;->c:Lcom/dts/dtssdk/c/a;
+    iget-object v8, p0, Lcom/dts/dtssdk/a/h$l;->c:Lcom/dts/dtssdk/c/c;
 
     invoke-direct {v5, v6, v7, v0, v8}, Lcom/dts/dtssdk/a/h$f;-><init>(Lcom/dts/dtssdk/a/h;Lcom/dts/dtssdk/f/a;Ljava/lang/Object;Ljava/lang/Object;)V
 
@@ -240,13 +240,15 @@
 
     sget-object v6, Lcom/dts/dtssdk/f/a$a;->h:Lcom/dts/dtssdk/f/a$a;
 
-    const-string v7, "Error while reading from datastore"
+    const-string v7, "Unknown datastore"
 
     invoke-direct {v5, v6, v7}, Lcom/dts/dtssdk/f/a;-><init>(Lcom/dts/dtssdk/f/a$a;Ljava/lang/Object;)V
 
-    const/4 v6, 0x0
+    new-instance v6, Ljava/util/ArrayList;
 
-    iget-object v7, p0, Lcom/dts/dtssdk/a/h$l;->c:Lcom/dts/dtssdk/c/a;
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+
+    iget-object v7, p0, Lcom/dts/dtssdk/a/h$l;->c:Lcom/dts/dtssdk/c/c;
 
     invoke-direct {v1, v4, v5, v6, v7}, Lcom/dts/dtssdk/a/h$f;-><init>(Lcom/dts/dtssdk/a/h;Lcom/dts/dtssdk/f/a;Ljava/lang/Object;Ljava/lang/Object;)V
 

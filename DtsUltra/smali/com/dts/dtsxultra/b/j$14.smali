@@ -38,19 +38,28 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$14;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->e(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/f;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->a(Lcom/dts/dtsxultra/b/j;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/j$14;->a:Lcom/dts/dtsxultra/b/j;
+
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->f(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/f;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
+    :cond_0
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$14;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->e(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/f;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->f(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/f;
 
     move-result-object v0
 
@@ -58,7 +67,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const-string v0, "OK"
 
@@ -85,7 +94,7 @@
 
     iget-object v3, p0, Lcom/dts/dtsxultra/b/j$14;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v3}, Lcom/dts/dtsxultra/b/j;->e(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/f;
+    invoke-static {v3}, Lcom/dts/dtsxultra/b/j;->f(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/f;
 
     move-result-object v3
 
@@ -105,7 +114,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const-string v0, "ERROR FOUND"
 
     goto :goto_1

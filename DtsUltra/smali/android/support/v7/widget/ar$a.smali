@@ -191,7 +191,7 @@
 
     iget-object v1, p1, Landroid/support/v7/widget/RecyclerView;->m:Landroid/support/v7/widget/RecyclerView$a;
 
-    invoke-virtual {v1}, Landroid/support/v7/widget/RecyclerView$a;->b()I
+    invoke-virtual {v1}, Landroid/support/v7/widget/RecyclerView$a;->a()I
 
     move-result v1
 

@@ -203,13 +203,13 @@
 
     const-string v2, "accessoryUuid"
 
-    iget-object v3, v0, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v3, v0, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     const-string v2, "accessoryName"
 
-    iget-object v3, v0, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v3, v0, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

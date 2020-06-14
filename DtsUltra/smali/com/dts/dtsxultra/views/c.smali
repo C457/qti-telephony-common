@@ -120,47 +120,47 @@
     return v0
 
     :pswitch_0
-    const v0, 0x7f0e005f
-
-    goto :goto_0
-
-    :pswitch_1
     const v0, 0x7f0e0060
 
     goto :goto_0
 
-    :pswitch_2
+    :pswitch_1
     const v0, 0x7f0e0061
 
     goto :goto_0
 
-    :pswitch_3
+    :pswitch_2
     const v0, 0x7f0e0062
 
     goto :goto_0
 
-    :pswitch_4
+    :pswitch_3
     const v0, 0x7f0e0063
 
     goto :goto_0
 
-    :pswitch_5
+    :pswitch_4
     const v0, 0x7f0e0064
 
     goto :goto_0
 
-    :pswitch_6
+    :pswitch_5
     const v0, 0x7f0e0065
 
     goto :goto_0
 
-    :pswitch_7
+    :pswitch_6
     const v0, 0x7f0e0066
 
     goto :goto_0
 
-    :pswitch_8
+    :pswitch_7
     const v0, 0x7f0e0067
+
+    goto :goto_0
+
+    :pswitch_8
+    const v0, 0x7f0e0068
 
     goto :goto_0
 
@@ -467,7 +467,7 @@
     :cond_2
     iget-object v0, p0, Lcom/dts/dtsxultra/views/c;->c:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f0b003b
+    const v2, 0x7f0b003e
 
     invoke-virtual {v0, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -477,7 +477,7 @@
 
     invoke-direct {v1, p0, v4}, Lcom/dts/dtsxultra/views/c$a;-><init>(Lcom/dts/dtsxultra/views/c;B)V
 
-    const v0, 0x7f080124
+    const v0, 0x7f080157
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -487,7 +487,7 @@
 
     iput-object v0, v1, Lcom/dts/dtsxultra/views/c$a;->a:Lcom/dts/dtsxultra/views/CheckableRelativeLayout;
 
-    const v0, 0x7f080128
+    const v0, 0x7f08015c
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -497,7 +497,7 @@
 
     iput-object v0, v1, Lcom/dts/dtsxultra/views/c$a;->b:Landroid/widget/ImageView;
 
-    const v0, 0x7f08012b
+    const v0, 0x7f080162
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -507,7 +507,7 @@
 
     iput-object v0, v1, Lcom/dts/dtsxultra/views/c$a;->c:Landroid/widget/TextView;
 
-    const v0, 0x7f08012a
+    const v0, 0x7f080160
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -517,7 +517,7 @@
 
     iput-object v0, v1, Lcom/dts/dtsxultra/views/c$a;->d:Landroid/widget/TextView;
 
-    const v0, 0x7f080129
+    const v0, 0x7f08015e
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -584,7 +584,7 @@
     :cond_5
     iget-object v0, p0, Lcom/dts/dtsxultra/views/c;->c:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f0b003c
+    const v2, 0x7f0b003f
 
     invoke-virtual {v0, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -594,7 +594,7 @@
 
     invoke-direct {v1, p0, v4}, Lcom/dts/dtsxultra/views/c$b;-><init>(Lcom/dts/dtsxultra/views/c;B)V
 
-    const v0, 0x7f080120
+    const v0, 0x7f080152
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

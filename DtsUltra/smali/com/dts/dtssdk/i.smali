@@ -21,6 +21,8 @@
 # instance fields
 .field public b:Z
 
+.field private e:Ljava/lang/String;
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -92,6 +94,22 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
+.end method
+
+.method static synthetic a(Lcom/dts/dtssdk/i;)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/dts/dtssdk/i;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic a(Lcom/dts/dtssdk/i;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/dts/dtssdk/i;->e:Ljava/lang/String;
+
+    return-object p1
 .end method
 
 .method static synthetic a(Ljava/lang/String;Lcom/dts/dtssdk/f/a;Ljava/lang/Object;)Ljava/lang/String;
@@ -196,16 +214,6 @@
     goto :goto_0
 .end method
 
-.method static synthetic a(Lcom/dts/dtssdk/i;)Z
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/dts/dtssdk/i;->b:Z
-
-    return v0
-.end method
-
 .method public static b()Lcom/dts/dtssdk/f/a;
     .locals 2
 
@@ -220,6 +228,16 @@
     iput-object v1, v0, Lcom/dts/dtssdk/f/a;->b:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method static synthetic b(Lcom/dts/dtssdk/i;)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/dts/dtssdk/i;->b:Z
+
+    return v0
 .end method
 
 .method public static c()Lcom/dts/dtssdk/f/a;

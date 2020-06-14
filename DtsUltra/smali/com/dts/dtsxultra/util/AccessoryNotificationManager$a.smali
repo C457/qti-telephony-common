@@ -39,15 +39,15 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/16 v0, 0xc8
-
-    iput v0, p0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->e:I
-
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->a:Landroid/os/Handler;
+
+    const/16 v0, 0xc8
+
+    iput v0, p0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->e:I
 
     return-void
 .end method

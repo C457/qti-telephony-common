@@ -50,19 +50,15 @@
 
     const/4 v4, 0x0
 
-    const v0, 0x7f0b0058
+    const v0, 0x7f0b005c
 
     invoke-direct {p0, p1, v0}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
     iput-object p2, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->c:Landroid/content/Context;
 
-    invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const v0, 0x7f05008d
 
-    move-result-object v0
-
-    const v1, 0x7f05008d
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-static {p2, v0}, Landroid/support/v4/a/a;->c(Landroid/content/Context;I)I
 
     move-result v0
 
@@ -96,7 +92,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00ba
+    const v2, 0x7f0e00bd
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -106,7 +102,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f07009a
+    const v1, 0x7f07009b
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -151,7 +147,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setDeleteIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
-    const v0, 0x7f080113
+    const v0, 0x7f080145
 
     const-string v1, "dts.dtsxultra.intent.action.OK"
 
@@ -165,7 +161,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    const v0, 0x7f080114
+    const v0, 0x7f080146
 
     const-string v1, "dts.dtsxultra.intent.action.SEARCH"
 
@@ -179,7 +175,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    const v0, 0x7f080112
+    const v0, 0x7f080144
 
     const-string v1, "dts.dtsxultra.intent.action.CLOSE"
 
@@ -267,7 +263,7 @@
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     goto :goto_0
 
@@ -290,7 +286,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v1, p0, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -332,7 +328,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f07009f
+    const v1, 0x7f0700a1
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -342,7 +338,7 @@
 
     invoke-virtual {v1, v0}, Landroid/app/Notification$Builder;->setLargeIcon(Landroid/graphics/Bitmap;)Landroid/app/Notification$Builder;
 
-    const v1, 0x7f0800e2
+    const v1, 0x7f0800f8
 
     invoke-virtual {p0, v1, v0}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->setImageViewBitmap(ILandroid/graphics/Bitmap;)V
 
@@ -354,7 +350,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00be
+    const v2, 0x7f0e00c1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -370,6 +366,22 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->e:Landroid/app/Notification;
 
+    const v0, 0x7f08002c
+
+    iget-object v1, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->c:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0e00c0
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->setTextViewText(ILjava/lang/CharSequence;)V
+
     const v0, 0x7f08002b
 
     iget-object v1, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->c:Landroid/content/Context;
@@ -378,7 +390,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00bd
+    const v2, 0x7f0e00c2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -386,23 +398,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    const v0, 0x7f08002a
-
-    iget-object v1, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->c:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0e00bf
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->setTextViewText(ILjava/lang/CharSequence;)V
-
-    const v0, 0x7f080113
+    const v0, 0x7f080145
 
     const/16 v1, 0x8
 
@@ -514,9 +510,9 @@
 
     iget-object v2, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->g:Ljava/lang/String;
 
-    iget-object v3, v0, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v3, v0, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
-    invoke-static {v1, v2, v3}, Lcom/dts/dtsxultra/util/f;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2, v3}, Lcom/dts/dtsxultra/util/e;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
@@ -542,63 +538,7 @@
     return-object v0
 .end method
 
-.method public static b(Landroid/content/Context;)Z
-    .locals 6
-
-    const/4 v1, 0x0
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x17
-
-    if-lt v0, v2, :cond_1
-
-    const-string v0, "notification"
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/NotificationManager;
-
-    invoke-virtual {v0}, Landroid/app/NotificationManager;->getActiveNotifications()[Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v2
-
-    array-length v3, v2
-
-    move v0, v1
-
-    :goto_0
-    if-ge v0, v3, :cond_1
-
-    aget-object v4, v2, v0
-
-    invoke-virtual {v4}, Landroid/service/notification/StatusBarNotification;->getId()I
-
-    move-result v4
-
-    const/16 v5, 0xc
-
-    if-ne v4, v5, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_1
-    return v0
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    move v0, v1
-
-    goto :goto_1
-.end method
-
-.method static synthetic c(Landroid/content/Context;)Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;
+.method static synthetic b(Landroid/content/Context;)Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;
     .locals 1
 
     invoke-static {p0}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->d(Landroid/content/Context;)Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;
@@ -659,6 +599,36 @@
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     return-void
+.end method
+
+.method static synthetic c(Landroid/content/Context;)Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    invoke-static {p0}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const v1, 0x7f0e0050
+
+    invoke-static {p0, v1, v0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    goto :goto_0
 .end method
 
 .method private static d(Landroid/content/Context;)Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;
@@ -735,7 +705,7 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->e:Landroid/app/Notification;
 
-    invoke-static {p1, v0, v1}, Lcom/dts/dtsxultra/util/d;->a(Landroid/content/Context;ILandroid/app/Notification;)V
+    invoke-static {p1, v0, v1}, Lcom/dts/dtsxultra/util/c;->a(Landroid/content/Context;ILandroid/app/Notification;)V
 
     goto :goto_0
 .end method

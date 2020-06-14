@@ -52,7 +52,7 @@
 
     move-result-object v1
 
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/f;->i(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/dts/dtsxultra/util/e;->i(Landroid/content/Context;)Z
 
     move-result v2
 
@@ -85,13 +85,13 @@
     return-void
 
     :cond_1
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->i()Z
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->i()Z
 
     move-result v2
 
@@ -152,7 +152,7 @@
 
     move-result-object v1
 
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/f;->j(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/dts/dtsxultra/util/e;->j(Landroid/content/Context;)Z
 
     move-result v2
 
@@ -185,13 +185,13 @@
     return-void
 
     :cond_1
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->j()Z
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->j()Z
 
     move-result v2
 
@@ -254,9 +254,9 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
+    invoke-static {v0}, Lcom/dts/dtssdk/g;->b(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
 
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/f;->b(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/dts/dtsxultra/util/e;->b(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -266,12 +266,12 @@
 
     invoke-static {p1, v2}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;Z)Lcom/dts/dtssdk/f/a;
 
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/f;->c(Landroid/content/Context;)V
+    invoke-static {p1}, Lcom/dts/dtsxultra/util/e;->c(Landroid/content/Context;)V
 
     :cond_3
-    invoke-static {p1, v1}, Lcom/dts/dtsxultra/util/f;->c(Landroid/content/Context;Z)V
+    invoke-static {p1, v1}, Lcom/dts/dtsxultra/util/e;->c(Landroid/content/Context;Z)V
 
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -408,7 +408,7 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;)Z
 
     move-result v1
 
@@ -416,54 +416,45 @@
 
     sget-object v1, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_5
 
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->i()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;)V
-
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->j()Z
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->i()Z
 
     move-result v1
 
     if-eqz v1, :cond_4
 
+    invoke-static {p1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;)V
+
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->j()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     invoke-static {p1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->a(Landroid/content/Context;)V
 
+    goto/16 :goto_0
+
     :cond_4
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->b(Landroid/content/Context;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
     invoke-static {p1, v0, v2}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
 
     goto/16 :goto_0
 
     :cond_5
-    invoke-static {p1, v0, v2}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
-
-    goto/16 :goto_0
-
-    :cond_6
     sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_7
 
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->j()Z
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->j()Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
     invoke-static {p1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;)V
 
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->i()Z
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->i()Z
 
     move-result v0
 
@@ -473,12 +464,12 @@
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_6
     invoke-static {p1, v0, v2}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_7
     invoke-static {p1}, Lcom/dts/dtsxultra/util/BluetoothConnectionNotificationManager;->a(Landroid/content/Context;)V
 
     invoke-static {p1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->a(Landroid/content/Context;)V
@@ -488,6 +479,14 @@
     goto/16 :goto_0
 
     :pswitch_2
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/dts/dtssdk/g;->b(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
+
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     move-result-object v0
@@ -509,13 +508,13 @@
 
     invoke-static {p1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;)V
 
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->i()Z
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->i()Z
 
     move-result v1
 
@@ -526,6 +525,14 @@
     goto/16 :goto_0
 
     :pswitch_4
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/dts/dtssdk/g;->b(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
+
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     move-result-object v0
@@ -547,13 +554,13 @@
 
     invoke-static {p1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;)V
 
-    invoke-static {p1}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->j()Z
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->j()Z
 
     move-result v1
 
@@ -572,6 +579,8 @@
     invoke-static {p1, v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Z)V
 
     goto/16 :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

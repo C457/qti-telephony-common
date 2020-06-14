@@ -135,9 +135,9 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     const/4 v1, 0x0
 
@@ -145,7 +145,7 @@
 
     move-result-object v2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1
 
     sget-object v0, Lcom/dts/dtssdk/DtsBroadcastManager;->a:Ljava/lang/String;
 
@@ -156,25 +156,30 @@
     move v0, v1
 
     :goto_0
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
+    :cond_0
     :goto_1
     return-void
 
-    :cond_0
+    :cond_1
     sget-object v0, Lcom/dts/dtssdk/DtsBroadcastManager;->b:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
-    const-string v0, "DTS_SDK_BROADCAST_RECEIVER"
+    invoke-virtual {p1}, Landroid/content/Context;->createDeviceProtectedStorageContext()Landroid/content/Context;
 
-    invoke-virtual {p1, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    move-result-object v0
+
+    const-string v3, "DTS_SDK_BROADCAST_RECEIVER"
+
+    invoke-virtual {v0, v3, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
     const-string v3, "broadcastApi"
 
-    invoke-interface {v0, v3, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v0, v3, v5}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
@@ -184,7 +189,7 @@
 
     sput-object v0, Lcom/dts/dtssdk/DtsBroadcastManager;->b:Ljava/lang/Boolean;
 
-    :cond_1
+    :cond_2
     sget-object v0, Lcom/dts/dtssdk/DtsBroadcastManager;->b:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -193,58 +198,80 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     const-string v0, "requestId"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
-
-    const-string v3, "dts.dtssdk.intent.action.SET_DTS_ENABLED"
-
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
+    move-result-object v3
 
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
-    invoke-static {p1, v4}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;Z)Lcom/dts/dtssdk/f/a;
+    invoke-static {}, Lcom/dts/dtssdk/g;->b()Lcom/dts/dtssdk/f/a;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {p1, v0, v1}, Lcom/dts/dtssdk/DtsBroadcastManager;->a(Landroid/content/Context;Ljava/lang/String;Lcom/dts/dtssdk/f/a;)V
+    iget-object v0, v0, Lcom/dts/dtssdk/f/a;->c:Ljava/lang/Object;
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    const-string v4, "dts.dtssdk.intent.action.SET_DTS_ENABLED"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    invoke-static {p1, v5}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;Z)Lcom/dts/dtssdk/f/a;
+
+    move-result-object v0
+
+    invoke-static {p1, v3, v0}, Lcom/dts/dtssdk/DtsBroadcastManager;->a(Landroid/content/Context;Ljava/lang/String;Lcom/dts/dtssdk/f/a;)V
 
     goto :goto_1
 
-    :cond_3
-    const-string v3, "dts.dtssdk.intent.action.SET_DTS_DISABLED"
+    :cond_4
+    const-string v4, "dts.dtssdk.intent.action.SET_DTS_DISABLED"
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_5
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     invoke-static {p1, v1}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;Z)Lcom/dts/dtssdk/f/a;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {p1, v0, v1}, Lcom/dts/dtssdk/DtsBroadcastManager;->a(Landroid/content/Context;Ljava/lang/String;Lcom/dts/dtssdk/f/a;)V
+    invoke-static {p1, v3, v0}, Lcom/dts/dtssdk/DtsBroadcastManager;->a(Landroid/content/Context;Ljava/lang/String;Lcom/dts/dtssdk/f/a;)V
 
     goto :goto_1
 
-    :cond_4
-    const-string v1, "dts.dtssdk.intent.action.GET_DTS_STATE"
+    :cond_5
+    const-string v0, "dts.dtssdk.intent.action.GET_DTS_STATE"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_6
+    if-eqz v0, :cond_7
 
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
@@ -254,17 +281,17 @@
 
     new-instance v2, Landroid/content/Intent;
 
-    const-string v3, "dts.dtssdk.intent.status.GET_DTS_RESULT"
+    const-string v0, "dts.dtssdk.intent.status.GET_DTS_RESULT"
 
-    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    if-eqz v0, :cond_5
+    if-eqz v3, :cond_6
 
-    const-string v3, "requestId"
+    const-string v0, "requestId"
 
-    invoke-virtual {v2, v3, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v0, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    :cond_5
+    :cond_6
     const-string v3, "dtsState"
 
     iget-object v0, v1, Lcom/dts/dtssdk/f/a;->c:Ljava/lang/Object;
@@ -285,63 +312,63 @@
 
     invoke-static {p1, v2}, Lcom/dts/dtssdk/DtsBroadcastManager;->a(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_1
-
-    :cond_6
-    const-string v1, "dts.dtssdk.intent.action.GET_INFO"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_8
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "dts.dtssdk.intent.status.GET_SDK_INFO_RESULT"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    if-eqz v0, :cond_7
-
-    const-string v2, "requestId"
-
-    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    goto/16 :goto_1
 
     :cond_7
-    const-string v0, "sdkVersion"
+    const-string v0, "dts.dtssdk.intent.action.GET_INFO"
 
-    const-string v2, "1.0.3.40"
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    move-result v0
 
-    const-string v0, "appPackage"
+    if-eqz v0, :cond_9
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "dts.dtssdk.intent.status.GET_SDK_INFO_RESULT"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    if-eqz v3, :cond_8
+
+    const-string v1, "requestId"
+
+    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    :cond_8
+    const-string v1, "sdkVersion"
+
+    const-string v2, "2.0.3.56"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "appPackage"
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-static {p1, v1}, Lcom/dts/dtssdk/DtsBroadcastManager;->a(Landroid/content/Context;Landroid/content/Intent;)V
+    invoke-static {p1, v0}, Lcom/dts/dtssdk/DtsBroadcastManager;->a(Landroid/content/Context;Landroid/content/Intent;)V
 
     goto/16 :goto_1
 
-    :cond_8
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "dts.dtssdk.intent.status.UNSUPPORTED_INTENT"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    if-eqz v0, :cond_9
-
-    const-string v2, "requestId"
-
-    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
     :cond_9
-    invoke-static {p1, v1}, Lcom/dts/dtssdk/DtsBroadcastManager;->a(Landroid/content/Context;Landroid/content/Intent;)V
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "dts.dtssdk.intent.status.UNSUPPORTED_INTENT"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    if-eqz v3, :cond_a
+
+    const-string v1, "requestId"
+
+    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    :cond_a
+    invoke-static {p1, v0}, Lcom/dts/dtssdk/DtsBroadcastManager;->a(Landroid/content/Context;Landroid/content/Intent;)V
 
     goto/16 :goto_1
 .end method

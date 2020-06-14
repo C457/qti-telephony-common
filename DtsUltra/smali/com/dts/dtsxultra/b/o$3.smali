@@ -52,7 +52,7 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v2, "Resetting content mode failed: "
+    const-string v2, "Resetting lineout accessory failed: "
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 

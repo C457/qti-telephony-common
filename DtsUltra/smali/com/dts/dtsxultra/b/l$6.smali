@@ -98,7 +98,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/l$6;->a:Lcom/dts/dtsxultra/b/l;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->f(Lcom/dts/dtsxultra/b/l;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->i(Lcom/dts/dtsxultra/b/l;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -137,7 +137,7 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/l$6;->a:Lcom/dts/dtsxultra/b/l;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/l;->f(Lcom/dts/dtsxultra/b/l;)Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/dts/dtsxultra/b/l;->i(Lcom/dts/dtsxultra/b/l;)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -148,7 +148,7 @@
     :cond_2
     iget-object v0, p0, Lcom/dts/dtsxultra/b/l$6;->a:Lcom/dts/dtsxultra/b/l;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->f(Lcom/dts/dtsxultra/b/l;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->i(Lcom/dts/dtsxultra/b/l;)Landroid/widget/TextView;
 
     move-result-object v0
 

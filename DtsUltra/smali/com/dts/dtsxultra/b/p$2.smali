@@ -50,7 +50,7 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/p$2;->a:Lcom/dts/dtsxultra/b/p;
 
-    invoke-static {v1, v0}, Lcom/dts/dtsxultra/b/p;->a(Lcom/dts/dtsxultra/b/p;Lcom/dts/dtssdk/a/j;)Lcom/dts/dtssdk/a/j;
+    iput-object v0, v1, Lcom/dts/dtsxultra/b/p;->ad:Lcom/dts/dtssdk/a/j;
 
     :cond_0
     return-void

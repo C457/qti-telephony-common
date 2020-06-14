@@ -447,8 +447,6 @@
 
 .method public final c()I
     .locals 2
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->g:I
 
@@ -468,26 +466,6 @@
 .end method
 
 .method public final d()I
-    .locals 2
-
-    iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->g:I
-
-    const/4 v1, -0x1
-
-    if-ne v0, v1, :cond_0
-
-    iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->c:I
-
-    :goto_0
-    return v0
-
-    :cond_0
-    iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->g:I
-
-    goto :goto_0
-.end method
-
-.method public final e()I
     .locals 1
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$w;->q:Landroid/support/v7/widget/RecyclerView;
@@ -509,7 +487,7 @@
     goto :goto_0
 .end method
 
-.method final f()Z
+.method final e()Z
     .locals 1
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$w;->m:Landroid/support/v7/widget/RecyclerView$o;
@@ -527,7 +505,7 @@
     goto :goto_0
 .end method
 
-.method final g()V
+.method final f()V
     .locals 1
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$w;->m:Landroid/support/v7/widget/RecyclerView$o;
@@ -537,7 +515,7 @@
     return-void
 .end method
 
-.method final h()Z
+.method final g()Z
     .locals 1
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->j:I
@@ -557,7 +535,7 @@
     goto :goto_0
 .end method
 
-.method final i()V
+.method final h()V
     .locals 1
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->j:I
@@ -569,7 +547,7 @@
     return-void
 .end method
 
-.method final j()V
+.method final i()V
     .locals 1
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->j:I
@@ -581,7 +559,7 @@
     return-void
 .end method
 
-.method final k()Z
+.method final j()Z
     .locals 1
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->j:I
@@ -601,7 +579,7 @@
     goto :goto_0
 .end method
 
-.method final l()Z
+.method final k()Z
     .locals 1
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->j:I
@@ -621,7 +599,7 @@
     goto :goto_0
 .end method
 
-.method final m()Z
+.method final l()Z
     .locals 1
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->j:I
@@ -641,7 +619,7 @@
     goto :goto_0
 .end method
 
-.method final n()Z
+.method final m()Z
     .locals 1
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->j:I
@@ -661,7 +639,7 @@
     goto :goto_0
 .end method
 
-.method final o()Z
+.method final n()Z
     .locals 1
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->j:I
@@ -681,7 +659,7 @@
     goto :goto_0
 .end method
 
-.method final p()V
+.method final o()V
     .locals 1
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$w;->k:Ljava/util/List;
@@ -702,7 +680,7 @@
     return-void
 .end method
 
-.method final q()Ljava/util/List;
+.method final p()Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -749,7 +727,7 @@
     goto :goto_0
 .end method
 
-.method final r()V
+.method final q()V
     .locals 5
 
     const/4 v4, 0x0
@@ -776,7 +754,7 @@
 
     iput-object v4, p0, Landroid/support/v7/widget/RecyclerView$w;->i:Landroid/support/v7/widget/RecyclerView$w;
 
-    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->p()V
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->o()V
 
     iput v3, p0, Landroid/support/v7/widget/RecyclerView$w;->o:I
 
@@ -787,7 +765,7 @@
     return-void
 .end method
 
-.method public final s()Z
+.method public final r()Z
     .locals 1
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->j:I
@@ -815,7 +793,7 @@
     goto :goto_0
 .end method
 
-.method final t()Z
+.method final s()Z
     .locals 1
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$w;->j:I
@@ -912,7 +890,7 @@
 
     invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->f()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->e()Z
 
     move-result v0
 
@@ -934,7 +912,7 @@
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_0
-    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->k()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->j()Z
 
     move-result v0
 
@@ -945,7 +923,7 @@
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_1
-    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->l()Z
 
     move-result v0
 
@@ -956,7 +934,7 @@
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_2
-    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->l()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->k()Z
 
     move-result v0
 
@@ -967,7 +945,7 @@
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_3
-    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
 
     move-result v0
 
@@ -989,7 +967,7 @@
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_5
-    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->o()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
 
     move-result v0
 
@@ -1000,7 +978,7 @@
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_6
-    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->s()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->r()Z
 
     move-result v0
 
@@ -1037,7 +1015,7 @@
 
     if-nez v0, :cond_8
 
-    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->k()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$w;->j()Z
 
     move-result v0
 

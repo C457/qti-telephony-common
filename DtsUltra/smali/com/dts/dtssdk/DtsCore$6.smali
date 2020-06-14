@@ -98,7 +98,7 @@
 
     iget-object v1, p0, Lcom/dts/dtssdk/DtsCore$6;->a:Lcom/dts/dtssdk/a/a;
 
-    iget-object v1, v1, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v1, v1, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

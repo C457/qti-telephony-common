@@ -2,12 +2,12 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/dts/dtsxultra/b/k;->a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/dts/dtsxultra/b/k;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,14 +17,20 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/dts/dtsxultra/b/k;
+.field final synthetic a:J
+
+.field final synthetic b:Lcom/dts/dtsxultra/b/k;
 
 
 # direct methods
 .method constructor <init>(Lcom/dts/dtsxultra/b/k;)V
-    .locals 0
+    .locals 2
 
-    iput-object p1, p0, Lcom/dts/dtsxultra/b/k$4;->a:Lcom/dts/dtsxultra/b/k;
+    iput-object p1, p0, Lcom/dts/dtsxultra/b/k$4;->b:Lcom/dts/dtsxultra/b/k;
+
+    const-wide/16 v0, 0x7d0
+
+    iput-wide v0, p0, Lcom/dts/dtsxultra/b/k$4;->a:J
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -33,30 +39,33 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final run()V
     .locals 2
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k$4;->a:Lcom/dts/dtsxultra/b/k;
+    :try_start_0
+    iget-wide v0, p0, Lcom/dts/dtsxultra/b/k$4;->a:J
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/k;->h(Lcom/dts/dtsxultra/b/k;)Landroid/widget/Button;
+    invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
 
-    move-result-object v0
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k$4;->b:Lcom/dts/dtsxultra/b/k;
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->performHapticFeedback(I)Z
+    new-instance v1, Lcom/dts/dtsxultra/b/k$4$1;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k$4;->a:Lcom/dts/dtsxultra/b/k;
+    invoke-direct {v1, p0}, Lcom/dts/dtsxultra/b/k$4$1;-><init>(Lcom/dts/dtsxultra/b/k$4;)V
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/k$4;->a:Lcom/dts/dtsxultra/b/k;
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/f;->runOnUiThread(Ljava/lang/Runnable;)V
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-virtual {v1}, Lcom/dts/dtsxultra/b/k;->R()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-virtual {v0, v1}, Lcom/dts/dtsxultra/b/k;->d(I)V
-
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+
+    goto :goto_0
 .end method

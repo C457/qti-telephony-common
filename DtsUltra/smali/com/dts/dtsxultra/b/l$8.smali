@@ -61,7 +61,7 @@
 
     if-eqz v1, :cond_3
 
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->a()Z
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->a()Z
 
     move-result v0
 
@@ -69,7 +69,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/l$8;->a:Lcom/dts/dtsxultra/b/l;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->a(Lcom/dts/dtsxultra/b/l;)Landroid/widget/Switch;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->h(Lcom/dts/dtsxultra/b/l;)Landroid/widget/Switch;
 
     move-result-object v0
 
@@ -78,7 +78,7 @@
     :cond_0
     iget-object v0, p0, Lcom/dts/dtsxultra/b/l$8;->a:Lcom/dts/dtsxultra/b/l;
 
-    invoke-static {v0, v3}, Lcom/dts/dtsxultra/b/l;->a(Lcom/dts/dtsxultra/b/l;Z)V
+    invoke-static {v0, v3}, Lcom/dts/dtsxultra/b/l;->b(Lcom/dts/dtsxultra/b/l;Z)V
 
     :cond_1
     :goto_0
@@ -118,7 +118,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->a()Z
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->a()Z
 
     move-result v0
 
@@ -126,7 +126,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/l$8;->a:Lcom/dts/dtsxultra/b/l;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->a(Lcom/dts/dtsxultra/b/l;)Landroid/widget/Switch;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->h(Lcom/dts/dtsxultra/b/l;)Landroid/widget/Switch;
 
     move-result-object v0
 
@@ -135,7 +135,7 @@
     :cond_4
     iget-object v0, p0, Lcom/dts/dtsxultra/b/l$8;->a:Lcom/dts/dtsxultra/b/l;
 
-    invoke-static {v0, v2}, Lcom/dts/dtsxultra/b/l;->a(Lcom/dts/dtsxultra/b/l;Z)V
+    invoke-static {v0, v2}, Lcom/dts/dtsxultra/b/l;->b(Lcom/dts/dtsxultra/b/l;Z)V
 
     goto :goto_0
 .end method

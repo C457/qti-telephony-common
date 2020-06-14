@@ -1,48 +1,119 @@
-.class final Lcom/dts/dtsxultra/b/l$9;
+.class final synthetic Lcom/dts/dtsxultra/b/l$9;
 .super Ljava/lang/Object;
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/dts/dtsxultra/b/l;->a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/dts/dtsxultra/b/l;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1008
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic a:Lcom/dts/dtsxultra/b/l;
+# static fields
+.field static final synthetic a:[I
 
 
 # direct methods
-.method constructor <init>(Lcom/dts/dtsxultra/b/l;)V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 3
 
-    iput-object p1, p0, Lcom/dts/dtsxultra/b/l$9;->a:Lcom/dts/dtsxultra/b/l;
+    invoke-static {}, Lcom/dts/dtssdk/util/a;->values()[Lcom/dts/dtssdk/util/a;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    move-result-object v0
 
+    array-length v0, v0
+
+    new-array v0, v0, [I
+
+    sput-object v0, Lcom/dts/dtsxultra/b/l$9;->a:[I
+
+    :try_start_0
+    sget-object v0, Lcom/dts/dtsxultra/b/l$9;->a:[I
+
+    sget-object v1, Lcom/dts/dtssdk/util/a;->b:Lcom/dts/dtssdk/util/a;
+
+    invoke-virtual {v1}, Lcom/dts/dtssdk/util/a;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    aput v2, v0, v1
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_3
+
+    :goto_0
+    :try_start_1
+    sget-object v0, Lcom/dts/dtsxultra/b/l$9;->a:[I
+
+    sget-object v1, Lcom/dts/dtssdk/util/a;->c:Lcom/dts/dtssdk/util/a;
+
+    invoke-virtual {v1}, Lcom/dts/dtssdk/util/a;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    aput v2, v0, v1
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_2
+
+    :goto_1
+    :try_start_2
+    sget-object v0, Lcom/dts/dtsxultra/b/l$9;->a:[I
+
+    sget-object v1, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
+
+    invoke-virtual {v1}, Lcom/dts/dtssdk/util/a;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    aput v2, v0, v1
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_1
+
+    :goto_2
+    :try_start_3
+    sget-object v0, Lcom/dts/dtsxultra/b/l$9;->a:[I
+
+    sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
+
+    invoke-virtual {v1}, Lcom/dts/dtssdk/util/a;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x4
+
+    aput v2, v0, v1
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_0
+
+    :goto_3
     return-void
-.end method
 
+    :catch_0
+    move-exception v0
 
-# virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 2
+    goto :goto_3
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/l$9;->a:Lcom/dts/dtsxultra/b/l;
+    :catch_1
+    move-exception v0
 
-    new-instance v1, Lcom/dts/dtsxultra/b/a;
+    goto :goto_2
 
-    invoke-direct {v1}, Lcom/dts/dtsxultra/b/a;-><init>()V
+    :catch_2
+    move-exception v0
 
-    invoke-static {v0, v1}, Lcom/dts/dtsxultra/b/l;->a(Lcom/dts/dtsxultra/b/l;Landroid/support/v4/app/e;)V
+    goto :goto_1
 
-    return-void
+    :catch_3
+    move-exception v0
+
+    goto :goto_0
 .end method

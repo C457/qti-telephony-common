@@ -2,12 +2,12 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/dts/dtsxultra/b/o;->a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
+    value = Lcom/dts/dtsxultra/b/o;->s()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,42 +33,14 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 3
-
-    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    .locals 1
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/o$13;->a:Lcom/dts/dtsxultra/b/o;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;)Landroid/support/v4/app/f;
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/o;->ac:Landroid/support/v4/app/f;
 
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/dts/dtssdk/g;->c(Landroid/content/Context;)V
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$13;->a:Lcom/dts/dtsxultra/b/o;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;)Landroid/support/v4/app/f;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/util/f;->m(Landroid/content/Context;)V
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$13;->a:Lcom/dts/dtsxultra/b/o;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;)Landroid/support/v4/app/f;
-
-    move-result-object v0
-
-    const-string v1, "Reset all USB device association"
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-static {v0, p2}, Lcom/dts/dtsxultra/util/e;->f(Landroid/content/Context;Z)V
 
     return-void
 .end method

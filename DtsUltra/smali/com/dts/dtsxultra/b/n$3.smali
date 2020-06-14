@@ -38,17 +38,15 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/n$3;->a:Lcom/dts/dtsxultra/b/n;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/n;->b(Lcom/dts/dtsxultra/b/n;)Lcom/dts/dtssdk/a/j;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/n;->ad:Lcom/dts/dtssdk/a/j;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/n$3;->a:Lcom/dts/dtsxultra/b/n;
 
-    sget-object v1, Lcom/dts/dtssdk/a/n;->b:Lcom/dts/dtssdk/a/n;
+    sget-object v1, Lcom/dts/dtssdk/a/n;->d:Lcom/dts/dtssdk/a/n;
 
-    invoke-static {v0, v1}, Lcom/dts/dtsxultra/b/n;->b(Lcom/dts/dtsxultra/b/n;Lcom/dts/dtssdk/a/n;)V
+    invoke-static {v0, v1}, Lcom/dts/dtsxultra/b/n;->a(Lcom/dts/dtsxultra/b/n;Lcom/dts/dtssdk/a/n;)V
 
     :cond_0
     return-void

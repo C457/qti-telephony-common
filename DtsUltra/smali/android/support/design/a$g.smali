@@ -98,26 +98,26 @@
 
 .field public static final design_text_input_password_icon:I = 0x7f0b002b
 
-.field public static final mtrl_layout_snackbar:I = 0x7f0b0042
+.field public static final mtrl_layout_snackbar:I = 0x7f0b0045
 
-.field public static final mtrl_layout_snackbar_include:I = 0x7f0b0043
+.field public static final mtrl_layout_snackbar_include:I = 0x7f0b0046
 
-.field public static final notification_action:I = 0x7f0b0044
+.field public static final notification_action:I = 0x7f0b0047
 
-.field public static final notification_action_tombstone:I = 0x7f0b0045
+.field public static final notification_action_tombstone:I = 0x7f0b0048
 
-.field public static final notification_template_custom_big:I = 0x7f0b004c
+.field public static final notification_template_custom_big:I = 0x7f0b004f
 
-.field public static final notification_template_icon_group:I = 0x7f0b004d
+.field public static final notification_template_icon_group:I = 0x7f0b0050
 
-.field public static final notification_template_part_chronometer:I = 0x7f0b0051
+.field public static final notification_template_part_chronometer:I = 0x7f0b0054
 
-.field public static final notification_template_part_time:I = 0x7f0b0052
+.field public static final notification_template_part_time:I = 0x7f0b0055
 
-.field public static final select_dialog_item_material:I = 0x7f0b0053
+.field public static final select_dialog_item_material:I = 0x7f0b0056
 
-.field public static final select_dialog_multichoice_material:I = 0x7f0b0054
+.field public static final select_dialog_multichoice_material:I = 0x7f0b0057
 
-.field public static final select_dialog_singlechoice_material:I = 0x7f0b0055
+.field public static final select_dialog_singlechoice_material:I = 0x7f0b0058
 
-.field public static final support_simple_spinner_dropdown_item:I = 0x7f0b0056
+.field public static final support_simple_spinner_dropdown_item:I = 0x7f0b0059

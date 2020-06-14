@@ -198,42 +198,42 @@
 
 .field public static final design_snackbar_background:I = 0x7f07006e
 
-.field public static final ic_mtrl_chip_checked_black:I = 0x7f0700a1
+.field public static final ic_mtrl_chip_checked_black:I = 0x7f0700a4
 
-.field public static final ic_mtrl_chip_checked_circle:I = 0x7f0700a2
+.field public static final ic_mtrl_chip_checked_circle:I = 0x7f0700a5
 
-.field public static final ic_mtrl_chip_close_circle:I = 0x7f0700a3
+.field public static final ic_mtrl_chip_close_circle:I = 0x7f0700a6
 
-.field public static final mtrl_snackbar_background:I = 0x7f0700c0
+.field public static final mtrl_snackbar_background:I = 0x7f0700c6
 
-.field public static final mtrl_tabs_default_indicator:I = 0x7f0700c1
+.field public static final mtrl_tabs_default_indicator:I = 0x7f0700c7
 
-.field public static final navigation_empty_icon:I = 0x7f0700c2
+.field public static final navigation_empty_icon:I = 0x7f0700c8
 
-.field public static final notification_action_background:I = 0x7f0700c3
+.field public static final notification_action_background:I = 0x7f0700c9
 
-.field public static final notification_bg:I = 0x7f0700c4
+.field public static final notification_bg:I = 0x7f0700ca
 
-.field public static final notification_bg_low:I = 0x7f0700c5
+.field public static final notification_bg_low:I = 0x7f0700cb
 
-.field public static final notification_bg_low_normal:I = 0x7f0700c6
+.field public static final notification_bg_low_normal:I = 0x7f0700cc
 
-.field public static final notification_bg_low_pressed:I = 0x7f0700c7
+.field public static final notification_bg_low_pressed:I = 0x7f0700cd
 
-.field public static final notification_bg_normal:I = 0x7f0700c8
+.field public static final notification_bg_normal:I = 0x7f0700ce
 
-.field public static final notification_bg_normal_pressed:I = 0x7f0700c9
+.field public static final notification_bg_normal_pressed:I = 0x7f0700cf
 
-.field public static final notification_icon_background:I = 0x7f0700ca
+.field public static final notification_icon_background:I = 0x7f0700d0
 
-.field public static final notification_template_icon_bg:I = 0x7f0700cb
+.field public static final notification_template_icon_bg:I = 0x7f0700d1
 
-.field public static final notification_template_icon_low_bg:I = 0x7f0700cc
+.field public static final notification_template_icon_low_bg:I = 0x7f0700d2
 
-.field public static final notification_tile_bg:I = 0x7f0700cd
+.field public static final notification_tile_bg:I = 0x7f0700d3
 
-.field public static final notify_panel_notification_icon_bg:I = 0x7f0700ce
+.field public static final notify_panel_notification_icon_bg:I = 0x7f0700d4
 
-.field public static final tooltip_frame_dark:I = 0x7f0700d3
+.field public static final tooltip_frame_dark:I = 0x7f0700da
 
-.field public static final tooltip_frame_light:I = 0x7f0700d4
+.field public static final tooltip_frame_light:I = 0x7f0700db

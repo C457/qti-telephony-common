@@ -54,7 +54,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/m$b;->a:Lcom/dts/dtsxultra/b/m;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/m;->o(Lcom/dts/dtsxultra/b/m;)V
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/m;->p(Lcom/dts/dtsxultra/b/m;)V
 
     const/4 v0, 0x0
 
@@ -66,7 +66,9 @@
 .end method
 
 .method protected final synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x0
 
     check-cast p1, Ljava/lang/Boolean;
 
@@ -90,46 +92,62 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/m$b;->a:Lcom/dts/dtsxultra/b/m;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/m;->f(Lcom/dts/dtsxultra/b/m;)Lcom/dts/dtssdk/util/a;
+    invoke-static {v1}, Lcom/dts/dtsxultra/b/m;->c(Lcom/dts/dtsxultra/b/m;)Lcom/dts/dtssdk/util/a;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/dts/dtsxultra/b/m$b;->a:Lcom/dts/dtsxultra/b/m;
 
-    invoke-static {v2}, Lcom/dts/dtsxultra/b/m;->g(Lcom/dts/dtsxultra/b/m;)Lcom/dts/dtssdk/a/j;
-
-    move-result-object v2
+    iget-object v2, v2, Lcom/dts/dtsxultra/b/m;->ad:Lcom/dts/dtssdk/a/j;
 
     invoke-static {v0, v1, v2}, Lcom/dts/dtsxultra/b/m;->a(Lcom/dts/dtsxultra/b/m;Lcom/dts/dtssdk/util/a;Lcom/dts/dtssdk/a/j;)V
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/m$b;->a:Lcom/dts/dtsxultra/b/m;
+
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/m;->g(Lcom/dts/dtsxultra/b/m;)V
 
     :cond_0
     iget-object v0, p0, Lcom/dts/dtsxultra/b/m$b;->a:Lcom/dts/dtsxultra/b/m;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/m;->b(Lcom/dts/dtsxultra/b/m;)V
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/m;->ac:Landroid/support/v4/app/f;
+
+    invoke-static {v0}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/m$b;->a:Lcom/dts/dtsxultra/b/m;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/m;->p(Lcom/dts/dtsxultra/b/m;)Landroid/widget/LinearLayout;
+    invoke-virtual {v0, v3}, Lcom/dts/dtsxultra/b/m;->c(Z)V
+
+    :goto_0
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/m$b;->a:Lcom/dts/dtsxultra/b/m;
+
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/m;->q(Lcom/dts/dtsxultra/b/m;)Landroid/widget/LinearLayout;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/m$b;->a:Lcom/dts/dtsxultra/b/m;
 
-    const v2, 0x7f0e00da
+    const v2, 0x7f0e00dd
 
     invoke-virtual {v1, v2}, Lcom/dts/dtsxultra/b/m;->a(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/support/design/widget/Snackbar;->a(Landroid/view/View;Ljava/lang/CharSequence;I)Landroid/support/design/widget/Snackbar;
+    invoke-static {v0, v1, v3}, Landroid/support/design/widget/Snackbar;->a(Landroid/view/View;Ljava/lang/CharSequence;I)Landroid/support/design/widget/Snackbar;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/support/design/widget/Snackbar;->b()V
 
     return-void
+
+    :cond_1
+    invoke-static {}, Lcom/dts/dtsxultra/b/m;->R()Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 .method protected final onPreExecute()V

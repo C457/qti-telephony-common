@@ -67,7 +67,7 @@
                 <com.dts.dtsxultra.views.VerticalSeekBar android:id="@id/equalizer_seekBar10" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:maxHeight="5000.0dip" android:max="24" android:progress="12" android:progressDrawable="@drawable/equalizer" android:thumb="@drawable/equalizer_thumb" android:layout_above="@id/equalizer_barText10" android:layout_centerHorizontal="true" />
             </RelativeLayout>
         </LinearLayout>
-        <RelativeLayout android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="8.0dip" android:layout_marginBottom="@dimen/equalizer_margin_axis" android:layout_weight="1.0" android:layout_alignParentEnd="true">
+        <RelativeLayout android:id="@id/equalizer_layout_gain" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="8.0dip" android:layout_marginBottom="@dimen/equalizer_margin_axis" android:layout_weight="1.0" android:layout_alignParentEnd="true">
             <TextView android:id="@id/equalizer_gaintop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+12" style="@style/text_standard" />
             <TextView android:id="@id/equalizer_gainmid" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0dB" android:layout_centerVertical="true" style="@style/text_standard" />
             <TextView android:id="@id/equalizer_gainbottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-12" android:layout_alignParentBottom="true" android:layout_alignParentEnd="false" style="@style/text_standard" />

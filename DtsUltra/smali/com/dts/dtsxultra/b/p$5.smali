@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public final a(Lcom/dts/dtssdk/f/a;Ljava/util/List;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,7 +102,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/p$5;->a:Lcom/dts/dtsxultra/b/p;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->a(Lcom/dts/dtsxultra/b/p;)V
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->f(Lcom/dts/dtsxultra/b/p;)V
 
     :goto_0
     return-void
@@ -112,64 +112,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
-
-    invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$5;->a:Lcom/dts/dtsxultra/b/p;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->b(Lcom/dts/dtsxultra/b/p;)Lcom/dts/dtsxultra/views/a;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/p$5;->a:Lcom/dts/dtsxultra/b/p;
-
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/p;->d(Lcom/dts/dtsxultra/b/p;)Landroid/support/v4/app/f;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/support/v4/app/f;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0e0087
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/dts/dtsxultra/views/a;->b:Ljava/util/HashMap;
-
-    invoke-virtual {v2, v1}, Ljava/util/HashMap;->containsValue(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    iget-object v2, v0, Lcom/dts/dtsxultra/views/a;->a:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    iget-object v3, v0, Lcom/dts/dtsxultra/views/a;->b:Ljava/util/HashMap;
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v3, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/dts/dtsxultra/views/a;->a(Lcom/dts/dtssdk/a/a;)V
-
-    :cond_1
-    new-instance v0, Lcom/dts/dtsxultra/b/p$5$1;
-
-    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/p$5$1;-><init>(Lcom/dts/dtsxultra/b/p$5;)V
-
-    invoke-static {p2, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+    if-nez v0, :cond_1
 
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -180,7 +123,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -190,7 +133,7 @@
 
     iget-object v2, p0, Lcom/dts/dtsxultra/b/p$5;->a:Lcom/dts/dtsxultra/b/p;
 
-    invoke-static {v2}, Lcom/dts/dtsxultra/b/p;->b(Lcom/dts/dtsxultra/b/p;)Lcom/dts/dtsxultra/views/a;
+    invoke-static {v2}, Lcom/dts/dtsxultra/b/p;->e(Lcom/dts/dtsxultra/b/p;)Lcom/dts/dtsxultra/views/a;
 
     move-result-object v2
 
@@ -198,19 +141,10 @@
 
     goto :goto_1
 
-    :cond_2
-    invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "Branded headphone was not found in the datastore as featured headphone! Not adding anything."
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
+    :cond_1
     iget-object v0, p0, Lcom/dts/dtsxultra/b/p$5;->a:Lcom/dts/dtsxultra/b/p;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->c(Lcom/dts/dtsxultra/b/p;)V
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->g(Lcom/dts/dtsxultra/b/p;)V
 
     goto :goto_0
 .end method

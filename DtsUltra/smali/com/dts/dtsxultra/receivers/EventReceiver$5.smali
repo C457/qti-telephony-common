@@ -52,6 +52,16 @@
 
     if-eqz v0, :cond_2
 
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$5;->a:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     iget-object v0, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$5;->a:Landroid/content/Context;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -62,7 +72,7 @@
 
     iget-object v2, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$5;->b:Lcom/dts/dtssdk/a/a;
 
-    iget-object v2, v2, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v2, v2, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -80,6 +90,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
+    :cond_0
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     invoke-static {}, Lcom/dts/dtssdk/g;->f()Lcom/dts/dtssdk/util/a;
@@ -98,11 +109,15 @@
 
     sget-object v1, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
 
+    if-eq v0, v1, :cond_1
+
+    sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
+
     if-ne v0, v1, :cond_1
 
     iget-object v0, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$5;->a:Landroid/content/Context;
 
-    sget-object v1, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
+    sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
 
     iget-object v2, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$5;->b:Lcom/dts/dtssdk/a/a;
 
@@ -110,22 +125,17 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$5;->a:Landroid/content/Context;
 
-    sget-object v1, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
+    sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
 
     invoke-static {v0, v1, v3}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
 
-    :cond_0
     :goto_0
     return-void
 
     :cond_1
-    sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
-
-    if-ne v0, v1, :cond_0
-
     iget-object v0, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$5;->a:Landroid/content/Context;
 
-    sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
+    sget-object v1, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
 
     iget-object v2, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$5;->b:Lcom/dts/dtssdk/a/a;
 
@@ -133,7 +143,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$5;->a:Landroid/content/Context;
 
-    sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
+    sget-object v1, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
 
     invoke-static {v0, v1, v3}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
 

@@ -41,10 +41,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/16 v0, 0xc8
-
-    iput v0, p0, Lcom/dts/dtsxultra/b/m$a;->h:I
-
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
@@ -63,6 +59,10 @@
 
     iput-boolean v2, p0, Lcom/dts/dtsxultra/b/m$a;->g:Z
 
+    const/16 v0, 0xc8
+
+    iput v0, p0, Lcom/dts/dtsxultra/b/m$a;->h:I
+
     return-void
 .end method
 
@@ -74,6 +74,8 @@
     invoke-static {p0, p1, p2}, Lcom/dts/dtssdk/g;->a(Lcom/dts/dtssdk/util/a;Lcom/dts/dtssdk/a/j;Z)Lcom/dts/dtssdk/f/a;
 
     move-result-object v0
+
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Lcom/dts/dtssdk/f/a;->a()Z
 

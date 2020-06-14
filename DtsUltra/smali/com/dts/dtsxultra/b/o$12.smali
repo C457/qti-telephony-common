@@ -2,12 +2,12 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/dts/dtsxultra/b/o;->a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
+    value = Lcom/dts/dtsxultra/b/o;->s()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,42 +33,54 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 3
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$12;->a:Lcom/dts/dtsxultra/b/o;
+
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/o;->ac:Landroid/support/v4/app/f;
+
+    invoke-static {v0, p2}, Lcom/dts/dtsxultra/util/e;->b(Landroid/content/Context;Z)V
+
+    if-nez p2, :cond_0
 
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/o$12;->a:Lcom/dts/dtsxultra/b/o;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;)Landroid/support/v4/app/f;
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/o;->ac:Landroid/support/v4/app/f;
 
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/dts/dtssdk/g;->b(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/dts/dtssdk/g;->e(Landroid/content/Context;)V
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/o$12;->a:Lcom/dts/dtsxultra/b/o;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;)Landroid/support/v4/app/f;
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/o;->ac:Landroid/support/v4/app/f;
 
-    move-result-object v0
+    invoke-static {v0}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;)V
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/util/f;->l(Landroid/content/Context;)V
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$12;->a:Lcom/dts/dtsxultra/b/o;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;)Landroid/support/v4/app/f;
-
-    move-result-object v0
-
-    const-string v1, "Reset all bluetooth device association"
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
+    :goto_0
     return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$12;->a:Lcom/dts/dtsxultra/b/o;
+
+    invoke-virtual {v0}, Lcom/dts/dtsxultra/b/o;->d()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->f()Lcom/dts/dtssdk/util/a;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
+
+    goto :goto_0
 .end method

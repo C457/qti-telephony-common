@@ -52,11 +52,11 @@
     :cond_0
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$3;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->n(Lcom/dts/dtsxultra/b/j;)V
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->o(Lcom/dts/dtsxultra/b/j;)V
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$3;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->o(Lcom/dts/dtsxultra/b/j;)V
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->p(Lcom/dts/dtsxultra/b/j;)V
 
     goto :goto_0
 .end method

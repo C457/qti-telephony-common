@@ -36,11 +36,19 @@
 .method public final onClick(Landroid/view/View;)V
     .locals 3
 
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/j$15;->a:Lcom/dts/dtsxultra/b/j;
+
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->a(Lcom/dts/dtsxultra/b/j;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     invoke-static {}, Lcom/dts/dtsxultra/b/j;->R()Ljava/lang/String;
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$15;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->f(Lcom/dts/dtsxultra/b/j;)Landroid/widget/ProgressBar;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->g(Lcom/dts/dtsxultra/b/j;)Landroid/widget/ProgressBar;
 
     move-result-object v0
 
@@ -52,15 +60,11 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$15;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->g(Lcom/dts/dtsxultra/b/j;)Landroid/support/v4/app/f;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/j;->ac:Landroid/support/v4/app/f;
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/j$15;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/j;->h(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/j;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/dts/dtsxultra/b/j;->ad:Lcom/dts/dtssdk/a/j;
 
     new-instance v2, Lcom/dts/dtsxultra/b/j$15$1;
 
@@ -68,5 +72,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;Lcom/dts/dtssdk/a/j;Lcom/dts/dtssdk/c/b;)V
 
+    :cond_0
     return-void
 .end method

@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public final a(Lcom/dts/dtssdk/f/a;Ljava/util/List;)V
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -249,6 +249,8 @@
     goto :goto_0
 
     :cond_5
+    iget-object v1, p0, Lcom/dts/dtssdk/g$2;->f:Lcom/dts/dtssdk/g;
+
     const/4 v0, 0x0
 
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -257,15 +259,33 @@
 
     check-cast v0, Lcom/dts/dtssdk/a/a;
 
-    iget-object v1, p0, Lcom/dts/dtssdk/g$2;->c:Landroid/content/Context;
+    invoke-static {v1, v0}, Lcom/dts/dtssdk/g;->a(Lcom/dts/dtssdk/g;Lcom/dts/dtssdk/a/a;)Lcom/dts/dtssdk/a/a;
 
-    iget-object v2, p0, Lcom/dts/dtssdk/g$2;->d:Lcom/dts/dtssdk/a/j;
+    iget-object v0, p0, Lcom/dts/dtssdk/g$2;->f:Lcom/dts/dtssdk/g;
 
-    iget-object v3, p0, Lcom/dts/dtssdk/g$2;->e:Lcom/dts/dtssdk/util/a;
+    invoke-static {v0}, Lcom/dts/dtssdk/g;->a(Lcom/dts/dtssdk/g;)Lcom/dts/dtssdk/a/a;
 
-    iget-object v4, p0, Lcom/dts/dtssdk/g$2;->b:Lcom/dts/dtssdk/c/b;
+    move-result-object v0
 
-    invoke-static {v1, v2, v3, v0, v4}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;Lcom/dts/dtssdk/a/j;Lcom/dts/dtssdk/util/a;Lcom/dts/dtssdk/a/a;Lcom/dts/dtssdk/c/b;)V
+    if-eqz v0, :cond_2
+
+    invoke-static {}, Lcom/dts/dtssdk/a/e;->a()Lcom/dts/dtssdk/a/e;
+
+    iget-object v0, p0, Lcom/dts/dtssdk/g$2;->c:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/dts/dtssdk/g$2;->f:Lcom/dts/dtssdk/g;
+
+    invoke-static {v1}, Lcom/dts/dtssdk/g;->a(Lcom/dts/dtssdk/g;)Lcom/dts/dtssdk/a/a;
+
+    move-result-object v1
+
+    iget v1, v1, Lcom/dts/dtssdk/a/a;->a:I
+
+    new-instance v2, Lcom/dts/dtssdk/g$2$1;
+
+    invoke-direct {v2, p0}, Lcom/dts/dtssdk/g$2$1;-><init>(Lcom/dts/dtssdk/g$2;)V
+
+    invoke-static {v0, v1, v2}, Lcom/dts/dtssdk/a/e;->a(Landroid/content/Context;ILcom/dts/dtssdk/c/c;)V
 
     goto/16 :goto_0
 .end method

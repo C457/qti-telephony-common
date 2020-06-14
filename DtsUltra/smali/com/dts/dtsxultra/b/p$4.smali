@@ -27,14 +27,18 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/dts/dtsxultra/b/p;
+.field final synthetic a:Ljava/lang/String;
+
+.field final synthetic b:Lcom/dts/dtsxultra/b/p;
 
 
 # direct methods
-.method constructor <init>(Lcom/dts/dtsxultra/b/p;)V
+.method constructor <init>(Lcom/dts/dtsxultra/b/p;Ljava/lang/String;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/dts/dtsxultra/b/p$4;->a:Lcom/dts/dtsxultra/b/p;
+    iput-object p1, p0, Lcom/dts/dtsxultra/b/p$4;->b:Lcom/dts/dtsxultra/b/p;
+
+    iput-object p2, p0, Lcom/dts/dtsxultra/b/p$4;->a:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -60,11 +64,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$4;->a:Lcom/dts/dtsxultra/b/p;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$4;->b:Lcom/dts/dtsxultra/b/p;
 
-    invoke-virtual {v0, p1}, Lcom/dts/dtsxultra/b/p;->a(Lcom/dts/dtssdk/f/a;)V
+    invoke-virtual {v0}, Lcom/dts/dtsxultra/b/p;->g()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
 
@@ -72,7 +80,7 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v2, "Querying for accessories returned error: "
+    const-string v2, "Error while checking if headphone exists in the datastore. Error result: "
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
@@ -100,83 +108,103 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$4;->a:Lcom/dts/dtsxultra/b/p;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$4;->b:Lcom/dts/dtsxultra/b/p;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->a(Lcom/dts/dtsxultra/b/p;)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$4;->a:Lcom/dts/dtsxultra/b/p;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->b(Lcom/dts/dtsxultra/b/p;)Lcom/dts/dtsxultra/views/a;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->e(Lcom/dts/dtsxultra/b/p;)Lcom/dts/dtsxultra/views/a;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/p$4;->a:Lcom/dts/dtsxultra/b/p;
+    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$a;->a:Landroid/support/v7/widget/RecyclerView$b;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/p;->d(Lcom/dts/dtsxultra/b/p;)Landroid/support/v4/app/f;
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$b;->b()V
 
-    move-result-object v1
+    :cond_0
+    :goto_0
+    return-void
 
-    invoke-virtual {v1}, Landroid/support/v4/app/f;->getResources()Landroid/content/res/Resources;
+    :cond_1
+    if-eqz p2, :cond_2
 
-    move-result-object v1
-
-    const v2, 0x7f0e0087
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/dts/dtsxultra/views/a;->a(Ljava/lang/String;)V
-
-    new-instance v0, Lcom/dts/dtsxultra/b/p$4$1;
-
-    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/p$4$1;-><init>(Lcom/dts/dtsxultra/b/p$4;)V
-
-    invoke-static {p2, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    const/4 v1, 0x1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    if-ne v0, v1, :cond_2
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$4;->b:Lcom/dts/dtsxultra/b/p;
+
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/p;->ac:Landroid/support/v4/app/f;
+
+    sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
+
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/p$4;->a:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/dts/dtsxultra/util/a;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v0, "Saving new branded headphone to: "
+
+    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/dts/dtssdk/a/a;
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/p$4;->a:Lcom/dts/dtsxultra/b/p;
+    iget-object v0, v0, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
-    invoke-static {v2}, Lcom/dts/dtsxultra/b/p;->b(Lcom/dts/dtsxultra/b/p;)Lcom/dts/dtsxultra/views/a;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
 
-    invoke-virtual {v2, v0}, Lcom/dts/dtsxultra/views/a;->b(Lcom/dts/dtssdk/a/a;)V
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$4;->b:Lcom/dts/dtsxultra/b/p;
 
-    goto :goto_1
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->a(Lcom/dts/dtsxultra/b/p;)V
 
-    :cond_1
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$4;->a:Lcom/dts/dtsxultra/b/p;
+    goto :goto_0
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->c(Lcom/dts/dtsxultra/b/p;)V
+    :cond_2
+    invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "Returned list is either null or empty (or more than one)."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/dts/dtsxultra/b/p;->R()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "The selected headphone does not exist in the database. Showing no selection in the UI"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$4;->b:Lcom/dts/dtsxultra/b/p;
+
+    invoke-virtual {v0}, Lcom/dts/dtsxultra/b/p;->g()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/p$4;->b:Lcom/dts/dtsxultra/b/p;
+
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/p;->e(Lcom/dts/dtsxultra/b/p;)Lcom/dts/dtsxultra/views/a;
+
+    move-result-object v0
+
+    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$a;->a:Landroid/support/v7/widget/RecyclerView$b;
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$b;->b()V
 
     goto :goto_0
 .end method

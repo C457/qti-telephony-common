@@ -12,7 +12,7 @@
 
 .field private static final aa:[F
 
-.field private static final ac:[I
+.field private static final ab:[I
 
 
 # instance fields
@@ -20,9 +20,7 @@
 
 .field private aA:Landroid/content/BroadcastReceiver;
 
-.field private final ad:Ljava/lang/Object;
-
-.field private ae:Landroid/support/v4/app/f;
+.field private final ae:Ljava/lang/Object;
 
 .field private af:Lcom/dts/dtssdk/e/b;
 
@@ -50,9 +48,9 @@
 
 .field private ar:I
 
-.field private final as:Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb$a;
+.field private volatile as:I
 
-.field private volatile at:I
+.field private at:Z
 
 .field private au:Z
 
@@ -60,11 +58,11 @@
 
 .field private aw:Z
 
-.field private ax:Z
+.field private ax:I
 
-.field private ay:I
+.field private ay:Ljava/lang/Boolean;
 
-.field private az:Ljava/lang/Boolean;
+.field private final az:Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb$a;
 
 
 # direct methods
@@ -97,7 +95,7 @@
 
     fill-array-data v0, :array_2
 
-    sput-object v0, Lcom/dts/dtsxultra/b/k;->ac:[I
+    sput-object v0, Lcom/dts/dtsxultra/b/k;->ab:[I
 
     return-void
 
@@ -121,10 +119,10 @@
 
     :array_2
     .array-data 4
-        0x7f0700b5
-        0x7f0700b7
-        0x7f0700b8
-        0x7f0700b9
+        0x7f0700bb
+        0x7f0700bd
+        0x7f0700be
+        0x7f0700bf
     .end array-data
 .end method
 
@@ -139,7 +137,7 @@
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->ad:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->ae:Ljava/lang/Object;
 
     new-array v0, v1, [F
 
@@ -153,39 +151,37 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->aq:[F
 
-    new-instance v0, Lcom/dts/dtsxultra/b/k$1;
-
-    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/k$1;-><init>(Lcom/dts/dtsxultra/b/k;)V
-
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->as:Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb$a;
-
     const/4 v0, -0x1
 
-    iput v0, p0, Lcom/dts/dtsxultra/b/k;->ay:I
+    iput v0, p0, Lcom/dts/dtsxultra/b/k;->ax:I
 
-    const/4 v0, 0x0
+    new-instance v0, Ljava/lang/Boolean;
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const/4 v1, 0x0
 
-    move-result-object v0
+    invoke-direct {v0, v1}, Ljava/lang/Boolean;-><init>(Z)V
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->az:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->ay:Ljava/lang/Boolean;
 
-    new-instance v0, Lcom/dts/dtsxultra/b/k$2;
+    new-instance v0, Lcom/dts/dtsxultra/b/k$7;
 
-    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/k$2;-><init>(Lcom/dts/dtsxultra/b/k;)V
+    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/k$7;-><init>(Lcom/dts/dtsxultra/b/k;)V
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->aA:Landroid/content/BroadcastReceiver;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->Y:Landroid/media/AudioManager$OnAudioFocusChangeListener;
+
+    new-instance v0, Lcom/dts/dtsxultra/b/k$8;
+
+    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/k$8;-><init>(Lcom/dts/dtsxultra/b/k;)V
+
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->az:Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb$a;
 
     new-instance v0, Lcom/dts/dtsxultra/b/k$9;
 
     invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/k$9;-><init>(Lcom/dts/dtsxultra/b/k;)V
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->Y:Landroid/media/AudioManager$OnAudioFocusChangeListener;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->aA:Landroid/content/BroadcastReceiver;
 
     return-void
-
-    nop
 
     :array_0
     .array-data 4
@@ -212,7 +208,7 @@
     return-object v0
 .end method
 
-.method static synthetic U()[F
+.method static synthetic V()[F
     .locals 1
 
     sget-object v0, Lcom/dts/dtsxultra/b/k;->Z:[F
@@ -220,10 +216,10 @@
     return-object v0
 .end method
 
-.method private V()V
+.method private W()V
     .locals 2
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ad:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ae:Ljava/lang/Object;
 
     monitor-enter v1
 
@@ -259,7 +255,7 @@
     throw v0
 .end method
 
-.method private W()V
+.method private X()V
     .locals 1
 
     iget v0, p0, Lcom/dts/dtsxultra/b/k;->ar:I
@@ -327,16 +323,16 @@
     .end packed-switch
 .end method
 
-.method private X()V
+.method private Y()V
     .locals 2
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->Y()Z
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->Z()Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->av:Z
+    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->au:Z
 
-    iget-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->av:Z
+    iget-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->au:Z
 
     if-nez v0, :cond_1
 
@@ -345,7 +341,7 @@
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V
 
     :goto_0
-    iget-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->av:Z
+    iget-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->au:Z
 
     if-nez v0, :cond_0
 
@@ -361,11 +357,11 @@
 
     :goto_1
     :try_start_1
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->Y()Z
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->Z()Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->av:Z
+    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->au:Z
 
     monitor-exit p0
 
@@ -394,12 +390,12 @@
     goto :goto_1
 .end method
 
-.method private Y()Z
+.method private Z()Z
     .locals 4
 
     const/4 v0, 0x1
 
-    iget-boolean v1, p0, Lcom/dts/dtsxultra/b/k;->av:Z
+    iget-boolean v1, p0, Lcom/dts/dtsxultra/b/k;->au:Z
 
     if-eqz v1, :cond_1
 
@@ -425,116 +421,12 @@
     goto :goto_0
 .end method
 
-.method private Z()V
-    .locals 6
-
-    const/4 v5, 0x4
-
-    const/4 v1, 0x0
-
-    new-array v0, v5, [Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
-
-    move v0, v1
-
-    :goto_0
-    if-ge v0, v5, :cond_0
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
-
-    new-instance v3, Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/k;->d()Landroid/content/Context;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
-
-    aput-object v3, v2, v0
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
-
-    aget-object v2, v2, v0
-
-    const-string v3, "&#8226;"
-
-    invoke-static {v3, v1}, Landroid/text/Html;->fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
-
-    aget-object v2, v2, v0
-
-    const/high16 v3, 0x41f00000    # 30.0f
-
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextSize(F)V
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
-
-    aget-object v2, v2, v0
-
-    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/k;->f()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const/high16 v4, 0x1060000
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextColor(I)V
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->ak:Landroid/widget/LinearLayout;
-
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
-
-    aget-object v3, v3, v0
-
-    invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
-
-    aget-object v0, v0, v1
-
-    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/k;->f()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f05008d
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->au:Z
-
-    return-void
-.end method
-
-.method static synthetic a(Lcom/dts/dtsxultra/b/k;)I
+.method static synthetic a(Lcom/dts/dtsxultra/b/k;)Landroid/widget/Button;
     .locals 1
 
-    iget v0, p0, Lcom/dts/dtsxultra/b/k;->ar:I
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->am:Landroid/widget/Button;
 
-    return v0
+    return-object v0
 .end method
 
 .method private a(ILjava/lang/Boolean;)V
@@ -584,11 +476,11 @@
 
     if-gtz v6, :cond_3
 
-    iput v0, v2, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
+    iput v0, v2, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
 
-    iput v3, v2, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->d:F
+    iput v3, v2, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
 
-    iput v4, v2, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
+    iput v4, v2, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:F
 
     invoke-virtual {v2}, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->getRotation()F
 
@@ -627,7 +519,7 @@
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
 
     :cond_2
-    iget-object v0, v2, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:Ljava/util/List;
+    iget-object v0, v2, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -646,7 +538,7 @@
 
     check-cast v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb$a;
 
-    iget v4, v2, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
+    iget v4, v2, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:F
 
     const/4 v6, 0x0
 
@@ -661,7 +553,7 @@
 
     move-result-object v0
 
-    sget-object v3, Lcom/dts/dtsxultra/b/k;->ac:[I
+    sget-object v3, Lcom/dts/dtsxultra/b/k;->ab:[I
 
     aget v3, v3, p1
 
@@ -685,7 +577,7 @@
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :goto_1
-    iget-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->au:Z
+    iget-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->at:Z
 
     if-eqz v0, :cond_0
 
@@ -800,9 +692,9 @@
 
     if-ne p1, v2, :cond_3
 
-    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->aw:Z
+    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->av:Z
 
-    iput-boolean v1, p0, Lcom/dts/dtsxultra/b/k;->ax:Z
+    iput-boolean v1, p0, Lcom/dts/dtsxultra/b/k;->aw:Z
 
     iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->aj:Lcom/dts/dtsxultra/a/a;
 
@@ -856,7 +748,7 @@
 
     if-ge v0, v1, :cond_1
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->W()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->X()V
 
     :cond_1
     :goto_1
@@ -866,7 +758,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-boolean v1, p0, Lcom/dts/dtsxultra/b/k;->aw:Z
+    iget-boolean v1, p0, Lcom/dts/dtsxultra/b/k;->av:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -892,7 +784,7 @@
 
     :cond_4
     :try_start_0
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->V()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->W()V
 
     invoke-virtual {p0}, Lcom/dts/dtsxultra/b/k;->g()Z
 
@@ -906,7 +798,7 @@
 
     new-instance v0, Lcom/dts/dtsxultra/a/a;
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
     invoke-direct {v0, v1}, Lcom/dts/dtsxultra/a/a;-><init>(Landroid/content/Context;)V
 
@@ -914,9 +806,9 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->aj:Lcom/dts/dtsxultra/a/a;
 
-    new-instance v1, Lcom/dts/dtsxultra/b/k$8;
+    new-instance v1, Lcom/dts/dtsxultra/b/k$6;
 
-    invoke-direct {v1, p0}, Lcom/dts/dtsxultra/b/k$8;-><init>(Lcom/dts/dtsxultra/b/k;)V
+    invoke-direct {v1, p0}, Lcom/dts/dtsxultra/b/k$6;-><init>(Lcom/dts/dtsxultra/b/k;)V
 
     iput-object v1, v0, Lcom/dts/dtsxultra/a/a;->a:Lcom/dts/dtsxultra/a/a$a;
 
@@ -928,11 +820,11 @@
     :goto_2
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->aw:Z
+    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->av:Z
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->ax:Z
+    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->aw:Z
     :try_end_0
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -967,33 +859,145 @@
 .method static synthetic a(Lcom/dts/dtsxultra/b/k;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/dts/dtsxultra/b/k;->av:Z
+    iput-boolean p1, p0, Lcom/dts/dtsxultra/b/k;->au:Z
 
     return p1
 .end method
 
-.method static synthetic b(Lcom/dts/dtsxultra/b/k;)Ljava/lang/Object;
+.method private aa()V
+    .locals 6
+
+    const/4 v5, 0x4
+
+    const/4 v1, 0x0
+
+    new-array v0, v5, [Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
+
+    move v0, v1
+
+    :goto_0
+    if-ge v0, v5, :cond_0
+
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
+
+    new-instance v3, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/k;->e()Landroid/support/v4/app/f;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/support/v4/app/f;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+
+    aput-object v3, v2, v0
+
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
+
+    aget-object v2, v2, v0
+
+    const-string v3, "&#8226;"
+
+    invoke-static {v3}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
+
+    aget-object v2, v2, v0
+
+    const/high16 v3, 0x41f00000    # 30.0f
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextSize(F)V
+
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
+
+    aget-object v2, v2, v0
+
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/k;->d()Landroid/content/Context;
+
+    move-result-object v3
+
+    const/high16 v4, 0x1060000
+
+    invoke-static {v3, v4}, Landroid/support/v4/a/a;->c(Landroid/content/Context;I)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextColor(I)V
+
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->ak:Landroid/widget/LinearLayout;
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
+
+    aget-object v3, v3, v0
+
+    invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->al:[Landroid/widget/TextView;
+
+    aget-object v0, v0, v1
+
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/k;->d()Landroid/content/Context;
+
+    move-result-object v1
+
+    const v2, 0x7f05008d
+
+    invoke-static {v1, v2}, Landroid/support/v4/a/a;->c(Landroid/content/Context;I)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->at:Z
+
+    return-void
+.end method
+
+.method static synthetic b(Lcom/dts/dtsxultra/b/k;)Landroid/widget/Button;
     .locals 1
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ad:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->an:Landroid/widget/Button;
 
     return-object v0
 .end method
 
-.method static synthetic c(Lcom/dts/dtsxultra/b/k;)Lcom/dts/dtssdk/e/b;
+.method static synthetic c(Lcom/dts/dtsxultra/b/k;)Ljava/lang/Boolean;
     .locals 1
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->af:Lcom/dts/dtssdk/e/b;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ay:Ljava/lang/Boolean;
 
     return-object v0
 .end method
 
-.method static synthetic d(Lcom/dts/dtsxultra/b/k;)Lcom/dts/dtsxultra/listeningprofile/RotaryKnob;
+.method static synthetic d(Lcom/dts/dtsxultra/b/k;)Landroid/media/AudioManager;
     .locals 1
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ao:Lcom/dts/dtsxultra/listeningprofile/RotaryKnob;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ag:Landroid/media/AudioManager;
 
     return-object v0
+.end method
+
+.method static synthetic e(Lcom/dts/dtsxultra/b/k;)I
+    .locals 1
+
+    iget v0, p0, Lcom/dts/dtsxultra/b/k;->ar:I
+
+    return v0
 .end method
 
 .method private e(I)V
@@ -1006,9 +1010,9 @@
     const/4 v7, 0x3
 
     :try_start_0
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->X()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->Y()V
 
-    iget-object v3, p0, Lcom/dts/dtsxultra/b/k;->ad:Ljava/lang/Object;
+    iget-object v3, p0, Lcom/dts/dtsxultra/b/k;->ae:Ljava/lang/Object;
 
     monitor-enter v3
     :try_end_0
@@ -1063,11 +1067,11 @@
     invoke-virtual {v4, v1}, Lcom/dts/dtssdk/e/b;->a(F)V
 
     :cond_1
-    iget-boolean v1, p0, Lcom/dts/dtsxultra/b/k;->aw:Z
+    iget-boolean v1, p0, Lcom/dts/dtsxultra/b/k;->av:Z
 
     if-nez v1, :cond_2
 
-    iget-boolean v1, p0, Lcom/dts/dtsxultra/b/k;->ax:Z
+    iget-boolean v1, p0, Lcom/dts/dtsxultra/b/k;->aw:Z
 
     if-eqz v1, :cond_4
 
@@ -1303,7 +1307,31 @@
     .end packed-switch
 .end method
 
-.method static synthetic e(Lcom/dts/dtsxultra/b/k;)[F
+.method static synthetic f(Lcom/dts/dtsxultra/b/k;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ae:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic g(Lcom/dts/dtsxultra/b/k;)Lcom/dts/dtssdk/e/b;
+    .locals 1
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->af:Lcom/dts/dtssdk/e/b;
+
+    return-object v0
+.end method
+
+.method static synthetic h(Lcom/dts/dtsxultra/b/k;)Lcom/dts/dtsxultra/listeningprofile/RotaryKnob;
+    .locals 1
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ao:Lcom/dts/dtsxultra/listeningprofile/RotaryKnob;
+
+    return-object v0
+.end method
+
+.method static synthetic i(Lcom/dts/dtsxultra/b/k;)[F
     .locals 1
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ap:[F
@@ -1311,50 +1339,10 @@
     return-object v0
 .end method
 
-.method static synthetic f(Lcom/dts/dtsxultra/b/k;)[F
+.method static synthetic j(Lcom/dts/dtsxultra/b/k;)[F
     .locals 1
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->aq:[F
-
-    return-object v0
-.end method
-
-.method static synthetic g(Lcom/dts/dtsxultra/b/k;)Landroid/widget/Button;
-    .locals 1
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->am:Landroid/widget/Button;
-
-    return-object v0
-.end method
-
-.method static synthetic h(Lcom/dts/dtsxultra/b/k;)Landroid/widget/Button;
-    .locals 1
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->an:Landroid/widget/Button;
-
-    return-object v0
-.end method
-
-.method static synthetic i(Lcom/dts/dtsxultra/b/k;)Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->az:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
-.method static synthetic j(Lcom/dts/dtsxultra/b/k;)Landroid/support/v4/app/f;
-    .locals 1
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
-
-    return-object v0
-.end method
-
-.method static synthetic k(Lcom/dts/dtsxultra/b/k;)Landroid/media/AudioManager;
-    .locals 1
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ag:Landroid/media/AudioManager;
 
     return-object v0
 .end method
@@ -1394,15 +1382,13 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->W()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->X()V
 
     return-void
 .end method
 
 .method public final a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 7
-
-    const/4 v6, 0x1
+    .locals 6
 
     const/4 v5, 0x0
 
@@ -1410,7 +1396,7 @@
 
     const/4 v3, 0x0
 
-    const v0, 0x7f0b003e
+    const v0, 0x7f0b0041
 
     invoke-virtual {p1, v0, p2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1430,17 +1416,17 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
     invoke-virtual {v0, v4}, Landroid/support/v4/app/f;->setVolumeControlStream(I)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
     invoke-virtual {v0}, Landroid/support/v4/app/f;->getApplicationContext()Landroid/content/Context;
 
@@ -1462,45 +1448,34 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/dts/dtsxultra/b/k;->at:I
+    iput v0, p0, Lcom/dts/dtsxultra/b/k;->as:I
 
     new-instance v0, Lcom/dts/dtsxultra/listeningprofile/a;
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
     invoke-direct {v0, v2}, Lcom/dts/dtsxultra/listeningprofile/a;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->ah:Lcom/dts/dtsxultra/listeningprofile/a;
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x17
-
-    if-lt v0, v2, :cond_3
-
     iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ag:Landroid/media/AudioManager;
 
-    const/16 v2, -0x64
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, v4, v2, v3}, Landroid/media/AudioManager;->adjustStreamVolume(III)V
-
-    :goto_0
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ag:Landroid/media/AudioManager;
-
-    invoke-virtual {v0, v4, v6}, Landroid/media/AudioManager;->setStreamMute(IZ)V
+    invoke-virtual {v0, v4, v2}, Landroid/media/AudioManager;->setStreamMute(IZ)V
 
     new-instance v0, Ljava/lang/Thread;
 
-    new-instance v2, Lcom/dts/dtsxultra/b/k$6;
+    new-instance v2, Lcom/dts/dtsxultra/b/k$4;
 
-    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/k$6;-><init>(Lcom/dts/dtsxultra/b/k;)V
+    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/k$4;-><init>(Lcom/dts/dtsxultra/b/k;)V
 
     invoke-direct {v0, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     :cond_0
-    const v0, 0x7f0801c0
+    const v0, 0x7f08021d
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1510,7 +1485,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->ak:Landroid/widget/LinearLayout;
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->Z()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->aa()V
 
     invoke-virtual {p0}, Lcom/dts/dtsxultra/b/k;->i()V
 
@@ -1522,7 +1497,7 @@
 
     new-instance v0, Lcom/dts/dtssdk/e/b;
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
     invoke-virtual {v2}, Landroid/support/v4/app/f;->getApplicationContext()Landroid/content/Context;
 
@@ -1532,7 +1507,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->af:Lcom/dts/dtssdk/e/b;
 
-    const v0, 0x7f08012c
+    const v0, 0x7f080165
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1540,7 +1515,7 @@
 
     invoke-virtual {v0, v5}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    const v0, 0x7f0800d4
+    const v0, 0x7f0800e9
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1554,7 +1529,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/Button;->setSoundEffectsEnabled(Z)V
 
-    const v0, 0x7f0800d5
+    const v0, 0x7f0800ea
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1578,7 +1553,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
 
-    const v0, 0x7f0800d3
+    const v0, 0x7f0800e8
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1590,7 +1565,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ao:Lcom/dts/dtsxultra/listeningprofile/RotaryKnob;
 
-    iput-object p0, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnob;->d:Lcom/dts/dtsxultra/listeningprofile/RotaryKnob$a;
+    iput-object p0, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnob;->c:Lcom/dts/dtsxultra/listeningprofile/RotaryKnob$a;
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ao:Lcom/dts/dtsxultra/listeningprofile/RotaryKnob;
 
@@ -1598,7 +1573,7 @@
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->as:Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb$a;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->az:Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb$a;
 
     invoke-virtual {v0, v2}, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a(Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb$a;)V
 
@@ -1614,7 +1589,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->ad:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->ae:Ljava/lang/Object;
 
     monitor-enter v2
 
@@ -1638,21 +1613,21 @@
     :cond_1
     iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->am:Landroid/widget/Button;
 
-    new-instance v2, Lcom/dts/dtsxultra/b/k$3;
+    new-instance v2, Lcom/dts/dtsxultra/b/k$1;
 
-    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/k$3;-><init>(Lcom/dts/dtsxultra/b/k;)V
+    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/k$1;-><init>(Lcom/dts/dtsxultra/b/k;)V
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->an:Landroid/widget/Button;
 
-    new-instance v2, Lcom/dts/dtsxultra/b/k$4;
+    new-instance v2, Lcom/dts/dtsxultra/b/k$2;
 
-    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/k$4;-><init>(Lcom/dts/dtsxultra/b/k;)V
+    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/k$2;-><init>(Lcom/dts/dtsxultra/b/k;)V
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget v0, p0, Lcom/dts/dtsxultra/b/k;->ay:I
+    iget v0, p0, Lcom/dts/dtsxultra/b/k;->ax:I
 
     const/4 v2, -0x1
 
@@ -1668,7 +1643,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_3
 
     sget-object v0, Lcom/dts/dtsxultra/b/k;->X:Ljava/lang/String;
 
@@ -1677,15 +1652,8 @@
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    :goto_1
+    :goto_0
     return-object v1
-
-    :cond_3
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ag:Landroid/media/AudioManager;
-
-    invoke-virtual {v0, v4, v6}, Landroid/media/AudioManager;->setStreamMute(IZ)V
-
-    goto/16 :goto_0
 
     :catchall_0
     move-exception v0
@@ -1697,12 +1665,12 @@
 
     throw v0
 
-    :cond_4
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    :cond_3
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
-    invoke-static {v0, v5}, Lcom/dts/dtsxultra/util/f;->a(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v0, v5}, Lcom/dts/dtsxultra/util/e;->a(Landroid/content/Context;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public final b(Landroid/os/Bundle;)V
@@ -1720,7 +1688,7 @@
 .method public final d(I)V
     .locals 9
 
-    const v8, 0x7f0e00b0
+    const v8, 0x7f0e00b3
 
     const/4 v1, 0x1
 
@@ -1813,7 +1781,7 @@
 
     const/4 v4, 0x0
 
-    iput-object v4, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnob;->d:Lcom/dts/dtsxultra/listeningprofile/RotaryKnob$a;
+    iput-object v4, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnob;->c:Lcom/dts/dtsxultra/listeningprofile/RotaryKnob$a;
 
     sget-object v0, Lcom/dts/dtsxultra/b/k;->X:Ljava/lang/String;
 
@@ -1932,19 +1900,19 @@
 
     invoke-virtual {v4, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->X()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->Y()V
 
     iget-object v4, p0, Lcom/dts/dtsxultra/b/k;->ag:Landroid/media/AudioManager;
 
     const/4 v5, 0x3
 
-    iget v6, p0, Lcom/dts/dtsxultra/b/k;->at:I
+    iget v6, p0, Lcom/dts/dtsxultra/b/k;->as:I
 
     const/16 v7, 0x10
 
     invoke-virtual {v4, v5, v6, v7}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->V()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->W()V
 
     invoke-virtual {v0}, Lcom/dts/dtssdk/f/a;->a()Z
 
@@ -1952,7 +1920,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->ax:Z
+    iget-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->aw:Z
 
     if-eqz v0, :cond_3
 
@@ -1982,7 +1950,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0e006a
+    const v5, 0x7f0e006b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2001,9 +1969,9 @@
 
     if-eqz v4, :cond_1
 
-    new-instance v4, Lcom/dts/dtsxultra/b/k$7;
+    new-instance v4, Lcom/dts/dtsxultra/b/k$5;
 
-    invoke-direct {v4, p0}, Lcom/dts/dtsxultra/b/k$7;-><init>(Lcom/dts/dtsxultra/b/k;)V
+    invoke-direct {v4, p0}, Lcom/dts/dtsxultra/b/k$5;-><init>(Lcom/dts/dtsxultra/b/k;)V
 
     :try_start_0
     new-instance v5, Landroid/app/AlertDialog$Builder;
@@ -2026,7 +1994,7 @@
 
     move-result-object v0
 
-    const v6, 0x7f0e00c7
+    const v6, 0x7f0e00ca
 
     new-instance v7, Lcom/dts/dtsxultra/b/g$3;
 
@@ -2064,11 +2032,11 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iget-object v4, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
     iget-object v5, p0, Lcom/dts/dtsxultra/b/k;->aq:[F
 
-    invoke-static {v4, v5}, Lcom/dts/dtsxultra/util/f;->a(Landroid/content/Context;[F)V
+    invoke-static {v4, v5}, Lcom/dts/dtsxultra/util/e;->a(Landroid/content/Context;[F)V
 
     new-instance v4, Ljava/text/SimpleDateFormat;
 
@@ -2080,13 +2048,13 @@
 
     invoke-direct {v5}, Ljava/util/Date;-><init>()V
 
-    iget-object v6, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iget-object v6, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
     invoke-virtual {v4, v5}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-static {v6, v4}, Lcom/dts/dtsxultra/util/f;->a(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v6, v4}, Lcom/dts/dtsxultra/util/e;->a(Landroid/content/Context;Ljava/lang/String;)V
 
     goto/16 :goto_3
 
@@ -2129,9 +2097,9 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/dts/dtsxultra/b/k;->ay:I
+    iput v0, p0, Lcom/dts/dtsxultra/b/k;->ax:I
 
-    iget v0, p0, Lcom/dts/dtsxultra/b/k;->ay:I
+    iget v0, p0, Lcom/dts/dtsxultra/b/k;->ax:I
 
     add-int/lit8 v0, v0, -0x1
 
@@ -2143,7 +2111,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->performHapticFeedback(I)Z
 
-    iget v0, p0, Lcom/dts/dtsxultra/b/k;->ay:I
+    iget v0, p0, Lcom/dts/dtsxultra/b/k;->ax:I
 
     add-int/lit8 v0, v0, 0x1
 
@@ -2173,11 +2141,11 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    iput v0, p0, Lcom/dts/dtsxultra/b/k;->ay:I
+    iput v0, p0, Lcom/dts/dtsxultra/b/k;->ax:I
 
     const-string v0, "step_count"
 
-    iget v1, p0, Lcom/dts/dtsxultra/b/k;->ay:I
+    iget v1, p0, Lcom/dts/dtsxultra/b/k;->ax:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -2197,7 +2165,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
     iget-object v2, p0, Lcom/dts/dtsxultra/b/k;->aA:Landroid/content/BroadcastReceiver;
 
@@ -2211,15 +2179,15 @@
 
     invoke-super {p0}, Lcom/dts/dtsxultra/b/g;->s()V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
-    const v1, 0x7f0e00ae
+    const v1, 0x7f0e00b1
 
     invoke-virtual {v0, v1}, Landroid/support/v4/app/f;->setTitle(I)V
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->Y()Z
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->Z()Z
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->az:Ljava/lang/Boolean;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ay:Ljava/lang/Boolean;
 
     monitor-enter v1
 
@@ -2230,7 +2198,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->az:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->ay:Ljava/lang/Boolean;
 
     monitor-exit v1
     :try_end_0
@@ -2238,9 +2206,9 @@
 
     new-instance v0, Ljava/lang/Thread;
 
-    new-instance v1, Lcom/dts/dtsxultra/b/k$5;
+    new-instance v1, Lcom/dts/dtsxultra/b/k$3;
 
-    invoke-direct {v1, p0}, Lcom/dts/dtsxultra/b/k$5;-><init>(Lcom/dts/dtsxultra/b/k;)V
+    invoke-direct {v1, p0}, Lcom/dts/dtsxultra/b/k$3;-><init>(Lcom/dts/dtsxultra/b/k;)V
 
     invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
@@ -2262,7 +2230,7 @@
 .method public final t()V
     .locals 4
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->az:Ljava/lang/Boolean;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ay:Ljava/lang/Boolean;
 
     monitor-enter v1
 
@@ -2273,22 +2241,22 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->az:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->ay:Ljava/lang/Boolean;
 
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->V()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/k;->W()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->av:Z
 
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->aw:Z
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/dts/dtsxultra/b/k;->ax:Z
     :try_end_1
     .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -2303,7 +2271,7 @@
 
     const/4 v1, 0x3
 
-    iget v2, p0, Lcom/dts/dtsxultra/b/k;->at:I
+    iget v2, p0, Lcom/dts/dtsxultra/b/k;->as:I
 
     const/16 v3, 0x10
 
@@ -2341,7 +2309,7 @@
 .method public final u()V
     .locals 2
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->az:Ljava/lang/Boolean;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ay:Ljava/lang/Boolean;
 
     monitor-enter v1
 
@@ -2352,7 +2320,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->az:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->ay:Ljava/lang/Boolean;
 
     monitor-exit v1
     :try_end_0
@@ -2379,7 +2347,7 @@
     iput-object v0, p0, Lcom/dts/dtsxultra/b/k;->aj:Lcom/dts/dtsxultra/a/a;
 
     :cond_0
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ae:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->aA:Landroid/content/BroadcastReceiver;
 
@@ -2410,7 +2378,7 @@
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->abandonAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;)I
 
     :try_start_0
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ad:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ae:Ljava/lang/Object;
 
     monitor-enter v1
     :try_end_0

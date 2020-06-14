@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public final a(Lcom/dts/dtssdk/f/a;Ljava/util/List;)V
-    .locals 4
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,6 +63,8 @@
             ">;)V"
         }
     .end annotation
+
+    const/4 v5, 0x0
 
     invoke-virtual {p1}, Lcom/dts/dtssdk/f/a;->a()Z
 
@@ -78,17 +80,45 @@
 
     if-lez v0, :cond_0
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$3;->c:Lcom/dts/dtsxultra/receivers/EventReceiver;
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$3;->a:Landroid/content/Context;
-
-    const/4 v0, 0x0
-
-    invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/dts/dtssdk/a/a;
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Lcom/dts/dtssdk/a/j;
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$3;->a:Landroid/content/Context;
+
+    new-instance v4, Lcom/dts/dtsxultra/receivers/EventReceiver$3$1;
+
+    invoke-direct {v4, p0, v1}, Lcom/dts/dtsxultra/receivers/EventReceiver$3$1;-><init>(Lcom/dts/dtsxultra/receivers/EventReceiver$3;[Lcom/dts/dtssdk/a/j;)V
+
+    invoke-virtual {v2, v3, v4}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;Lcom/dts/dtssdk/c/b;)V
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    iget-object v2, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$3;->a:Landroid/content/Context;
+
+    aget-object v1, v1, v5
+
+    sget-object v3, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
+
+    new-instance v4, Lcom/dts/dtsxultra/receivers/EventReceiver$3$2;
+
+    invoke-direct {v4, p0}, Lcom/dts/dtsxultra/receivers/EventReceiver$3$2;-><init>(Lcom/dts/dtsxultra/receivers/EventReceiver$3;)V
+
+    invoke-static {v2, v1, v3, v0, v4}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;Lcom/dts/dtssdk/a/j;Lcom/dts/dtssdk/util/a;Lcom/dts/dtssdk/a/a;Lcom/dts/dtssdk/c/b;)V
+
+    iget-object v1, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$3;->c:Lcom/dts/dtsxultra/receivers/EventReceiver;
+
+    iget-object v2, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$3;->a:Landroid/content/Context;
 
     iget-object v3, p0, Lcom/dts/dtsxultra/receivers/EventReceiver$3;->b:Lcom/dts/dtssdk/a/j;
 

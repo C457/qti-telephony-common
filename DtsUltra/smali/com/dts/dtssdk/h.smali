@@ -36,7 +36,7 @@
 .end method
 
 .method static a(Landroid/content/Context;Z)V
-    .locals 2
+    .locals 3
 
     if-nez p0, :cond_0
 
@@ -58,11 +58,15 @@
 
     sput-object v0, Lcom/dts/dtssdk/h;->b:Ljava/lang/Boolean;
 
-    const-string v0, "DTS_SDK_STATE_NOTIFIER"
+    invoke-virtual {p0}, Landroid/content/Context;->createDeviceProtectedStorageContext()Landroid/content/Context;
 
-    const/4 v1, 0x0
+    move-result-object v0
 
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    const-string v1, "DTS_SDK_STATE_NOTIFIER"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
@@ -115,9 +119,13 @@
 
     if-nez v1, :cond_2
 
-    const-string v1, "DTS_SDK_STATE_NOTIFIER"
+    invoke-virtual {p0}, Landroid/content/Context;->createDeviceProtectedStorageContext()Landroid/content/Context;
 
-    invoke-virtual {p0, v1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    move-result-object v1
+
+    const-string v2, "DTS_SDK_STATE_NOTIFIER"
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 

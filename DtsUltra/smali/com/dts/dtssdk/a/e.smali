@@ -74,6 +74,37 @@
     throw v0
 .end method
 
+.method public static a(Landroid/content/Context;ILcom/dts/dtssdk/c/c;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "I",
+            "Lcom/dts/dtssdk/c/c",
+            "<",
+            "Ljava/lang/Integer;",
+            ">;)V"
+        }
+    .end annotation
+
+    invoke-static {}, Lcom/dts/dtssdk/a/h;->a()Lcom/dts/dtssdk/a/h;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/dts/dtssdk/a/h;->a(Landroid/content/Context;)V
+
+    iget-object v1, v0, Lcom/dts/dtssdk/a/h;->a:Ljava/util/concurrent/ExecutorService;
+
+    new-instance v2, Lcom/dts/dtssdk/a/h$k;
+
+    invoke-direct {v2, v0, p0, p1, p2}, Lcom/dts/dtssdk/a/h$k;-><init>(Lcom/dts/dtssdk/a/h;Landroid/content/Context;ILcom/dts/dtssdk/c/c;)V
+
+    invoke-interface {v1, v2}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
 .method public static a(Landroid/content/Context;Lcom/dts/dtssdk/c/a;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;

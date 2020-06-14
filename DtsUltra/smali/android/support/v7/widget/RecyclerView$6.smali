@@ -143,7 +143,7 @@
 
     if-eqz v0, :cond_4
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
 
     move-result v6
 

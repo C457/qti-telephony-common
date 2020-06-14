@@ -52,9 +52,7 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/b/j$15;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->g(Lcom/dts/dtsxultra/b/j;)Landroid/support/v4/app/f;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/j;->ac:Landroid/support/v4/app/f;
 
     const-string v1, "SDK returned null while reapplying tunings"
 
@@ -79,7 +77,7 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/b/j$15;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->f(Lcom/dts/dtsxultra/b/j;)Landroid/widget/ProgressBar;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->g(Lcom/dts/dtsxultra/b/j;)Landroid/widget/ProgressBar;
 
     move-result-object v0
 
@@ -123,9 +121,7 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/b/j$15;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->g(Lcom/dts/dtsxultra/b/j;)Landroid/support/v4/app/f;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/j;->ac:Landroid/support/v4/app/f;
 
     const-string v1, "Some tunings failed to reapply"
 
@@ -144,9 +140,7 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/b/j$15;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->g(Lcom/dts/dtsxultra/b/j;)Landroid/support/v4/app/f;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/j;->ac:Landroid/support/v4/app/f;
 
     const-string v1, "All tunings reapplied"
 

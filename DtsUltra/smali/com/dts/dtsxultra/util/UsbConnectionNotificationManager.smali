@@ -50,19 +50,15 @@
 
     const/4 v4, 0x0
 
-    const v0, 0x7f0b0058
+    const v0, 0x7f0b005c
 
     invoke-direct {p0, p1, v0}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
     iput-object p2, p0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->c:Landroid/content/Context;
 
-    invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const v0, 0x7f05008d
 
-    move-result-object v0
-
-    const v1, 0x7f05008d
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-static {p2, v0}, Landroid/support/v4/a/a;->c(Landroid/content/Context;I)I
 
     move-result v0
 
@@ -96,7 +92,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00c3
+    const v2, 0x7f0e00c6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -106,7 +102,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0700aa
+    const v1, 0x7f0700b0
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -151,7 +147,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setDeleteIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
-    const v0, 0x7f080113
+    const v0, 0x7f080145
 
     const-string v1, "dts.dtsxultra.intent.action.USB_OK"
 
@@ -165,7 +161,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    const v0, 0x7f080114
+    const v0, 0x7f080146
 
     const-string v1, "dts.dtsxultra.intent.action.USB_SEARCH"
 
@@ -179,7 +175,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    const v0, 0x7f080112
+    const v0, 0x7f080144
 
     const-string v1, "dts.dtsxultra.intent.action.USB_CLOSE"
 
@@ -267,7 +263,7 @@
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v0, p0, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     goto :goto_0
 
@@ -290,7 +286,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v1, p0, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -332,7 +328,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f07009f
+    const v1, 0x7f0700a1
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -342,7 +338,7 @@
 
     invoke-virtual {v1, v0}, Landroid/app/Notification$Builder;->setLargeIcon(Landroid/graphics/Bitmap;)Landroid/app/Notification$Builder;
 
-    const v1, 0x7f0800e2
+    const v1, 0x7f0800f8
 
     invoke-virtual {p0, v1, v0}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->setImageViewBitmap(ILandroid/graphics/Bitmap;)V
 
@@ -354,7 +350,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00c1
+    const v2, 0x7f0e00c4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -370,6 +366,22 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->e:Landroid/app/Notification;
 
+    const v0, 0x7f08002c
+
+    iget-object v1, p0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->c:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0e00c3
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->setTextViewText(ILjava/lang/CharSequence;)V
+
     const v0, 0x7f08002b
 
     iget-object v1, p0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->c:Landroid/content/Context;
@@ -378,7 +390,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00c0
+    const v2, 0x7f0e00c5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -386,29 +398,13 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    const v0, 0x7f08002a
-
-    iget-object v1, p0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->c:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0e00c2
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->setTextViewText(ILjava/lang/CharSequence;)V
-
-    const v0, 0x7f080113
+    const v0, 0x7f080145
 
     const/16 v1, 0x8
 
     invoke-virtual {p0, v0, v1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->setViewVisibility(II)V
 
-    invoke-direct {p0, p1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->d(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->e(Landroid/content/Context;)V
 
     :goto_0
     return-void
@@ -436,17 +432,17 @@
 
     if-nez p1, :cond_0
 
+    invoke-static {p0}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->d(Landroid/content/Context;)Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
+
+    move-result-object v0
+
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->c(Landroid/content/Context;)Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
+    const/4 v2, 0x0
 
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p0, v1, p2}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/a/a;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2, p2}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/a/a;Ljava/lang/String;)V
 
     :goto_0
     return-void
@@ -478,7 +474,7 @@
 .method static synthetic a(Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;Landroid/content/Context;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->d(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->e(Landroid/content/Context;)V
 
     return-void
 .end method
@@ -514,9 +510,9 @@
 
     iget-object v2, p0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->g:Ljava/lang/String;
 
-    iget-object v3, v0, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v3, v0, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
-    invoke-static {v1, v2, v3}, Lcom/dts/dtsxultra/util/f;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2, v3}, Lcom/dts/dtsxultra/util/e;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
@@ -545,58 +541,11 @@
 .method static synthetic b(Landroid/content/Context;)Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
     .locals 1
 
-    invoke-static {p0}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->c(Landroid/content/Context;)Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
+    invoke-static {p0}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->d(Landroid/content/Context;)Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
 
     move-result-object v0
 
     return-object v0
-.end method
-
-.method private static c(Landroid/content/Context;)Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
-    .locals 3
-
-    sget-object v0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->b:Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
-
-    if-nez v0, :cond_1
-
-    const-class v1, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
-
-    monitor-enter v1
-
-    :try_start_0
-    sget-object v0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->b:Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v0, v2, p0}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;-><init>(Ljava/lang/String;Landroid/content/Context;)V
-
-    sput-object v0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->b:Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
-
-    :cond_0
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_1
-    sget-object v0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->b:Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
-
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v0
 .end method
 
 .method static synthetic c(Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;)V
@@ -652,7 +601,84 @@
     return-void
 .end method
 
-.method private d(Landroid/content/Context;)V
+.method static synthetic c(Landroid/content/Context;)Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    invoke-static {p0}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const v1, 0x7f0e0050
+
+    invoke-static {p0, v1, v0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    goto :goto_0
+.end method
+
+.method private static d(Landroid/content/Context;)Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
+    .locals 3
+
+    sget-object v0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->b:Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
+
+    if-nez v0, :cond_1
+
+    const-class v1, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
+
+    monitor-enter v1
+
+    :try_start_0
+    sget-object v0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->b:Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2, p0}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;-><init>(Ljava/lang/String;Landroid/content/Context;)V
+
+    sput-object v0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->b:Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
+
+    :cond_0
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_1
+    sget-object v0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->b:Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
+.end method
+
+.method private e(Landroid/content/Context;)V
     .locals 2
 
     iget-object v0, p0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->e:Landroid/app/Notification;
@@ -679,7 +705,7 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->e:Landroid/app/Notification;
 
-    invoke-static {p1, v0, v1}, Lcom/dts/dtsxultra/util/d;->a(Landroid/content/Context;ILandroid/app/Notification;)V
+    invoke-static {p1, v0, v1}, Lcom/dts/dtsxultra/util/c;->a(Landroid/content/Context;ILandroid/app/Notification;)V
 
     goto :goto_0
 .end method

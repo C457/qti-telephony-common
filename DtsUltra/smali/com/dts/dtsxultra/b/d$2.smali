@@ -137,7 +137,7 @@
 
     iget-object v2, p0, Lcom/dts/dtsxultra/b/d$2;->a:Lcom/dts/dtsxultra/b/d;
 
-    invoke-static {v2}, Lcom/dts/dtsxultra/b/d;->e(Lcom/dts/dtsxultra/b/d;)Lcom/dts/dtsxultra/views/a;
+    invoke-static {v2}, Lcom/dts/dtsxultra/b/d;->c(Lcom/dts/dtsxultra/b/d;)Lcom/dts/dtsxultra/views/a;
 
     move-result-object v2
 
@@ -148,7 +148,7 @@
     :cond_1
     iget-object v2, p0, Lcom/dts/dtsxultra/b/d$2;->a:Lcom/dts/dtsxultra/b/d;
 
-    invoke-static {v2}, Lcom/dts/dtsxultra/b/d;->e(Lcom/dts/dtsxultra/b/d;)Lcom/dts/dtsxultra/views/a;
+    invoke-static {v2}, Lcom/dts/dtsxultra/b/d;->c(Lcom/dts/dtsxultra/b/d;)Lcom/dts/dtsxultra/views/a;
 
     move-result-object v2
 
@@ -157,6 +157,14 @@
     goto :goto_1
 
     :cond_2
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/d$2;->a:Lcom/dts/dtsxultra/b/d;
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/dts/dtsxultra/b/d;->d(I)V
+
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -186,7 +194,7 @@
     :cond_3
     iget-object v1, p0, Lcom/dts/dtsxultra/b/d$2;->a:Lcom/dts/dtsxultra/b/d;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/d;->f(Lcom/dts/dtsxultra/b/d;)Lcom/dts/dtssdk/a/i;
+    invoke-static {v1}, Lcom/dts/dtsxultra/b/d;->d(Lcom/dts/dtsxultra/b/d;)Lcom/dts/dtssdk/a/i;
 
     move-result-object v1
 
@@ -200,13 +208,11 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/d$2;->a:Lcom/dts/dtsxultra/b/d;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/d;->g(Lcom/dts/dtsxultra/b/d;)Landroid/support/v4/app/f;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/dts/dtsxultra/b/d;->ac:Landroid/support/v4/app/f;
 
     iget-object v2, p0, Lcom/dts/dtsxultra/b/d$2;->a:Lcom/dts/dtsxultra/b/d;
 
-    iget-object v2, v2, Lcom/dts/dtsxultra/b/d;->X:Lcom/dts/dtssdk/c/c;
+    iget-object v2, v2, Lcom/dts/dtsxultra/b/d;->aa:Lcom/dts/dtssdk/c/c;
 
     invoke-static {v1, v0, v2}, Lcom/dts/dtssdk/a/e;->d(Landroid/content/Context;Ljava/util/List;Lcom/dts/dtssdk/c/c;)V
 

@@ -15,7 +15,19 @@
 
 
 # instance fields
-.field public a:Ljava/util/List;
+.field public a:F
+
+.field public b:F
+
+.field public c:F
+
+.field d:Landroid/widget/ImageView;
+
+.field e:F
+
+.field f:I
+
+.field public g:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -25,18 +37,6 @@
         }
     .end annotation
 .end field
-
-.field public b:F
-
-.field public c:F
-
-.field public d:F
-
-.field e:Landroid/widget/ImageView;
-
-.field f:F
-
-.field g:I
 
 .field private i:F
 
@@ -83,21 +83,15 @@
 
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    new-instance v0, Ljava/util/LinkedList;
-
-    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
-
-    iput-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:Ljava/util/List;
-
     const/high16 v0, 0x41a00000    # 20.0f
 
-    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
+    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:F
 
-    iput v1, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
+    iput v1, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
 
     const/high16 v0, 0x42200000    # 40.0f
 
-    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->d:F
+    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
 
     iput v1, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->i:F
 
@@ -105,9 +99,15 @@
 
     const/high16 v0, 0x44160000    # 600.0f
 
-    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->f:F
+    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->e:F
 
-    iput v2, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:I
+    iput v2, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->f:I
+
+    new-instance v0, Ljava/util/LinkedList;
+
+    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
+
+    iput-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:Ljava/util/List;
 
     invoke-virtual {p0, p1}, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->setup(Landroid/content/Context;)V
 
@@ -123,21 +123,15 @@
 
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    new-instance v0, Ljava/util/LinkedList;
-
-    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
-
-    iput-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:Ljava/util/List;
-
     const/high16 v0, 0x41a00000    # 20.0f
 
-    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
+    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:F
 
-    iput v1, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
+    iput v1, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
 
     const/high16 v0, 0x42200000    # 40.0f
 
-    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->d:F
+    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
 
     iput v1, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->i:F
 
@@ -145,9 +139,15 @@
 
     const/high16 v0, 0x44160000    # 600.0f
 
-    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->f:F
+    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->e:F
 
-    iput v2, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:I
+    iput v2, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->f:I
+
+    new-instance v0, Ljava/util/LinkedList;
+
+    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
+
+    iput-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:Ljava/util/List;
 
     invoke-virtual {p0, p1}, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->setup(Landroid/content/Context;)V
 
@@ -163,21 +163,15 @@
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    new-instance v0, Ljava/util/LinkedList;
-
-    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
-
-    iput-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:Ljava/util/List;
-
     const/high16 v0, 0x41a00000    # 20.0f
 
-    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
+    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:F
 
-    iput v1, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
+    iput v1, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
 
     const/high16 v0, 0x42200000    # 40.0f
 
-    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->d:F
+    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
 
     iput v1, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->i:F
 
@@ -185,9 +179,15 @@
 
     const/high16 v0, 0x44160000    # 600.0f
 
-    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->f:F
+    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->e:F
 
-    iput v2, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:I
+    iput v2, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->f:I
+
+    new-instance v0, Ljava/util/LinkedList;
+
+    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
+
+    iput-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:Ljava/util/List;
 
     invoke-virtual {p0, p1}, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->setup(Landroid/content/Context;)V
 
@@ -326,7 +326,7 @@
 
     invoke-virtual {v1, v3}, Landroid/graphics/drawable/TransitionDrawable;->setCrossFadeEnabled(Z)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->e:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->d:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
@@ -345,7 +345,7 @@
 .method public final a(Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb$a;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:Ljava/util/List;
+    iget-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -355,7 +355,7 @@
 .method public getValue()F
     .locals 1
 
-    iget v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
+    iget v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:F
 
     return v0
 .end method
@@ -385,7 +385,7 @@
 
     move-object/from16 v0, p0
 
-    iget v5, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->f:F
+    iget v5, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->e:F
 
     cmpg-float v4, v4, v5
 
@@ -438,7 +438,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:Ljava/util/List;
+    iget-object v2, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -486,7 +486,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:Ljava/util/List;
+    iget-object v2, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -511,7 +511,7 @@
 
     move-object/from16 v0, p0
 
-    iget v4, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
+    iget v4, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:F
 
     invoke-virtual/range {p0 .. p0}, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->getRotation()F
 
@@ -594,13 +594,13 @@
 
     move-object/from16 v0, p0
 
-    iget v7, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
+    iget v7, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
 
     float-to-double v8, v7
 
     move-object/from16 v0, p0
 
-    iget v7, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->d:F
+    iget v7, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
 
     float-to-double v10, v7
 
@@ -644,19 +644,19 @@
 
     move-object/from16 v0, p0
 
-    iget v3, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
+    iget v3, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
 
     sub-float/2addr v2, v3
 
     move-object/from16 v0, p0
 
-    iget v3, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
+    iget v3, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:F
 
     add-float/2addr v2, v3
 
     move-object/from16 v0, p0
 
-    iget v3, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
+    iget v3, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
 
     cmpl-float v3, v2, v3
 
@@ -664,7 +664,7 @@
 
     move-object/from16 v0, p0
 
-    iget v3, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->d:F
+    iget v3, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->c:F
 
     cmpg-float v3, v2, v3
 
@@ -672,7 +672,7 @@
 
     move-object/from16 v0, p0
 
-    iput v2, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
+    iput v2, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:F
 
     move-object/from16 v0, p0
 
@@ -691,7 +691,7 @@
     :goto_3
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:Ljava/util/List;
+    iget-object v2, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -712,7 +712,7 @@
 
     move-object/from16 v0, p0
 
-    iget v5, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
+    iget v5, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:F
 
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -751,7 +751,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:Ljava/util/List;
+    iget-object v2, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->g:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -772,7 +772,7 @@
 
     move-object/from16 v0, p0
 
-    iget v4, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->b:F
+    iget v4, v0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->a:F
 
     invoke-virtual/range {p0 .. p0}, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->getRotation()F
 
@@ -799,7 +799,7 @@
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->setRotation(F)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->e:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->d:Landroid/widget/ImageView;
 
     neg-float v1, p1
 
@@ -811,7 +811,7 @@
 .method public setup(Landroid/content/Context;)V
     .locals 4
 
-    const v2, 0x7f0700b1
+    const v2, 0x7f0700b7
 
     const-string v0, "layout_inflater"
 
@@ -821,7 +821,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0b0041
+    const v1, 0x7f0b0044
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -831,7 +831,7 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f080109
+    const v0, 0x7f08013a
 
     invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->findViewById(I)Landroid/view/View;
 
@@ -839,9 +839,9 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->e:Landroid/widget/ImageView;
+    iput-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->d:Landroid/widget/ImageView;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->e:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->d:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
@@ -890,7 +890,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0700ac
+    const v1, 0x7f0700b2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -908,7 +908,7 @@
 
     double-to-float v0, v0
 
-    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->f:F
+    iput v0, p0, Lcom/dts/dtsxultra/listeningprofile/RotaryKnobThumb;->e:F
 
     :cond_1
     return-void

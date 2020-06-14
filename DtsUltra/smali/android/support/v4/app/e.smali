@@ -1206,12 +1206,24 @@
     return-void
 .end method
 
+.method public a(Landroid/app/Activity;)V
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/support/v4/app/e;->H:Z
+
+    return-void
+.end method
+
 .method public a(Landroid/content/Context;)V
     .locals 2
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean v1, p0, Landroid/support/v4/app/e;->H:Z
+    iput-boolean v0, p0, Landroid/support/v4/app/e;->H:Z
 
     iget-object v0, p0, Landroid/support/v4/app/e;->t:Landroid/support/v4/app/i;
 
@@ -1222,11 +1234,11 @@
     :goto_0
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/support/v4/app/e;->H:Z
+    const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/support/v4/app/e;->H:Z
+
+    invoke-virtual {p0, v0}, Landroid/support/v4/app/e;->a(Landroid/app/Activity;)V
 
     :cond_0
     return-void

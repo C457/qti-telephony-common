@@ -18,13 +18,11 @@
     .end annotation
 .end field
 
-.field private Z:Landroid/support/v4/app/f;
+.field private Z:Landroid/widget/ListView;
 
-.field private aa:Landroid/widget/ListView;
+.field private aa:Landroid/widget/ProgressBar;
 
-.field private ac:Landroid/widget/ProgressBar;
-
-.field private ad:Lcom/dts/dtsxultra/views/c;
+.field private ab:Lcom/dts/dtsxultra/views/c;
 
 
 # direct methods
@@ -47,9 +45,9 @@
 
     invoke-direct {p0}, Lcom/dts/dtsxultra/b/g;-><init>()V
 
-    new-instance v0, Lcom/dts/dtsxultra/b/e$1;
+    new-instance v0, Lcom/dts/dtsxultra/b/e$2;
 
-    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/e$1;-><init>(Lcom/dts/dtsxultra/b/e;)V
+    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/e$2;-><init>(Lcom/dts/dtsxultra/b/e;)V
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/e;->X:Lcom/dts/dtssdk/c/c;
 
@@ -73,15 +71,15 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ad:Lcom/dts/dtsxultra/views/c;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ab:Lcom/dts/dtsxultra/views/c;
 
     invoke-virtual {v0}, Lcom/dts/dtsxultra/views/c;->a()V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ad:Lcom/dts/dtsxultra/views/c;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ab:Lcom/dts/dtsxultra/views/c;
 
     invoke-virtual {v0}, Lcom/dts/dtsxultra/views/c;->notifyDataSetChanged()V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ac:Landroid/widget/ProgressBar;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->aa:Landroid/widget/ProgressBar;
 
     const/16 v1, 0x8
 
@@ -96,7 +94,7 @@
 
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ac:Landroid/support/v4/app/f;
 
     new-instance v1, Lcom/dts/dtsxultra/b/e$3;
 
@@ -110,7 +108,7 @@
 .method static synthetic b(Lcom/dts/dtsxultra/b/e;)Lcom/dts/dtsxultra/views/c;
     .locals 1
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ad:Lcom/dts/dtsxultra/views/c;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ab:Lcom/dts/dtsxultra/views/c;
 
     return-object v0
 .end method
@@ -118,7 +116,7 @@
 .method static synthetic c(Lcom/dts/dtsxultra/b/e;)Landroid/widget/ProgressBar;
     .locals 1
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ac:Landroid/widget/ProgressBar;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->aa:Landroid/widget/ProgressBar;
 
     return-object v0
 .end method
@@ -183,9 +181,9 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/e;->aa:Landroid/widget/ListView;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/widget/ListView;
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/e;->ad:Lcom/dts/dtsxultra/views/c;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/e;->ab:Lcom/dts/dtsxultra/views/c;
 
     iget-object v0, v0, Lcom/dts/dtssdk/f/a;->c:Ljava/lang/Object;
 
@@ -199,19 +197,11 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ad:Lcom/dts/dtsxultra/views/c;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ab:Lcom/dts/dtsxultra/views/c;
 
     invoke-virtual {v0}, Lcom/dts/dtsxultra/views/c;->notifyDataSetChanged()V
 
     goto :goto_0
-.end method
-
-.method static synthetic e(Lcom/dts/dtsxultra/b/e;)Landroid/support/v4/app/f;
-    .locals 1
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/support/v4/app/f;
-
-    return-object v0
 .end method
 
 
@@ -225,7 +215,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/support/v4/app/f;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/e;->ac:Landroid/support/v4/app/f;
 
     const v0, 0x7f0b0034
 
@@ -235,7 +225,7 @@
 
     move-result-object v1
 
-    const v0, 0x7f080125
+    const v0, 0x7f080159
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -243,9 +233,9 @@
 
     check-cast v0, Landroid/widget/ListView;
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/e;->aa:Landroid/widget/ListView;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/widget/ListView;
 
-    const v0, 0x7f080126
+    const v0, 0x7f08015a
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -253,31 +243,31 @@
 
     check-cast v0, Landroid/widget/ProgressBar;
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/e;->ac:Landroid/widget/ProgressBar;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/e;->aa:Landroid/widget/ProgressBar;
 
     new-instance v0, Lcom/dts/dtsxultra/views/c;
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/support/v4/app/f;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/e;->ac:Landroid/support/v4/app/f;
 
     invoke-direct {v0, v2}, Lcom/dts/dtsxultra/views/c;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/e;->ad:Lcom/dts/dtsxultra/views/c;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/e;->ab:Lcom/dts/dtsxultra/views/c;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->aa:Landroid/widget/ListView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/widget/ListView;
 
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/e;->ad:Lcom/dts/dtsxultra/views/c;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/e;->ab:Lcom/dts/dtsxultra/views/c;
 
     invoke-virtual {v0, v2}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->aa:Landroid/widget/ListView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/widget/ListView;
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->aa:Landroid/widget/ListView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/widget/ListView;
 
-    const v2, 0x7f080121
+    const v2, 0x7f080153
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -285,11 +275,11 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->aa:Landroid/widget/ListView;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/widget/ListView;
 
-    new-instance v2, Lcom/dts/dtsxultra/b/e$2;
+    new-instance v2, Lcom/dts/dtsxultra/b/e$1;
 
-    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/e$2;-><init>(Lcom/dts/dtsxultra/b/e;)V
+    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/e$1;-><init>(Lcom/dts/dtsxultra/b/e;)V
 
     invoke-virtual {v0, v2}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
@@ -301,9 +291,9 @@
 
     invoke-super {p0}, Lcom/dts/dtsxultra/b/g;->r()V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ac:Landroid/support/v4/app/f;
 
-    const v1, 0x7f0801af
+    const v1, 0x7f080205
 
     invoke-virtual {v0, v1}, Landroid/support/v4/app/f;->findViewById(I)Landroid/view/View;
 
@@ -311,7 +301,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0e005e
+    const v1, 0x7f0e005f
 
     invoke-virtual {p0, v1}, Lcom/dts/dtsxultra/b/e;->a(I)Ljava/lang/String;
 
@@ -323,11 +313,11 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ad:Lcom/dts/dtsxultra/views/c;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ab:Lcom/dts/dtsxultra/views/c;
 
     invoke-virtual {v0}, Lcom/dts/dtsxultra/views/c;->a()V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ac:Landroid/widget/ProgressBar;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->aa:Landroid/widget/ProgressBar;
 
     const/4 v1, 0x0
 
@@ -335,7 +325,7 @@
 
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->Z:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/e;->ac:Landroid/support/v4/app/f;
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/e;->X:Lcom/dts/dtssdk/c/c;
 

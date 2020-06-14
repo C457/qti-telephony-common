@@ -102,7 +102,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/b$3;->a:Lcom/dts/dtsxultra/b/b;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/b;->a(Lcom/dts/dtsxultra/b/b;)V
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/b;->f(Lcom/dts/dtsxultra/b/b;)V
 
     :goto_0
     return-void
@@ -116,65 +116,16 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/b$3;->a:Lcom/dts/dtsxultra/b/b;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/b;->b(Lcom/dts/dtsxultra/b/b;)Lcom/dts/dtsxultra/views/a;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/b;->d(Lcom/dts/dtsxultra/b/b;)Lcom/dts/dtsxultra/views/a;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/b$3;->a:Lcom/dts/dtsxultra/b/b;
-
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/b;->d(Lcom/dts/dtsxultra/b/b;)Landroid/support/v4/app/f;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/support/v4/app/f;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0e0087
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/dts/dtsxultra/views/a;->a(Ljava/lang/String;)V
-
-    new-instance v0, Lcom/dts/dtsxultra/b/b$3$1;
-
-    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/b$3$1;-><init>(Lcom/dts/dtsxultra/b/b$3;)V
-
-    invoke-static {p2, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/dts/dtssdk/a/a;
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/b$3;->a:Lcom/dts/dtsxultra/b/b;
-
-    invoke-static {v2}, Lcom/dts/dtsxultra/b/b;->b(Lcom/dts/dtsxultra/b/b;)Lcom/dts/dtsxultra/views/a;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Lcom/dts/dtsxultra/views/a;->a(Lcom/dts/dtssdk/a/a;)V
-
-    goto :goto_1
+    invoke-virtual {v0, p2}, Lcom/dts/dtsxultra/views/a;->a(Ljava/util/List;)V
 
     :cond_1
     iget-object v0, p0, Lcom/dts/dtsxultra/b/b$3;->a:Lcom/dts/dtsxultra/b/b;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/b;->c(Lcom/dts/dtsxultra/b/b;)V
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/b;->g(Lcom/dts/dtsxultra/b/b;)V
 
     goto :goto_0
 .end method

@@ -114,9 +114,9 @@
 
     iget-object v1, v0, Lcom/dts/dtssdk/a/h;->a:Ljava/util/concurrent/ExecutorService;
 
-    new-instance v2, Lcom/dts/dtssdk/a/h$l;
+    new-instance v2, Lcom/dts/dtssdk/a/h$m;
 
-    invoke-direct {v2, v0, p1, p2, p3}, Lcom/dts/dtssdk/a/h$l;-><init>(Lcom/dts/dtssdk/a/h;Landroid/content/Context;Ljava/lang/String;Lcom/dts/dtssdk/c/a;)V
+    invoke-direct {v2, v0, p1, p2, p3}, Lcom/dts/dtssdk/a/h$m;-><init>(Lcom/dts/dtssdk/a/h;Landroid/content/Context;Ljava/lang/String;Lcom/dts/dtssdk/c/a;)V
 
     invoke-interface {v1, v2}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 

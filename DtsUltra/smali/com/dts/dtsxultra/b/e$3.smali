@@ -94,9 +94,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/e$3;->b:Lcom/dts/dtsxultra/b/e;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/e;->e(Lcom/dts/dtsxultra/b/e;)Landroid/support/v4/app/f;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/e;->ac:Landroid/support/v4/app/f;
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/e$3;->a:Lcom/dts/dtssdk/a/j;
 

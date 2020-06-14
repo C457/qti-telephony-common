@@ -38,11 +38,20 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/l$12;->a:Lcom/dts/dtsxultra/b/l;
 
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/l;->a(Lcom/dts/dtsxultra/b/l;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/l$12;->a:Lcom/dts/dtsxultra/b/l;
+
     new-instance v1, Lcom/dts/dtsxultra/b/p;
 
     invoke-direct {v1}, Lcom/dts/dtsxultra/b/p;-><init>()V
 
     invoke-static {v0, v1}, Lcom/dts/dtsxultra/b/l;->b(Lcom/dts/dtsxultra/b/l;Landroid/support/v4/app/e;)V
 
+    :cond_0
     return-void
 .end method

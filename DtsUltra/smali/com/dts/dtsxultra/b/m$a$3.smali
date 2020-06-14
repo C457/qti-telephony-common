@@ -64,6 +64,8 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
     invoke-virtual {v0}, Lcom/dts/dtssdk/f/a;->a()Z
 
     move-result v1

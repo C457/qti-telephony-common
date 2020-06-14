@@ -3,6 +3,7 @@
 
 # interfaces
 .implements Landroid/support/v4/app/j$a;
+.implements Lcom/dts/dtsxultra/b/l$a;
 .implements Lcom/dts/dtsxultra/c/a;
 .implements Lcom/dts/dtsxultra/c/c;
 
@@ -13,6 +14,8 @@
 
 # instance fields
 .field private k:Landroid/widget/LinearLayout;
+
+.field private l:Z
 
 
 # direct methods
@@ -31,14 +34,18 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Landroid/support/v7/app/c;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/dts/dtsxultra/activities/MainActivity;->l:Z
 
     return-void
 .end method
 
-.method private h()V
+.method private i()V
     .locals 2
 
     invoke-virtual {p0}, Lcom/dts/dtsxultra/activities/MainActivity;->e()Landroid/support/v4/app/j;
@@ -102,7 +109,7 @@
     return-void
 
     :cond_1
-    iget-object v0, p2, Lcom/dts/dtssdk/a/a;->b:Lcom/dts/dtssdk/a/i;
+    iget-object v0, p2, Lcom/dts/dtssdk/a/a;->c:Lcom/dts/dtssdk/a/i;
 
     if-eqz v0, :cond_2
 
@@ -130,7 +137,7 @@
 
     move-result-object v0
 
-    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -143,7 +150,7 @@
     :goto_1
     invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/activities/MainActivity;->a(Ljava/lang/String;)V
 
-    iget-object v0, p2, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v0, p2, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     invoke-static {p0, p1, v0}, Lcom/dts/dtsxultra/util/a;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Ljava/lang/String;)V
 
@@ -162,7 +169,7 @@
 
     move-result-object v0
 
-    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -194,7 +201,7 @@
 .method public final b_()V
     .locals 0
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/activities/MainActivity;->h()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/activities/MainActivity;->i()V
 
     return-void
 .end method
@@ -211,6 +218,16 @@
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method public final h()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/dts/dtsxultra/activities/MainActivity;->l:Z
+
+    return-void
 .end method
 
 .method public onBackPressed()V
@@ -246,44 +263,42 @@
 
     invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/activities/MainActivity;->setContentView(I)V
 
-    invoke-virtual {p0}, Lcom/dts/dtsxultra/activities/MainActivity;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/util/b;->a(Landroid/content/Context;)V
-
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     invoke-virtual {p0}, Lcom/dts/dtsxultra/activities/MainActivity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
+    invoke-static {v0}, Lcom/dts/dtssdk/g;->b(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
 
-    invoke-static {p0}, Lcom/dts/dtsxultra/util/f;->e(Landroid/content/Context;)Z
+    invoke-static {p0}, Lcom/dts/dtsxultra/util/e;->e(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p0}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {p0}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;)Z
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/activities/MainActivity;->getApplicationContext()Landroid/content/Context;
 
-    move-result v0
-
-    if-eqz v0, :cond_0
+    move-result-object v0
 
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     invoke-static {}, Lcom/dts/dtssdk/g;->f()Lcom/dts/dtssdk/util/a;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {p0, v0, v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
+    invoke-static {v0, v1, v2}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
 
     :cond_0
-    const v0, 0x7f08012f
+    const v0, 0x7f08016a
 
     invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/activities/MainActivity;->findViewById(I)Landroid/view/View;
 
@@ -293,7 +308,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/activities/MainActivity;->k:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f080130
+    const v0, 0x7f08016b
 
     invoke-virtual {p0, v0}, Lcom/dts/dtsxultra/activities/MainActivity;->findViewById(I)Landroid/view/View;
 
@@ -347,7 +362,7 @@
 
     invoke-virtual {v0, p0}, Landroid/support/v4/app/j;->a(Landroid/support/v4/app/j$a;)V
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/activities/MainActivity;->h()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/activities/MainActivity;->i()V
 
     invoke-virtual {p0}, Lcom/dts/dtsxultra/activities/MainActivity;->e()Landroid/support/v4/app/j;
 
@@ -398,12 +413,20 @@
     goto :goto_0
 .end method
 
+.method protected onDestroy()V
+    .locals 0
+
+    invoke-super {p0}, Landroid/support/v7/app/c;->onDestroy()V
+
+    return-void
+.end method
+
 .method protected onPause()V
-    .locals 2
+    .locals 3
 
     invoke-super {p0}, Landroid/support/v7/app/c;->onPause()V
 
-    invoke-static {p0}, Lcom/dts/dtsxultra/util/f;->d(Landroid/content/Context;)Z
+    invoke-static {p0}, Lcom/dts/dtsxultra/util/e;->d(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -413,16 +436,56 @@
 
     invoke-static {p0}, Lcom/dts/dtsxultra/util/UsbConnectionNotificationManager;->a(Landroid/content/Context;)V
 
+    iget-boolean v0, p0, Lcom/dts/dtsxultra/activities/MainActivity;->l:Z
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/activities/MainActivity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     invoke-static {}, Lcom/dts/dtssdk/g;->f()Lcom/dts/dtssdk/util/a;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {p0, v0, v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
+    invoke-static {v0, v1, v2}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
 
     :cond_0
+    return-void
+.end method
+
+.method protected onResume()V
+    .locals 0
+
+    invoke-super {p0}, Landroid/support/v7/app/c;->onResume()V
+
+    return-void
+.end method
+
+.method protected onStart()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/support/v7/app/c;->onStart()V
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/activities/MainActivity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/dts/dtssdk/g;->b(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
+
+    return-void
+.end method
+
+.method protected onStop()V
+    .locals 0
+
+    invoke-super {p0}, Landroid/support/v7/app/c;->onStop()V
+
     return-void
 .end method

@@ -11,11 +11,9 @@
 
 
 # instance fields
-.field private aa:Landroid/support/v4/app/f;
+.field private aa:Landroid/widget/RelativeLayout;
 
-.field private ac:Landroid/widget/RelativeLayout;
-
-.field private ad:Landroid/widget/RadioButton;
+.field private ab:Landroid/widget/RadioButton;
 
 .field private ae:Landroid/widget/RadioButton;
 
@@ -25,11 +23,9 @@
 
 .field private ah:Landroid/widget/TextView;
 
-.field private ai:Lcom/dts/dtssdk/a/j;
+.field private ai:Lcom/dts/dtssdk/util/a;
 
-.field private aj:Lcom/dts/dtssdk/util/a;
-
-.field private ak:Landroid/content/BroadcastReceiver;
+.field private aj:Landroid/content/BroadcastReceiver;
 
 
 # direct methods
@@ -84,13 +80,13 @@
 
     sget-object v0, Lcom/dts/dtssdk/util/a;->a:Lcom/dts/dtssdk/util/a;
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->aj:Lcom/dts/dtssdk/util/a;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->ai:Lcom/dts/dtssdk/util/a;
 
-    new-instance v0, Lcom/dts/dtsxultra/b/f$1;
+    new-instance v0, Lcom/dts/dtsxultra/b/f$2;
 
-    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/f$1;-><init>(Lcom/dts/dtsxultra/b/f;)V
+    invoke-direct {v0, p0}, Lcom/dts/dtsxultra/b/f$2;-><init>(Lcom/dts/dtsxultra/b/f;)V
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->ak:Landroid/content/BroadcastReceiver;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->aj:Landroid/content/BroadcastReceiver;
 
     return-void
 .end method
@@ -119,7 +115,7 @@
     return-object v0
 .end method
 
-.method private U()V
+.method private V()V
     .locals 10
 
     const/4 v9, 0x3
@@ -252,25 +248,25 @@
 
     invoke-virtual {v4, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/f;->aa:Landroid/support/v4/app/f;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/util/f;->k(Landroid/content/Context;)[F
+    invoke-static {v1}, Lcom/dts/dtsxultra/util/e;->k(Landroid/content/Context;)[F
 
     move-result-object v4
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/f;->ad:Landroid/widget/RadioButton;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/f;->ab:Landroid/widget/RadioButton;
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v6, p0, Lcom/dts/dtsxultra/b/f;->aa:Landroid/support/v4/app/f;
+    iget-object v6, p0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
 
     invoke-virtual {v6}, Landroid/support/v4/app/f;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x7f0e00ac
+    const v7, 0x7f0e00af
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -344,7 +340,7 @@
 
     invoke-virtual {v1}, Landroid/widget/RadioGroup;->clearCheck()V
 
-    iget-object v5, p0, Lcom/dts/dtsxultra/b/f;->ad:Landroid/widget/RadioButton;
+    iget-object v5, p0, Lcom/dts/dtsxultra/b/f;->ab:Landroid/widget/RadioButton;
 
     invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -589,31 +585,15 @@
     goto :goto_3
 .end method
 
-.method static synthetic a(Lcom/dts/dtsxultra/b/f;)Landroid/support/v4/app/f;
-    .locals 1
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->aa:Landroid/support/v4/app/f;
-
-    return-object v0
-.end method
-
-.method static synthetic a(Lcom/dts/dtsxultra/b/f;Lcom/dts/dtssdk/a/j;)Lcom/dts/dtssdk/a/j;
-    .locals 0
-
-    iput-object p1, p0, Lcom/dts/dtsxultra/b/f;->ai:Lcom/dts/dtssdk/a/j;
-
-    return-object p1
-.end method
-
 .method static synthetic a(Lcom/dts/dtsxultra/b/f;Lcom/dts/dtssdk/util/a;)Lcom/dts/dtssdk/util/a;
     .locals 0
 
-    iput-object p1, p0, Lcom/dts/dtsxultra/b/f;->aj:Lcom/dts/dtssdk/util/a;
+    iput-object p1, p0, Lcom/dts/dtsxultra/b/f;->ai:Lcom/dts/dtssdk/util/a;
 
     return-object p1
 .end method
 
-.method static synthetic b(Lcom/dts/dtsxultra/b/f;)V
+.method static synthetic a(Lcom/dts/dtsxultra/b/f;)V
     .locals 4
 
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
@@ -665,21 +645,21 @@
     invoke-virtual {p0, v1, v0}, Lcom/dts/dtsxultra/b/f;->a(Ljava/lang/String;Lcom/dts/dtssdk/f/a;)V
 
     :cond_0
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->aa:Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/dts/dtsxultra/util/f;->a(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/dts/dtsxultra/util/e;->a(Landroid/content/Context;Ljava/lang/String;)V
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/f;->U()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/f;->V()V
 
     return-void
 .end method
 
-.method static synthetic c(Lcom/dts/dtsxultra/b/f;)V
+.method static synthetic b(Lcom/dts/dtsxultra/b/f;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/f;->U()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/f;->V()V
 
     return-void
 .end method
@@ -691,22 +671,6 @@
 
     invoke-virtual {p0}, Lcom/dts/dtsxultra/b/f;->i()V
 
-    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/f;->e()Landroid/support/v4/app/f;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->aa:Landroid/support/v4/app/f;
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->aa:Landroid/support/v4/app/f;
-
-    const v1, 0x7f0e0069
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/f;->setTitle(I)V
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->aa:Landroid/support/v4/app/f;
-
-    invoke-virtual {v0}, Landroid/support/v4/app/f;->invalidateOptionsMenu()V
-
     const v0, 0x7f0b002f
 
     const/4 v1, 0x0
@@ -715,7 +679,7 @@
 
     move-result-object v1
 
-    const v0, 0x7f080056
+    const v0, 0x7f08005c
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -723,9 +687,9 @@
 
     check-cast v0, Landroid/widget/RelativeLayout;
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/widget/RelativeLayout;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->aa:Landroid/widget/RelativeLayout;
 
-    const v0, 0x7f08005c
+    const v0, 0x7f080062
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -733,9 +697,9 @@
 
     check-cast v0, Landroid/widget/RadioButton;
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->ad:Landroid/widget/RadioButton;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->ab:Landroid/widget/RadioButton;
 
-    const v0, 0x7f080057
+    const v0, 0x7f08005d
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -745,7 +709,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->ae:Landroid/widget/RadioButton;
 
-    const v0, 0x7f080058
+    const v0, 0x7f08005e
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -755,7 +719,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->af:Landroid/widget/RadioButton;
 
-    const v0, 0x7f08005d
+    const v0, 0x7f080063
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -765,7 +729,7 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->ah:Landroid/widget/TextView;
 
-    const v0, 0x7f080059
+    const v0, 0x7f08005f
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -775,15 +739,23 @@
 
     iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->ag:Landroid/widget/RadioGroup;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/widget/RelativeLayout;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->aa:Landroid/widget/RelativeLayout;
+
+    new-instance v2, Lcom/dts/dtsxultra/b/f$1;
+
+    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/f$1;-><init>(Lcom/dts/dtsxultra/b/f;)V
+
+    invoke-virtual {v0, v2}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->ab:Landroid/widget/RadioButton;
 
     new-instance v2, Lcom/dts/dtsxultra/b/f$3;
 
     invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/f$3;-><init>(Lcom/dts/dtsxultra/b/f;)V
 
-    invoke-virtual {v0, v2}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v2}, Landroid/widget/RadioButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->ad:Landroid/widget/RadioButton;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->ae:Landroid/widget/RadioButton;
 
     new-instance v2, Lcom/dts/dtsxultra/b/f$4;
 
@@ -791,7 +763,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/RadioButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->ae:Landroid/widget/RadioButton;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->af:Landroid/widget/RadioButton;
 
     new-instance v2, Lcom/dts/dtsxultra/b/f$5;
 
@@ -799,31 +771,39 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/RadioButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->af:Landroid/widget/RadioButton;
-
-    new-instance v2, Lcom/dts/dtsxultra/b/f$6;
-
-    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/f$6;-><init>(Lcom/dts/dtsxultra/b/f;)V
-
-    invoke-virtual {v0, v2}, Landroid/widget/RadioButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
     return-object v1
 .end method
 
-.method public final b(Landroid/os/Bundle;)V
+.method public final d(Landroid/os/Bundle;)V
     .locals 3
 
-    invoke-super {p0, p1}, Lcom/dts/dtsxultra/b/g;->b(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Lcom/dts/dtsxultra/b/g;->d(Landroid/os/Bundle;)V
+
+    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/f;->e()Landroid/support/v4/app/f;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
+
+    const v1, 0x7f0e006a
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/f;->setTitle(I)V
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
+
+    invoke-virtual {v0}, Landroid/support/v4/app/f;->invalidateOptionsMenu()V
 
     invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/f;->aa:Landroid/support/v4/app/f;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
 
-    new-instance v2, Lcom/dts/dtsxultra/b/f$2;
+    new-instance v2, Lcom/dts/dtsxultra/b/f$6;
 
-    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/f$2;-><init>(Lcom/dts/dtsxultra/b/f;)V
+    invoke-direct {v2, p0}, Lcom/dts/dtsxultra/b/f$6;-><init>(Lcom/dts/dtsxultra/b/f;)V
 
     invoke-virtual {v0, v1, v2}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;Lcom/dts/dtssdk/c/b;)V
 
@@ -843,11 +823,9 @@
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/f;->e()Landroid/support/v4/app/f;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
 
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/dts/dtsxultra/b/f;->ak:Landroid/content/BroadcastReceiver;
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/f;->aj:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2, v0}, Landroid/support/v4/app/f;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
@@ -865,9 +843,9 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->aj:Lcom/dts/dtssdk/util/a;
+    iput-object v0, p0, Lcom/dts/dtsxultra/b/f;->ai:Lcom/dts/dtssdk/util/a;
 
-    invoke-direct {p0}, Lcom/dts/dtsxultra/b/f;->U()V
+    invoke-direct {p0}, Lcom/dts/dtsxultra/b/f;->V()V
 
     return-void
 .end method
@@ -877,11 +855,9 @@
 
     invoke-super {p0}, Lcom/dts/dtsxultra/b/g;->u()V
 
-    invoke-virtual {p0}, Lcom/dts/dtsxultra/b/f;->e()Landroid/support/v4/app/f;
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/f;->ac:Landroid/support/v4/app/f;
 
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/f;->ak:Landroid/content/BroadcastReceiver;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/f;->aj:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/support/v4/app/f;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 

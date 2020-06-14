@@ -38,16 +38,25 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$12;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->c(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/f/a;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->a(Lcom/dts/dtsxultra/b/j;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/j$12;->a:Lcom/dts/dtsxultra/b/j;
+
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->d(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/f/a;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
+    :cond_0
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$12;->a:Lcom/dts/dtsxultra/b/j;
 
     const-string v1, "M6/M8 License Exists"
@@ -60,7 +69,7 @@
 
     iget-object v3, p0, Lcom/dts/dtsxultra/b/j$12;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v3}, Lcom/dts/dtsxultra/b/j;->c(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/f/a;
+    invoke-static {v3}, Lcom/dts/dtsxultra/b/j;->d(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/f/a;
 
     move-result-object v3
 
@@ -78,7 +87,7 @@
 
     iget-object v3, p0, Lcom/dts/dtsxultra/b/j$12;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v3}, Lcom/dts/dtsxultra/b/j;->c(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/f/a;
+    invoke-static {v3}, Lcom/dts/dtsxultra/b/j;->d(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/f/a;
 
     move-result-object v3
 

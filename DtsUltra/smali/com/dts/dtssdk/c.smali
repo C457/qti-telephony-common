@@ -36,9 +36,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/UUID;Ljava/util/UUID;)V
-    .locals 2
-
-    const/4 v1, 0x0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -54,9 +52,13 @@
 
     iput-object p2, p0, Lcom/dts/dtssdk/c;->f:Ljava/util/UUID;
 
-    iput v1, p0, Lcom/dts/dtssdk/c;->g:I
+    const/4 v0, 0x0
 
-    iput v1, p0, Lcom/dts/dtssdk/c;->h:I
+    iput v0, p0, Lcom/dts/dtssdk/c;->g:I
+
+    const/4 v0, -0x2
+
+    iput v0, p0, Lcom/dts/dtssdk/c;->h:I
 
     invoke-direct {p0}, Lcom/dts/dtssdk/c;->a()V
 

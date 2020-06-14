@@ -252,7 +252,20 @@
 
     goto/16 :goto_0
 
-    nop
+    :sswitch_e
+    iget-object v1, v0, Lcom/dts/dtssdk/a/h$f;->b:Ljava/lang/Object;
+
+    check-cast v1, Lcom/dts/dtssdk/c/c;
+
+    iget-object v2, v0, Lcom/dts/dtssdk/a/h$f;->c:Lcom/dts/dtssdk/f/a;
+
+    iget-object v0, v0, Lcom/dts/dtssdk/a/h$f;->a:Ljava/lang/Object;
+
+    check-cast v0, Ljava/util/List;
+
+    invoke-interface {v1, v2, v0}, Lcom/dts/dtssdk/c/c;->a(Lcom/dts/dtssdk/f/a;Ljava/util/List;)V
+
+    goto/16 :goto_0
 
     :sswitch_data_0
     .sparse-switch
@@ -269,6 +282,7 @@
         0x16 -> :sswitch_a
         0x17 -> :sswitch_b
         0x1f -> :sswitch_c
+        0x20 -> :sswitch_e
         0x209 -> :sswitch_d
     .end sparse-switch
 .end method

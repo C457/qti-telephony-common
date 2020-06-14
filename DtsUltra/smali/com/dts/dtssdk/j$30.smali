@@ -6,8 +6,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/dts/dtssdk/j;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/dts/dtssdk/j;->a(ILjava/lang/String;II)Lcom/dts/dtssdk/o;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -112,7 +112,9 @@
 
     iget-object v2, p0, Lcom/dts/dtssdk/j$30;->b:Ljava/lang/String;
 
-    invoke-interface {v0, v1, v2}, Lcom/dts/dtssdk/d;->a(ILjava/lang/String;)Lcom/dts/dtssdk/o;
+    iget v3, p0, Lcom/dts/dtssdk/j$30;->e:I
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/dts/dtssdk/d;->a(ILjava/lang/String;I)Lcom/dts/dtssdk/o;
 
     move-result-object v0
 

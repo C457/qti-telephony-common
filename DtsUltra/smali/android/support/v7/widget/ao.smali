@@ -110,53 +110,53 @@
 
     const/4 v4, 0x2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$h;-><init>()V
 
-    iput v1, p0, Landroid/support/v7/widget/ao;->j:I
+    iput v0, p0, Landroid/support/v7/widget/ao;->j:I
 
-    iput v1, p0, Landroid/support/v7/widget/ao;->k:I
+    iput v0, p0, Landroid/support/v7/widget/ao;->k:I
 
-    iput-boolean v1, p0, Landroid/support/v7/widget/ao;->m:Z
+    iput-boolean v0, p0, Landroid/support/v7/widget/ao;->m:Z
 
-    iput-boolean v1, p0, Landroid/support/v7/widget/ao;->n:Z
+    iput-boolean v0, p0, Landroid/support/v7/widget/ao;->n:Z
 
-    iput v1, p0, Landroid/support/v7/widget/ao;->o:I
+    iput v0, p0, Landroid/support/v7/widget/ao;->o:I
 
-    iput v1, p0, Landroid/support/v7/widget/ao;->A:I
+    iput v0, p0, Landroid/support/v7/widget/ao;->A:I
 
-    new-array v0, v4, [I
+    new-array v1, v4, [I
 
-    iput-object v0, p0, Landroid/support/v7/widget/ao;->B:[I
+    iput-object v1, p0, Landroid/support/v7/widget/ao;->B:[I
 
-    new-array v0, v4, [I
+    new-array v1, v4, [I
 
-    iput-object v0, p0, Landroid/support/v7/widget/ao;->C:[I
+    iput-object v1, p0, Landroid/support/v7/widget/ao;->C:[I
 
-    new-array v0, v4, [F
+    new-array v1, v4, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v1, :array_0
 
-    invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
+    invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Landroid/support/v7/widget/ao;->p:Landroid/animation/ValueAnimator;
+    iput-object v1, p0, Landroid/support/v7/widget/ao;->p:Landroid/animation/ValueAnimator;
 
-    iput v1, p0, Landroid/support/v7/widget/ao;->q:I
+    iput v0, p0, Landroid/support/v7/widget/ao;->q:I
 
-    new-instance v0, Landroid/support/v7/widget/ao$1;
+    new-instance v1, Landroid/support/v7/widget/ao$1;
 
-    invoke-direct {v0, p0}, Landroid/support/v7/widget/ao$1;-><init>(Landroid/support/v7/widget/ao;)V
+    invoke-direct {v1, p0}, Landroid/support/v7/widget/ao$1;-><init>(Landroid/support/v7/widget/ao;)V
 
-    iput-object v0, p0, Landroid/support/v7/widget/ao;->D:Ljava/lang/Runnable;
+    iput-object v1, p0, Landroid/support/v7/widget/ao;->D:Ljava/lang/Runnable;
 
-    new-instance v0, Landroid/support/v7/widget/ao$2;
+    new-instance v1, Landroid/support/v7/widget/ao$2;
 
-    invoke-direct {v0, p0}, Landroid/support/v7/widget/ao$2;-><init>(Landroid/support/v7/widget/ao;)V
+    invoke-direct {v1, p0}, Landroid/support/v7/widget/ao$2;-><init>(Landroid/support/v7/widget/ao;)V
 
-    iput-object v0, p0, Landroid/support/v7/widget/ao;->E:Landroid/support/v7/widget/RecyclerView$m;
+    iput-object v1, p0, Landroid/support/v7/widget/ao;->E:Landroid/support/v7/widget/RecyclerView$m;
 
     iput-object p2, p0, Landroid/support/v7/widget/ao;->b:Landroid/graphics/drawable/StateListDrawable;
 
@@ -168,189 +168,161 @@
 
     invoke-virtual {p2}, Landroid/graphics/drawable/StateListDrawable;->getIntrinsicWidth()I
 
-    move-result v0
+    move-result v1
 
-    invoke-static {p6, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {p6, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Landroid/support/v7/widget/ao;->u:I
+    iput v1, p0, Landroid/support/v7/widget/ao;->u:I
 
     invoke-virtual {p3}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    move-result v0
+    move-result v1
 
-    invoke-static {p6, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {p6, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Landroid/support/v7/widget/ao;->v:I
+    iput v1, p0, Landroid/support/v7/widget/ao;->v:I
 
     invoke-virtual {p4}, Landroid/graphics/drawable/StateListDrawable;->getIntrinsicWidth()I
 
-    move-result v0
+    move-result v1
 
-    invoke-static {p6, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {p6, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Landroid/support/v7/widget/ao;->y:I
+    iput v1, p0, Landroid/support/v7/widget/ao;->y:I
 
     invoke-virtual {p5}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    move-result v0
+    move-result v1
 
-    invoke-static {p6, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {p6, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Landroid/support/v7/widget/ao;->z:I
+    iput v1, p0, Landroid/support/v7/widget/ao;->z:I
 
     iput p7, p0, Landroid/support/v7/widget/ao;->a:I
 
     iput p8, p0, Landroid/support/v7/widget/ao;->t:I
 
-    iget-object v0, p0, Landroid/support/v7/widget/ao;->b:Landroid/graphics/drawable/StateListDrawable;
+    iget-object v1, p0, Landroid/support/v7/widget/ao;->b:Landroid/graphics/drawable/StateListDrawable;
 
-    invoke-virtual {v0, v2}, Landroid/graphics/drawable/StateListDrawable;->setAlpha(I)V
+    invoke-virtual {v1, v2}, Landroid/graphics/drawable/StateListDrawable;->setAlpha(I)V
 
-    iget-object v0, p0, Landroid/support/v7/widget/ao;->c:Landroid/graphics/drawable/Drawable;
+    iget-object v1, p0, Landroid/support/v7/widget/ao;->c:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+    invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    iget-object v0, p0, Landroid/support/v7/widget/ao;->p:Landroid/animation/ValueAnimator;
+    iget-object v1, p0, Landroid/support/v7/widget/ao;->p:Landroid/animation/ValueAnimator;
 
     new-instance v2, Landroid/support/v7/widget/ao$a;
 
     invoke-direct {v2, p0}, Landroid/support/v7/widget/ao$a;-><init>(Landroid/support/v7/widget/ao;)V
 
-    invoke-virtual {v0, v2}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    iget-object v0, p0, Landroid/support/v7/widget/ao;->p:Landroid/animation/ValueAnimator;
+    iget-object v1, p0, Landroid/support/v7/widget/ao;->p:Landroid/animation/ValueAnimator;
 
     new-instance v2, Landroid/support/v7/widget/ao$b;
 
     invoke-direct {v2, p0}, Landroid/support/v7/widget/ao$b;-><init>(Landroid/support/v7/widget/ao;)V
 
-    invoke-virtual {v0, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    iget-object v0, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
+    iget-object v1, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
 
-    if-eq v0, p1, :cond_8
+    if-eq v1, p1, :cond_7
 
-    iget-object v0, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
+    iget-object v1, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_5
 
-    iget-object v2, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
+    iget-object v1, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
 
-    iget-object v0, v2, Landroid/support/v7/widget/RecyclerView;->n:Landroid/support/v7/widget/RecyclerView$i;
+    iget-object v2, v1, Landroid/support/v7/widget/RecyclerView;->n:Landroid/support/v7/widget/RecyclerView$i;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v0, v2, Landroid/support/v7/widget/RecyclerView;->n:Landroid/support/v7/widget/RecyclerView$i;
+    iget-object v2, v1, Landroid/support/v7/widget/RecyclerView;->n:Landroid/support/v7/widget/RecyclerView$i;
 
     const-string v3, "Cannot remove item decoration during a scroll  or layout"
 
-    invoke-virtual {v0, v3}, Landroid/support/v7/widget/RecyclerView$i;->a(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Landroid/support/v7/widget/RecyclerView$i;->a(Ljava/lang/String;)V
 
     :cond_0
-    iget-object v0, v2, Landroid/support/v7/widget/RecyclerView;->p:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    iget-object v0, v2, Landroid/support/v7/widget/RecyclerView;->p:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->getOverScrollMode()I
-
-    move-result v0
-
-    if-ne v0, v4, :cond_9
-
-    const/4 v0, 0x1
-
-    :goto_0
-    invoke-virtual {v2, v0}, Landroid/support/v7/widget/RecyclerView;->setWillNotDraw(Z)V
-
-    :cond_1
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->h()V
-
-    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->requestLayout()V
-
-    iget-object v0, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
-
-    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView;->q:Ljava/util/ArrayList;
+    iget-object v2, v1, Landroid/support/v7/widget/RecyclerView;->p:Ljava/util/ArrayList;
 
     invoke-virtual {v2, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView;->r:Landroid/support/v7/widget/RecyclerView$l;
-
-    if-ne v2, p0, :cond_2
-
-    const/4 v2, 0x0
-
-    iput-object v2, v0, Landroid/support/v7/widget/RecyclerView;->r:Landroid/support/v7/widget/RecyclerView$l;
-
-    :cond_2
-    iget-object v0, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
-
-    iget-object v2, p0, Landroid/support/v7/widget/ao;->E:Landroid/support/v7/widget/RecyclerView$m;
-
-    iget-object v3, v0, Landroid/support/v7/widget/RecyclerView;->H:Ljava/util/List;
-
-    if-eqz v3, :cond_3
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->H:Ljava/util/List;
-
-    invoke-interface {v0, v2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
-
-    :cond_3
-    invoke-direct {p0}, Landroid/support/v7/widget/ao;->c()V
-
-    :cond_4
-    iput-object p1, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
-
-    iget-object v0, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
-
-    if-eqz v0, :cond_8
-
-    iget-object v0, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
-
-    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView;->n:Landroid/support/v7/widget/RecyclerView$i;
-
-    if-eqz v2, :cond_5
-
-    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView;->n:Landroid/support/v7/widget/RecyclerView$i;
-
-    const-string v3, "Cannot add item decoration during a scroll  or layout"
-
-    invoke-virtual {v2, v3}, Landroid/support/v7/widget/RecyclerView$i;->a(Ljava/lang/String;)V
-
-    :cond_5
-    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView;->p:Ljava/util/ArrayList;
+    iget-object v2, v1, Landroid/support/v7/widget/RecyclerView;->p:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_2
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setWillNotDraw(Z)V
+    invoke-virtual {v1}, Landroid/support/v7/widget/RecyclerView;->getOverScrollMode()I
 
-    :cond_6
-    iget-object v1, v0, Landroid/support/v7/widget/RecyclerView;->p:Ljava/util/ArrayList;
+    move-result v2
 
-    invoke-virtual {v1, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    if-ne v2, v4, :cond_1
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->h()V
+    const/4 v0, 0x1
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->requestLayout()V
+    :cond_1
+    invoke-virtual {v1, v0}, Landroid/support/v7/widget/RecyclerView;->setWillNotDraw(Z)V
+
+    :cond_2
+    invoke-virtual {v1}, Landroid/support/v7/widget/RecyclerView;->h()V
+
+    invoke-virtual {v1}, Landroid/support/v7/widget/RecyclerView;->requestLayout()V
+
+    iget-object v0, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
+
+    iget-object v1, v0, Landroid/support/v7/widget/RecyclerView;->q:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    iget-object v1, v0, Landroid/support/v7/widget/RecyclerView;->r:Landroid/support/v7/widget/RecyclerView$l;
+
+    if-ne v1, p0, :cond_3
+
+    const/4 v1, 0x0
+
+    iput-object v1, v0, Landroid/support/v7/widget/RecyclerView;->r:Landroid/support/v7/widget/RecyclerView$l;
+
+    :cond_3
+    iget-object v0, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
+
+    iget-object v1, p0, Landroid/support/v7/widget/ao;->E:Landroid/support/v7/widget/RecyclerView$m;
+
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView;->H:Ljava/util/List;
+
+    if-eqz v2, :cond_4
+
+    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->H:Ljava/util/List;
+
+    invoke-interface {v0, v1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    :cond_4
+    invoke-direct {p0}, Landroid/support/v7/widget/ao;->c()V
+
+    :cond_5
+    iput-object p1, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
+
+    iget-object v0, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
+
+    if-eqz v0, :cond_7
+
+    iget-object v0, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
+
+    invoke-virtual {v0, p0}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$h;)V
 
     iget-object v0, p0, Landroid/support/v7/widget/ao;->l:Landroid/support/v7/widget/RecyclerView;
 
@@ -364,7 +336,7 @@
 
     iget-object v2, v0, Landroid/support/v7/widget/RecyclerView;->H:Ljava/util/List;
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_6
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -372,18 +344,13 @@
 
     iput-object v2, v0, Landroid/support/v7/widget/RecyclerView;->H:Ljava/util/List;
 
-    :cond_7
+    :cond_6
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->H:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_8
+    :cond_7
     return-void
-
-    :cond_9
-    move v0, v1
-
-    goto :goto_0
 
     nop
 
@@ -761,7 +728,7 @@
     goto :goto_1
 .end method
 
-.method public final a(Landroid/graphics/Canvas;)V
+.method public final a(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;)V
     .locals 8
 
     const/high16 v7, 0x3f800000    # 1.0f

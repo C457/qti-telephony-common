@@ -50,7 +50,7 @@
     :try_start_1
     sget-object v0, Lcom/dts/dtsxultra/views/d$1;->a:[I
 
-    sget-object v1, Lcom/dts/dtssdk/util/d;->d:Lcom/dts/dtssdk/util/d;
+    sget-object v1, Lcom/dts/dtssdk/util/d;->c:Lcom/dts/dtssdk/util/d;
 
     invoke-virtual {v1}, Lcom/dts/dtssdk/util/d;->ordinal()I
 
@@ -66,7 +66,7 @@
     :try_start_2
     sget-object v0, Lcom/dts/dtsxultra/views/d$1;->a:[I
 
-    sget-object v1, Lcom/dts/dtssdk/util/d;->e:Lcom/dts/dtssdk/util/d;
+    sget-object v1, Lcom/dts/dtssdk/util/d;->d:Lcom/dts/dtssdk/util/d;
 
     invoke-virtual {v1}, Lcom/dts/dtssdk/util/d;->ordinal()I
 
@@ -82,7 +82,7 @@
     :try_start_3
     sget-object v0, Lcom/dts/dtsxultra/views/d$1;->a:[I
 
-    sget-object v1, Lcom/dts/dtssdk/util/d;->f:Lcom/dts/dtssdk/util/d;
+    sget-object v1, Lcom/dts/dtssdk/util/d;->e:Lcom/dts/dtssdk/util/d;
 
     invoke-virtual {v1}, Lcom/dts/dtssdk/util/d;->ordinal()I
 
@@ -98,7 +98,7 @@
     :try_start_4
     sget-object v0, Lcom/dts/dtsxultra/views/d$1;->a:[I
 
-    sget-object v1, Lcom/dts/dtssdk/util/d;->g:Lcom/dts/dtssdk/util/d;
+    sget-object v1, Lcom/dts/dtssdk/util/d;->f:Lcom/dts/dtssdk/util/d;
 
     invoke-virtual {v1}, Lcom/dts/dtssdk/util/d;->ordinal()I
 
@@ -114,7 +114,7 @@
     :try_start_5
     sget-object v0, Lcom/dts/dtsxultra/views/d$1;->a:[I
 
-    sget-object v1, Lcom/dts/dtssdk/util/d;->h:Lcom/dts/dtssdk/util/d;
+    sget-object v1, Lcom/dts/dtssdk/util/d;->g:Lcom/dts/dtssdk/util/d;
 
     invoke-virtual {v1}, Lcom/dts/dtssdk/util/d;->ordinal()I
 
@@ -130,7 +130,7 @@
     :try_start_6
     sget-object v0, Lcom/dts/dtsxultra/views/d$1;->a:[I
 
-    sget-object v1, Lcom/dts/dtssdk/util/d;->i:Lcom/dts/dtssdk/util/d;
+    sget-object v1, Lcom/dts/dtssdk/util/d;->h:Lcom/dts/dtssdk/util/d;
 
     invoke-virtual {v1}, Lcom/dts/dtssdk/util/d;->ordinal()I
 
@@ -146,7 +146,7 @@
     :try_start_7
     sget-object v0, Lcom/dts/dtsxultra/views/d$1;->a:[I
 
-    sget-object v1, Lcom/dts/dtssdk/util/d;->j:Lcom/dts/dtssdk/util/d;
+    sget-object v1, Lcom/dts/dtssdk/util/d;->i:Lcom/dts/dtssdk/util/d;
 
     invoke-virtual {v1}, Lcom/dts/dtssdk/util/d;->ordinal()I
 
@@ -162,7 +162,7 @@
     :try_start_8
     sget-object v0, Lcom/dts/dtsxultra/views/d$1;->a:[I
 
-    sget-object v1, Lcom/dts/dtssdk/util/d;->c:Lcom/dts/dtssdk/util/d;
+    sget-object v1, Lcom/dts/dtssdk/util/d;->j:Lcom/dts/dtssdk/util/d;
 
     invoke-virtual {v1}, Lcom/dts/dtssdk/util/d;->ordinal()I
 

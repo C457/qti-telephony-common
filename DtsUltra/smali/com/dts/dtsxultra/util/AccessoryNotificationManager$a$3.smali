@@ -54,9 +54,11 @@
 
 # virtual methods
 .method public final synthetic a(Lcom/dts/dtssdk/f/a;Ljava/lang/Object;)V
-    .locals 6
+    .locals 7
 
-    const v5, 0x7f080115
+    const v6, 0x7f080147
+
+    const v5, 0x7f0800fc
 
     const/16 v4, 0x8
 
@@ -68,7 +70,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     invoke-static {}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a()Ljava/lang/String;
 
@@ -95,7 +97,7 @@
 
     iget-object v1, v1, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    const v2, 0x7f0800e2
+    const v2, 0x7f0800f8
 
     invoke-virtual {v1, v2, v0}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setImageViewBitmap(ILandroid/graphics/Bitmap;)V
 
@@ -103,7 +105,7 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    const v1, 0x7f08010f
+    const v1, 0x7f080140
 
     invoke-virtual {v0, v1, v4}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
 
@@ -111,7 +113,7 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    const v1, 0x7f08010e
+    const v1, 0x7f08013f
 
     invoke-virtual {v0, v1, v4}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
 
@@ -119,7 +121,7 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    const v1, 0x7f080117
+    const v1, 0x7f080149
 
     invoke-virtual {v0, v1, v4}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
 
@@ -127,7 +129,7 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    const v1, 0x7f080116
+    const v1, 0x7f080148
 
     invoke-virtual {v0, v1, v3}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
 
@@ -135,7 +137,7 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    const v1, 0x7f080118
+    const v1, 0x7f08014a
 
     invoke-virtual {v0, v1, v3}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
 
@@ -143,7 +145,7 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    const v1, 0x7f08010d
+    const v1, 0x7f08013e
 
     invoke-virtual {v0, v1, v3}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
 
@@ -151,13 +153,13 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    const v1, 0x7f0800dd
+    const v1, 0x7f0800f3
 
-    const v2, 0x7f0700a9
+    const v2, 0x7f0700af
 
     invoke-virtual {v0, v1, v2}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setImageViewResource(II)V
 
-    invoke-static {}, Lcom/dts/dtsxultra/util/c;->h()Z
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->h()Z
 
     move-result v0
 
@@ -167,9 +169,22 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    invoke-virtual {v0, v5, v3}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
+    invoke-virtual {v0, v6, v3}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
 
     :goto_1
+    invoke-static {}, Lcom/dts/dtsxultra/util/b;->a()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a$3;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;
+
+    iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
+
+    invoke-virtual {v0, v5, v3}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
+
+    :goto_2
     iget-object v0, p0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a$3;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;
 
     iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
@@ -208,7 +223,7 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    const v1, 0x7f08002b
+    const v1, 0x7f08002c
 
     iget-object v2, p0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a$3;->b:Lcom/dts/dtssdk/a/j;
 
@@ -228,7 +243,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->b(Lcom/dts/dtsxultra/util/AccessoryNotificationManager;Landroid/content/Context;Z)V
 
-    :goto_2
+    :goto_3
     return-void
 
     :cond_0
@@ -251,11 +266,20 @@
 
     iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
 
-    invoke-virtual {v0, v5, v4}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
+    invoke-virtual {v0, v6, v4}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
 
     goto :goto_1
 
     :cond_2
+    iget-object v0, p0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a$3;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;
+
+    iget-object v0, v0, Lcom/dts/dtsxultra/util/AccessoryNotificationManager$a;->d:Lcom/dts/dtsxultra/util/AccessoryNotificationManager;
+
+    invoke-virtual {v0, v5, v4}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->setViewVisibility(II)V
+
+    goto :goto_2
+
+    :cond_3
     invoke-static {}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a()Ljava/lang/String;
 
     move-result-object v0
@@ -286,5 +310,5 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2
+    goto :goto_3
 .end method

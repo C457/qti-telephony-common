@@ -50,7 +50,7 @@
     move-result v5
 
     :goto_1
-    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
+    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
 
     move-result v1
 
@@ -243,7 +243,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$w;->k()Z
+    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$w;->j()Z
 
     move-result v0
 

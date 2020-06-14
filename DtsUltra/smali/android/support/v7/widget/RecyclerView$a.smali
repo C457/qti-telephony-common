@@ -25,7 +25,7 @@
 # instance fields
 .field public final a:Landroid/support/v7/widget/RecyclerView$b;
 
-.field b:Z
+.field protected b:Z
 
 
 # direct methods
@@ -49,6 +49,9 @@
 
 
 # virtual methods
+.method public abstract a()I
+.end method
+
 .method public a(I)I
     .locals 1
 
@@ -57,7 +60,25 @@
     return v0
 .end method
 
-.method public a()J
+.method public abstract a(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$w;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/view/ViewGroup;",
+            "I)TVH;"
+        }
+    .end annotation
+.end method
+
+.method public abstract a(Landroid/support/v7/widget/RecyclerView$w;I)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TVH;I)V"
+        }
+    .end annotation
+.end method
+
+.method public b(I)J
     .locals 2
 
     const-wide/16 v0, -0x1
@@ -65,17 +86,7 @@
     return-wide v0
 .end method
 
-.method public abstract a(Landroid/view/ViewGroup;)Landroid/support/v7/widget/RecyclerView$w;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/view/ViewGroup;",
-            ")TVH;"
-        }
-    .end annotation
-.end method
-
-.method public final a(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$w;
+.method public final b(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$w;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +101,7 @@
 
     invoke-static {v0}, Landroid/support/v4/d/c;->a(Ljava/lang/String;)V
 
-    invoke-virtual {p0, p1}, Landroid/support/v7/widget/RecyclerView$a;->a(Landroid/view/ViewGroup;)Landroid/support/v7/widget/RecyclerView$w;
+    invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$a;->a(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$w;
 
     move-result-object v0
 
@@ -130,13 +141,12 @@
     return-object v0
 .end method
 
-.method public abstract a(Landroid/support/v7/widget/RecyclerView$w;I)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TVH;I)V"
-        }
-    .end annotation
-.end method
+.method public final c(I)V
+    .locals 1
 
-.method public abstract b()I
+    iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$a;->a:Landroid/support/v7/widget/RecyclerView$b;
+
+    invoke-virtual {v0, p1}, Landroid/support/v7/widget/RecyclerView$b;->a(I)V
+
+    return-void
 .end method

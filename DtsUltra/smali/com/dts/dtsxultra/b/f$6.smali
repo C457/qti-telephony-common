@@ -2,12 +2,12 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
+.implements Lcom/dts/dtssdk/c/b;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/dts/dtsxultra/b/f;->a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/dts/dtsxultra/b/f;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,42 +33,24 @@
 
 
 # virtual methods
-.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 3
+.method public final a(Lcom/dts/dtssdk/f/a;)V
+    .locals 2
 
-    invoke-virtual {p1}, Landroid/widget/CompoundButton;->isPressed()Z
+    invoke-virtual {p1}, Lcom/dts/dtssdk/f/a;->a()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+    iget-object v0, p1, Lcom/dts/dtssdk/f/a;->c:Ljava/lang/Object;
 
-    invoke-static {}, Lcom/dts/dtsxultra/b/f;->T()[F
+    check-cast v0, Lcom/dts/dtssdk/a/j;
 
-    move-result-object v0
+    if-eqz v0, :cond_0
 
-    invoke-static {v0}, Lcom/dts/dtssdk/g;->a([F)Lcom/dts/dtssdk/f/a;
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/f$6;->a:Lcom/dts/dtsxultra/b/f;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/f$6;->a:Lcom/dts/dtsxultra/b/f;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/f;->c(Lcom/dts/dtsxultra/b/f;)V
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/f$6;->a:Lcom/dts/dtsxultra/b/f;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/f;->a(Lcom/dts/dtsxultra/b/f;)Landroid/support/v4/app/f;
-
-    move-result-object v0
-
-    const-string v1, "Listening profile updated"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    iput-object v0, v1, Lcom/dts/dtsxultra/b/f;->ad:Lcom/dts/dtssdk/a/j;
 
     :cond_0
     return-void

@@ -10,6 +10,10 @@
 .field private static final c:Lcom/dts/dtssdk/a;
 
 
+# instance fields
+.field private d:Lcom/dts/dtssdk/a/a;
+
+
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
@@ -37,6 +41,22 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
+.end method
+
+.method static synthetic a(Lcom/dts/dtssdk/g;)Lcom/dts/dtssdk/a/a;
+    .locals 1
+
+    iget-object v0, p0, Lcom/dts/dtssdk/g;->d:Lcom/dts/dtssdk/a/a;
+
+    return-object v0
+.end method
+
+.method static synthetic a(Lcom/dts/dtssdk/g;Lcom/dts/dtssdk/a/a;)Lcom/dts/dtssdk/a/a;
+    .locals 0
+
+    iput-object p1, p0, Lcom/dts/dtssdk/g;->d:Lcom/dts/dtssdk/a/a;
+
+    return-object p1
 .end method
 
 .method public static a(I)Lcom/dts/dtssdk/f/a;
@@ -126,20 +146,6 @@
     move-result-object v0
 
     goto :goto_0
-.end method
-
-.method public static a(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
-    .locals 1
-
-    invoke-static {}, Lcom/dts/dtssdk/DtsCore;->a()Lcom/dts/dtssdk/DtsCore;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Lcom/dts/dtssdk/DtsCore;->a(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public static a(Landroid/content/Context;Z)Lcom/dts/dtssdk/f/a;
@@ -678,7 +684,7 @@
 
     move-result-object v0
 
-    iget-object v1, p3, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
+    iget-object v1, p3, Lcom/dts/dtssdk/a/a;->e:Ljava/lang/String;
 
     invoke-static {v1}, Lcom/dts/dtssdk/a/b;->d(Ljava/lang/String;)Z
 
@@ -1150,6 +1156,91 @@
     return-void
 .end method
 
+.method public static a(Landroid/content/Context;)Z
+    .locals 5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-nez p0, :cond_1
+
+    :cond_0
+    :goto_0
+    return v2
+
+    :cond_1
+    const-string v0, "audio"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/media/AudioManager;
+
+    if-eqz v0, :cond_0
+
+    const-string v3, "DTS_BYPASS"
+
+    invoke-virtual {v0, v3}, Landroid/media/AudioManager;->getParameters(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "="
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    aget-object v0, v0, v1
+
+    const-string v4, "off"
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    move v0, v1
+
+    :goto_1
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "Called getParameter() ! Received result :"
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " and DTS bypass mode status "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move v2, v0
+
+    goto :goto_0
+
+    :cond_2
+    move v0, v2
+
+    goto :goto_1
+.end method
+
 .method public static b()Lcom/dts/dtssdk/f/a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -1165,6 +1256,20 @@
     invoke-static {}, Lcom/dts/dtssdk/DtsCore;->a()Lcom/dts/dtssdk/DtsCore;
 
     invoke-static {}, Lcom/dts/dtssdk/DtsCore;->d()Lcom/dts/dtssdk/f/a;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static b(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
+    .locals 1
+
+    invoke-static {}, Lcom/dts/dtssdk/DtsCore;->a()Lcom/dts/dtssdk/DtsCore;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/dts/dtssdk/DtsCore;->a(Landroid/content/Context;)Lcom/dts/dtssdk/f/a;
 
     move-result-object v0
 
@@ -1269,43 +1374,6 @@
     goto :goto_0
 .end method
 
-.method public static b(Landroid/content/Context;)V
-    .locals 2
-
-    invoke-static {}, Lcom/dts/dtssdk/f;->a()Lcom/dts/dtssdk/f;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/dts/dtssdk/e;->g:Lcom/dts/dtssdk/e;
-
-    invoke-virtual {v0, v1}, Lcom/dts/dtssdk/f;->a(Lcom/dts/dtssdk/e;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/dts/dtssdk/f;->a()Lcom/dts/dtssdk/f;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
-
-    invoke-virtual {v0, v1}, Lcom/dts/dtssdk/f;->a(Lcom/dts/dtssdk/util/a;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    invoke-static {p0}, Lcom/dts/dtssdk/util/BluetoothConnectionManager;->a(Landroid/content/Context;)V
-
-    goto :goto_0
-.end method
-
 .method public static b(Landroid/content/Context;Lcom/dts/dtssdk/a/j;Lcom/dts/dtssdk/c/b;)V
     .locals 2
 
@@ -1345,12 +1413,91 @@
     return-void
 .end method
 
-.method public static b(Landroid/content/Context;Z)V
-    .locals 0
+.method public static b(Landroid/content/Context;Z)Z
+    .locals 2
 
-    invoke-static {p0, p1}, Lcom/dts/dtssdk/h;->a(Landroid/content/Context;Z)V
+    const/4 v1, 0x0
 
-    return-void
+    if-nez p0, :cond_0
+
+    move v0, v1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const-string v0, "audio"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/media/AudioManager;
+
+    if-nez v0, :cond_1
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz p1, :cond_2
+
+    const-string v1, "DTS_BYPASS=on"
+
+    :goto_1
+    invoke-virtual {v0, v1}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    if-nez p1, :cond_3
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "dts.dtssdk.intent.action.SET_DTS_ENABLED"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    :goto_2
+    const/16 v1, 0x20
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    invoke-static {p0, v0}, Lcom/dts/dtssdk/DtsBroadcastManager;->a(Landroid/content/Context;Landroid/content/Intent;)V
+
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    invoke-static {}, Lcom/dts/dtssdk/DtsCore;->a()Lcom/dts/dtssdk/DtsCore;
+
+    invoke-static {}, Lcom/dts/dtssdk/DtsCore;->d()Lcom/dts/dtssdk/f/a;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/dts/dtssdk/f/a;->c:Ljava/lang/Object;
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    invoke-static {p0, v0}, Lcom/dts/dtssdk/h;->b(Landroid/content/Context;Z)V
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const-string v1, "DTS_BYPASS=off"
+
+    goto :goto_1
+
+    :cond_3
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "dts.dtssdk.intent.action.SET_DTS_DISABLED"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    goto :goto_2
 .end method
 
 .method public static c()Lcom/dts/dtssdk/f/a;
@@ -1507,7 +1654,7 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/dts/dtssdk/e;->h:Lcom/dts/dtssdk/e;
+    sget-object v1, Lcom/dts/dtssdk/e;->g:Lcom/dts/dtssdk/e;
 
     invoke-virtual {v0, v1}, Lcom/dts/dtssdk/f;->a(Lcom/dts/dtssdk/e;)Z
 
@@ -1519,7 +1666,7 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
+    sget-object v1, Lcom/dts/dtssdk/util/a;->d:Lcom/dts/dtssdk/util/a;
 
     invoke-virtual {v0, v1}, Lcom/dts/dtssdk/f;->a(Lcom/dts/dtssdk/util/a;)Z
 
@@ -1532,9 +1679,17 @@
     return-void
 
     :cond_1
-    invoke-static {p0}, Lcom/dts/dtssdk/util/UsbConnectionManager;->a(Landroid/content/Context;)V
+    invoke-static {p0}, Lcom/dts/dtssdk/util/BluetoothConnectionManager;->a(Landroid/content/Context;)V
 
     goto :goto_0
+.end method
+
+.method public static c(Landroid/content/Context;Z)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/dts/dtssdk/h;->a(Landroid/content/Context;Z)V
+
+    return-void
 .end method
 
 .method public static d()Lcom/dts/dtssdk/f/a;
@@ -1655,13 +1810,40 @@
 .end method
 
 .method public static d(Landroid/content/Context;)V
-    .locals 0
+    .locals 2
 
-    invoke-static {}, Lcom/dts/dtssdk/DtsCore;->a()Lcom/dts/dtssdk/DtsCore;
+    invoke-static {}, Lcom/dts/dtssdk/f;->a()Lcom/dts/dtssdk/f;
 
-    invoke-static {p0}, Lcom/dts/dtssdk/DtsCore;->b(Landroid/content/Context;)V
+    move-result-object v0
 
+    sget-object v1, Lcom/dts/dtssdk/e;->h:Lcom/dts/dtssdk/e;
+
+    invoke-virtual {v0, v1}, Lcom/dts/dtssdk/f;->a(Lcom/dts/dtssdk/e;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/dts/dtssdk/f;->a()Lcom/dts/dtssdk/f;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/dts/dtssdk/util/a;->e:Lcom/dts/dtssdk/util/a;
+
+    invoke-virtual {v0, v1}, Lcom/dts/dtssdk/f;->a(Lcom/dts/dtssdk/util/a;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    invoke-static {p0}, Lcom/dts/dtssdk/util/UsbConnectionManager;->a(Landroid/content/Context;)V
+
+    goto :goto_0
 .end method
 
 .method public static e()Lcom/dts/dtssdk/f/a;
@@ -1771,6 +1953,16 @@
     move-result-object v0
 
     goto :goto_0
+.end method
+
+.method public static e(Landroid/content/Context;)V
+    .locals 0
+
+    invoke-static {}, Lcom/dts/dtssdk/DtsCore;->a()Lcom/dts/dtssdk/DtsCore;
+
+    invoke-static {p0}, Lcom/dts/dtssdk/DtsCore;->b(Landroid/content/Context;)V
+
+    return-void
 .end method
 
 .method public static f()Lcom/dts/dtssdk/util/a;

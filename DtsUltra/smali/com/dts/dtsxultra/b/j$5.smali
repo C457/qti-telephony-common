@@ -62,7 +62,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$5;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->e(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/f;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->f(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/f;
 
     move-result-object v0
 
@@ -70,7 +70,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$5;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->e(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/f;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->f(Lcom/dts/dtsxultra/b/j;)Lcom/dts/dtssdk/a/f;
 
     move-result-object v0
 
@@ -83,7 +83,7 @@
     :cond_0
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$5;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->u(Lcom/dts/dtsxultra/b/j;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->v(Lcom/dts/dtsxultra/b/j;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -93,19 +93,19 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$5;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->u(Lcom/dts/dtsxultra/b/j;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->v(Lcom/dts/dtsxultra/b/j;)Landroid/widget/TextView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/j$5;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-virtual {v1}, Lcom/dts/dtsxultra/b/j;->f()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Lcom/dts/dtsxultra/b/j;->d()Landroid/content/Context;
 
     move-result-object v1
 
     const v2, 0x7f050080
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-static {v1, v2}, Landroid/support/v4/a/a;->c(Landroid/content/Context;I)I
 
     move-result v1
 
@@ -118,7 +118,7 @@
     :cond_2
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$5;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->u(Lcom/dts/dtsxultra/b/j;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->v(Lcom/dts/dtsxultra/b/j;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -128,19 +128,19 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$5;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->u(Lcom/dts/dtsxultra/b/j;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->v(Lcom/dts/dtsxultra/b/j;)Landroid/widget/TextView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/j$5;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-virtual {v1}, Lcom/dts/dtsxultra/b/j;->f()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Lcom/dts/dtsxultra/b/j;->d()Landroid/content/Context;
 
     move-result-object v1
 
     const v2, 0x7f050045
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-static {v1, v2}, Landroid/support/v4/a/a;->c(Landroid/content/Context;I)I
 
     move-result v1
 

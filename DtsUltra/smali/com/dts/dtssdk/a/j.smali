@@ -332,7 +332,7 @@
 
     iget-object v0, p0, Lcom/dts/dtssdk/a/j;->b:Lcom/dts/dtssdk/a/a;
 
-    iget-object v0, v0, Lcom/dts/dtssdk/a/a;->e:Ljava/lang/String;
+    iget-object v0, v0, Lcom/dts/dtssdk/a/a;->f:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/dts/dtssdk/a/j;->a(Ljava/lang/String;)Lcom/dts/dtssdk/util/d;
 

@@ -1,8 +1,5 @@
 .class final Lcom/dts/dtsxultra/b/o$7;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Lcom/dts/dtssdk/c/b;
+.super Landroid/content/BroadcastReceiver;
 
 
 # annotations
@@ -17,137 +14,108 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/dts/dtssdk/util/a;
-
-.field final synthetic b:Lcom/dts/dtsxultra/b/o;
+.field final synthetic a:Lcom/dts/dtsxultra/b/o;
 
 
 # direct methods
-.method constructor <init>(Lcom/dts/dtsxultra/b/o;Lcom/dts/dtssdk/util/a;)V
+.method constructor <init>(Lcom/dts/dtsxultra/b/o;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/dts/dtsxultra/b/o$7;->b:Lcom/dts/dtsxultra/b/o;
+    iput-object p1, p0, Lcom/dts/dtsxultra/b/o$7;->a:Lcom/dts/dtsxultra/b/o;
 
-    iput-object p2, p0, Lcom/dts/dtsxultra/b/o$7;->a:Lcom/dts/dtssdk/util/a;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final a(Lcom/dts/dtssdk/f/a;)V
-    .locals 4
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 3
 
-    invoke-virtual {p1}, Lcom/dts/dtssdk/f/a;->a()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p1, Lcom/dts/dtssdk/f/a;->c:Ljava/lang/Object;
-
-    check-cast v0, Lcom/dts/dtssdk/a/j;
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/o$7;->b:Lcom/dts/dtsxultra/b/o;
-
-    invoke-static {v1, v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;Lcom/dts/dtssdk/a/j;)Lcom/dts/dtssdk/a/j;
-
-    :cond_0
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$7;->b:Lcom/dts/dtsxultra/b/o;
-
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;)Landroid/support/v4/app/f;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/o$7;->b:Lcom/dts/dtsxultra/b/o;
-
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/o;->f(Lcom/dts/dtsxultra/b/o;)Lcom/dts/dtssdk/a/j;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/a/j;)V
-
-    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
-
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$7;->a:Lcom/dts/dtssdk/util/a;
-
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/o$7;->b:Lcom/dts/dtsxultra/b/o;
-
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/o;->f(Lcom/dts/dtsxultra/b/o;)Lcom/dts/dtssdk/a/j;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/dts/dtssdk/g;->a(Lcom/dts/dtssdk/util/a;Lcom/dts/dtssdk/a/j;)Lcom/dts/dtssdk/f/a;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/dts/dtssdk/f/a;->a()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
+    if-nez p2, :cond_0
 
     invoke-static {}, Lcom/dts/dtsxultra/b/o;->R()Ljava/lang/String;
 
-    move-result-object v1
-
-    const-string v2, "Getting stereo preference failed."
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Lcom/dts/dtsxultra/b/o;->R()Ljava/lang/String;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    const-string v3, "DTS returned error for Stereo Preference | "
-
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    iget-object v0, v0, Lcom/dts/dtssdk/f/a;->a:Lcom/dts/dtssdk/f/a$a;
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v1, "Received null intent. Aborting"
 
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void
 
-    :cond_1
-    iget-object v0, v0, Lcom/dts/dtssdk/f/a;->c:Ljava/lang/Object;
+    :cond_0
+    invoke-static {}, Lcom/dts/dtsxultra/b/o;->R()Ljava/lang/String;
 
-    check-cast v0, Lcom/dts/dtssdk/a/n;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/o$7;->b:Lcom/dts/dtsxultra/b/o;
+    const-string v1, "Received intent. Action: "
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;)Landroid/support/v4/app/f;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v1, v0}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/a/n;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$7;->b:Lcom/dts/dtsxultra/b/o;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;)Landroid/support/v4/app/f;
+    move-result-object v1
+
+    const/4 v0, -0x1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v2
+
+    packed-switch v2, :pswitch_data_0
+
+    :cond_1
+    :goto_1
+    packed-switch v0, :pswitch_data_1
+
+    goto :goto_0
+
+    :pswitch_0
+    const-string v0, "audioRoute"
+
+    invoke-virtual {p2, v0}, Landroid/content/Intent;->getSerializableExtra(Ljava/lang/String;)Ljava/io/Serializable;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/dts/dtsxultra/b/o$7;->a:Lcom/dts/dtssdk/util/a;
+    check-cast v0, Lcom/dts/dtssdk/util/a;
 
-    const/4 v2, 0x1
+    iget-object v1, p0, Lcom/dts/dtsxultra/b/o$7;->a:Lcom/dts/dtsxultra/b/o;
 
-    invoke-static {v0, v1, v2}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Landroid/content/Context;Lcom/dts/dtssdk/util/a;Z)V
+    invoke-static {v1, v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;Lcom/dts/dtssdk/util/a;)Lcom/dts/dtssdk/util/a;
 
     goto :goto_0
+
+    :pswitch_1
+    const-string v2, "dts.dtssdk.intent.action.AUDIO_ROUTE_CHANGED"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch -0x7fbbfc7d
+        :pswitch_1
+    .end packed-switch
+
+    :pswitch_data_1
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

@@ -2,12 +2,12 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/dts/dtssdk/c/b;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/dts/dtsxultra/b/o;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/dts/dtsxultra/b/o;->a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,25 +33,40 @@
 
 
 # virtual methods
-.method public final a(Lcom/dts/dtssdk/f/a;)V
-    .locals 2
+.method public final onClick(Landroid/view/View;)V
+    .locals 4
 
-    invoke-virtual {p1}, Lcom/dts/dtssdk/f/a;->a()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p1, Lcom/dts/dtssdk/f/a;->c:Ljava/lang/Object;
-
-    check-cast v0, Lcom/dts/dtssdk/a/j;
-
-    if-eqz v0, :cond_0
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/o$9;->a:Lcom/dts/dtsxultra/b/o;
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/o$9;->a:Lcom/dts/dtsxultra/b/o;
 
-    invoke-static {v1, v0}, Lcom/dts/dtsxultra/b/o;->a(Lcom/dts/dtsxultra/b/o;Lcom/dts/dtssdk/a/j;)Lcom/dts/dtssdk/a/j;
+    invoke-virtual {v1}, Lcom/dts/dtsxultra/b/o;->f()Landroid/content/res/Resources;
 
-    :cond_0
+    move-result-object v1
+
+    const v2, 0x7f0e00e2
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/dts/dtsxultra/b/o$9;->a:Lcom/dts/dtsxultra/b/o;
+
+    invoke-virtual {v2}, Lcom/dts/dtsxultra/b/o;->f()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0e00ca
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/dts/dtsxultra/b/o$9$1;
+
+    invoke-direct {v3, p0}, Lcom/dts/dtsxultra/b/o$9$1;-><init>(Lcom/dts/dtsxultra/b/o$9;)V
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/dts/dtsxultra/b/o;->a(Ljava/lang/String;Ljava/lang/String;Lcom/dts/dtsxultra/c/b;)V
+
     return-void
 .end method

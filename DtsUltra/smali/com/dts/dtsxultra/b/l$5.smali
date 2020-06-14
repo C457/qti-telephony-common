@@ -139,7 +139,7 @@
 
     if-nez v0, :cond_3
 
-    iget-object v0, p2, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v0, p2, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Ljava/lang/String;)I
 
@@ -149,7 +149,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/l$5;->a:Landroid/widget/TextView;
 
-    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-static {v1}, Lcom/dts/dtsxultra/util/AccessoryNotificationManager;->a(Ljava/lang/String;)I
 
@@ -162,7 +162,7 @@
     :cond_2
     iget-object v0, p0, Lcom/dts/dtsxultra/b/l$5;->a:Landroid/widget/TextView;
 
-    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v1, p2, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -189,7 +189,7 @@
 
     move-result-object v1
 
-    iget-object v2, p2, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v2, p2, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -208,15 +208,13 @@
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/l$5;->b:Lcom/dts/dtsxultra/b/l;
 
-    invoke-static {v1}, Lcom/dts/dtsxultra/b/l;->d(Lcom/dts/dtsxultra/b/l;)Landroid/support/v4/app/f;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/dts/dtsxultra/b/l;->ac:Landroid/support/v4/app/f;
 
     invoke-virtual {v1}, Landroid/support/v4/app/f;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0e007e
+    const v2, 0x7f0e007f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -1,5 +1,5 @@
-.class Lcom/dts/dtsxultra/views/a$a;
-.super Ljava/lang/Object;
+.class public final Lcom/dts/dtsxultra/views/a$a;
+.super Landroid/support/v7/widget/RecyclerView$w;
 
 
 # annotations
@@ -8,40 +8,34 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "a"
 .end annotation
 
 
 # instance fields
-.field a:Lcom/dts/dtsxultra/views/CheckableRelativeLayout;
+.field r:Landroid/widget/TextView;
 
-.field b:Landroid/widget/ImageView;
-
-.field c:Landroid/widget/TextView;
-
-.field d:Landroid/widget/TextView;
-
-.field e:Landroid/widget/RadioButton;
-
-.field final synthetic f:Lcom/dts/dtsxultra/views/a;
+.field final synthetic s:Lcom/dts/dtsxultra/views/a;
 
 
 # direct methods
-.method private constructor <init>(Lcom/dts/dtsxultra/views/a;)V
-    .locals 0
+.method public constructor <init>(Lcom/dts/dtsxultra/views/a;Landroid/view/View;)V
+    .locals 1
 
-    iput-object p1, p0, Lcom/dts/dtsxultra/views/a$a;->f:Lcom/dts/dtsxultra/views/a;
+    iput-object p1, p0, Lcom/dts/dtsxultra/views/a$a;->s:Lcom/dts/dtsxultra/views/a;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/support/v7/widget/RecyclerView$w;-><init>(Landroid/view/View;)V
 
-    return-void
-.end method
+    const v0, 0x7f080152
 
-.method synthetic constructor <init>(Lcom/dts/dtsxultra/views/a;B)V
-    .locals 0
+    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-direct {p0, p1}, Lcom/dts/dtsxultra/views/a$a;-><init>(Lcom/dts/dtsxultra/views/a;)V
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/dts/dtsxultra/views/a$a;->r:Landroid/widget/TextView;
 
     return-void
 .end method

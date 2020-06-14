@@ -113,7 +113,7 @@
 
     if-nez v2, :cond_2
 
-    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$w;->o()Z
+    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
 
     move-result v0
 

@@ -111,9 +111,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$a;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->g(Lcom/dts/dtsxultra/b/j;)Landroid/support/v4/app/f;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/j;->ac:Landroid/support/v4/app/f;
 
     const-string v1, "Setting DTS state using broadcast API failed"
 
@@ -194,6 +192,18 @@
 
     if-eqz v0, :cond_0
 
+    invoke-static {}, Lcom/dts/dtssdk/g;->a()Lcom/dts/dtssdk/g;
+
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/j$a;->a:Lcom/dts/dtsxultra/b/j;
+
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/j;->ac:Landroid/support/v4/app/f;
+
+    invoke-static {v0}, Lcom/dts/dtssdk/g;->a(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$a;->a:Lcom/dts/dtsxultra/b/j;
 
     invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->i(Lcom/dts/dtsxultra/b/j;)Landroid/widget/Switch;
@@ -209,9 +219,7 @@
 
     iget-object v0, p0, Lcom/dts/dtsxultra/b/j$a;->a:Lcom/dts/dtsxultra/b/j;
 
-    invoke-static {v0}, Lcom/dts/dtsxultra/b/j;->g(Lcom/dts/dtsxultra/b/j;)Landroid/support/v4/app/f;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/dts/dtsxultra/b/j;->ac:Landroid/support/v4/app/f;
 
     const-string v1, "Getting DTS state using broadcast API failed"
 

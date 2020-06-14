@@ -67,7 +67,7 @@
 
     move-result-object v1
 
-    iget-object v2, p1, Lcom/dts/dtssdk/a/a;->c:Ljava/lang/String;
+    iget-object v2, p1, Lcom/dts/dtssdk/a/a;->d:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -79,7 +79,7 @@
 
     move-result-object v1
 
-    iget-object v2, p1, Lcom/dts/dtssdk/a/a;->a:Ljava/lang/String;
+    iget-object v2, p1, Lcom/dts/dtssdk/a/a;->b:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

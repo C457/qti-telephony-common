@@ -111,7 +111,7 @@
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView$j;->c:Landroid/support/v7/widget/RecyclerView$w;
 
-    invoke-virtual {v4}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
+    invoke-virtual {v4}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
 
     move-result v4
 
@@ -121,7 +121,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$j;->c:Landroid/support/v7/widget/RecyclerView$w;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->d()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->c()I
 
     move-result v0
 
@@ -204,7 +204,7 @@
 
     iget-object v6, v0, Landroid/support/v7/widget/RecyclerView$j;->c:Landroid/support/v7/widget/RecyclerView$w;
 
-    invoke-virtual {v6}, Landroid/support/v7/widget/RecyclerView$w;->n()Z
+    invoke-virtual {v6}, Landroid/support/v7/widget/RecyclerView$w;->m()Z
 
     move-result v6
 
@@ -212,7 +212,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$j;->c:Landroid/support/v7/widget/RecyclerView$w;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->d()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->c()I
 
     move-result v0
 
@@ -265,7 +265,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$j;->c:Landroid/support/v7/widget/RecyclerView$w;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->d()I
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$w;->c()I
 
     move-result v0
 

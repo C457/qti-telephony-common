@@ -144,6 +144,36 @@
 
 
 # virtual methods
+.method final a(ILjava/lang/String;II)Lcom/dts/dtssdk/o;
+    .locals 7
+
+    new-instance v6, Lcom/dts/dtssdk/j$a;
+
+    new-instance v0, Lcom/dts/dtssdk/j$30;
+
+    move-object v1, p0
+
+    move v2, p1
+
+    move-object v3, p2
+
+    move v4, p3
+
+    move v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/dts/dtssdk/j$30;-><init>(Lcom/dts/dtssdk/j;ILjava/lang/String;II)V
+
+    invoke-direct {v6, p0, v0}, Lcom/dts/dtssdk/j$a;-><init>(Lcom/dts/dtssdk/j;Ljava/util/concurrent/Callable;)V
+
+    invoke-virtual {v6}, Lcom/dts/dtssdk/j$a;->a()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/dts/dtssdk/o;
+
+    return-object v0
+.end method
+
 .method final b()Lcom/dts/dtssdk/o;
     .locals 2
 
