@@ -1,0 +1,213 @@
+Manifest-Version: 1.0
+Created-By: soong_zip
+
+Name: res/drawable-hdpi-v4/nfc.png
+SHA1-Digest: BZFzC6WdceYcRASi8XsP4y+xeh0=
+
+Name: res/drawable-v21/notification_action_background.xml
+SHA1-Digest: 2kE/GRmXZezKz6+NP19IcsMqyAg=
+
+Name: res/drawable-xhdpi-v4/notification_bg_normal.9.png
+SHA1-Digest: URz3Lz/tIjMAtXfNHimWcDQLTtQ=
+
+Name: res/raw/end.ogg
+SHA1-Digest: bib2igpVVHanOnj/8nenHmvxoI0=
+
+Name: res/drawable/notification_bg.xml
+SHA1-Digest: Uodd38a3zXmHH7/X7Obi+jWYwjA=
+
+Name: META-INF/androidx.legacy_legacy-support-v4.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: META-INF/androidx.localbroadcastmanager_localbroadcastmanager.ve
+ rsion
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: META-INF/androidx.lifecycle_lifecycle-livedata-core.version
+SHA1-Digest: RhgogPnP3y0PkMuwmnYMdF+l7/o=
+
+Name: res/drawable-mdpi-v4/back.png
+SHA1-Digest: jCRgNhEEjswYtyWryiuIOuAYsHg=
+
+Name: META-INF/androidx.swiperefreshlayout_swiperefreshlayout.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: META-INF/androidx.cursoradapter_cursoradapter.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png
+SHA1-Digest: 9MYmMKRnfwttaoRGc1WDg0jzgyY=
+
+Name: res/layout/notification_template_big_media.xml
+SHA1-Digest: a9YzBxL0redYDK4O9kJexO7ALPE=
+
+Name: META-INF/androidx.media_media.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/drawable/ic_weblink_nfc.xml
+SHA1-Digest: Q+W2IBBPJE7+2evICsXna8CrbJc=
+
+Name: res/drawable-xxhdpi-v4/tap_again.png
+SHA1-Digest: JcnOR+GsS+0esL6rAcJ9GL3HrKU=
+
+Name: META-INF/androidx.drawerlayout_drawerlayout.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/drawable-hdpi-v4/ic_menu_cancel_holo_dark.png
+SHA1-Digest: M9hvmQepSj9a50Je6swn0y/eOcE=
+
+Name: META-INF/androidx.print_print.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/layout-v21/notification_action_tombstone.xml
+SHA1-Digest: wngKAg6stRwOw1xK6+CCS9pUi90=
+
+Name: res/drawable/notification_bg_low.xml
+SHA1-Digest: k1+urvfrclJaEhJbhvobGxbJnN8=
+
+Name: META-INF/androidx.versionedparcelable_versionedparcelable.versio
+ n
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: META-INF/androidx.interpolator_interpolator.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: META-INF/androidx.fragment_fragment.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/layout-v21/notification_action.xml
+SHA1-Digest: LpvnMW+8q4JjRm4WudzmEQ6x0iw=
+
+Name: res/layout/cardemu_payment_item.xml
+SHA1-Digest: 73I/zGpiqMCru/8yGNXUEeGIzdc=
+
+Name: res/layout/url_open_confirmation.xml
+SHA1-Digest: daSzxSJBx1gvD66Sd7MJ3U9qbjU=
+
+Name: res/layout/notification_template_big_media_narrow_custom.xml
+SHA1-Digest: DHBVd4Rm3jF2Iwv68cAmfgEeKqo=
+
+Name: res/layout/notification_template_part_chronometer.xml
+SHA1-Digest: IxJPwDypHKwssWfbuGvtrw+1rH0=
+
+Name: res/xml/file_paths.xml
+SHA1-Digest: CJGHYHV6kO7L+jT0u1Qe9yyR3pM=
+
+Name: res/layout/notification_template_part_time.xml
+SHA1-Digest: 5Bg9CTV674OgQY+Iq4dlyXGXE1Y=
+
+Name: META-INF/androidx.customview_customview.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/layout/tapagain.xml
+SHA1-Digest: wkhOs303CDLlDoVkz9nECaCVJxw=
+
+Name: META-INF/androidx.documentfile_documentfile.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/layout/notification_template_media_custom.xml
+SHA1-Digest: bCtuTZiPor6VxvRWbq4wJAtlty4=
+
+Name: resources.arsc
+SHA1-Digest: HJnYPrVeYGi44f59hp4KfVDa/rM=
+
+Name: META-INF/androidx.legacy_legacy-support-core-utils.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/layout/cardemu_item.xml
+SHA1-Digest: k2sjn8Y+vb9O5F4Q4NnK7QBG2Co=
+
+Name: AndroidManifest.xml
+SHA1-Digest: FtXwTEaAj/eh5Z5Jh7masdjjoFc=
+
+Name: META-INF/androidx.loader_loader.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/drawable-xxhdpi-v4/icon.png
+SHA1-Digest: 6ISUYtaBgDGsHdwjShlf7Ems4vk=
+
+Name: res/layout/notification_media_action.xml
+SHA1-Digest: mVFh/hduCOq8H0w5eISpf+2xTrw=
+
+Name: META-INF/androidx.lifecycle_lifecycle-runtime.version
+SHA1-Digest: RhgogPnP3y0PkMuwmnYMdF+l7/o=
+
+Name: META-INF/androidx.viewpager_viewpager.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: META-INF/androidx.asynclayoutinflater_asynclayoutinflater.versio
+ n
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png
+SHA1-Digest: iJFesSsAAmE1zFB9XbiCZW1cKKU=
+
+Name: res/raw/error.ogg
+SHA1-Digest: db6LQrE1Ejvrk80VC3M4iWslRtA=
+
+Name: META-INF/androidx.lifecycle_lifecycle-viewmodel.version
+SHA1-Digest: RhgogPnP3y0PkMuwmnYMdF+l7/o=
+
+Name: res/drawable/notification_tile_bg.xml
+SHA1-Digest: o6Vsyw6NI1A+pRr/+JNprVTESxU=
+
+Name: res/layout/notification_template_big_media_custom.xml
+SHA1-Digest: yZc89yKc5UTjFtR2mT8LfeqKd78=
+
+Name: res/layout/screenshot.xml
+SHA1-Digest: KeXKNEA55KHIlmspIS1wqt+akm8=
+
+Name: res/layout-v21/notification_template_custom_big.xml
+SHA1-Digest: bk/xOnqYa4BnlLhm/vnlP8uSjU8=
+
+Name: assets/star.png
+SHA1-Digest: Fro9qbIdO6h/7qiYdtxF8u2beSA=
+
+Name: META-INF/androidx.core_core.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/raw/start.ogg
+SHA1-Digest: v28yflF9sEdyZG/vxFycl7YOCkg=
+
+Name: res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png
+SHA1-Digest: qtoCsdEoyaDYmAvH44tfVLv6hoY=
+
+Name: META-INF/androidx.arch.core_core-runtime.version
+SHA1-Digest: RhgogPnP3y0PkMuwmnYMdF+l7/o=
+
+Name: res/drawable-xhdpi-v4/notification_bg_low_normal.9.png
+SHA1-Digest: dnObiFrk1DvtR5VGgJWQwE6oNeo=
+
+Name: META-INF/androidx.slidingpanelayout_slidingpanelayout.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/layout-v21/notification_template_icon_group.xml
+SHA1-Digest: 5RdZgCO0sUEHLxVztIq+Iwx7PRs=
+
+Name: META-INF/androidx.coordinatorlayout_coordinatorlayout.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/layout/cardemu_resolver.xml
+SHA1-Digest: 25NOMxYGg6UpVd7Kod+qCWE+sqI=
+
+Name: res/layout/notification_template_media.xml
+SHA1-Digest: GP7AdEbrKLEZMl+0hdqyaYcTwz0=
+
+Name: META-INF/androidx.legacy_legacy-support-core-ui.version
+SHA1-Digest: XJUDTR2EpQhHvrTroKiwELtr+BY=
+
+Name: res/layout/notification_template_lines_media.xml
+SHA1-Digest: HKEgn6vsNKHuPAqafOv9MHxbJHE=
+
+Name: res/layout/notification_template_big_media_narrow.xml
+SHA1-Digest: siHSh7qrk38QNLc8V6aADDHTckk=
+
+Name: res/drawable/notification_icon_background.xml
+SHA1-Digest: picSrmJJ/Z0zn7zckUxnVKkQi90=
+
+Name: classes.dex
+SHA1-Digest: /vthoNxTU92SJQQKOAWXJgPnpCw=
+
+Name: res/layout/notification_media_cancel_action.xml
+SHA1-Digest: cs8yaF0isp3P8ks3rR5KE/kPkBA=
+
