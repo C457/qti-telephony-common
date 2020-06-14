@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="incoming_call_failed_low_battery">Saapuva puhelu epäonnistui, koska akku on vähissä.</string>
-    <string name="error_msg_failed">Epäonnistui</string>
-    <string name="error_msg_cancelled">Peruutettu</string>
-    <string name="wifi_calling_enable_dialog_title">Otetaanko Wi-Fi-puhelut käyttöön?</string>
-    <string name="wifi_calling_enable_dialog_cancel">peruuta</string>
-    <string name="wifi_calling_enable_dialog_enable">Ota käyttöön</string>
-</resources>

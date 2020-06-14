@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="incoming_call_failed_low_battery">Inkommande samtal misslyckades på grund av låg batterinivå.</string>
-    <string name="error_msg_failed">Misslyckades</string>
-    <string name="error_msg_cancelled">Inställd</string>
-    <string name="wifi_calling_enable_dialog_title">Aktivera WiFi-samtal?</string>
-    <string name="wifi_calling_enable_dialog_cancel">avbryt</string>
-    <string name="wifi_calling_enable_dialog_enable">Aktivera</string>
-</resources>

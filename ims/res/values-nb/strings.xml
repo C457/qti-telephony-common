@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="incoming_call_failed_low_battery">Innkommende anrop mislyktes på grunn av lavt batterinivå.</string>
-    <string name="error_msg_failed">Mislykket</string>
-    <string name="error_msg_cancelled">Kansellert</string>
-    <string name="wifi_calling_enable_dialog_title">Aktivere Wi-Fi-anrop?</string>
-    <string name="wifi_calling_enable_dialog_cancel">avbryt</string>
-    <string name="wifi_calling_enable_dialog_enable">Aktiver</string>
-</resources>
