@@ -203,7 +203,7 @@
 
     move-result-object v0
 
-    const-string v1, "2.0.3.56"
+    const-string v1, "2.1.3.56"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 

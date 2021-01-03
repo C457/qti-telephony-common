@@ -338,7 +338,7 @@
     :cond_8
     const-string v1, "sdkVersion"
 
-    const-string v2, "2.0.3.56"
+    const-string v2, "2.1.3.56"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

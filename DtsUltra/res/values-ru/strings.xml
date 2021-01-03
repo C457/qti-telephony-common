@@ -46,8 +46,8 @@ DTS стремимся передать исходное звучание люб
     <string name="audio_preference_treble_title">Усиление высоких частот</string>
     <string name="audioroute_bluetooth">" Bluetooth"</string>
     <string name="audioroute_choose" />
-    <string name="audioroute_lineout">" Линейный выход"</string>
-    <string name="audioroute_speakers">" Встроенные динамики"</string>
+    <string name="audioroute_lineout">Линейный выход</string>
+    <string name="audioroute_speakers">Встроенные динамики</string>
     <string name="audioroute_unknown">неизвестно</string>
     <string name="audioroute_usb">" USB"</string>
     <string name="bluetooth_autoswitch_subtitle">Автоматически применять настройки звука, когда они известны</string>

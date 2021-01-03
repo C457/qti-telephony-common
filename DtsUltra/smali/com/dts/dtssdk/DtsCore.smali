@@ -733,7 +733,7 @@
 
     invoke-static {}, Lcom/dts/dtssdk/k;->a()Z
 
-    const-string v3, "2.0.3.56"
+    const-string v3, "2.1.3.56"
 
     invoke-virtual {v2, v0, v3}, Lcom/dts/dtssdk/m;->a(Ljava/lang/Throwable;Ljava/lang/String;)V
 
@@ -1700,6 +1700,10 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    const/high16 v1, 0x1000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
     const-string v1, "audioRoute"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
@@ -2057,7 +2061,7 @@
 
     invoke-static {}, Lcom/dts/dtssdk/k;->a()Z
 
-    const-string v3, "2.0.3.56"
+    const-string v3, "2.1.3.56"
 
     invoke-virtual {v2, v1, v3}, Lcom/dts/dtssdk/m;->a(Ljava/lang/Throwable;Ljava/lang/String;)V
 
@@ -2461,7 +2465,7 @@
 
     invoke-static {}, Lcom/dts/dtssdk/k;->a()Z
 
-    const-string v0, "2.0.3.56"
+    const-string v0, "2.1.3.56"
 
     return-object v0
 .end method
@@ -3818,7 +3822,7 @@
 
     sget-object v0, Lcom/dts/dtssdk/DtsCore;->a:Ljava/lang/String;
 
-    const-string v2, "Initializing DTS... Version: 2.0.3.56"
+    const-string v2, "Initializing DTS... Version: 2.1.3.56"
 
     invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -4050,7 +4054,7 @@
 
     invoke-static {}, Lcom/dts/dtssdk/k;->a()Z
 
-    const-string v1, "2.0.3.56"
+    const-string v1, "2.1.3.56"
 
     invoke-virtual {v0, p1, v1}, Lcom/dts/dtssdk/b/c;->a(Landroid/content/Context;Ljava/lang/String;)V
 

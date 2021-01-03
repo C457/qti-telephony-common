@@ -796,6 +796,10 @@
 
     if-eqz v0, :cond_5
 
+    iget-object v0, p0, Lcom/dts/dtsxultra/b/k;->aj:Lcom/dts/dtsxultra/a/a;
+
+    if-nez v0, :cond_5
+
     new-instance v0, Lcom/dts/dtsxultra/a/a;
 
     iget-object v1, p0, Lcom/dts/dtsxultra/b/k;->ac:Landroid/support/v4/app/f;
@@ -2040,7 +2044,7 @@
 
     new-instance v4, Ljava/text/SimpleDateFormat;
 
-    const-string v5, "dd MM, yyyy"
+    const-string v5, "dd.MM.yyyy"
 
     invoke-direct {v4, v5}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
