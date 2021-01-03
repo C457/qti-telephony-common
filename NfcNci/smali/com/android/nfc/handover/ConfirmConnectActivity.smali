@@ -23,7 +23,7 @@
 
     iput-object v0, p0, Lcom/android/nfc/handover/ConfirmConnectActivity;->mAlert:Landroid/app/AlertDialog;
 
-    .line 88
+    .line 91
     new-instance v0, Lcom/android/nfc/handover/ConfirmConnectActivity$3;
 
     invoke-direct {v0, p0}, Lcom/android/nfc/handover/ConfirmConnectActivity$3;-><init>(Lcom/android/nfc/handover/ConfirmConnectActivity;)V
@@ -136,7 +136,7 @@
 
     const v5, 0x7f0b001e
 
-    .line 58
+    .line 59
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v5
@@ -147,19 +147,19 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 68
+    .line 70
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/nfc/handover/ConfirmConnectActivity;->mAlert:Landroid/app/AlertDialog;
 
-    .line 69
+    .line 71
     iget-object v4, p0, Lcom/android/nfc/handover/ConfirmConnectActivity;->mAlert:Landroid/app/AlertDialog;
 
     invoke-virtual {v4}, Landroid/app/AlertDialog;->show()V
 
-    .line 71
+    .line 73
     iget-object v4, p0, Lcom/android/nfc/handover/ConfirmConnectActivity;->mReceiver:Landroid/content/BroadcastReceiver;
 
     new-instance v5, Landroid/content/IntentFilter;
@@ -170,34 +170,34 @@
 
     invoke-virtual {p0, v4, v5}, Lcom/android/nfc/handover/ConfirmConnectActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 73
+    .line 75
     return-void
 .end method
 
 .method protected onDestroy()V
     .locals 3
 
-    .line 77
+    .line 79
     iget-object v0, p0, Lcom/android/nfc/handover/ConfirmConnectActivity;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0}, Lcom/android/nfc/handover/ConfirmConnectActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 78
+    .line 80
     iget-object v0, p0, Lcom/android/nfc/handover/ConfirmConnectActivity;->mAlert:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 79
+    .line 81
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 80
+    .line 82
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.nfc.handover.action.DENY_CONNECT"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 81
+    .line 83
     .local v0, "denyIntent":Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/nfc/handover/ConfirmConnectActivity;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
@@ -205,19 +205,24 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 82
+    .line 84
+    const-string v1, "com.android.nfc"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 85
     invoke-virtual {p0, v0}, Lcom/android/nfc/handover/ConfirmConnectActivity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 83
+    .line 86
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/nfc/handover/ConfirmConnectActivity;->mAlert:Landroid/app/AlertDialog;
 
-    .line 85
+    .line 88
     .end local v0    # "denyIntent":Landroid/content/Intent;
     :cond_0
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 86
+    .line 89
     return-void
 .end method

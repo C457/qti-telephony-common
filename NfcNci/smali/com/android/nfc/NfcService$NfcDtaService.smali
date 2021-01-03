@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/android/nfc/NfcService;
 
-    .line 2470
+    .line 2449
     iput-object p1, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-direct {p0}, Landroid/nfc/INfcDta$Stub;-><init>()V
@@ -41,17 +41,17 @@
         }
     .end annotation
 
-    .line 2525
+    .line 2504
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-boolean v0, v0, Lcom/android/nfc/NfcService;->mIsBeamCapable:Z
 
     if-nez v0, :cond_0
 
-    .line 2526
+    .line 2505
     return-void
 
-    .line 2527
+    .line 2506
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -59,14 +59,14 @@
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceAdminPermissions(Landroid/content/Context;)V
 
-    .line 2528
+    .line 2507
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mP2pLinkManager:Lcom/android/nfc/P2pLinkManager;
 
     invoke-virtual {v0}, Lcom/android/nfc/P2pLinkManager;->disableDtaSnepClient()V
 
-    .line 2529
+    .line 2508
     return-void
 .end method
 
@@ -78,19 +78,19 @@
         }
     .end annotation
 
-    .line 2481
+    .line 2460
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceAdminPermissions(Landroid/content/Context;)V
 
-    .line 2482
+    .line 2461
     sget-boolean v0, Lcom/android/nfc/NfcService;->sIsDtaMode:Z
 
     if-eqz v0, :cond_0
 
-    .line 2483
+    .line 2462
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -99,12 +99,12 @@
 
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost;->disableDtaMode()V
 
-    .line 2484
+    .line 2463
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/nfc/NfcService;->sIsDtaMode:Z
 
-    .line 2486
+    .line 2465
     :cond_0
     return-void
 .end method
@@ -117,17 +117,17 @@
         }
     .end annotation
 
-    .line 2500
+    .line 2479
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-boolean v0, v0, Lcom/android/nfc/NfcService;->mIsBeamCapable:Z
 
     if-nez v0, :cond_0
 
-    .line 2501
+    .line 2480
     return-void
 
-    .line 2502
+    .line 2481
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -135,14 +135,14 @@
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceAdminPermissions(Landroid/content/Context;)V
 
-    .line 2503
+    .line 2482
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mP2pLinkManager:Lcom/android/nfc/P2pLinkManager;
 
     invoke-virtual {v0}, Lcom/android/nfc/P2pLinkManager;->disableExtDtaSnepServer()V
 
-    .line 2504
+    .line 2483
     return-void
 .end method
 
@@ -158,14 +158,14 @@
         }
     .end annotation
 
-    .line 2508
+    .line 2487
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceAdminPermissions(Landroid/content/Context;)V
 
-    .line 2510
+    .line 2489
     const/4 v0, 0x0
 
     if-eqz p4, :cond_2
@@ -178,7 +178,7 @@
 
     goto :goto_1
 
-    .line 2513
+    .line 2492
     :cond_0
     const/4 v1, 0x1
 
@@ -186,19 +186,19 @@
 
     if-le p4, v2, :cond_1
 
-    .line 2514
+    .line 2493
     sput-boolean v1, Lcom/android/nfc/NfcService;->sIsShortRecordLayout:Z
 
-    .line 2515
+    .line 2494
     add-int/lit8 p4, p4, -0x14
 
     goto :goto_0
 
-    .line 2517
+    .line 2496
     :cond_1
     sput-boolean v0, Lcom/android/nfc/NfcService;->sIsShortRecordLayout:Z
 
-    .line 2519
+    .line 2498
     :goto_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -218,17 +218,17 @@
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2520
+    .line 2499
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mP2pLinkManager:Lcom/android/nfc/P2pLinkManager;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/nfc/P2pLinkManager;->enableDtaSnepClient(Ljava/lang/String;III)V
 
-    .line 2521
+    .line 2500
     return v1
 
-    .line 2511
+    .line 2490
     :cond_2
     :goto_1
     return v0
@@ -242,19 +242,19 @@
         }
     .end annotation
 
-    .line 2472
+    .line 2451
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceAdminPermissions(Landroid/content/Context;)V
 
-    .line 2473
+    .line 2452
     sget-boolean v0, Lcom/android/nfc/NfcService;->sIsDtaMode:Z
 
     if-nez v0, :cond_0
 
-    .line 2474
+    .line 2453
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -263,19 +263,19 @@
 
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost;->enableDtaMode()V
 
-    .line 2475
+    .line 2454
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/nfc/NfcService;->sIsDtaMode:Z
 
-    .line 2476
+    .line 2455
     const-string v0, "NfcService"
 
     const-string v1, "DTA Mode is Enabled "
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2478
+    .line 2457
     :cond_0
     return-void
 .end method
@@ -293,14 +293,14 @@
         }
     .end annotation
 
-    .line 2490
+    .line 2469
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceAdminPermissions(Landroid/content/Context;)V
 
-    .line 2492
+    .line 2471
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -317,7 +317,7 @@
 
     goto :goto_0
 
-    .line 2495
+    .line 2474
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -335,12 +335,12 @@
 
     invoke-virtual/range {v1 .. v6}, Lcom/android/nfc/P2pLinkManager;->enableExtDtaSnepServer(Ljava/lang/String;IIII)V
 
-    .line 2496
+    .line 2475
     const/4 v0, 0x1
 
     return v0
 
-    .line 2493
+    .line 2472
     :cond_1
     :goto_0
     const/4 v0, 0x0
@@ -357,14 +357,14 @@
         }
     .end annotation
 
-    .line 2533
+    .line 2512
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcDtaService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceAdminPermissions(Landroid/content/Context;)V
 
-    .line 2534
+    .line 2513
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -373,16 +373,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 2535
+    .line 2514
     const/4 v0, 0x0
 
     return v0
 
-    .line 2537
+    .line 2516
     :cond_0
     invoke-static {p1}, Lcom/android/nfc/DtaServiceConnector;->setMessageService(Ljava/lang/String;)V
 
-    .line 2538
+    .line 2517
     const/4 v0, 0x1
 
     return v0

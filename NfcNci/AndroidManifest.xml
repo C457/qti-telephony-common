@@ -52,7 +52,7 @@
         <provider android:authorities="com.google.android.nfc.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
         </provider>
-        <activity android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:multiprocess="true" android:name="com.android.nfc.TechListChooserActivity" android:theme="@android:style/Theme.Leanback.Dialog.AppError"/>
+        <activity android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:multiprocess="true" android:name="com.android.nfc.TechListChooserActivity" android:theme="@android:style/Theme.Dialog.Alert"/>
         <activity android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:multiprocess="true" android:name="com.android.nfc.cardemulation.AppChooserActivity"/>
         <activity android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:multiprocess="true" android:name="com.android.nfc.cardemulation.TapAgainDialog"/>
         <activity android:excludeFromRecents="true" android:name="com.android.nfc.NfcRootActivity" android:noHistory="true" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>

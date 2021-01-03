@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/android/nfc/NfcService;
 
-    .line 1669
+    .line 1648
     iput-object p1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-direct {p0}, Lcom/nxp/nfc/INxpNfcAdapter$Stub;-><init>()V
@@ -35,7 +35,7 @@
     .locals 2
     .param p1, "state"    # I
 
-    .line 1912
+    .line 1891
     :goto_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -43,13 +43,13 @@
 
     if-ne v0, p1, :cond_0
 
-    .line 1913
+    .line 1892
     nop
 
-    .line 1921
+    .line 1900
     return-void
 
-    .line 1916
+    .line 1895
     :cond_0
     const-wide/16 v0, 0x64
 
@@ -58,15 +58,15 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1919
+    .line 1898
     :goto_1
     goto :goto_0
 
-    .line 1917
+    .line 1896
     :catch_0
     move-exception v0
 
-    .line 1918
+    .line 1897
     .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
@@ -88,12 +88,12 @@
         }
     .end annotation
 
-    .line 1855
+    .line 1834
     const/4 v0, 0x4
 
     if-eq p1, v0, :cond_a
 
-    .line 1858
+    .line 1837
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-boolean v1, v1, Lcom/android/nfc/NfcService;->mIsHceCapable:Z
@@ -102,10 +102,10 @@
 
     if-eqz v1, :cond_9
 
-    .line 1859
+    .line 1838
     const/4 v1, 0x0
 
-    .line 1860
+    .line 1839
     .local v1, "protoRouteEntry":I
     and-int/lit8 v3, p1, 0x7
 
@@ -121,7 +121,7 @@
 
     goto :goto_0
 
-    .line 1861
+    .line 1840
     :cond_0
     and-int/lit8 v3, p1, 0x7
 
@@ -131,7 +131,7 @@
 
     goto :goto_0
 
-    .line 1862
+    .line 1841
     :cond_1
     and-int/lit8 v3, p1, 0x7
 
@@ -141,17 +141,17 @@
 
     goto :goto_0
 
-    .line 1863
+    .line 1842
     :cond_2
     move v3, v6
 
     :goto_0
     move v1, v3
 
-    .line 1864
+    .line 1843
     nop
 
-    .line 1865
+    .line 1844
     if-eqz p2, :cond_3
 
     iget-object v3, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
@@ -173,7 +173,7 @@
     :cond_3
     move v3, v6
 
-    .line 1866
+    .line 1845
     :goto_1
     if-eqz p3, :cond_4
 
@@ -197,15 +197,15 @@
 
     or-int/2addr v0, v1
 
-    .line 1868
+    .line 1847
     .end local v1    # "protoRouteEntry":I
     .local v0, "protoRouteEntry":I
     if-nez p1, :cond_6
 
-    .line 1876
+    .line 1855
     and-int/lit16 v0, v0, 0xe9
 
-    .line 1878
+    .line 1857
     :cond_6
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -223,7 +223,7 @@
 
     invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1879
+    .line 1858
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v1}, Lcom/android/nfc/NfcService;->GetDefaultRouteLoc()I
@@ -232,7 +232,7 @@
 
     if-eq v1, p1, :cond_8
 
-    .line 1881
+    .line 1860
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$2400(Lcom/android/nfc/NfcService;)Landroid/content/SharedPreferences;
@@ -245,7 +245,7 @@
 
     invoke-static {v1, v2}, Lcom/android/nfc/NfcService;->access$602(Lcom/android/nfc/NfcService;Landroid/content/SharedPreferences$Editor;)Landroid/content/SharedPreferences$Editor;
 
-    .line 1882
+    .line 1861
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$600(Lcom/android/nfc/NfcService;)Landroid/content/SharedPreferences$Editor;
@@ -256,7 +256,7 @@
 
     invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    .line 1883
+    .line 1862
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$600(Lcom/android/nfc/NfcService;)Landroid/content/SharedPreferences$Editor;
@@ -265,17 +265,17 @@
 
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 1884
+    .line 1863
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iput-boolean v5, v1, Lcom/android/nfc/NfcService;->mIsRouteForced:Z
 
-    .line 1885
+    .line 1864
     iget-boolean v1, v1, Lcom/android/nfc/NfcService;->mIsHceCapable:Z
 
     if-eqz v1, :cond_7
 
-    .line 1886
+    .line 1865
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$2500(Lcom/android/nfc/NfcService;)Lcom/android/nfc/cardemulation/AidRoutingManager;
@@ -284,7 +284,7 @@
 
     invoke-virtual {v1}, Lcom/android/nfc/cardemulation/AidRoutingManager;->onNfccRoutingTableCleared()V
 
-    .line 1887
+    .line 1866
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$700(Lcom/android/nfc/NfcService;)Lcom/android/nfc/cardemulation/CardEmulationManager;
@@ -293,28 +293,28 @@
 
     invoke-virtual {v1}, Lcom/android/nfc/cardemulation/CardEmulationManager;->onRoutingTableChanged()V
 
-    .line 1889
+    .line 1868
     :cond_7
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iput-boolean v6, v1, Lcom/android/nfc/NfcService;->mIsRouteForced:Z
 
-    .line 1891
+    .line 1870
     .end local v0    # "protoRouteEntry":I
     :cond_8
     goto :goto_4
 
-    .line 1893
+    .line 1872
     :cond_9
     const-string v0, "DefaultRoute can not be set. mIsHceCapable = flase"
 
     invoke-static {v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1895
+    .line 1874
     :goto_4
     return-void
 
-    .line 1856
+    .line 1835
     :cond_a
     new-instance v0, Landroid/os/RemoteException;
 
@@ -337,15 +337,15 @@
         }
     .end annotation
 
-    .line 1710
+    .line 1689
     const/4 v0, 0x4
 
     if-eq p1, v0, :cond_6
 
-    .line 1714
+    .line 1693
     const/4 v1, 0x0
 
-    .line 1715
+    .line 1694
     .local v1, "techRouteEntry":I
     and-int/lit8 v2, p1, 0x7
 
@@ -361,7 +361,7 @@
 
     goto :goto_0
 
-    .line 1716
+    .line 1695
     :cond_0
     and-int/lit8 v2, p1, 0x7
 
@@ -371,7 +371,7 @@
 
     goto :goto_0
 
-    .line 1717
+    .line 1696
     :cond_1
     and-int/lit8 v2, p1, 0x7
 
@@ -381,17 +381,17 @@
 
     goto :goto_0
 
-    .line 1718
+    .line 1697
     :cond_2
     move v2, v5
 
     :goto_0
     move v1, v2
 
-    .line 1719
+    .line 1698
     nop
 
-    .line 1720
+    .line 1699
     if-eqz p2, :cond_3
 
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
@@ -413,7 +413,7 @@
     :cond_3
     move v2, v5
 
-    .line 1721
+    .line 1700
     :goto_1
     if-eqz p3, :cond_4
 
@@ -437,12 +437,12 @@
 
     or-int/2addr v0, v1
 
-    .line 1722
+    .line 1701
     .end local v1    # "techRouteEntry":I
     .local v0, "techRouteEntry":I
     or-int/lit16 v0, v0, 0x800
 
-    .line 1724
+    .line 1703
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -461,7 +461,7 @@
 
     invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1725
+    .line 1704
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$2400(Lcom/android/nfc/NfcService;)Landroid/content/SharedPreferences;
@@ -474,7 +474,7 @@
 
     invoke-static {v1, v2}, Lcom/android/nfc/NfcService;->access$602(Lcom/android/nfc/NfcService;Landroid/content/SharedPreferences$Editor;)Landroid/content/SharedPreferences$Editor;
 
-    .line 1726
+    .line 1705
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$600(Lcom/android/nfc/NfcService;)Landroid/content/SharedPreferences$Editor;
@@ -485,7 +485,7 @@
 
     invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    .line 1727
+    .line 1706
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$600(Lcom/android/nfc/NfcService;)Landroid/content/SharedPreferences$Editor;
@@ -494,15 +494,15 @@
 
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 1728
+    .line 1707
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v1}, Lcom/android/nfc/NfcService;->commitRouting()V
 
-    .line 1729
+    .line 1708
     return-void
 
-    .line 1711
+    .line 1690
     .end local v0    # "techRouteEntry":I
     :cond_6
     new-instance v0, Landroid/os/RemoteException;
@@ -526,15 +526,15 @@
         }
     .end annotation
 
-    .line 1677
+    .line 1656
     const/4 v0, 0x4
 
     if-eq p1, v0, :cond_7
 
-    .line 1680
+    .line 1659
     const/4 v1, 0x0
 
-    .line 1682
+    .line 1661
     .local v1, "protoRouteEntry":I
     and-int/lit8 v2, p1, 0x7
 
@@ -550,7 +550,7 @@
 
     goto :goto_0
 
-    .line 1683
+    .line 1662
     :cond_0
     and-int/lit8 v2, p1, 0x7
 
@@ -560,7 +560,7 @@
 
     goto :goto_0
 
-    .line 1684
+    .line 1663
     :cond_1
     and-int/lit8 v2, p1, 0x7
 
@@ -570,17 +570,17 @@
 
     goto :goto_0
 
-    .line 1685
+    .line 1664
     :cond_2
     move v2, v5
 
     :goto_0
     move v1, v2
 
-    .line 1686
+    .line 1665
     nop
 
-    .line 1687
+    .line 1666
     if-eqz p2, :cond_3
 
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
@@ -602,7 +602,7 @@
     :cond_3
     move v2, v5
 
-    .line 1688
+    .line 1667
     :goto_1
     if-eqz p3, :cond_4
 
@@ -626,15 +626,15 @@
 
     or-int/2addr v0, v1
 
-    .line 1690
+    .line 1669
     .end local v1    # "protoRouteEntry":I
     .local v0, "protoRouteEntry":I
     if-nez p1, :cond_6
 
-    .line 1697
+    .line 1676
     and-int/lit16 v0, v0, 0xe9
 
-    .line 1700
+    .line 1679
     :cond_6
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -654,7 +654,7 @@
 
     invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1701
+    .line 1680
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$2400(Lcom/android/nfc/NfcService;)Landroid/content/SharedPreferences;
@@ -667,7 +667,7 @@
 
     invoke-static {v1, v3}, Lcom/android/nfc/NfcService;->access$602(Lcom/android/nfc/NfcService;Landroid/content/SharedPreferences$Editor;)Landroid/content/SharedPreferences$Editor;
 
-    .line 1702
+    .line 1681
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$600(Lcom/android/nfc/NfcService;)Landroid/content/SharedPreferences$Editor;
@@ -678,7 +678,7 @@
 
     invoke-interface {v1, v3, v0}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    .line 1703
+    .line 1682
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$600(Lcom/android/nfc/NfcService;)Landroid/content/SharedPreferences$Editor;
@@ -687,20 +687,20 @@
 
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 1704
+    .line 1683
     const-string v1, "MifareDesfireRouteSet function in"
 
     invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1705
+    .line 1684
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v1}, Lcom/android/nfc/NfcService;->commitRouting()V
 
-    .line 1706
+    .line 1685
     return-void
 
-    .line 1678
+    .line 1657
     .end local v0    # "protoRouteEntry":I
     :cond_7
     new-instance v0, Landroid/os/RemoteException;
@@ -715,12 +715,12 @@
 .method public activateSeInterface()I
     .locals 2
 
-    .line 2060
+    .line 2039
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     monitor-enter v0
 
-    .line 2061
+    .line 2040
     :try_start_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -734,7 +734,7 @@
 
     return v1
 
-    .line 2062
+    .line 2041
     :catchall_0
     move-exception v1
 
@@ -756,12 +756,12 @@
         }
     .end annotation
 
-    .line 1781
+    .line 1760
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     monitor-enter v0
 
-    .line 1782
+    .line 1761
     :try_start_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -771,19 +771,19 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 1783
+    .line 1762
     const-string v1, "NfcService"
 
     const-string v2, "changeDiscoveryTech. NFC is not enabled"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1784
+    .line 1763
     monitor-exit v0
 
     return-void
 
-    .line 1787
+    .line 1766
     :cond_0
     const-string v1, "NfcService"
 
@@ -819,7 +819,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1790
+    .line 1769
     const/16 v1, 0xff
 
     const/4 v2, 0x1
@@ -828,7 +828,7 @@
 
     if-ne p3, v1, :cond_2
 
-    .line 1793
+    .line 1772
     :try_start_1
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -836,14 +836,14 @@
 
     if-nez v1, :cond_1
 
-    .line 1794
+    .line 1773
     const-string v1, "NfcService"
 
     const-string v3, "changeDiscoveryTech. Android Beam was temporarily enabled, so disable this."
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1795
+    .line 1774
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v1, v1, Lcom/android/nfc/NfcService;->mP2pLinkManager:Lcom/android/nfc/P2pLinkManager;
@@ -852,7 +852,7 @@
 
     invoke-virtual {v1, v3, v2}, Lcom/android/nfc/P2pLinkManager;->enableDisable(ZZ)V
 
-    .line 1797
+    .line 1776
     :cond_1
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -865,14 +865,14 @@
     .catch Ljava/util/NoSuchElementException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1800
+    .line 1779
     goto :goto_0
 
-    .line 1798
+    .line 1777
     :catch_0
     move-exception v1
 
-    .line 1799
+    .line 1778
     .local v1, "e":Ljava/util/NoSuchElementException;
     :try_start_2
     const-string v3, "NfcService"
@@ -881,13 +881,13 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1800
+    .line 1779
     nop
 
     .end local v1    # "e":Ljava/util/NoSuchElementException;
     goto :goto_0
 
-    .line 1803
+    .line 1782
     :cond_2
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -895,21 +895,21 @@
 
     if-nez v1, :cond_3
 
-    .line 1804
+    .line 1783
     const-string v1, "NfcService"
 
     const-string v3, "changeDiscoveryTech. Android Beam is disabled, so enable this temporarily."
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1805
+    .line 1784
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v1, v1, Lcom/android/nfc/NfcService;->mP2pLinkManager:Lcom/android/nfc/P2pLinkManager;
 
     invoke-virtual {v1, v2, v2}, Lcom/android/nfc/P2pLinkManager;->enableDisable(ZZ)V
 
-    .line 1807
+    .line 1786
     :cond_3
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -919,7 +919,7 @@
 
     invoke-interface {v1, p2, p3}, Lcom/android/nfc/DeviceHost;->doChangeDiscoveryTech(II)V
 
-    .line 1810
+    .line 1789
     :goto_0
     const-string v1, "NfcService"
 
@@ -927,18 +927,18 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1811
+    .line 1790
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v1, v2}, Lcom/android/nfc/NfcService;->applyRouting(Z)V
 
-    .line 1812
+    .line 1791
     monitor-exit v0
 
-    .line 1813
+    .line 1792
     return-void
 
-    .line 1812
+    .line 1791
     :catchall_0
     move-exception v1
 
@@ -952,12 +952,12 @@
 .method public deactivateSeInterface()I
     .locals 2
 
-    .line 2071
+    .line 2050
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     monitor-enter v0
 
-    .line 2072
+    .line 2051
     :try_start_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -971,7 +971,7 @@
 
     return v1
 
-    .line 2073
+    .line 2052
     :catchall_0
     move-exception v1
 
@@ -986,25 +986,25 @@
     .locals 5
     .param p1, "fileId"    # [B
 
-    .line 2112
+    .line 2091
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2113
+    .line 2092
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 2114
+    .line 2093
     .local v0, "readBundle":Landroid/os/Bundle;
     const-string v1, "fileId"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V
 
-    .line 2116
+    .line 2095
     :try_start_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1012,7 +1012,7 @@
 
     invoke-virtual {v1, v2, v0}, Lcom/android/nfc/NfcService;->sendMessage(ILjava/lang/Object;)V
 
-    .line 2117
+    .line 2096
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$2600(Lcom/android/nfc/NfcService;)Ljava/lang/Object;
@@ -1023,7 +1023,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2118
+    .line 2097
     :try_start_1
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1035,13 +1035,13 @@
 
     invoke-virtual {v2, v3, v4}, Ljava/lang/Object;->wait(J)V
 
-    .line 2119
+    .line 2098
     monitor-exit v1
 
-    .line 2122
+    .line 2101
     goto :goto_0
 
-    .line 2119
+    .line 2098
     :catchall_0
     move-exception v2
 
@@ -1057,18 +1057,18 @@
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 2120
+    .line 2099
     .restart local v0    # "readBundle":Landroid/os/Bundle;
     .restart local p0    # "this":Lcom/android/nfc/NfcService$NxpNfcAdapterService;
     .restart local p1    # "fileId":[B
     :catch_0
     move-exception v1
 
-    .line 2121
+    .line 2100
     .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 2125
+    .line 2104
     .end local v1    # "e":Ljava/lang/Exception;
     :goto_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
@@ -1083,7 +1083,7 @@
 
     move-result-object v1
 
-    .line 2126
+    .line 2105
     .local v1, "readData":[B
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1093,7 +1093,7 @@
 
     invoke-virtual {v2}, Landroid/os/Bundle;->clear()V
 
-    .line 2127
+    .line 2106
     return-object v1
 .end method
 
@@ -1103,35 +1103,35 @@
     .param p2, "data"    # [B
     .param p3, "length"    # I
 
-    .line 2090
+    .line 2069
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2091
+    .line 2070
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 2092
+    .line 2071
     .local v0, "writeBundle":Landroid/os/Bundle;
     const-string v1, "fileId"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V
 
-    .line 2093
+    .line 2072
     const-string v1, "writeData"
 
     invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V
 
-    .line 2094
+    .line 2073
     const-string v1, "length"
 
     invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 2096
+    .line 2075
     :try_start_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1139,7 +1139,7 @@
 
     invoke-virtual {v1, v2, v0}, Lcom/android/nfc/NfcService;->sendMessage(ILjava/lang/Object;)V
 
-    .line 2097
+    .line 2076
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$2600(Lcom/android/nfc/NfcService;)Ljava/lang/Object;
@@ -1150,7 +1150,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2098
+    .line 2077
     :try_start_1
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1162,13 +1162,13 @@
 
     invoke-virtual {v2, v3, v4}, Ljava/lang/Object;->wait(J)V
 
-    .line 2099
+    .line 2078
     monitor-exit v1
 
-    .line 2102
+    .line 2081
     goto :goto_0
 
-    .line 2099
+    .line 2078
     :catchall_0
     move-exception v2
 
@@ -1186,7 +1186,7 @@
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 2100
+    .line 2079
     .restart local v0    # "writeBundle":Landroid/os/Bundle;
     .restart local p0    # "this":Lcom/android/nfc/NfcService$NxpNfcAdapterService;
     .restart local p1    # "fileId":[B
@@ -1195,11 +1195,11 @@
     :catch_0
     move-exception v1
 
-    .line 2101
+    .line 2080
     .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 2105
+    .line 2084
     .end local v1    # "e":Ljava/lang/Exception;
     :goto_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
@@ -1216,7 +1216,7 @@
 
     move-result v1
 
-    .line 2106
+    .line 2085
     .local v1, "status":I
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1226,7 +1226,7 @@
 
     invoke-virtual {v2}, Landroid/os/Bundle;->clear()V
 
-    .line 2107
+    .line 2086
     return v1
 .end method
 
@@ -1239,10 +1239,10 @@
         }
     .end annotation
 
-    .line 1733
+    .line 1712
     const/4 v0, 0x0
 
-    .line 1734
+    .line 1713
     .local v0, "list":[I
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1252,7 +1252,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1735
+    .line 1714
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -1263,7 +1263,7 @@
 
     move-result-object v0
 
-    .line 1737
+    .line 1716
     :cond_0
     const/4 v1, 0x0
 
@@ -1273,7 +1273,7 @@
 
     if-ge v1, v2, :cond_1
 
-    .line 1738
+    .line 1717
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1294,12 +1294,12 @@
 
     invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1737
+    .line 1716
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1740
+    .line 1719
     .end local v1    # "i":I
     :cond_1
     return-object v0
@@ -1313,14 +1313,14 @@
         }
     .end annotation
 
-    .line 2043
+    .line 2022
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2044
+    .line 2023
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->getAidRoutingTableSize()I
@@ -1341,12 +1341,12 @@
 .method public getFWVersion()[B
     .locals 7
 
-    .line 1900
+    .line 1879
     const/4 v0, 0x3
 
     new-array v0, v0, [B
 
-    .line 1901
+    .line 1880
     .local v0, "buf":[B
     const-string v1, "NfcService"
 
@@ -1354,7 +1354,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1902
+    .line 1881
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v2}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -1365,7 +1365,7 @@
 
     move-result v2
 
-    .line 1903
+    .line 1882
     .local v2, "fwver":I
     const v3, 0xff00
 
@@ -1379,7 +1379,7 @@
 
     aput-byte v3, v0, v4
 
-    .line 1904
+    .line 1883
     and-int/lit16 v3, v2, 0xff
 
     int-to-byte v3, v3
@@ -1388,7 +1388,7 @@
 
     aput-byte v3, v0, v5
 
-    .line 1905
+    .line 1884
     const/high16 v3, 0xff0000
 
     and-int/2addr v3, v2
@@ -1401,7 +1401,7 @@
 
     aput-byte v3, v0, v6
 
-    .line 1906
+    .line 1885
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1428,7 +1428,7 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1907
+    .line 1886
     return-object v0
 .end method
 
@@ -1440,14 +1440,14 @@
         }
     .end annotation
 
-    .line 2037
+    .line 2016
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2038
+    .line 2017
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->getAidRoutingTableSize()I
@@ -1465,7 +1465,7 @@
         }
     .end annotation
 
-    .line 1672
+    .line 1651
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mNxpExtrasService:Lcom/android/nfc/NfcService$NxpNfcAdapterExtrasService;
@@ -1481,7 +1481,7 @@
         }
     .end annotation
 
-    .line 2049
+    .line 2028
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->isNfcEnabled()Z
@@ -1490,7 +1490,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 2052
+    .line 2031
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -1503,7 +1503,7 @@
 
     return v0
 
-    .line 2050
+    .line 2029
     :cond_0
     new-instance v0, Landroid/os/RemoteException;
 
@@ -1529,7 +1529,7 @@
         }
     .end annotation
 
-    .line 2027
+    .line 2006
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$700(Lcom/android/nfc/NfcService;)Lcom/android/nfc/cardemulation/CardEmulationManager;
@@ -1546,14 +1546,14 @@
 .method public isFieldDetectEnabled()Z
     .locals 1
 
-    .line 2084
+    .line 2063
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2085
+    .line 2064
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -1571,7 +1571,7 @@
     .locals 3
     .param p1, "pkg"    # Ljava/lang/String;
 
-    .line 1767
+    .line 1746
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->isNfcEnabled()Z
@@ -1580,22 +1580,22 @@
 
     if-nez v0, :cond_0
 
-    .line 1768
+    .line 1747
     const/4 v0, 0x0
 
     return v0
 
-    .line 1771
+    .line 1750
     :cond_0
     const/4 v0, 0x0
 
-    .line 1772
+    .line 1751
     .local v0, "status":Z
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     monitor-enter v1
 
-    .line 1773
+    .line 1752
     :try_start_0
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1609,13 +1609,13 @@
 
     move v0, v2
 
-    .line 1774
+    .line 1753
     monitor-exit v1
 
-    .line 1775
+    .line 1754
     return v0
 
-    .line 1774
+    .line 1753
     :catchall_0
     move-exception v2
 
@@ -1631,7 +1631,7 @@
     .param p1, "pkg"    # Ljava/lang/String;
     .param p2, "on"    # Z
 
-    .line 1746
+    .line 1725
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->isNfcEnabled()Z
@@ -1642,16 +1642,16 @@
 
     if-nez v0, :cond_0
 
-    .line 1747
+    .line 1726
     return v1
 
-    .line 1750
+    .line 1729
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     monitor-enter v0
 
-    .line 1751
+    .line 1730
     :try_start_0
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1663,11 +1663,11 @@
 
     move-result v2
 
-    .line 1752
+    .line 1731
     .local v2, "status":I
     if-nez p2, :cond_3
 
-    .line 1753
+    .line 1732
     invoke-static {}, Lcom/android/nfc/NfcService;->access$500()I
 
     move-result v3
@@ -1676,14 +1676,14 @@
 
     if-eq v3, v4, :cond_1
 
-    .line 1754
+    .line 1733
     iget-object v3, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v3, v1}, Lcom/android/nfc/NfcService;->applyRouting(Z)V
 
     goto :goto_0
 
-    .line 1755
+    .line 1734
     :cond_1
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1695,7 +1695,7 @@
 
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
-    .line 1756
+    .line 1735
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$900(Lcom/android/nfc/NfcService;)Lcom/android/nfc/NfcUnlockManager;
 
     move-result-object v1
@@ -1706,7 +1706,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 1757
+    .line 1736
     :cond_2
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1714,14 +1714,14 @@
 
     invoke-virtual {v1, v3}, Lcom/android/nfc/NfcService;->applyRouting(Z)V
 
-    .line 1760
+    .line 1739
     :cond_3
     :goto_0
     monitor-exit v0
 
     return v2
 
-    .line 1761
+    .line 1740
     .end local v2    # "status":I
     :catchall_0
     move-exception v1
@@ -1737,30 +1737,30 @@
     .locals 3
     .param p1, "type"    # I
 
-    .line 1841
+    .line 1820
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 1842
+    .line 1821
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceAdminPermissions(Landroid/content/Context;)V
 
-    .line 1843
+    .line 1822
     const/16 v0, 0xff
 
-    .line 1845
+    .line 1824
     .local v0, "status":I
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     monitor-enter v1
 
-    .line 1846
+    .line 1825
     :try_start_0
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1774,13 +1774,13 @@
 
     move v0, v2
 
-    .line 1847
+    .line 1826
     monitor-exit v1
 
-    .line 1848
+    .line 1827
     return v0
 
-    .line 1847
+    .line 1826
     :catchall_0
     move-exception v2
 
@@ -1801,7 +1801,7 @@
         }
     .end annotation
 
-    .line 1928
+    .line 1907
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1826,7 +1826,7 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1930
+    .line 1909
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -1849,12 +1849,12 @@
         }
     .end annotation
 
-    .line 1991
+    .line 1970
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     monitor-enter v0
 
-    .line 1992
+    .line 1971
     :try_start_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1864,7 +1864,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 1995
+    .line 1974
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -1875,7 +1875,7 @@
 
     move-result v1
 
-    .line 1996
+    .line 1975
     .local v1, "status":I
     const-string v2, "NfcService"
 
@@ -1883,14 +1883,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2000
+    .line 1979
     const/4 v2, 0x1
 
     if-eqz v1, :cond_0
 
     if-ne v1, v2, :cond_2
 
-    .line 2002
+    .line 1981
     :cond_0
     iget-object v3, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -1902,7 +1902,7 @@
 
     invoke-interface {v3, v4, p1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    .line 2003
+    .line 1982
     iget-object v3, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v3}, Lcom/android/nfc/NfcService;->access$100(Lcom/android/nfc/NfcService;)Landroid/content/SharedPreferences$Editor;
@@ -1911,7 +1911,7 @@
 
     invoke-interface {v3}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 2004
+    .line 1983
     iget-object v3, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v3}, Lcom/android/nfc/NfcService;->access$2500(Lcom/android/nfc/NfcService;)Lcom/android/nfc/cardemulation/AidRoutingManager;
@@ -1928,14 +1928,14 @@
 
     if-eqz v3, :cond_1
 
-    .line 2006
+    .line 1985
     const-string v3, "NfcService"
 
     const-string v4, "Update routing table"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2007
+    .line 1986
     iget-object v3, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v3}, Lcom/android/nfc/NfcService;->access$2500(Lcom/android/nfc/NfcService;)Lcom/android/nfc/cardemulation/AidRoutingManager;
@@ -1944,7 +1944,7 @@
 
     invoke-virtual {v3}, Lcom/android/nfc/cardemulation/AidRoutingManager;->onNfccRoutingTableCleared()V
 
-    .line 2008
+    .line 1987
     iget-object v3, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v3}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -1955,7 +1955,7 @@
 
     invoke-interface {v3, v4}, Lcom/android/nfc/DeviceHost;->clearRoutingEntry(I)Z
 
-    .line 2009
+    .line 1988
     iget-object v3, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v3}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -1964,7 +1964,7 @@
 
     invoke-interface {v3, v2}, Lcom/android/nfc/DeviceHost;->clearRoutingEntry(I)Z
 
-    .line 2010
+    .line 1989
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v2}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -1975,7 +1975,7 @@
 
     invoke-interface {v2, v3}, Lcom/android/nfc/DeviceHost;->clearRoutingEntry(I)Z
 
-    .line 2011
+    .line 1990
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v2}, Lcom/android/nfc/NfcService;->access$700(Lcom/android/nfc/NfcService;)Lcom/android/nfc/cardemulation/CardEmulationManager;
@@ -1984,19 +1984,19 @@
 
     invoke-virtual {v2}, Lcom/android/nfc/cardemulation/CardEmulationManager;->onNfcEnabled()V
 
-    .line 2012
+    .line 1991
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v2}, Lcom/android/nfc/NfcService;->computeRoutingParameters()V
 
-    .line 2013
+    .line 1992
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v2}, Lcom/android/nfc/NfcService;->commitRouting()V
 
     goto :goto_0
 
-    .line 2017
+    .line 1996
     :cond_1
     const-string v2, "NfcService"
 
@@ -2004,21 +2004,21 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2018
+    .line 1997
     iget-object v2, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Lcom/android/nfc/NfcService;->applyRouting(Z)V
 
-    .line 2021
+    .line 2000
     :cond_2
     :goto_0
     monitor-exit v0
 
     return v1
 
-    .line 1993
+    .line 1972
     .end local v1    # "status":I
     :cond_3
     new-instance v1, Landroid/os/RemoteException;
@@ -2031,7 +2031,7 @@
     .end local p1    # "uiccSlot":I
     throw v1
 
-    .line 2022
+    .line 2001
     .restart local p0    # "this":Lcom/android/nfc/NfcService$NxpNfcAdapterService;
     .restart local p1    # "uiccSlot":I
     :catchall_0
@@ -2049,21 +2049,21 @@
     .param p1, "configs"    # Ljava/lang/String;
     .param p2, "pkg"    # Ljava/lang/String;
 
-    .line 1941
+    .line 1920
     const-string v0, "NfcService"
 
     const-string v1, "Setting configs for Transit"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1943
+    .line 1922
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v1, v1, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/android/nfc/NfcPermissions;->enforceAdminPermissions(Landroid/content/Context;)V
 
-    .line 1945
+    .line 1924
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -2078,15 +2078,15 @@
 
     if-eqz v1, :cond_0
 
-    .line 1947
+    .line 1926
     const-string v1, "NFCC is busy.."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1948
+    .line 1927
     return v2
 
-    .line 1953
+    .line 1932
     :cond_0
     :try_start_0
     new-instance v1, Ljava/io/File;
@@ -2095,25 +2095,25 @@
 
     invoke-direct {v1, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 1954
+    .line 1933
     .local v1, "newTextFile":Ljava/io/File;
     if-nez p1, :cond_2
 
-    .line 1956
+    .line 1935
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    .line 1957
+    .line 1936
     const-string v3, "Removing transit config file. Taking default Value"
 
     invoke-static {v0, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 1959
+    .line 1938
     :cond_1
     sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -2123,25 +2123,25 @@
 
     goto :goto_0
 
-    .line 1964
+    .line 1943
     :cond_2
     new-instance v3, Ljava/io/FileWriter;
 
     invoke-direct {v3, v1}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
 
-    .line 1965
+    .line 1944
     .local v3, "fw":Ljava/io/FileWriter;
     invoke-virtual {v3, p1}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
-    .line 1966
+    .line 1945
     invoke-virtual {v3}, Ljava/io/FileWriter;->close()V
 
-    .line 1967
+    .line 1946
     const-string v4, "File Written to libnfc-nxpTransit.conf successfully"
 
     invoke-static {v0, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1969
+    .line 1948
     .end local v3    # "fw":Ljava/io/FileWriter;
     :goto_0
     iget-object v3, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
@@ -2154,10 +2154,10 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 1973
+    .line 1952
     nop
 
-    .line 1977
+    .line 1956
     .end local v1    # "newTextFile":Ljava/io/File;
     :try_start_1
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
@@ -2168,57 +2168,57 @@
 
     invoke-virtual {v1, v3}, Lcom/android/nfc/NfcService$NfcAdapterService;->disable(Z)Z
 
-    .line 1978
+    .line 1957
     invoke-direct {p0, v3}, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->WaitForAdapterChange(I)V
 
-    .line 1979
+    .line 1958
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v1, v1, Lcom/android/nfc/NfcService;->mNfcAdapter:Lcom/android/nfc/NfcService$NfcAdapterService;
 
     invoke-virtual {v1}, Lcom/android/nfc/NfcService$NfcAdapterService;->enable()Z
 
-    .line 1980
+    .line 1959
     const/4 v1, 0x3
 
     invoke-direct {p0, v1}, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->WaitForAdapterChange(I)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 1985
+    .line 1964
     nop
 
-    .line 1986
+    .line 1965
     const/4 v0, 0x0
 
     return v0
 
-    .line 1981
+    .line 1960
     :catch_0
     move-exception v1
 
-    .line 1982
+    .line 1961
     .local v1, "e":Ljava/lang/Exception;
     const-string v3, "Unable to restart NFC Service"
 
     invoke-static {v0, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1983
+    .line 1962
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 1984
+    .line 1963
     return v2
 
-    .line 1970
+    .line 1949
     .end local v1    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v0
 
-    .line 1971
+    .line 1950
     .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 1972
+    .line 1951
     return v2
 .end method
 
@@ -2226,14 +2226,14 @@
     .locals 1
     .param p1, "mode"    # Z
 
-    .line 2078
+    .line 2057
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2079
+    .line 2058
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -2251,7 +2251,7 @@
     .locals 2
     .param p1, "pkg"    # Ljava/lang/String;
 
-    .line 1830
+    .line 1809
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->isNfcEnabled()Z
@@ -2260,16 +2260,16 @@
 
     if-nez v0, :cond_0
 
-    .line 1831
+    .line 1810
     return-void
 
-    .line 1834
+    .line 1813
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     monitor-enter v0
 
-    .line 1835
+    .line 1814
     :try_start_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -2279,13 +2279,13 @@
 
     invoke-interface {v1}, Lcom/android/nfc/DeviceHost;->startPoll()V
 
-    .line 1836
+    .line 1815
     monitor-exit v0
 
-    .line 1837
+    .line 1816
     return-void
 
-    .line 1836
+    .line 1815
     :catchall_0
     move-exception v1
 
@@ -2301,7 +2301,7 @@
     .param p1, "pkg"    # Ljava/lang/String;
     .param p2, "mode"    # I
 
-    .line 1818
+    .line 1797
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->isNfcEnabled()Z
@@ -2310,16 +2310,16 @@
 
     if-nez v0, :cond_0
 
-    .line 1819
+    .line 1798
     return-void
 
-    .line 1822
+    .line 1801
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     monitor-enter v0
 
-    .line 1823
+    .line 1802
     :try_start_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -2329,13 +2329,13 @@
 
     invoke-interface {v1, p2}, Lcom/android/nfc/DeviceHost;->stopPoll(I)V
 
-    .line 1824
+    .line 1803
     monitor-exit v0
 
-    .line 1825
+    .line 1804
     return-void
 
-    .line 1824
+    .line 1803
     :catchall_0
     move-exception v1
 
@@ -2355,14 +2355,14 @@
         }
     .end annotation
 
-    .line 1936
+    .line 1915
     const-string v0, "NfcService"
 
     const-string v1, "Transceive requested on reader pass through mode"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1937
+    .line 1916
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -2381,7 +2381,7 @@
     .param p1, "userId"    # I
     .param p2, "serviceState"    # Ljava/util/Map;
 
-    .line 2032
+    .line 2011
     iget-object v0, p0, Lcom/android/nfc/NfcService$NxpNfcAdapterService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$700(Lcom/android/nfc/NfcService;)Lcom/android/nfc/cardemulation/CardEmulationManager;

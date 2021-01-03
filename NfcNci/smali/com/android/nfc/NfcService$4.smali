@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/android/nfc/NfcService;
 
-    .line 3998
+    .line 3969
     iput-object p1, p0, Lcom/android/nfc/NfcService$4;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-direct {p0}, Landroid/service/vr/IVrStateCallbacks$Stub;-><init>()V
@@ -37,22 +37,22 @@
     .locals 1
     .param p1, "enabled"    # Z
 
-    .line 4001
+    .line 3972
     monitor-enter p0
 
-    .line 4002
+    .line 3973
     :try_start_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$4;->this$0:Lcom/android/nfc/NfcService;
 
     iput-boolean p1, v0, Lcom/android/nfc/NfcService;->mIsVrModeEnabled:Z
 
-    .line 4003
+    .line 3974
     monitor-exit p0
 
-    .line 4004
+    .line 3975
     return-void
 
-    .line 4003
+    .line 3974
     :catchall_0
     move-exception v0
 

@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/android/nfc/NfcService;
 
-    .line 3986
+    .line 3957
     iput-object p1, p0, Lcom/android/nfc/NfcService$3;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,16 +38,16 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .line 3989
+    .line 3960
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3990
+    .line 3961
     .local v0, "action":Ljava/lang/String;
     nop
 
-    .line 3991
+    .line 3962
     const-string v1, "android.app.action.DEVICE_POLICY_MANAGER_STATE_CHANGED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -56,22 +56,22 @@
 
     if-eqz v1, :cond_0
 
-    .line 3992
+    .line 3963
     iget-object v1, p0, Lcom/android/nfc/NfcService$3;->this$0:Lcom/android/nfc/NfcService;
 
     new-instance v2, Landroid/os/UserHandle;
 
-    .line 3993
+    .line 3964
     invoke-virtual {p0}, Lcom/android/nfc/NfcService$3;->getSendingUserId()I
 
     move-result v3
 
     invoke-direct {v2, v3}, Landroid/os/UserHandle;-><init>(I)V
 
-    .line 3992
+    .line 3963
     invoke-virtual {v1, p1, v2}, Lcom/android/nfc/NfcService;->enforceBeamShareActivityPolicy(Landroid/content/Context;Landroid/os/UserHandle;)V
 
-    .line 3995
+    .line 3966
     :cond_0
     return-void
 .end method

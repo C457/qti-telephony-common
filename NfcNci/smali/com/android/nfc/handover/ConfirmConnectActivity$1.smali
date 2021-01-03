@@ -26,7 +26,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/android/nfc/handover/ConfirmConnectActivity;
 
-    .line 59
+    .line 60
     iput-object p1, p0, Lcom/android/nfc/handover/ConfirmConnectActivity$1;->this$0:Lcom/android/nfc/handover/ConfirmConnectActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,14 +41,14 @@
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "id"    # I
 
-    .line 61
+    .line 62
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.nfc.handover.action.DENY_CONNECT"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 62
+    .line 63
     .local v0, "denyIntent":Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/nfc/handover/ConfirmConnectActivity$1;->this$0:Lcom/android/nfc/handover/ConfirmConnectActivity;
 
@@ -58,21 +58,26 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 63
+    .line 64
+    const-string v1, "com.android.nfc"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 65
     iget-object v1, p0, Lcom/android/nfc/handover/ConfirmConnectActivity$1;->this$0:Lcom/android/nfc/handover/ConfirmConnectActivity;
 
     invoke-virtual {v1, v0}, Lcom/android/nfc/handover/ConfirmConnectActivity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 64
+    .line 66
     iget-object v1, p0, Lcom/android/nfc/handover/ConfirmConnectActivity$1;->this$0:Lcom/android/nfc/handover/ConfirmConnectActivity;
 
     const/4 v2, 0x0
 
     iput-object v2, v1, Lcom/android/nfc/handover/ConfirmConnectActivity;->mAlert:Landroid/app/AlertDialog;
 
-    .line 65
+    .line 67
     invoke-virtual {v1}, Lcom/android/nfc/handover/ConfirmConnectActivity;->finish()V
 
-    .line 66
+    .line 68
     return-void
 .end method

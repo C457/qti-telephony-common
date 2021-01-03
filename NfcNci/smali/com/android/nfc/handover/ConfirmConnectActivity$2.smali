@@ -59,20 +59,25 @@
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     .line 53
+    const-string v1, "com.android.nfc"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 54
     iget-object v1, p0, Lcom/android/nfc/handover/ConfirmConnectActivity$2;->this$0:Lcom/android/nfc/handover/ConfirmConnectActivity;
 
     invoke-virtual {v1, v0}, Lcom/android/nfc/handover/ConfirmConnectActivity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 54
+    .line 55
     iget-object v1, p0, Lcom/android/nfc/handover/ConfirmConnectActivity$2;->this$0:Lcom/android/nfc/handover/ConfirmConnectActivity;
 
     const/4 v2, 0x0
 
     iput-object v2, v1, Lcom/android/nfc/handover/ConfirmConnectActivity;->mAlert:Landroid/app/AlertDialog;
 
-    .line 55
+    .line 56
     invoke-virtual {v1}, Lcom/android/nfc/handover/ConfirmConnectActivity;->finish()V
 
-    .line 56
+    .line 57
     return-void
 .end method

@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/android/nfc/handover/ConfirmConnectActivity;
 
-    .line 88
+    .line 91
     iput-object p1, p0, Lcom/android/nfc/handover/ConfirmConnectActivity$3;->this$0:Lcom/android/nfc/handover/ConfirmConnectActivity;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .line 91
+    .line 94
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -51,12 +51,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 92
+    .line 95
     iget-object v0, p0, Lcom/android/nfc/handover/ConfirmConnectActivity$3;->this$0:Lcom/android/nfc/handover/ConfirmConnectActivity;
 
     invoke-virtual {v0}, Lcom/android/nfc/handover/ConfirmConnectActivity;->finish()V
 
-    .line 94
+    .line 97
     :cond_0
     return-void
 .end method

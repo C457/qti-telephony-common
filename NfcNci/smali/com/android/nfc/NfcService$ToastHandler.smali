@@ -28,22 +28,22 @@
     .param p1, "this$0"    # Lcom/android/nfc/NfcService;
     .param p2, "_context"    # Landroid/content/Context;
 
-    .line 3823
+    .line 3794
     iput-object p1, p0, Lcom/android/nfc/NfcService$ToastHandler;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3824
+    .line 3795
     iput-object p2, p0, Lcom/android/nfc/NfcService$ToastHandler;->mContext:Landroid/content/Context;
 
-    .line 3825
+    .line 3796
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/android/nfc/NfcService$ToastHandler;->mHandler:Landroid/os/Handler;
 
-    .line 3826
+    .line 3797
     return-void
 .end method
 
@@ -51,7 +51,7 @@
     .locals 1
     .param p0, "x0"    # Lcom/android/nfc/NfcService$ToastHandler;
 
-    .line 3816
+    .line 3787
     iget-object v0, p0, Lcom/android/nfc/NfcService$ToastHandler;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -61,7 +61,7 @@
     .locals 1
     .param p0, "x0"    # Lcom/android/nfc/NfcService$ToastHandler;
 
-    .line 3816
+    .line 3787
     iget-object v0, p0, Lcom/android/nfc/NfcService$ToastHandler;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -71,22 +71,22 @@
     .locals 1
     .param p1, "_runnable"    # Ljava/lang/Runnable;
 
-    .line 3836
+    .line 3807
     new-instance v0, Lcom/android/nfc/NfcService$ToastHandler$1;
 
     invoke-direct {v0, p0, p1}, Lcom/android/nfc/NfcService$ToastHandler$1;-><init>(Lcom/android/nfc/NfcService$ToastHandler;Ljava/lang/Runnable;)V
 
-    .line 3844
+    .line 3815
     .local v0, "thread":Ljava/lang/Thread;
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 3845
+    .line 3816
     invoke-virtual {v0}, Ljava/lang/Thread;->interrupt()V
 
-    .line 3846
+    .line 3817
     const/4 v0, 0x0
 
-    .line 3847
+    .line 3818
     return-void
 .end method
 
@@ -97,15 +97,15 @@
     .param p1, "_text"    # Ljava/lang/CharSequence;
     .param p2, "_duration"    # I
 
-    .line 3851
+    .line 3822
     new-instance v0, Lcom/android/nfc/NfcService$ToastHandler$2;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/android/nfc/NfcService$ToastHandler$2;-><init>(Lcom/android/nfc/NfcService$ToastHandler;Ljava/lang/CharSequence;I)V
 
-    .line 3860
+    .line 3831
     .local v0, "runnable":Ljava/lang/Runnable;
     invoke-direct {p0, v0}, Lcom/android/nfc/NfcService$ToastHandler;->runRunnable(Ljava/lang/Runnable;)V
 
-    .line 3861
+    .line 3832
     return-void
 .end method

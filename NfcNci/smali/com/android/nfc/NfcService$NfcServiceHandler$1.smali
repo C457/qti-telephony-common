@@ -26,7 +26,7 @@
     .locals 0
     .param p1, "this$1"    # Lcom/android/nfc/NfcService$NfcServiceHandler;
 
-    .line 3244
+    .line 3223
     iput-object p1, p0, Lcom/android/nfc/NfcService$NfcServiceHandler$1;->this$1:Lcom/android/nfc/NfcService$NfcServiceHandler;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 2
     .param p1, "handle"    # J
 
-    .line 3247
+    .line 3226
     iget-object v0, p0, Lcom/android/nfc/NfcService$NfcServiceHandler$1;->this$1:Lcom/android/nfc/NfcService$NfcServiceHandler;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService$NfcServiceHandler;->this$0:Lcom/android/nfc/NfcService;
@@ -49,6 +49,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/nfc/NfcService;->applyRouting(Z)V
 
-    .line 3248
+    .line 3227
     return-void
 .end method

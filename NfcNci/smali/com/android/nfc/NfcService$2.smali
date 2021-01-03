@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/android/nfc/NfcService;
 
-    .line 3968
+    .line 3939
     iput-object p1, p0, Lcom/android/nfc/NfcService$2;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,12 +38,12 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .line 3971
+    .line 3942
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3972
+    .line 3943
     .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.PACKAGE_REMOVED"
 
@@ -53,7 +53,7 @@
 
     if-nez v1, :cond_1
 
-    .line 3973
+    .line 3944
     const-string v1, "android.intent.action.PACKAGE_ADDED"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -62,7 +62,7 @@
 
     if-nez v1, :cond_1
 
-    .line 3974
+    .line 3945
     const-string v1, "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -71,7 +71,7 @@
 
     if-nez v1, :cond_1
 
-    .line 3975
+    .line 3946
     const-string v1, "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -82,7 +82,7 @@
 
     goto :goto_0
 
-    .line 3977
+    .line 3948
     :cond_0
     const-string v1, "android.intent.action.ACTION_SHUTDOWN"
 
@@ -92,14 +92,14 @@
 
     if-eqz v1, :cond_2
 
-    .line 3978
+    .line 3949
     const-string v1, "NfcService"
 
     const-string v2, "Device is shutting down."
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3979
+    .line 3950
     iget-object v1, p0, Lcom/android/nfc/NfcService$2;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v1}, Lcom/android/nfc/NfcService;->isNfcEnabled()Z
@@ -108,7 +108,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 3980
+    .line 3951
     iget-object v1, p0, Lcom/android/nfc/NfcService$2;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v1}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -119,14 +119,14 @@
 
     goto :goto_1
 
-    .line 3976
+    .line 3947
     :cond_1
     :goto_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$2;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v1}, Lcom/android/nfc/NfcService;->updatePackageCache()V
 
-    .line 3983
+    .line 3954
     :cond_2
     :goto_1
     return-void

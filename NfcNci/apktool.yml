@@ -19,7 +19,7 @@ usesFramework:
   ids:
   - 1
   tag: null
-version: 2.4.1
+version: 2.4.2-ecbcfb-SNAPSHOT
 versionInfo:
   versionCode: '29'
   versionName: '10'

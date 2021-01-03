@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/android/nfc/NfcService;
 
-    .line 3888
+    .line 3859
     iput-object p1, p0, Lcom/android/nfc/NfcService$TagRemoveTaskTimer;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
@@ -36,31 +36,31 @@
 .method public run()V
     .locals 3
 
-    .line 3891
+    .line 3862
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 3892
+    .line 3863
     .local v0, "swpReaderTagRemoveIntent":Landroid/content/Intent;
     const-string v1, "com.nxp.nfc_extras.action.NFC_MPOS_READER_MODE_REMOVE_CARD"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 3894
+    .line 3865
     const-string v1, "NfcService"
 
     const-string v2, "SWP READER - Tag Remove"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3896
+    .line 3867
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagRemoveTaskTimer;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v1, v1, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 3897
+    .line 3868
     return-void
 .end method

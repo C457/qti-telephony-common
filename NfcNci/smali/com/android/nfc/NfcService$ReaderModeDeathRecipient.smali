@@ -26,7 +26,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/android/nfc/NfcService;
 
-    .line 2131
+    .line 2110
     iput-object p1, p0, Lcom/android/nfc/NfcService$ReaderModeDeathRecipient;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,12 +39,12 @@
 .method public binderDied()V
     .locals 3
 
-    .line 2134
+    .line 2113
     iget-object v0, p0, Lcom/android/nfc/NfcService$ReaderModeDeathRecipient;->this$0:Lcom/android/nfc/NfcService;
 
     monitor-enter v0
 
-    .line 2135
+    .line 2114
     :try_start_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$ReaderModeDeathRecipient;->this$0:Lcom/android/nfc/NfcService;
 
@@ -52,28 +52,28 @@
 
     if-eqz v1, :cond_0
 
-    .line 2136
+    .line 2115
     iget-object v1, p0, Lcom/android/nfc/NfcService$ReaderModeDeathRecipient;->this$0:Lcom/android/nfc/NfcService;
 
     const/4 v2, 0x0
 
     iput-object v2, v1, Lcom/android/nfc/NfcService;->mReaderModeParams:Lcom/android/nfc/NfcService$ReaderModeParams;
 
-    .line 2137
+    .line 2116
     iget-object v1, p0, Lcom/android/nfc/NfcService$ReaderModeDeathRecipient;->this$0:Lcom/android/nfc/NfcService;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Lcom/android/nfc/NfcService;->applyRouting(Z)V
 
-    .line 2139
+    .line 2118
     :cond_0
     monitor-exit v0
 
-    .line 2140
+    .line 2119
     return-void
 
-    .line 2139
+    .line 2118
     :catchall_0
     move-exception v1
 

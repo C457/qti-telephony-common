@@ -1,7 +1,7 @@
 Signature-Version: 1.0
 Created-By: 1.0 (Android SignApk)
 X-Android-APK-Signed: 2
-SHA1-Digest-Manifest: cFUlhoMR5sqijWsOcVRa+Hej13s=
+SHA1-Digest-Manifest: lCA6UJEVjVfrhJinMYtT1zlg19U=
 
 Name: res/drawable-hdpi-v4/nfc.png
 SHA1-Digest: u9BlHOkKmFLLSqVyGNeL07QADiA=
@@ -208,7 +208,7 @@ Name: res/drawable/notification_icon_background.xml
 SHA1-Digest: TeqxLDIzok+zx9mX/wDX4A1a8TM=
 
 Name: classes.dex
-SHA1-Digest: 2XyKrcx6O8dxSEq2PMrYP7OmZQc=
+SHA1-Digest: tEgjyH4HL/lDeLtQTTLLKOz9fZw=
 
 Name: res/layout/notification_media_cancel_action.xml
 SHA1-Digest: kn4eQ2ke5oGjhEocvQ91cGEAYOs=

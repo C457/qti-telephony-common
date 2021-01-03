@@ -23,7 +23,7 @@
     .locals 0
     .param p1, "this$0"    # Lcom/android/nfc/NfcService;
 
-    .line 2143
+    .line 2122
     iput-object p1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-direct {p0}, Landroid/nfc/INfcTag$Stub;-><init>()V
@@ -42,7 +42,7 @@
         }
     .end annotation
 
-    .line 2456
+    .line 2435
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -66,17 +66,17 @@
         }
     .end annotation
 
-    .line 2146
+    .line 2125
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2148
+    .line 2127
     const/4 v0, 0x0
 
-    .line 2150
+    .line 2129
     .local v0, "tag":Lcom/android/nfc/DeviceHost$TagEndpoint;
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -86,12 +86,12 @@
 
     if-nez v1, :cond_0
 
-    .line 2151
+    .line 2130
     const/16 v1, -0x11
 
     return v1
 
-    .line 2155
+    .line 2134
     :cond_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -103,15 +103,15 @@
 
     check-cast v0, Lcom/android/nfc/DeviceHost$TagEndpoint;
 
-    .line 2156
+    .line 2135
     const/4 v1, -0x5
 
     if-nez v0, :cond_1
 
-    .line 2157
+    .line 2136
     return v1
 
-    .line 2160
+    .line 2139
     :cond_1
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost$TagEndpoint;->isPresent()Z
 
@@ -119,10 +119,10 @@
 
     if-nez v2, :cond_2
 
-    .line 2161
+    .line 2140
     return v1
 
-    .line 2167
+    .line 2146
     :cond_2
     invoke-interface {v0, p2}, Lcom/android/nfc/DeviceHost$TagEndpoint;->connect(I)Z
 
@@ -130,12 +130,12 @@
 
     if-eqz v2, :cond_3
 
-    .line 2168
+    .line 2147
     const/4 v1, 0x0
 
     return v1
 
-    .line 2170
+    .line 2149
     :cond_3
     return v1
 .end method
@@ -150,14 +150,14 @@
         }
     .end annotation
 
-    .line 2374
+    .line 2353
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2379
+    .line 2358
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->isNfcEnabled()Z
@@ -166,12 +166,12 @@
 
     if-nez v0, :cond_0
 
-    .line 2380
+    .line 2359
     const/16 v0, -0x11
 
     return v0
 
-    .line 2384
+    .line 2363
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -181,16 +181,16 @@
 
     check-cast v0, Lcom/android/nfc/DeviceHost$TagEndpoint;
 
-    .line 2385
+    .line 2364
     .local v0, "tag":Lcom/android/nfc/DeviceHost$TagEndpoint;
     const/4 v1, -0x1
 
     if-nez v0, :cond_1
 
-    .line 2386
+    .line 2365
     return v1
 
-    .line 2389
+    .line 2368
     :cond_1
     invoke-interface {v0, p2}, Lcom/android/nfc/DeviceHost$TagEndpoint;->formatNdef([B)Z
 
@@ -198,12 +198,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 2390
+    .line 2369
     const/4 v1, 0x0
 
     return v1
 
-    .line 2392
+    .line 2371
     :cond_2
     return v1
 .end method
@@ -216,7 +216,7 @@
         }
     .end annotation
 
-    .line 2466
+    .line 2445
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -239,7 +239,7 @@
         }
     .end annotation
 
-    .line 2461
+    .line 2440
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -262,14 +262,14 @@
         }
     .end annotation
 
-    .line 2199
+    .line 2178
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2202
+    .line 2181
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->isNfcEnabled()Z
@@ -280,10 +280,10 @@
 
     if-nez v0, :cond_0
 
-    .line 2203
+    .line 2182
     return-object v1
 
-    .line 2207
+    .line 2186
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -293,18 +293,18 @@
 
     check-cast v0, Lcom/android/nfc/DeviceHost$TagEndpoint;
 
-    .line 2208
+    .line 2187
     .local v0, "tag":Lcom/android/nfc/DeviceHost$TagEndpoint;
     if-eqz v0, :cond_1
 
-    .line 2209
+    .line 2188
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost$TagEndpoint;->getTechList()[I
 
     move-result-object v1
 
     return-object v1
 
-    .line 2211
+    .line 2190
     :cond_1
     return-object v1
 .end method
@@ -318,14 +318,14 @@
         }
     .end annotation
 
-    .line 2442
+    .line 2421
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2444
+    .line 2423
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -348,17 +348,17 @@
         }
     .end annotation
 
-    .line 2234
+    .line 2213
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2236
+    .line 2215
     const/4 v0, 0x0
 
-    .line 2239
+    .line 2218
     .local v0, "tag":Lcom/android/nfc/DeviceHost$TagEndpoint;
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -370,10 +370,10 @@
 
     if-nez v1, :cond_0
 
-    .line 2240
+    .line 2219
     return v2
 
-    .line 2244
+    .line 2223
     :cond_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -385,19 +385,19 @@
 
     check-cast v0, Lcom/android/nfc/DeviceHost$TagEndpoint;
 
-    .line 2245
+    .line 2224
     const/4 v1, 0x2
 
     new-array v1, v1, [I
 
-    .line 2246
+    .line 2225
     .local v1, "ndefInfo":[I
     if-nez v0, :cond_1
 
-    .line 2247
+    .line 2226
     return v2
 
-    .line 2249
+    .line 2228
     :cond_1
     invoke-interface {v0, v1}, Lcom/android/nfc/DeviceHost$TagEndpoint;->checkNdef([I)Z
 
@@ -415,10 +415,10 @@
         }
     .end annotation
 
-    .line 2216
+    .line 2195
     const/4 v0, 0x0
 
-    .line 2219
+    .line 2198
     .local v0, "tag":Lcom/android/nfc/DeviceHost$TagEndpoint;
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -430,10 +430,10 @@
 
     if-nez v1, :cond_0
 
-    .line 2220
+    .line 2199
     return v2
 
-    .line 2224
+    .line 2203
     :cond_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -445,13 +445,13 @@
 
     check-cast v0, Lcom/android/nfc/DeviceHost$TagEndpoint;
 
-    .line 2225
+    .line 2204
     if-nez v0, :cond_1
 
-    .line 2226
+    .line 2205
     return v2
 
-    .line 2229
+    .line 2208
     :cond_1
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost$TagEndpoint;->isPresent()Z
 
@@ -469,7 +469,7 @@
         }
     .end annotation
 
-    .line 2345
+    .line 2324
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -486,14 +486,14 @@
         }
     .end annotation
 
-    .line 2350
+    .line 2329
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2355
+    .line 2334
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->isNfcEnabled()Z
@@ -502,12 +502,12 @@
 
     if-nez v0, :cond_0
 
-    .line 2356
+    .line 2335
     const/16 v0, -0x11
 
     return v0
 
-    .line 2360
+    .line 2339
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -517,16 +517,16 @@
 
     check-cast v0, Lcom/android/nfc/DeviceHost$TagEndpoint;
 
-    .line 2361
+    .line 2340
     .local v0, "tag":Lcom/android/nfc/DeviceHost$TagEndpoint;
     const/4 v1, -0x1
 
     if-nez v0, :cond_1
 
-    .line 2362
+    .line 2341
     return v1
 
-    .line 2365
+    .line 2344
     :cond_1
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost$TagEndpoint;->makeReadOnly()Z
 
@@ -534,12 +534,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 2366
+    .line 2345
     const/4 v1, 0x0
 
     return v1
 
-    .line 2368
+    .line 2347
     :cond_2
     return v1
 .end method
@@ -553,14 +553,14 @@
         }
     .end annotation
 
-    .line 2289
+    .line 2268
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2294
+    .line 2273
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->isNfcEnabled()Z
@@ -571,10 +571,10 @@
 
     if-nez v0, :cond_0
 
-    .line 2295
+    .line 2274
     return-object v1
 
-    .line 2299
+    .line 2278
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -584,23 +584,23 @@
 
     check-cast v0, Lcom/android/nfc/DeviceHost$TagEndpoint;
 
-    .line 2300
+    .line 2279
     .local v0, "tag":Lcom/android/nfc/DeviceHost$TagEndpoint;
     if-eqz v0, :cond_2
 
-    .line 2301
+    .line 2280
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost$TagEndpoint;->readNdef()[B
 
     move-result-object v2
 
-    .line 2302
+    .line 2281
     .local v2, "buf":[B
     if-nez v2, :cond_1
 
-    .line 2303
+    .line 2282
     return-object v1
 
-    .line 2308
+    .line 2287
     :cond_1
     :try_start_0
     new-instance v3, Landroid/nfc/NdefMessage;
@@ -611,15 +611,15 @@
 
     return-object v3
 
-    .line 2309
+    .line 2288
     :catch_0
     move-exception v3
 
-    .line 2310
+    .line 2289
     .local v3, "e":Landroid/nfc/FormatException;
     return-object v1
 
-    .line 2313
+    .line 2292
     .end local v2    # "buf":[B
     .end local v3    # "e":Landroid/nfc/FormatException;
     :cond_2
@@ -636,14 +636,14 @@
         }
     .end annotation
 
-    .line 2318
+    .line 2297
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2323
+    .line 2302
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-virtual {v0}, Lcom/android/nfc/NfcService;->isNfcEnabled()Z
@@ -652,12 +652,12 @@
 
     if-nez v0, :cond_0
 
-    .line 2324
+    .line 2303
     const/16 v0, -0x11
 
     return v0
 
-    .line 2328
+    .line 2307
     :cond_0
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -667,16 +667,16 @@
 
     check-cast v0, Lcom/android/nfc/DeviceHost$TagEndpoint;
 
-    .line 2329
+    .line 2308
     .local v0, "tag":Lcom/android/nfc/DeviceHost$TagEndpoint;
     const/4 v1, -0x1
 
     if-nez v0, :cond_1
 
-    .line 2330
+    .line 2309
     return v1
 
-    .line 2333
+    .line 2312
     :cond_1
     if-nez p2, :cond_2
 
@@ -684,7 +684,7 @@
 
     return v1
 
-    .line 2335
+    .line 2314
     :cond_2
     invoke-virtual {p2}, Landroid/nfc/NdefMessage;->toByteArray()[B
 
@@ -696,12 +696,12 @@
 
     if-eqz v2, :cond_3
 
-    .line 2336
+    .line 2315
     const/4 v1, 0x0
 
     return v1
 
-    .line 2338
+    .line 2317
     :cond_3
     return v1
 .end method
@@ -715,17 +715,17 @@
         }
     .end annotation
 
-    .line 2176
+    .line 2155
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2178
+    .line 2157
     const/4 v0, 0x0
 
-    .line 2181
+    .line 2160
     .local v0, "tag":Lcom/android/nfc/DeviceHost$TagEndpoint;
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -735,12 +735,12 @@
 
     if-nez v1, :cond_0
 
-    .line 2182
+    .line 2161
     const/16 v1, -0x11
 
     return v1
 
-    .line 2186
+    .line 2165
     :cond_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -752,28 +752,28 @@
 
     check-cast v0, Lcom/android/nfc/DeviceHost$TagEndpoint;
 
-    .line 2187
+    .line 2166
     const/4 v1, -0x5
 
     if-eqz v0, :cond_2
 
-    .line 2188
+    .line 2167
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost$TagEndpoint;->reconnect()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 2189
+    .line 2168
     const/4 v1, 0x0
 
     return v1
 
-    .line 2191
+    .line 2170
     :cond_1
     return v1
 
-    .line 2194
+    .line 2173
     :cond_2
     return v1
 .end method
@@ -787,17 +787,17 @@
         }
     .end annotation
 
-    .line 2398
+    .line 2377
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2400
+    .line 2379
     const/4 v0, 0x0
 
-    .line 2403
+    .line 2382
     .local v0, "tag":Lcom/android/nfc/DeviceHost$TagEndpoint;
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -809,10 +809,10 @@
 
     if-nez v1, :cond_0
 
-    .line 2404
+    .line 2383
     return-object v2
 
-    .line 2408
+    .line 2387
     :cond_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -824,23 +824,23 @@
 
     check-cast v0, Lcom/android/nfc/DeviceHost$TagEndpoint;
 
-    .line 2409
+    .line 2388
     if-eqz v0, :cond_1
 
-    .line 2418
+    .line 2397
     const/4 v1, 0x6
 
     invoke-interface {v0, v1}, Lcom/android/nfc/DeviceHost$TagEndpoint;->removeTechnology(I)V
 
-    .line 2419
+    .line 2398
     const/4 v1, 0x7
 
     invoke-interface {v0, v1}, Lcom/android/nfc/DeviceHost$TagEndpoint;->removeTechnology(I)V
 
-    .line 2420
+    .line 2399
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost$TagEndpoint;->findAndReadNdef()Landroid/nfc/NdefMessage;
 
-    .line 2422
+    .line 2401
     new-instance v1, Landroid/nfc/Tag;
 
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost$TagEndpoint;->getUid()[B
@@ -851,7 +851,7 @@
 
     move-result-object v4
 
-    .line 2423
+    .line 2402
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost$TagEndpoint;->getTechExtras()[Landroid/os/Bundle;
 
     move-result-object v5
@@ -866,11 +866,11 @@
 
     invoke-direct/range {v2 .. v7}, Landroid/nfc/Tag;-><init>([B[I[Landroid/os/Bundle;ILandroid/nfc/INfcTag;)V
 
-    .line 2424
+    .line 2403
     .local v1, "newTag":Landroid/nfc/Tag;
     return-object v1
 
-    .line 2426
+    .line 2405
     .end local v1    # "newTag":Landroid/nfc/Tag;
     :cond_1
     return-object v2
@@ -884,14 +884,14 @@
         }
     .end annotation
 
-    .line 2449
+    .line 2428
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2451
+    .line 2430
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -900,7 +900,7 @@
 
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost;->resetTimeouts()V
 
-    .line 2452
+    .line 2431
     return-void
 .end method
 
@@ -914,14 +914,14 @@
         }
     .end annotation
 
-    .line 2431
+    .line 2410
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2432
+    .line 2411
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     invoke-static {v0}, Lcom/android/nfc/NfcService;->access$200(Lcom/android/nfc/NfcService;)Lcom/android/nfc/DeviceHost;
@@ -932,16 +932,16 @@
 
     move-result v0
 
-    .line 2433
+    .line 2412
     .local v0, "success":Z
     if-eqz v0, :cond_0
 
-    .line 2434
+    .line 2413
     const/4 v1, 0x0
 
     return v1
 
-    .line 2436
+    .line 2415
     :cond_0
     const/4 v1, -0x8
 
@@ -959,17 +959,17 @@
         }
     .end annotation
 
-    .line 2255
+    .line 2234
     iget-object v0, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
     iget-object v0, v0, Lcom/android/nfc/NfcService;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/nfc/NfcPermissions;->enforceUserPermissions(Landroid/content/Context;)V
 
-    .line 2257
+    .line 2236
     const/4 v0, 0x0
 
-    .line 2261
+    .line 2240
     .local v0, "tag":Lcom/android/nfc/DeviceHost$TagEndpoint;
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -981,10 +981,10 @@
 
     if-nez v1, :cond_0
 
-    .line 2262
+    .line 2241
     return-object v2
 
-    .line 2266
+    .line 2245
     :cond_0
     iget-object v1, p0, Lcom/android/nfc/NfcService$TagService;->this$0:Lcom/android/nfc/NfcService;
 
@@ -996,10 +996,10 @@
 
     check-cast v0, Lcom/android/nfc/DeviceHost$TagEndpoint;
 
-    .line 2267
+    .line 2246
     if-eqz v0, :cond_4
 
-    .line 2269
+    .line 2248
     array-length v1, p2
 
     invoke-interface {v0}, Lcom/android/nfc/DeviceHost$TagEndpoint;->getConnectedTechnology()I
@@ -1012,7 +1012,7 @@
 
     if-le v1, v3, :cond_1
 
-    .line 2270
+    .line 2249
     new-instance v1, Landroid/nfc/TransceiveResult;
 
     const/4 v3, 0x3
@@ -1021,29 +1021,29 @@
 
     return-object v1
 
-    .line 2272
+    .line 2251
     :cond_1
     const/4 v1, 0x1
 
     new-array v2, v1, [I
 
-    .line 2273
+    .line 2252
     .local v2, "targetLost":[I
     invoke-interface {v0, p2, p3, v2}, Lcom/android/nfc/DeviceHost$TagEndpoint;->transceive([BZ[I)[B
 
     move-result-object v3
 
-    .line 2275
+    .line 2254
     .local v3, "response":[B
     if-eqz v3, :cond_2
 
-    .line 2276
+    .line 2255
     const/4 v1, 0x0
 
     .local v1, "result":I
     goto :goto_0
 
-    .line 2277
+    .line 2256
     .end local v1    # "result":I
     :cond_2
     const/4 v4, 0x0
@@ -1052,18 +1052,18 @@
 
     if-ne v4, v1, :cond_3
 
-    .line 2278
+    .line 2257
     const/4 v1, 0x2
 
     .restart local v1    # "result":I
     goto :goto_0
 
-    .line 2280
+    .line 2259
     .end local v1    # "result":I
     :cond_3
     const/4 v1, 0x1
 
-    .line 2282
+    .line 2261
     .restart local v1    # "result":I
     :goto_0
     new-instance v4, Landroid/nfc/TransceiveResult;
@@ -1072,7 +1072,7 @@
 
     return-object v4
 
-    .line 2284
+    .line 2263
     .end local v1    # "result":I
     .end local v2    # "targetLost":[I
     .end local v3    # "response":[B
