@@ -164,7 +164,7 @@
 
     iput-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->extRecList:Landroid/util/SparseArray;
 
-    .line 277
+    .line 276
     new-instance v1, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache$1;
 
     invoke-direct {v1, p0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache$1;-><init>(Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;)V
@@ -259,12 +259,12 @@
     .locals 1
     .param p1, "msg"    # Ljava/lang/String;
 
-    .line 503
+    .line 502
     const-string v0, "QtiSimPhoneBookAdnRecordCache"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 504
+    .line 503
     return-void
 .end method
 
@@ -339,20 +339,20 @@
 .method private refreshAdnCache()V
     .locals 1
 
-    .line 512
+    .line 511
     const-string v0, "refreshAdnCache"
 
     invoke-direct {p0, v0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 513
+    .line 512
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mSimPbRecords:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 514
+    .line 513
     invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->queryAdnRecord()V
 
-    .line 515
+    .line 514
     return-void
 .end method
 
@@ -391,7 +391,7 @@
 .method public getAdnCount()I
     .locals 1
 
-    .line 463
+    .line 462
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnCount:I
 
     return v0
@@ -400,7 +400,7 @@
 .method public getAnrCount()I
     .locals 1
 
-    .line 479
+    .line 478
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAddNumCount:I
 
     return v0
@@ -409,7 +409,7 @@
 .method public getEmailCount()I
     .locals 1
 
-    .line 471
+    .line 470
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mEmailCount:I
 
     return v0
@@ -418,7 +418,7 @@
 .method public getMaxAnrLen()I
     .locals 1
 
-    .line 499
+    .line 498
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mMaxAnrLen:I
 
     return v0
@@ -427,7 +427,7 @@
 .method public getMaxEmailLen()I
     .locals 1
 
-    .line 495
+    .line 494
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mMaxEmailLen:I
 
     return v0
@@ -436,7 +436,7 @@
 .method public getMaxNameLen()I
     .locals 1
 
-    .line 487
+    .line 486
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mMaxNameLen:I
 
     return v0
@@ -445,7 +445,7 @@
 .method public getMaxNumberLen()I
     .locals 1
 
-    .line 491
+    .line 490
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mMaxNumberLen:I
 
     return v0
@@ -456,7 +456,7 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    .line 524
+    .line 523
     iget-boolean v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mRefreshAdnCache:Z
 
     return v0
@@ -476,7 +476,7 @@
         }
     .end annotation
 
-    .line 519
+    .line 518
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mSimPbRecords:Ljava/util/ArrayList;
 
     return-object v0
@@ -485,7 +485,7 @@
 .method public getUsedAdnCount()I
     .locals 1
 
-    .line 467
+    .line 466
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mValidAdnCount:I
 
     return v0
@@ -494,7 +494,7 @@
 .method public getUsedAnrCount()I
     .locals 1
 
-    .line 483
+    .line 482
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mValidAddNumCount:I
 
     return v0
@@ -503,7 +503,7 @@
 .method public getUsedEmailCount()I
     .locals 1
 
-    .line 475
+    .line 474
     iget v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mValidEmailCount:I
 
     return v0
@@ -513,12 +513,12 @@
     .locals 14
     .param p1, "msg"    # Landroid/os/Message;
 
-    .line 299
+    .line 298
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 302
+    .line 301
     .local v0, "ar":Landroid/os/AsyncResult;
     iget v1, p1, Landroid/os/Message;->what:I
 
@@ -532,7 +532,7 @@
 
     goto/16 :goto_5
 
-    .line 441
+    .line 440
     :pswitch_0
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -540,34 +540,34 @@
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 442
+    .line 441
     const-string v1, "SIM REFRESH occurred"
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 443
+    .line 442
     iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v1, :cond_3
 
-    .line 444
+    .line 443
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, Lcom/android/internal/telephony/uicc/IccRefreshResponse;
 
-    .line 445
+    .line 444
     .local v1, "refreshRsp":Lcom/android/internal/telephony/uicc/IccRefreshResponse;
     if-nez v1, :cond_0
 
-    .line 446
+    .line 445
     const-string v2, "IccRefreshResponse received is null"
 
     invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 447
+    .line 446
     goto/16 :goto_5
 
-    .line 450
+    .line 449
     :cond_0
     iget v2, v1, Lcom/android/internal/telephony/uicc/IccRefreshResponse;->refreshResult:I
 
@@ -577,16 +577,16 @@
 
     if-ne v2, v4, :cond_2
 
-    .line 452
+    .line 451
     :cond_1
     invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->invalidateAdnCache()V
 
-    .line 454
+    .line 453
     .end local v1    # "refreshRsp":Lcom/android/internal/telephony/uicc/IccRefreshResponse;
     :cond_2
     goto/16 :goto_5
 
-    .line 455
+    .line 454
     :cond_3
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -608,31 +608,31 @@
 
     goto/16 :goto_5
 
-    .line 391
+    .line 390
     :pswitch_1
     const-string v1, "Update ADN record done"
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 392
+    .line 391
     const/4 v1, 0x0
 
-    .line 394
+    .line 393
     .local v1, "e":Ljava/lang/Exception;
     iget-object v3, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v3, :cond_8
 
-    .line 395
+    .line 394
     iget v3, p1, Landroid/os/Message;->arg1:I
 
-    .line 396
+    .line 395
     .local v3, "index":I
     iget-object v5, v0, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
     check-cast v5, Lcom/android/internal/telephony/uicc/AdnRecord;
 
-    .line 397
+    .line 396
     .local v5, "adn":Lcom/android/internal/telephony/uicc/AdnRecord;
     iget-object v6, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
@@ -640,11 +640,11 @@
 
     aget v2, v6, v2
 
-    .line 399
+    .line 398
     .local v2, "recordIndex":I
     if-nez v3, :cond_4
 
-    .line 401
+    .line 400
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -661,15 +661,15 @@
 
     invoke-direct {p0, v6}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 402
+    .line 401
     invoke-virtual {v5, v2}, Lcom/android/internal/telephony/uicc/AdnRecord;->setRecordNumber(I)V
 
-    .line 403
+    .line 402
     iget-object v6, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mSimPbRecords:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 404
+    .line 403
     iget v6, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mValidAdnCount:I
 
     add-int/2addr v6, v4
@@ -678,7 +678,7 @@
 
     goto/16 :goto_1
 
-    .line 405
+    .line 404
     :cond_4
     invoke-virtual {v5}, Lcom/android/internal/telephony/uicc/AdnRecord;->isEmpty()Z
 
@@ -686,7 +686,7 @@
 
     if-eqz v6, :cond_6
 
-    .line 407
+    .line 406
     iget-object v6, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mSimPbRecords:Ljava/util/ArrayList;
 
     add-int/lit8 v7, v3, -0x1
@@ -701,7 +701,7 @@
 
     move-result v6
 
-    .line 408
+    .line 407
     .local v6, "adnRecordIndex":I
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -719,17 +719,17 @@
 
     invoke-direct {p0, v7}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 409
+    .line 408
     if-ne v2, v6, :cond_5
 
-    .line 410
+    .line 409
     iget-object v7, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mSimPbRecords:Ljava/util/ArrayList;
 
     add-int/lit8 v8, v3, -0x1
 
     invoke-virtual {v7, v8}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 411
+    .line 410
     iget v7, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mValidAdnCount:I
 
     sub-int/2addr v7, v4
@@ -738,7 +738,7 @@
 
     goto :goto_0
 
-    .line 413
+    .line 412
     :cond_5
     new-instance v4, Ljava/lang/RuntimeException;
 
@@ -748,12 +748,12 @@
 
     move-object v1, v4
 
-    .line 416
+    .line 415
     .end local v6    # "adnRecordIndex":I
     :goto_0
     goto :goto_1
 
-    .line 418
+    .line 417
     :cond_6
     iget-object v4, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mSimPbRecords:Ljava/util/ArrayList;
 
@@ -769,7 +769,7 @@
 
     move-result v4
 
-    .line 419
+    .line 418
     .local v4, "adnRecordIndex":I
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -787,13 +787,13 @@
 
     invoke-direct {p0, v6}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 420
+    .line 419
     if-ne v2, v4, :cond_7
 
-    .line 421
+    .line 420
     invoke-virtual {v5, v2}, Lcom/android/internal/telephony/uicc/AdnRecord;->setRecordNumber(I)V
 
-    .line 422
+    .line 421
     iget-object v6, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mSimPbRecords:Ljava/util/ArrayList;
 
     add-int/lit8 v7, v3, -0x1
@@ -802,7 +802,7 @@
 
     goto :goto_1
 
-    .line 424
+    .line 423
     :cond_7
     new-instance v6, Ljava/lang/RuntimeException;
 
@@ -812,7 +812,7 @@
 
     move-object v1, v6
 
-    .line 428
+    .line 427
     .end local v2    # "recordIndex":I
     .end local v3    # "index":I
     .end local v4    # "adnRecordIndex":I
@@ -820,7 +820,7 @@
     :goto_1
     goto :goto_2
 
-    .line 429
+    .line 428
     :cond_8
     new-instance v2, Ljava/lang/RuntimeException;
 
@@ -832,57 +832,57 @@
 
     move-object v1, v2
 
-    .line 433
+    .line 432
     :goto_2
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnUpdatingWaiter:Landroid/os/Message;
 
     if-eqz v2, :cond_11
 
-    .line 434
+    .line 433
     const/4 v3, 0x0
 
     invoke-static {v2, v3, v1}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
 
-    .line 435
+    .line 434
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnUpdatingWaiter:Landroid/os/Message;
 
     invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
 
-    .line 436
+    .line 435
     iput-object v3, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnUpdatingWaiter:Landroid/os/Message;
 
     goto/16 :goto_5
 
-    .line 382
+    .line 381
     .end local v1    # "e":Ljava/lang/Exception;
     :pswitch_2
     const-string v1, "Loading all ADN records done"
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 383
+    .line 382
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 384
+    .line 383
     :try_start_0
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mLock:Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->notify()V
 
-    .line 385
+    .line 384
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 387
+    .line 386
     invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->notifyAndClearWaiters()V
 
-    .line 388
+    .line 387
     goto/16 :goto_5
 
-    .line 385
+    .line 384
     :catchall_0
     move-exception v2
 
@@ -893,34 +893,34 @@
 
     throw v2
 
-    .line 354
+    .line 353
     :pswitch_3
     const-string v1, "Loading ADN record done"
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 355
+    .line 354
     iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v1, :cond_9
 
-    .line 356
+    .line 355
     goto/16 :goto_5
 
-    .line 359
+    .line 358
     :cond_9
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;
 
-    .line 360
+    .line 359
     .local v1, "AdnRecordsGroup":[Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;
     if-nez v1, :cond_a
 
-    .line 361
+    .line 360
     goto/16 :goto_5
 
-    .line 364
+    .line 363
     :cond_a
     const/4 v2, 0x0
 
@@ -930,12 +930,12 @@
 
     if-ge v2, v5, :cond_c
 
-    .line 365
+    .line 364
     aget-object v5, v1, v2
 
     if-eqz v5, :cond_b
 
-    .line 366
+    .line 365
     iget-object v5, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mSimPbRecords:Ljava/util/ArrayList;
 
     new-instance v13, Lcom/android/internal/telephony/uicc/AdnRecord;
@@ -944,35 +944,35 @@
 
     aget-object v6, v1, v2
 
-    .line 367
+    .line 366
     invoke-virtual {v6}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->getRecordIndex()I
 
     move-result v8
 
     aget-object v6, v1, v2
 
-    .line 368
+    .line 367
     invoke-virtual {v6}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->getAlphaTag()Ljava/lang/String;
 
     move-result-object v9
 
     aget-object v6, v1, v2
 
-    .line 369
+    .line 368
     invoke-virtual {v6}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->getNumber()Ljava/lang/String;
 
     move-result-object v10
 
     aget-object v6, v1, v2
 
-    .line 370
+    .line 369
     invoke-virtual {v6}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->getEmails()[Ljava/lang/String;
 
     move-result-object v11
 
     aget-object v6, v1, v2
 
-    .line 371
+    .line 370
     invoke-virtual {v6}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->getAdNumbers()[Ljava/lang/String;
 
     move-result-object v12
@@ -981,23 +981,23 @@
 
     invoke-direct/range {v6 .. v12}, Lcom/android/internal/telephony/uicc/AdnRecord;-><init>(IILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 366
+    .line 365
     invoke-virtual {v5, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 372
+    .line 371
     iget v5, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mRecCount:I
 
     add-int/2addr v5, v4
 
     iput v5, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mRecCount:I
 
-    .line 364
+    .line 363
     :cond_b
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 
-    .line 376
+    .line 375
     .end local v2    # "i":I
     :cond_c
     iget v2, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mRecCount:I
@@ -1006,7 +1006,7 @@
 
     if-ne v2, v4, :cond_11
 
-    .line 377
+    .line 376
     invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v2
@@ -1015,35 +1015,35 @@
 
     goto/16 :goto_5
 
-    .line 315
+    .line 314
     .end local v1    # "AdnRecordsGroup":[Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;
     :pswitch_4
     const-string v1, "Querying ADN record done"
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 316
+    .line 315
     iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v1, :cond_e
 
-    .line 317
+    .line 316
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 318
+    .line 317
     :try_start_2
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mLock:Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->notify()V
 
-    .line 319
+    .line 318
     monitor-exit v1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 321
+    .line 320
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnLoadingWaiters:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1063,7 +1063,7 @@
 
     check-cast v2, Landroid/os/Message;
 
-    .line 322
+    .line 321
     .local v2, "response":Landroid/os/Message;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1083,20 +1083,20 @@
 
     invoke-direct {p0, v2, v3}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->sendErrorResponse(Landroid/os/Message;Ljava/lang/String;)V
 
-    .line 323
+    .line 322
     .end local v2    # "response":Landroid/os/Message;
     goto :goto_4
 
-    .line 324
+    .line 323
     :cond_d
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnLoadingWaiters:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
 
-    .line 325
+    .line 324
     goto/16 :goto_5
 
-    .line 319
+    .line 318
     :catchall_1
     move-exception v2
 
@@ -1107,7 +1107,7 @@
 
     throw v2
 
-    .line 327
+    .line 326
     :cond_e
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
@@ -1117,7 +1117,7 @@
 
     iput v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnCount:I
 
-    .line 328
+    .line 327
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [I
@@ -1126,7 +1126,7 @@
 
     iput v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mValidAdnCount:I
 
-    .line 329
+    .line 328
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [I
@@ -1137,7 +1137,7 @@
 
     iput v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mEmailCount:I
 
-    .line 330
+    .line 329
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [I
@@ -1148,7 +1148,7 @@
 
     iput v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mValidEmailCount:I
 
-    .line 331
+    .line 330
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [I
@@ -1157,7 +1157,7 @@
 
     iput v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAddNumCount:I
 
-    .line 332
+    .line 331
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [I
@@ -1168,7 +1168,7 @@
 
     iput v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mValidAddNumCount:I
 
-    .line 333
+    .line 332
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [I
@@ -1179,7 +1179,7 @@
 
     iput v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mMaxNameLen:I
 
-    .line 334
+    .line 333
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [I
@@ -1190,7 +1190,7 @@
 
     iput v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mMaxNumberLen:I
 
-    .line 335
+    .line 334
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [I
@@ -1201,7 +1201,7 @@
 
     iput v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mMaxEmailLen:I
 
-    .line 336
+    .line 335
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [I
@@ -1212,7 +1212,7 @@
 
     iput v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mMaxAnrLen:I
 
-    .line 337
+    .line 336
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1303,7 +1303,7 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 348
+    .line 347
     iget v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mValidAdnCount:I
 
     if-eqz v1, :cond_f
@@ -1312,7 +1312,7 @@
 
     if-ne v2, v1, :cond_11
 
-    .line 349
+    .line 348
     :cond_f
     invoke-virtual {p0, v3}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->obtainMessage(I)Landroid/os/Message;
 
@@ -1322,7 +1322,7 @@
 
     goto :goto_5
 
-    .line 304
+    .line 303
     :pswitch_5
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -1330,22 +1330,22 @@
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 305
+    .line 304
     const-string v1, "Initialized ADN done"
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 306
+    .line 305
     iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v1, :cond_10
 
-    .line 307
+    .line 306
     invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->invalidateAdnCache()V
 
     goto :goto_5
 
-    .line 309
+    .line 308
     :cond_10
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1365,10 +1365,10 @@
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 312
+    .line 311
     nop
 
-    .line 460
+    .line 459
     :cond_11
     :goto_5
     return-void
@@ -1387,17 +1387,17 @@
 .method public invalidateAdnCache()V
     .locals 1
 
-    .line 507
+    .line 506
     const-string v0, "invalidateAdnCache"
 
     invoke-direct {p0, v0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 508
+    .line 507
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mRefreshAdnCache:Z
 
-    .line 509
+    .line 508
     return-void
 .end method
 
@@ -1513,37 +1513,39 @@
     .line 172
     return-void
 
-    .line 176
+    .line 175
     :cond_0
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnLoadingWaiters:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 177
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnLoadingWaiters:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 178
-    return-void
-
-    .line 180
-    :cond_1
-    iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnLoadingWaiters:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 183
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 184
+    .line 176
     :try_start_0
+    iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnLoadingWaiters:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 177
+    iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnLoadingWaiters:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 178
+    monitor-exit v0
+
+    return-void
+
+    .line 181
+    :cond_1
+    iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnLoadingWaiters:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 183
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mSimPbRecords:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
@@ -1552,42 +1554,42 @@
 
     if-nez v1, :cond_3
 
-    .line 185
+    .line 184
     const-string v1, "ADN cache has already filled in"
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 186
+    .line 185
     iget-boolean v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mRefreshAdnCache:Z
 
     if-eqz v1, :cond_2
 
-    .line 187
+    .line 186
     invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->refreshAdnCache()V
 
     goto :goto_0
 
-    .line 189
+    .line 188
     :cond_2
     invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->notifyAndClearWaiters()V
 
-    .line 192
+    .line 191
     :goto_0
     monitor-exit v0
 
     return-void
 
-    .line 195
+    .line 194
     :cond_3
     invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->queryAdnRecord()V
 
-    .line 196
+    .line 195
     monitor-exit v0
 
-    .line 197
+    .line 196
     return-void
 
-    .line 196
+    .line 195
     :catchall_0
     move-exception v1
 
@@ -1632,10 +1634,10 @@
     .param p2, "newAdn"    # Lcom/android/internal/telephony/uicc/AdnRecord;
     .param p3, "response"    # Landroid/os/Message;
 
-    .line 200
+    .line 199
     iget-object v0, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mSimPbRecords:Ljava/util/ArrayList;
 
-    .line 202
+    .line 201
     .local v0, "oldAdnList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/telephony/uicc/AdnRecord;>;"
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mQtiRilInterface:Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;
 
@@ -1645,26 +1647,26 @@
 
     if-nez v1, :cond_0
 
-    .line 203
+    .line 202
     const-string v1, "Oem hook service is not ready yet "
 
     invoke-direct {p0, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 204
+    .line 203
     const-string v1, "Oem hook service is not ready yet"
 
     invoke-direct {p0, p3, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->sendErrorResponse(Landroid/os/Message;Ljava/lang/String;)V
 
-    .line 205
+    .line 204
     return-void
 
-    .line 208
+    .line 207
     :cond_0
     iget-object v1, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 209
+    .line 208
     :try_start_0
     iget-object v2, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mSimPbRecords:Ljava/util/ArrayList;
 
@@ -1674,52 +1676,52 @@
 
     if-nez v2, :cond_1
 
-    .line 210
+    .line 209
     const-string v2, "ADN cache has already filled in"
 
     invoke-direct {p0, v2}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->log(Ljava/lang/String;)V
 
-    .line 211
+    .line 210
     iget-boolean v2, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mRefreshAdnCache:Z
 
     if-eqz v2, :cond_2
 
-    .line 212
+    .line 211
     invoke-direct {p0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->refreshAdnCache()V
 
     goto :goto_0
 
-    .line 215
+    .line 214
     :cond_1
     invoke-virtual {p0}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->queryAdnRecord()V
 
-    .line 217
+    .line 216
     :cond_2
     :goto_0
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 219
+    .line 218
     if-nez v0, :cond_3
 
-    .line 220
+    .line 219
     const-string v1, "Sim PhoneBook Adn list not exist"
 
     invoke-direct {p0, p3, v1}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->sendErrorResponse(Landroid/os/Message;Ljava/lang/String;)V
 
-    .line 221
+    .line 220
     return-void
 
-    .line 224
+    .line 223
     :cond_3
     const/4 v1, -0x1
 
-    .line 225
+    .line 224
     .local v1, "index":I
     const/4 v2, 0x1
 
-    .line 226
+    .line 225
     .local v2, "count":I
     invoke-virtual {p1}, Lcom/android/internal/telephony/uicc/AdnRecord;->isEmpty()Z
 
@@ -1733,12 +1735,12 @@
 
     if-nez v3, :cond_4
 
-    .line 228
+    .line 227
     const/4 v1, 0x0
 
     goto :goto_2
 
-    .line 231
+    .line 230
     :cond_4
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -1752,7 +1754,7 @@
 
     if-eqz v4, :cond_6
 
-    .line 232
+    .line 231
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
@@ -1765,19 +1767,19 @@
 
     if-eqz v4, :cond_5
 
-    .line 233
+    .line 232
     move v1, v2
 
-    .line 234
+    .line 233
     goto :goto_2
 
-    .line 236
+    .line 235
     :cond_5
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 239
+    .line 238
     .end local v3    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/internal/telephony/uicc/AdnRecord;>;"
     :cond_6
     :goto_2
@@ -1785,7 +1787,7 @@
 
     if-ne v1, v3, :cond_7
 
-    .line 240
+    .line 239
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1802,10 +1804,10 @@
 
     invoke-direct {p0, p3, v3}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->sendErrorResponse(Landroid/os/Message;Ljava/lang/String;)V
 
-    .line 241
+    .line 240
     return-void
 
-    .line 244
+    .line 243
     :cond_7
     if-nez v1, :cond_8
 
@@ -1815,15 +1817,15 @@
 
     if-ne v3, v4, :cond_8
 
-    .line 245
+    .line 244
     const-string v3, "Sim PhoneBook Adn record is full"
 
     invoke-direct {p0, p3, v3}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->sendErrorResponse(Landroid/os/Message;Ljava/lang/String;)V
 
-    .line 246
+    .line 245
     return-void
 
-    .line 249
+    .line 248
     :cond_8
     const/4 v3, 0x0
 
@@ -1846,53 +1848,53 @@
 
     move-result v4
 
-    .line 251
+    .line 250
     .local v4, "recordIndex":I
     :goto_3
     new-instance v5, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;
 
     invoke-direct {v5}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;-><init>()V
 
-    .line 252
+    .line 251
     .local v5, "updateAdn":Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;
     iput v4, v5, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mRecordIndex:I
 
-    .line 253
+    .line 252
     invoke-virtual {p2}, Lcom/android/internal/telephony/uicc/AdnRecord;->getAlphaTag()Ljava/lang/String;
 
     move-result-object v6
 
     iput-object v6, v5, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mAlphaTag:Ljava/lang/String;
 
-    .line 254
+    .line 253
     invoke-virtual {p2}, Lcom/android/internal/telephony/uicc/AdnRecord;->getNumber()Ljava/lang/String;
 
     move-result-object v6
 
     iput-object v6, v5, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mNumber:Ljava/lang/String;
 
-    .line 255
+    .line 254
     invoke-virtual {p2}, Lcom/android/internal/telephony/uicc/AdnRecord;->getEmails()[Ljava/lang/String;
 
     move-result-object v6
 
     if-eqz v6, :cond_a
 
-    .line 256
+    .line 255
     invoke-virtual {p2}, Lcom/android/internal/telephony/uicc/AdnRecord;->getEmails()[Ljava/lang/String;
 
     move-result-object v6
 
     iput-object v6, v5, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mEmails:[Ljava/lang/String;
 
-    .line 257
+    .line 256
     iget-object v6, v5, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mEmails:[Ljava/lang/String;
 
     array-length v6, v6
 
     iput v6, v5, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mEmailCount:I
 
-    .line 259
+    .line 258
     :cond_a
     invoke-virtual {p2}, Lcom/android/internal/telephony/uicc/AdnRecord;->getAdditionalNumbers()[Ljava/lang/String;
 
@@ -1900,57 +1902,57 @@
 
     if-eqz v6, :cond_b
 
-    .line 260
+    .line 259
     invoke-virtual {p2}, Lcom/android/internal/telephony/uicc/AdnRecord;->getAdditionalNumbers()[Ljava/lang/String;
 
     move-result-object v6
 
     iput-object v6, v5, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mAdNumbers:[Ljava/lang/String;
 
-    .line 261
+    .line 260
     iget-object v6, v5, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mAdNumbers:[Ljava/lang/String;
 
     array-length v6, v6
 
     iput v6, v5, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;->mAdNumCount:I
 
-    .line 264
+    .line 263
     :cond_b
     iget-object v6, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnUpdatingWaiter:Landroid/os/Message;
 
     if-eqz v6, :cond_c
 
-    .line 265
+    .line 264
     const-string v3, "Have pending update for Sim PhoneBook Adn"
 
     invoke-direct {p0, p3, v3}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->sendErrorResponse(Landroid/os/Message;Ljava/lang/String;)V
 
-    .line 266
+    .line 265
     return-void
 
-    .line 269
+    .line 268
     :cond_c
     iput-object p3, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mAdnUpdatingWaiter:Landroid/os/Message;
 
-    .line 271
+    .line 270
     iget-object v6, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mQtiRilInterface:Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;
 
     const/4 v7, 0x5
 
-    .line 273
+    .line 272
     invoke-virtual {p0, v7, v1, v3, p2}, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v3
 
     iget v7, p0, Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecordCache;->mPhoneId:I
 
-    .line 271
+    .line 270
     invoke-virtual {v6, v5, v3, v7}, Lcom/qualcomm/qti/internal/telephony/QtiRilInterface;->updateAdnRecord(Lcom/qualcomm/qti/internal/telephony/uicccontact/QtiSimPhoneBookAdnRecord;Landroid/os/Message;I)V
 
-    .line 275
+    .line 274
     return-void
 
-    .line 217
+    .line 216
     .end local v1    # "index":I
     .end local v2    # "count":I
     .end local v4    # "recordIndex":I
